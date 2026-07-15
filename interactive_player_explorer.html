@@ -86,7 +86,7 @@
   <header>
     <h1>Portable Traits into the Bundesliga</h1>
     <p>Interactive scouting explorer for inbound Bundesliga players with prior StatsBomb open-data minutes.
-       Select a player (grouped by position). Pizza = Year-1 Bundesliga percentiles vs destination avg/top;
+       Select a player (grouped by position). Pizza = Year-1 Bundesliga percentiles on traits that transferred well;
        table also shows pre-transfer profile and portability weight.</p>
   </header>
 
@@ -105,7 +105,7 @@
       <div class="player-title" id="pname">—</div>
       <div class="player-sub" id="psub">—</div>
       <div class="kpi-grid">
-        <div class="kpi"><div class="v" id="k-des">—</div><div class="l">DES score</div></div>
+        <div class="kpi"><div class="v" id="k-des">—</div><div class="l">Profile score</div></div>
         <div class="kpi"><div class="v" id="k-delta">—</div><div class="l">Mean trait Δ</div></div>
         <div class="kpi"><div class="v" id="k-prior">—</div><div class="l">Prior mins (agg)</div></div>
       </div>
@@ -125,9 +125,7 @@
         <div id="metric-rows"></div>
       </div>
       <div class="note">
-        <strong>DES</strong> = Σ w<sub>m</sub>·Pctile<sub>Bundes</sub>(m) / Σ w<sub>m</sub>,
-        where w<sub>m</sub> = max(0, r<sub>portability</sub>) from pre-transfer vs Year-1 z-scores.
-        Replaces Transfermarkt MV from the NYRB Axis-3 mock. Values shown are exploratory / illustrative percentiles pending full event ETL knit.
+        Pizza metrics = traits that passed <strong>stability</strong> (prior league → Bundesliga) and <strong>redundancy</strong> screens. Illustrative percentiles pending full FBref ETL; StatsBomb open-data deep dive for richer events.
       </div>
     </div>
   </div>

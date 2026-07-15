@@ -68,62 +68,7 @@
       <div class="card"><h3>Q2 — Leagues</h3><p>Which source leagues produce arrivals who remain effective in Germany?</p></div>
       <div class="card"><h3>Q3 — Targets</h3><p>What should scouts weight — instead of market value — when signing into the Bundesliga?</p></div>
     </div>
-    <div class="eq">
-      <strong>Two-tier design:</strong> Tier 1 = FBref outcomes for <strong>N≥500</strong> inbound / first Bundesliga seasons.
-      Tier 2 = FBref prior→Y1 portability (scale to 500+ pairs) + <strong>StatsBomb deep dive</strong> on the smaller overlapping event sample.
-      <strong>DES</strong> replaces NYRB Axis-3 Transfermarkt MV. Transfermarkt site is browsable but <em>not</em> scraped (ToS ban bots).
-    </div>
-  </div>
-  <p class="foot">Primary public data: FBref · Deep dive: StatsBomb Open Data</p>
-</section>
-
-<section class="slide" data-i="1">
-  <div class="tag">02 · Cohort</div>
-  <h1>Two tiers · Bundesliga only</h1>
-  <p class="sub">Tier 1 headline N≥500 on FBref · Tier 2 portability on FBref pairs · StatsBomb = smaller deep dive (stress-tested below)</p>
-  <div class="body">
-    <table>
-      <thead><tr><th>Tier</th><th>Definition</th><th>N</th><th>Source</th></tr></thead>
-      <tbody>
-        <tr><td><strong>1 Wide</strong></td><td>All inbound / first Bundesliga seasons in multi-year window</td><td><strong>≥500 target</strong> (open-data preview ≈675)</td><td>FBref</td></tr>
-        <tr><td><strong>2 Deep</strong></td><td>Prior league season → Bundesliga Y1 (paired traits)</td><td><strong>→500+ pairs</strong> on FBref</td><td>FBref</td></tr>
-        <tr><td><strong>2b Dive</strong></td><td>Open-data prior≥90 + Bundesliga Y1 (event metrics)</td><td><strong>94</strong> (120 any prior)</td><td>StatsBomb</td></tr>
-        <tr><td></td><td>CM + FB in StatsBomb dive</td><td><strong>35</strong></td><td>StatsBomb</td></tr>
-      </tbody>
-    </table>
-    <div class="two">
-      <div>
-        <h3 style="font-family:system-ui;font-size:12px;margin-bottom:8px;color:#3d5a80">STATSBOMB DEEP-DIVE BY POSITION (N=94)</h3>
-        <div class="bar-wrap" id="pos-bars"></div>
-      </div>
-      <div class="card">
-        <h3>Why FBref carries the large N</h3>
-        <ul>
-          <li>Open data has only ~2 partial Bundesliga seasons → not enough paired transfers alone.</li>
-          <li>FBref covers many Bundesliga seasons → Tier 1 ≥500 and Tier 2 pairs at scale.</li>
-          <li>StatsBomb keeps the pizza / event taxonomy as a validity check.</li>
-          <li>Transfermarkt: browse OK; <strong>no scraping</strong> (ToS).</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <p class="foot">Narrow destination: 1. Bundesliga only — not a multi-league transfer pool.</p>
-</section>
-
-<section class="slide" data-i="2">
-  <div class="tag">03 · Method</div>
-  <h1>Three axes → DES (not market value)</h1>
-  <p class="sub">Same selection logic as NYRB; third axis retargeted to destination performance</p>
-  <div class="body">
-    <div class="cards">
-      <div class="card"><h3>① Stability / portability</h3><p>Pearson <em>r</em> between pre-transfer z-score and Bundesliga Y1 z-score, by metric and position.</p></div>
-      <div class="card"><h3>② Redundancy</h3><p>Drop near-duplicates (|r|≥0.70) within position so scout cards stay short.</p></div>
-      <div class="card"><h3>③ Destination effectiveness</h3><p>Weight Y1 percentiles by portability — portable traits count more toward DES.</p></div>
-    </div>
-    <div class="eq">
-      <div><code>DES<sub>i</sub> = Σ<sub>m</sub> w<sub>m</sub> · Pctile<sup>Bundes</sup>(m)<sub>i</sub>  /  Σ<sub>m</sub> w<sub>m</sub></code></div>
-      <div style="margin-top:8px"><code>w<sub>m</sub> = max(0, r<sub>port</sub>(m))</code> · r<sub>port</sub> = corr(pre-transfer z, Y1 z)</div>
-      <div style="margin-top:8px;font-size:12px;color:#555">Control: within-league / returning players vs true cross-competition arrivals where identifiable.</div>
+    <div class="eq"><strong>Keep:</strong> high cross-league stability · <strong>Drop:</strong> redundant duplicates · <strong>Show:</strong> pizza wedges for the final scout-card metrics. Control where possible: within-league movers vs true cross-league arrivals.</div>
     </div>
   </div>
   <p class="foot">Exploratory percentiles in the companion explorer are illustrative until full event→per-90 ETL is knit.</p>

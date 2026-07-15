@@ -1,42 +1,33 @@
-# Bundesliga Transfer Traits (Cal Berkeley · 1 credit)
+# Bundesliga Transfer Traits (Cal Berkeley)
 
-Independent-study package for **Conrad**: portable traits and source-league priorities for players transferring **into the 1. Bundesliga**.
+Which traits travel into the **Bundesliga**, and which source leagues to prioritize?
 
-## Design (two-tier)
+## Pipeline
+
+**Stability** (all prior→Bundesliga stats) → **redundancy** → **pizza charts** from the kept set.
 
 | Tier | Role | Data | N |
 |------|------|------|---|
-| **1 Wide** | Outcomes for all inbound / first Bundesliga seasons | **FBref** | **≥500** |
-| **2 Deep** | Trait portability + leagues to prioritize | **FBref** prior→Y1 (scale); **StatsBomb Open Data** deep dive | Open data ~**94–120**; FBref target **500+** pairs |
+| **1 Wide** | Outcomes for inbound / first Bundesliga seasons | FBref | ≥500 |
+| **2 Deep** | Portability + pizzas | FBref pairs; StatsBomb deep dive | FBref →500+ pairs; open data ~94–120 |
 
-**Destination only:** Bundesliga. Transfermarkt is browsable but **not scraped** (ToS ban bots).
+Inbound players from **FBref season records** (not Transfermarkt scrape).
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| [`CONRAD_PROPOSAL.docx`](CONRAD_PROPOSAL.docx) | **Word proposal** — edit this in Microsoft Word / Pages / Google Docs |
-| `CONRAD_PROPOSAL.md` | Same proposal in Markdown |
-| `interactive_player_explorer.html` | Player dropdown by position + pizza chart |
-| `methodology_results_brief.html` | Short method / results brief (6 sections) |
-| `cohort_data.json` | Open-data Tier-2 stress-test cohort |
+| [`conrad.docx`](conrad.docx) | Proposal (Word) |
+| [`CONRAD_PROPOSAL.txt`](CONRAD_PROPOSAL.txt) | **Editable source** — edit this, then regenerate `conrad.docx` |
+| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | PPT template (NYRB deck structure, new fonts/wording) |
+| [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Mock pizza chart image |
+| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Player dropdown by position + pizza |
+| [`methodology_results_brief.html`](methodology_results_brief.html) | Short method / results brief |
+| [`cohort_data.json`](cohort_data.json) | Open-data stress-test cohort |
 
-Open the HTML files in a browser (double-click or `open *.html`).
+## Edit → Word → GitHub
 
-## Editing the Word proposal
+1. Edit `CONRAD_PROPOSAL.txt` and save  
+2. Ask to push (or: `pandoc CONRAD_PROPOSAL.txt -o conrad.docx` then `git add` / commit / push)
 
-Edit `CONRAD_PROPOSAL.docx` in **Microsoft Word** (or Pages / Google Docs), then commit and push. If Word says read-only, close other copies, delete any `~$*.docx` lock file in this folder, and reopen.
-
-## Attribution
-
-FBref / Sports Reference (planned Tier 1–2) · StatsBomb Open Data (deep dive / explorer mock).
-
-
-## Editing the Word proposal
-
-**Edit this file:** `CONRAD_PROPOSAL.txt` (plain text / Markdown — easy in any editor).
-
-When you are done editing, tell Cursor (or run locally): convert `CONRAD_PROPOSAL.txt` → `CONRAD_PROPOSAL.docx` and push to GitHub.
-
-Do not fight with Word login for drafts; the `.txt` is the working copy.
-
+Attribution: FBref / Sports Reference · StatsBomb Open Data (deep dive).

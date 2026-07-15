@@ -1,8 +1,5 @@
-# Independent Study Proposal — Cal Berkeley (1 credit)
+# Independent Study Proposal 
 
-**Student:** Colby Morris  
-**Advisor:** Conrad  
-**Date:** July 15, 2026  
 **Working title:** Which traits travel into the Bundesliga — and which source leagues should scouts prioritize?  
 **Scope:** Bundesliga destination only (narrow one-league inbound study)
 
@@ -24,15 +21,6 @@ This extends the NYRB scouting-metric framework (**stability → redundancy → 
 Inbound players are identified from **FBref season records** (first Bundesliga season / prior league ≠ Bundesliga), not from scraped Transfermarkt transfer tables.
 
 ---
-
-## Is Transfermarkt “public”?
-
-| What | Reality |
-|------|---------|
-| **Browsing** | Site is free to view (transfers, clubs, minutes, values). |
-| **Bulk scrape / bots** | Transfermarkt Terms of Use ban bots, spiders, and screen scraping, and reserve text/data-mining rights. |
-| **Official research dump** | Not generally open; they prefer one-off data provision for research requests. |
-| **Implication for this project** | Use **FBref** as the public performance and season source. Use Transfermarkt only via (a) manual spot-checks, (b) Approved contact/request, or (c) a pre-published dataset. |
 
 **FBref** (Sports Reference) is the primary public dataset for Tier 1–2 metrics: viewable online; usable for coursework with attribution and rate-limited access. Respect their terms; do not redistribute raw dumps beyond the course.
 
@@ -64,7 +52,6 @@ Inbound players are identified from **FBref season records** (first Bundesliga s
 
 1. **FBref** — primary layer for Tier 1 (N≥500 outcomes) and Tier 2 (stability / redundancy / pizza at scale).  
 2. **StatsBomb Open Data** — deep dive + interactive pizza explorer on the smaller open-data overlap.  
-3. **Transfermarkt** — browse / spot-check only; no scraping.
 
 Open-data stress test already completed: Bundesliga first appearances ≈ **675**; with any prior open-data minutes ≈ **120**; analysis-ready (≥90 prior min) ≈ **94** (CM+FB ≈ **35**). That motivates FBref for scale while keeping StatsBomb for depth.
 
@@ -74,7 +61,7 @@ Open-data stress test already completed: Bundesliga first appearances ≈ **675*
 
 | # | File | Description |
 |---|------|-------------|
-| 1 | `CONRAD_PROPOSAL.docx` | This proposal as a Word document |
+| 1 | `conrad.docx` | This proposal as a Word document |
 | 2 | `interactive_player_explorer.html` | Player dropdown sorted by position; pizza from selected traits; stock fonts |
 | 3 | `methodology_results_brief.html` | Short method/results brief (tiers, stability, redundancy, leagues, cases) |
 | 4 | `cohort_data.json` / `README.md` | Open-data cohort artifact + package notes |
@@ -97,6 +84,6 @@ Open-data stress test already completed: Bundesliga first appearances ≈ **675*
 - **Narrow:** only into the Bundesliga.  
 - **Clear pipeline:** stability on all stats → redundancy → pizzas from the kept set.  
 - **Accurate where it matters:** FBref multi-season performance for the robust model; StatsBomb for a smaller, deeper event dive.  
-- **Clean ethics:** FBref-first; Transfermarkt not scraped.
+- **Data Source:** FBref-first.
 
 Attributions: FBref / Sports Reference; StatsBomb Open Data (where used).
