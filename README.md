@@ -30,3 +30,13 @@ Edit `CONRAD_PROPOSAL.docx` in **Microsoft Word** (or Pages / Google Docs), then
 ## Attribution
 
 FBref / Sports Reference (planned Tier 1–2) · StatsBomb Open Data (deep dive / explorer mock).
+
+
+## Editing the Word proposal
+
+**Edit this file:** `CONRAD_PROPOSAL.txt` (plain text / Markdown — easy in any editor).
+
+When you are done editing, tell Cursor (or run locally): convert `CONRAD_PROPOSAL.txt` → `CONRAD_PROPOSAL.docx` and push to GitHub.
+
+Do not fight with Word login for drafts; the `.txt` is the working copy.
+
