@@ -12,6 +12,14 @@ code{background:#f0f0f0;padding:2px 5px;border-radius:3px}
 Passed: <code>dispossessed, pass_progressive</code><br/>
 Redundancy pairs (|r|≥0.70) among passed: <strong>0</strong> — Step 2 default: push both through.<br/>
 Cohort N=60 (StatsBomb open data). Score = mean BL Y1 percentile on the 2 passed metrics.</div>
+
+<h2>Methodology discussion (brief)</h2>
+<p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.45">
+Portability = Pearson <em>r</em> of each per-90 metric from prior competition → Bundesliga Year-1.
+Metrics with <strong>r≥0.70</strong> pass. Among passers, check redundancy (|r|≥0.70); Step 2 picks the final scout-card set.
+Pizzas use destination percentiles with a <strong>dotted average-Bundesliga</strong> ring (50th pct) and a top-peer ring.
+Open-data caveats: partial seasons and mixed priors (club + international) — re-estimate on FBref at larger N.
+</p>
 <h2>All metrics by stability</h2>
 <table><tr><th>Metric</th><th>r</th><th>n</th><th>Pass 0.70?</th></tr>
 <tr class='pass'><td>dispossessed</td><td>0.787</td><td>60</td><td>YES</td></tr><tr class='pass'><td>pass_progressive</td><td>0.7195</td><td>60</td><td>YES</td></tr><tr class=''><td>pressures</td><td>0.677</td><td>60</td><td>no</td></tr><tr class=''><td>passes</td><td>0.5318</td><td>60</td><td>no</td></tr><tr class=''><td>tackles</td><td>0.5318</td><td>60</td><td>no</td></tr><tr class=''><td>clearances</td><td>0.4914</td><td>60</td><td>no</td></tr><tr class=''><td>xg</td><td>0.4825</td><td>60</td><td>no</td></tr><tr class=''><td>shots</td><td>0.4474</td><td>60</td><td>no</td></tr><tr class=''><td>dribbles_completed</td><td>0.4393</td><td>60</td><td>no</td></tr><tr class=''><td>passes_into_final_third</td><td>0.4314</td><td>60</td><td>no</td></tr><tr class=''><td>carries</td><td>0.413</td><td>60</td><td>no</td></tr><tr class=''><td>carry_progressive</td><td>0.3245</td><td>60</td><td>no</td></tr><tr class=''><td>fouls_won</td><td>0.3158</td><td>60</td><td>no</td></tr><tr class=''><td>aerials_won</td><td>0.3117</td><td>60</td><td>no</td></tr><tr class=''><td>xa</td><td>0.2889</td><td>60</td><td>no</td></tr><tr class=''><td>interceptions</td><td>0.1673</td><td>60</td><td>no</td></tr></table>

@@ -48,6 +48,16 @@ Inbound players are identified from **FBref season records** (first Bundesliga s
 
 ---
 
+## Methodology discussion (brief)
+
+The core idea is test–retest reliability across a **league change**, not across seasons in the same league. For each per-90 metric we compute Pearson *r* between a player’s prior-league season and their first Bundesliga season. Metrics with *r* ≥ **0.70** are treated as portable (“travel well”); the rest are flagged as more style- or context-dependent.
+
+Those that clear the gate then go through a **redundancy** screen (pairwise |*r*| ≥ 0.70 within the stable set). Step 2 is human: choose which representative to keep when two stable metrics largely measure the same thing. Final scout cards and **pizza charts** use only that kept set, with **dotted reference lines for average Bundesliga peers** (and a top-peer ring) so arrivals are read against destination norms—not prior-league raw rates.
+
+Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ Bundesliga), so we do not rely on scraping Transfermarkt. A larger FBref cohort anchors Tier 1; StatsBomb open data is the event-level deep dive on a smaller overlapping sample. Open-data caveat: partial match coverage and mixed prior contexts (club + international) can compress or inflate some correlations, which is why findings are validated across tiers rather than treated as final on open data alone.
+
+---
+
 ## Data stack
 
 1. **FBref** — primary layer for Tier 1 (N≥500 outcomes) and Tier 2 (stability / redundancy / pizza at scale).  

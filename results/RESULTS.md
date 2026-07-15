@@ -5,6 +5,12 @@
 **Metrics that go through (pass 0.70):** **2** — `['dispossessed', 'pass_progressive']`  
 **Cohort N:** 60 (StatsBomb Open Data; prior≥90 min, BL Y1≥45 min)
 
+## Methodology discussion (brief)
+
+We treat portability as **cross-league stability**: for each event-derived per-90 metric, Pearson *r* between prior-competition production and Bundesliga Year-1 for the same inbound players. Metrics with *r* ≥ 0.70 “go through.” Among those, we check redundancy (|*r*| ≥ 0.70 pairs); Step 2 is choosing which stable metrics to keep on the scout card. Pizzas plot destination percentiles with a **dotted average-Bundesliga** reference (50th pct) and a top-peer ring so “good” is relative to Germany, not the prior league.
+
+This open-data run used prior≥90 and Y1≥45 minutes (partial-season samples). Low pass count at 0.70 is expected on a small, mixed prior sample (club + internationals); FBref Tier 1/2 is meant to re-estimate the same pipeline at larger N.
+
 ## Step 2 — redundancy selection (your call)
 
 Among the **2** metrics that cleared stability:
