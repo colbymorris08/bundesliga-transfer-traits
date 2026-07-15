@@ -324,7 +324,13 @@ function showExplain(p,i,evt){
   if(evt){ex.style.left=Math.min(evt.clientX+12,innerWidth-300)+'px'; ex.style.top=Math.min(evt.clientY+12,innerHeight-120)+'px'}
 }
 
-srcSel.onchange=()=>
+srcSel.onchange=()=>loadSource(srcSel.value);
+leagueSel.onchange=()=>{ syncTeamFilter(); fillPlayers(); };
+teamSel.onchange=fillPlayers;
+posSel.onchange=fillPlayers;
+plySel.onchange=()=>selectPlayer(plySel.value);
+document.body.addEventListener('click',e=>{if(!e.target.closest('.wedge,.slice-tab,.metric-row,#explainer')) document.getElementById('explainer').style.display='none'});
+
 let currentView = 'players';
 const reviewPanel = document.getElementById('review-panel');
 const explorerMain = document.getElementById('explorer-main');
@@ -403,8 +409,8 @@ function renderFBrefClusters(){
     <h2>FBref — Step 2 redundancy clusters</h2>
     <p class="hint">Illustrative planned FBref per-90 clusters for Step 2 (replace with live pairs after Tier 1/2 freeze).
       Your picks are stored in this browser. Singletons always stay on the card.</p>
-    ${cards}
-    <div id="shortlist-box"><strong>Your shortlist (${shortlist.length}):</strong> ${shortlist.map(m=>labels[m]||m).join(' · ')}
+    ${cards || '<p class="hint"><em>No clusters defined.</em></p>'}
+    <div id="shortlist-box"><strong>Your shortlist (${shortlist.length}):</strong> ${shortlist.map(m=>labels[m]||m).join(' · ') || '—'}
       <br/><button type="button" id="reset-fb-picks" style="margin-top:8px;padding:6px 10px;cursor:pointer">Reset to defaults</button></div>`;
 
   reviewPanel.querySelectorAll('input[type=radio]').forEach(inp=>{
@@ -420,21 +426,18 @@ function renderFBrefClusters(){
   tabReview.textContent = 'Select clusters (FBref)';
 }
 
-// Patch loadSource chrome for review tab label
-const _loadSourceOrig = loadSource;
-loadSource = function(id){
-  _loadSourceOrig(id);
-  tabReview.textContent = (DATA.source_id==='fbref') ? 'Select clusters (FBref)' : 'Review stability (StatsBomb)';
-  if(currentView==='review') renderReview();
-};
+// Extend loadSource to refresh review tab label / open review
+(function(){
+  const _orig = loadSource;
+  loadSource = function(id){
+    _orig(id);
+    if(tabReview){
+      tabReview.textContent = (DATA.source_id==='fbref') ? 'Select clusters (FBref)' : 'Review stability (StatsBomb)';
+    }
+    if(currentView==='review') renderReview();
+  };
+})();
 
-loadSource(srcSel.value);
-
-leagueSel.onchange=()=>{ syncTeamFilter(); fillPlayers(); };
-teamSel.onchange=fillPlayers;
-posSel.onchange=fillPlayers;
-plySel.onchange=()=>selectPlayer(plySel.value);
-document.body.addEventListener('click',e=>{if(!e.target.closest('.wedge,.slice-tab,.metric-row,#explainer')) document.getElementById('explainer').style.display='none'});
 loadSource(srcSel.value);
 </script>
 </body>
