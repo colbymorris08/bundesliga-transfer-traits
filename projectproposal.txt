@@ -61,7 +61,7 @@ Open-data stress test already completed: Bundesliga first appearances ≈ **675*
 
 | # | File | Description |
 |---|------|-------------|
-| 1 | `conrad.docx` | This proposal as a Word document |
+| 1 | `projectproposal.docx` | This proposal as a Word document |
 | 2 | `interactive_player_explorer.html` | Player dropdown sorted by position; pizza from selected traits; stock fonts |
 | 3 | `methodology_results_brief.html` | Short method/results brief (tiers, stability, redundancy, leagues, cases) |
 | 4 | `cohort_data.json` / `README.md` | Open-data cohort artifact + package notes |

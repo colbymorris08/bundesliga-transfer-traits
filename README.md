@@ -17,8 +17,8 @@ Inbound players from **FBref season records** (not Transfermarkt scrape).
 
 | File | Description |
 |------|-------------|
-| [`conrad.docx`](conrad.docx) | Proposal (Word) |
-| [`CONRAD_PROPOSAL.txt`](CONRAD_PROPOSAL.txt) | **Editable source** — edit this, then regenerate `conrad.docx` |
+| [`projectproposal.docx`](projectproposal.docx) | Proposal (Word) |
+| [`projectproposal.txt`](projectproposal.txt) | **Editable source** — edit this, then regenerate `projectproposal.docx` |
 | [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | PPT template (NYRB deck structure, new fonts/wording) |
 | [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Mock pizza chart image |
 | [`interactive_player_explorer.html`](interactive_player_explorer.html) | Player dropdown by position + pizza |
@@ -27,7 +27,7 @@ Inbound players from **FBref season records** (not Transfermarkt scrape).
 
 ## Edit → Word → GitHub
 
-1. Edit `CONRAD_PROPOSAL.txt` and save  
-2. Ask to push (or: `pandoc CONRAD_PROPOSAL.txt -o conrad.docx` then `git add` / commit / push)
+1. Edit `projectproposal.txt` and save  
+2. Ask to push (or: `pandoc projectproposal.txt -o projectproposal.docx` then `git add` / commit / push)
 
 Attribution: FBref / Sports Reference · StatsBomb Open Data (deep dive).
