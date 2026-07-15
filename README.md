@@ -21,7 +21,8 @@ See [`results/RESULTS.md`](results/RESULTS.md) and [`results/results_dashboard.h
 | [`projectproposal.docx`](projectproposal.docx) | Word proposal |
 | [`interactive_player_explorer.html`](interactive_player_explorer.html) | Pizzas · **dotted avg Bundesliga** · ranked targets |
 | [`results/`](results/) | CSVs, rankings, stability, redundancy for Step 2 |
-| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | PPT template |
+| [`bundesliga_statsbomb_deck.pptx`](bundesliga_statsbomb_deck.pptx) | **StatsBomb mock deck** (from RBNY general PPT layout) |
+| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Same deck (alias) |
 | [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Mock/static pizza image |
 
 ## Step 2 (your pick)
