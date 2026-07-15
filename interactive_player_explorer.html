@@ -53,9 +53,11 @@
   </header>
   <div class="banner" id="banner"></div>
   <div class="controls">
+    <label>Source league<select id="league-filter"></select></label>
     <label>Position<select id="pos-filter"></select></label>
     <label>Player<select id="player-select"></select></label>
   </div>
+  <div class="banner" id="league-summary" style="display:none"></div>
   <div class="layout">
     <div class="panel">
       <div class="player-title" id="pname">—</div>
@@ -91,17 +93,42 @@ const players = DATA.players.slice().sort((a,b)=>{
   if(a.position!==b.position) return a.position.localeCompare(b.position);
   return (b.score||0)-(a.score||0);
 });
+players.forEach(p=>{ p.primary_source = (p.sources && p.sources[0]) ? p.sources[0] : 'Unknown'; });
+const leagueSel=document.getElementById('league-filter');
 const posSel=document.getElementById('pos-filter');
 const plySel=document.getElementById('player-select');
-['All positions',...new Set(players.map(p=>p.position))].sort().forEach(p=>{
-  if(p!=='All positions' && ![...posSel.options].some(o=>o.value===p) && p!=='All positions');
-});
+const leagueBox=document.getElementById('league-summary');
+const leagues=['All leagues',...[...new Set(players.map(p=>p.primary_source))].sort()];
+leagueSel.innerHTML='';
+leagues.forEach(L=>{ const o=document.createElement('option'); o.value=L; o.textContent=L; leagueSel.appendChild(o); });
 posSel.innerHTML='';
 ['All positions',...[...new Set(players.map(p=>p.position))].sort()].forEach(p=>{
   const o=document.createElement('option');o.value=p;o.textContent=p;posSel.appendChild(o);
 });
-function filtered(){const pos=posSel.value;return players.filter(p=>pos==='All positions'||p.position===pos)}
+function filtered(){
+  const league=leagueSel.value, pos=posSel.value;
+  return players.filter(p =>
+    (league==='All leagues' || p.primary_source===league) &&
+    (pos==='All positions' || p.position===pos)
+  );
+}
+function updateLeagueSummary(){
+  const league=leagueSel.value;
+  if(league==='All leagues'){ leagueBox.style.display='none'; return; }
+  const rows=(DATA.source_leagues||[]).filter(r=>r.source_league===league);
+  const list=players.filter(p=>p.primary_source===league);
+  const scores=list.map(p=>p.score).filter(x=>x!=null);
+  const mean=scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : '—';
+  let extra='';
+  if(rows.length){
+    const r=rows[0];
+    extra=` · board mean score ${r.mean_stable_trait_score} · median Y1 mins ${r.median_y1_minutes}`;
+  }
+  leagueBox.style.display='block';
+  leagueBox.innerHTML=`<strong>${league}</strong> — ${list.length} inbound player(s) in view · mean stable-trait score (filtered) ${mean}${extra}`;
+}
 function fillPlayers(){
+  updateLeagueSummary();
   const list=filtered(); plySel.innerHTML='';
   const by={}; list.forEach(p=>{(by[p.position]||=[]).push(p)});
   Object.keys(by).sort().forEach(pos=>{
@@ -188,7 +215,7 @@ function showExplain(p,i,evt){
   ex.querySelector('.s').textContent=`Pre ${m.prior??'—'} → Y1 ${m.player??'—'} · Avg ${m.avg} · Top ${m.top}`;
   if(evt){ex.style.left=Math.min(evt.clientX+12,innerWidth-300)+'px'; ex.style.top=Math.min(evt.clientY+12,innerHeight-120)+'px'}
 }
-posSel.onchange=fillPlayers; plySel.onchange=()=>selectPlayer(plySel.value);
+leagueSel.onchange=fillPlayers; posSel.onchange=fillPlayers; plySel.onchange=()=>selectPlayer(plySel.value);
 document.body.addEventListener('click',e=>{if(!e.target.closest('.wedge,.slice-tab,.metric-row,#explainer')) document.getElementById('explainer').style.display='none'});
 fillPlayers();
 </script>
