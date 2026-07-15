@@ -1,43 +1,54 @@
-# Analysis results — Bundesliga inbound traits
+# Analysis results — Bundesliga inbound traits (StatsBomb)
 
-**Stability threshold:** r ≥ **0.70**  
+**Stability threshold:** r ≥ **0.4**  
 **Metrics tested:** 16  
-**Metrics that go through (pass 0.70):** **2** — `['dispossessed', 'pass_progressive']`  
-**Cohort N:** 60 (StatsBomb Open Data; prior≥90 min, BL Y1≥45 min)
+**Metrics that go through:** **11**  
+**Redundancy pairs among passers (|r|≥0.7):** **3**  
+**Auto shortlist (suggestion):** `['dispossessed', 'pass_progressive', 'pressures', 'tackles', 'clearances', 'xg', 'dribbles_completed', 'passes_into_final_third', 'carries']`  
+**Cohort N:** 60
 
-## Methodology discussion (brief)
+## Metrics that passed stability (r≥0.4)
 
-We treat portability as **cross-league stability**: for each event-derived per-90 metric, Pearson *r* between prior-competition production and Bundesliga Year-1 for the same inbound players. Metrics with *r* ≥ 0.70 “go through.” Among those, we check redundancy (|*r*| ≥ 0.70 pairs); Step 2 is choosing which stable metrics to keep on the scout card. Pizzas plot destination percentiles with a **dotted average-Bundesliga** reference (50th pct) and a top-peer ring so “good” is relative to Germany, not the prior league.
+| Metric | r | n pairs | Category |
+|---|---:|---:|---|
+| dispossessed | 0.787 | 60 | Other |
+| pass_progressive | 0.7195 | 60 | Passing |
+| pressures | 0.677 | 60 | Defending |
+| passes | 0.5318 | 60 | Passing |
+| tackles | 0.5318 | 60 | Defending |
+| clearances | 0.4914 | 60 | Defending |
+| xg | 0.4825 | 60 | Attacking |
+| shots | 0.4474 | 60 | Attacking |
+| dribbles_completed | 0.4393 | 60 | Carrying |
+| passes_into_final_third | 0.4314 | 60 | Passing |
+| carries | 0.413 | 60 | Carrying |
 
-This open-data run used prior≥90 and Y1≥45 minutes (partial-season samples). Low pass count at 0.70 is expected on a small, mixed prior sample (club + internationals); FBref Tier 1/2 is meant to re-estimate the same pipeline at larger N.
+## Step 2 — redundancy (your pick)
 
-## Step 2 — redundancy selection (your call)
+Review `redundancy_high_pairs_step2.csv`. Default auto shortlist used for rankings/pizzas: `['dispossessed', 'pass_progressive', 'pressures', 'tackles', 'clearances', 'xg', 'dribbles_completed', 'passes_into_final_third', 'carries']`.
 
-Among the **2** metrics that cleared stability:
+| Metric A | Metric B | r |
+|---|---|---:|
+| pass_progressive | passes | 0.7928 |
+| passes | carries | 0.9304 |
+| xg | shots | 0.8648 |
 
-- High-redundancy pairs (|r|≥0.70): **0** (see `redundancy_high_pairs_step2.csv`)
-- **Default / recommendation:** push **both** `dispossessed` and `pass_progressive` through to the pizza scout card
-- Optional: drop one if you want a shorter card
-
-Pizzas currently show the **top 8 metrics by stability** for readability, with a green **PASS** badge on the two that met 0.70.  
-**Dotted navy ring = average Bundesliga peer (50th percentile).** Solid gray = top peer (~90th).
-
-## Top targets (ranked on the 2 passed metrics only)
+## Top targets (mean Y1 pctile on auto shortlist)
 
 | Rank | Player | Pos | Score | Source |
 |---:|---|---|---:|---|
-| 1 | Eric Dier | Central Defender | 100.0 | Premier League |
-| 2 | Alexander Nübel | Goalkeeper | 99.55 | Ligue 1 |
-| 3 | Gregor Kobel | Goalkeeper | 98.64 | FIFA World Cup |
-| 4 | Josip Juranović | Full Back | 95.82 | FIFA World Cup |
-| 5 | Dayotchanculle Upamecano | Central Defender | 94.27 | FIFA World Cup |
-| 6 | Przemysław Tytoń | Goalkeeper | 93.55 | La Liga |
-| 7 | Kevin Trapp | Goalkeeper | 93.27 | Ligue 1 |
-| 8 | Min Jae Kim | Central Defender | 87.55 | FIFA World Cup |
-| 9 | Jonas Omlin | Goalkeeper | 86.73 | Ligue 1 |
-| 10 | Nico Schlotterbeck | Central Defender | 83.45 | FIFA World Cup |
-| 11 | Emiliano Adrián Insúa Zapata | Full Back | 81.27 | La Liga |
-| 12 | Junior Castello Lukeba | Central Defender | 80.27 | Ligue 1 |
-| 13 | Ko Itakura | Central Defender | 79.73 | FIFA World Cup |
-| 14 | Piero Martín Hincapié Reyna | Central Defender | 79.55 | FIFA World Cup |
-| 15 | Willi Orban | Central Defender | 79.36 | UEFA Euro |
+| 1 | Konrad Laimer | Full Back | 72.39 | UEFA Euro |
+| 2 | Piero Martín Hincapié Reyna | Central Defender | 71.41 | FIFA World Cup |
+| 3 | Eric Dier | Central Defender | 68.57 | Premier League |
+| 4 | Josip Juranović | Full Back | 68.31 | FIFA World Cup |
+| 5 | Dayotchanculle Upamecano | Central Defender | 68.01 | FIFA World Cup |
+| 6 | Josip Stanišić | Central Defender | 67.01 | FIFA World Cup |
+| 7 | Emiliano Adrián Insúa Zapata | Full Back | 66.61 | La Liga |
+| 8 | Lovro Majer | Central Midfielder | 65.61 | Ligue 1 |
+| 9 | Min Jae Kim | Central Defender | 64.26 | FIFA World Cup |
+| 10 | Noussair Mazraoui | Full Back | 64.21 | FIFA World Cup |
+| 11 | Ellyes Joris Skhiri | Central Midfielder | 63.88 | Ligue 1 |
+| 12 | Franck Honorat | Full Back | 63.58 | Ligue 1 |
+| 13 | Nico Schlotterbeck | Central Defender | 63.13 | FIFA World Cup |
+| 14 | David Raum | Full Back | 61.8 | FIFA World Cup |
+| 15 | Serge Gnabry | Winger | 61.54 | FIFA World Cup |

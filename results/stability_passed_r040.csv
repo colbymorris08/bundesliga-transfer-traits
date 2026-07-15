@@ -10,8 +10,3 @@ shots,SH,Attacking,Shots,60,0.4474,True,False
 dribbles_completed,DRB,Carrying,Successful dribbles,60,0.4393,True,False
 passes_into_final_third,PATT,Passing,Passes into final third,60,0.4314,True,False
 carries,CRY,Carrying,Carries,60,0.413,True,False
-carry_progressive,CFGP,Carrying,Progressive carries,60,0.3245,False,False
-fouls_won,FLW,Other,Fouls won,60,0.3158,False,False
-aerials_won,AER,Defending,Aerials won,60,0.3117,False,False
-xa,XA,Attacking,Expected assists,60,0.2889,False,False
-interceptions,INT,Defending,Interceptions,60,0.1673,False,False

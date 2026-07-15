@@ -1,61 +1,61 @@
-player_id,name,arrival_season,position,prior_minutes,y1_minutes,primary_source,n_pizza_metrics,stable_trait_score
-10956,Eric Dier,2023/2024,Central Defender,3710.2,95.0,Premier League,2,100.0
-20662,Alexander Nübel,2023/2024,Goalkeeper,190.0,190.0,Ligue 1,2,99.55
-17974,Gregor Kobel,2023/2024,Goalkeeper,95.0,190.0,FIFA World Cup,2,98.64
-29163,Josip Juranović,2023/2024,Full Back,738.1,77.9,FIFA World Cup,2,95.82
-8519,Dayotchanculle Upamecano,2023/2024,Central Defender,475.0,154.1,FIFA World Cup,2,94.27
-9082,Przemysław Tytoń,2015/2016,Goalkeeper,190.0,190.0,La Liga,2,93.55
-4440,Kevin Trapp,2023/2024,Goalkeeper,3180.0,190.0,Ligue 1,2,93.27
-43565,Min Jae Kim,2023/2024,Central Defender,281.2,190.0,FIFA World Cup,2,87.55
-29003,Jonas Omlin,2023/2024,Goalkeeper,95.0,95.0,Ligue 1,2,86.73
-24118,Nico Schlotterbeck,2023/2024,Central Defender,103.7,158.5,FIFA World Cup,2,83.45
-12626,Emiliano Adrián Insúa Zapata,2015/2016,Full Back,190.0,190.0,La Liga,2,81.27
-40185,Junior Castello Lukeba,2023/2024,Central Defender,190.0,128.5,Ligue 1,2,80.27
-29595,Ko Itakura,2023/2024,Central Defender,285.0,87.5,FIFA World Cup,2,79.73
-38004,Piero Martín Hincapié Reyna,2023/2024,Central Defender,285.0,1578.8,FIFA World Cup,2,79.55
-8509,Willi Orban,2023/2024,Central Defender,285.0,95.0,UEFA Euro,2,79.36
-48500,Moritz Jenz,2023/2024,Central Defender,95.0,189.0,Ligue 1,2,78.73
-3913,Edimilson Fernandes,2023/2024,Central Defender,159.3,95.0,FIFA World Cup,2,75.55
-12034,David Raum,2023/2024,Full Back,247.2,190.0,FIFA World Cup,2,70.91
-5602,Cristian Gamboa Luna,2023/2024,Full Back,294.0,95.0,FIFA World Cup,2,69.36
-28914,Lovro Majer,2023/2024,Central Midfielder,289.5,87.1,Ligue 1,2,67.82
-49337,Josip Stanišić,2023/2024,Central Defender,95.0,1354.3,FIFA World Cup,2,65.64
-3767,Ellyes Joris Skhiri,2023/2024,Central Midfielder,1438.6,100.7,Ligue 1,2,65.18
-7198,Franck Honorat,2023/2024,Full Back,335.1,148.5,Ligue 1,2,56.36
-8506,Konrad Laimer,2023/2024,Full Back,343.8,84.8,UEFA Euro,2,51.82
-23452,Alex Král,2023/2024,Central Midfielder,140.4,127.8,UEFA Euro,2,50.91
-6985,Robin Gosens,2023/2024,Full Back,317.3,94.1,UEFA Euro,2,50.73
-5623,Jae-Sung Lee,2023/2024,Attacking Midfielder,497.3,163.7,FIFA World Cup,2,50.73
-16554,Joakim Mæhle,2023/2024,Full Back,866.6,95.0,UEFA Euro,2,43.82
-217047,Fares Chaïbi,2023/2024,Forward,126.8,161.6,Ligue 1,2,43.18
-8769,Xaver Schlager,2023/2024,Central Midfielder,382.6,178.0,UEFA Euro,2,42.73
-15890,Noussair Mazraoui,2023/2024,Full Back,377.2,130.0,FIFA World Cup,2,41.55
-44955,Aïssa Bilal Laïdouni,2023/2024,Central Midfielder,344.5,128.2,FIFA World Cup,2,41.36
-16532,Daniel Olmo Carvajal,2023/2024,Attacking Midfielder,650.3,169.2,FIFA World Cup,2,40.82
-3493,Emre Can,2023/2024,Central Midfielder,2683.4,163.9,Premier League,2,40.18
-12365,Alphonso Davies,2023/2024,Full Back,285.0,95.2,FIFA World Cup,2,40.09
-8518,Marcel Sabitzer,2023/2024,Central Midfielder,380.0,190.0,UEFA Euro,2,40.09
-3676,Jérôme Roussillon,2023/2024,Full Back,2766.2,78.0,Ligue 1,2,37.73
-16027,Kevin Mbabu,2023/2024,Full Back,328.5,95.0,UEFA Euro,2,33.82
-7796,Silvan Widmer,2023/2024,Full Back,2601.1,58.8,Serie A,2,33.82
-3230,Alassane Pléa,2023/2024,Winger,1444.9,95.0,Ligue 1,2,30.64
-30401,Ruben Vargas,2023/2024,Attacking Midfielder,420.2,61.4,FIFA World Cup,2,26.91
-8400,Serge Gnabry,2023/2024,Winger,540.1,69.3,FIFA World Cup,2,25.64
-39167,Xavi Simons,2023/2024,Attacking Midfielder,115.4,144.1,Ligue 1,2,24.45
-12423,Jadon Sancho,2023/2024,Winger,108.5,68.4,UEFA Euro,2,21.45
-7829,Wout Weghorst,2023/2024,Other,250.6,171.9,UEFA Euro,2,20.0
-42822,András Schäfer,2023/2024,Central Midfielder,234.9,62.2,UEFA Euro,2,19.18
-10955,Harry Kane,2023/2024,Forward,5167.9,179.8,Premier League,2,18.27
-5536,Yussuf Yurary Poulsen,2023/2024,Other,528.2,55.0,UEFA Euro,2,17.45
-16275,Ikoma Loïs Openda,2023/2024,Other,112.1,169.7,Ligue 1,2,17.27
-8361,Ritsu Doan,2023/2024,Full Back,226.7,190.0,FIFA World Cup,2,16.64
-19316,Roland Sallai,2023/2024,Forward,245.9,60.9,UEFA Euro,2,16.55
-50429,Hugo Ekitike,2023/2024,Other,951.2,79.3,Ligue 1,2,16.18
-24243,Brenden Aaronson,2023/2024,Attacking Midfielder,126.2,109.9,FIFA World Cup,2,14.36
-39565,Jamal Musiala,2023/2024,Attacking Midfielder,285.1,115.8,FIFA World Cup,2,14.36
-11391,Borja Iglesias Quintas,2023/2024,Forward,301.0,282.3,La Liga,2,14.09
-9102,Serhou Guirassy,2023/2024,Other,366.7,190.0,Ligue 1,2,13.82
-28239,Adam Hložek,2023/2024,Attacking Midfielder,96.9,548.5,UEFA Euro,2,12.27
-7044,Patrik Schick,2023/2024,Forward,405.4,1118.4,UEFA Euro,2,11.09
-7375,Theoson Jordan Siebatcheu,2023/2024,Other,943.4,79.0,Ligue 1,2,8.36
-8949,Takuma Asano,2023/2024,Winger,153.8,64.9,FIFA World Cup,2,2.45
+player_id,name,arrival_season,position,prior_minutes,y1_minutes,primary_source,n_shortlist_metrics,stable_trait_score
+8506,Konrad Laimer,2023/2024,Full Back,343.8,84.8,UEFA Euro,9,72.39
+38004,Piero Martín Hincapié Reyna,2023/2024,Central Defender,285.0,1578.8,FIFA World Cup,9,71.41
+10956,Eric Dier,2023/2024,Central Defender,3710.2,95.0,Premier League,9,68.57
+29163,Josip Juranović,2023/2024,Full Back,738.1,77.9,FIFA World Cup,9,68.31
+8519,Dayotchanculle Upamecano,2023/2024,Central Defender,475.0,154.1,FIFA World Cup,9,68.01
+49337,Josip Stanišić,2023/2024,Central Defender,95.0,1354.3,FIFA World Cup,9,67.01
+12626,Emiliano Adrián Insúa Zapata,2015/2016,Full Back,190.0,190.0,La Liga,9,66.61
+28914,Lovro Majer,2023/2024,Central Midfielder,289.5,87.1,Ligue 1,9,65.61
+43565,Min Jae Kim,2023/2024,Central Defender,281.2,190.0,FIFA World Cup,9,64.26
+15890,Noussair Mazraoui,2023/2024,Full Back,377.2,130.0,FIFA World Cup,9,64.21
+3767,Ellyes Joris Skhiri,2023/2024,Central Midfielder,1438.6,100.7,Ligue 1,9,63.88
+7198,Franck Honorat,2023/2024,Full Back,335.1,148.5,Ligue 1,9,63.58
+24118,Nico Schlotterbeck,2023/2024,Central Defender,103.7,158.5,FIFA World Cup,9,63.13
+12034,David Raum,2023/2024,Full Back,247.2,190.0,FIFA World Cup,9,61.8
+8400,Serge Gnabry,2023/2024,Winger,540.1,69.3,FIFA World Cup,9,61.54
+12365,Alphonso Davies,2023/2024,Full Back,285.0,95.2,FIFA World Cup,9,61.29
+3913,Edimilson Fernandes,2023/2024,Central Defender,159.3,95.0,FIFA World Cup,9,60.93
+16532,Daniel Olmo Carvajal,2023/2024,Attacking Midfielder,650.3,169.2,FIFA World Cup,9,59.18
+217047,Fares Chaïbi,2023/2024,Forward,126.8,161.6,Ligue 1,9,58.11
+8509,Willi Orban,2023/2024,Central Defender,285.0,95.0,UEFA Euro,9,58.08
+29595,Ko Itakura,2023/2024,Central Defender,285.0,87.5,FIFA World Cup,9,57.76
+39565,Jamal Musiala,2023/2024,Attacking Midfielder,285.1,115.8,FIFA World Cup,9,56.67
+5623,Jae-Sung Lee,2023/2024,Attacking Midfielder,497.3,163.7,FIFA World Cup,9,56.42
+44955,Aïssa Bilal Laïdouni,2023/2024,Central Midfielder,344.5,128.2,FIFA World Cup,9,56.04
+42822,András Schäfer,2023/2024,Central Midfielder,234.9,62.2,UEFA Euro,9,55.23
+23452,Alex Král,2023/2024,Central Midfielder,140.4,127.8,UEFA Euro,9,54.97
+5602,Cristian Gamboa Luna,2023/2024,Full Back,294.0,95.0,FIFA World Cup,9,54.53
+8769,Xaver Schlager,2023/2024,Central Midfielder,382.6,178.0,UEFA Euro,9,54.27
+39167,Xavi Simons,2023/2024,Attacking Midfielder,115.4,144.1,Ligue 1,9,54.2
+3493,Emre Can,2023/2024,Central Midfielder,2683.4,163.9,Premier League,9,53.76
+40185,Junior Castello Lukeba,2023/2024,Central Defender,190.0,128.5,Ligue 1,9,53.56
+3676,Jérôme Roussillon,2023/2024,Full Back,2766.2,78.0,Ligue 1,9,53.08
+16027,Kevin Mbabu,2023/2024,Full Back,328.5,95.0,UEFA Euro,9,51.37
+3230,Alassane Pléa,2023/2024,Winger,1444.9,95.0,Ligue 1,9,48.68
+7796,Silvan Widmer,2023/2024,Full Back,2601.1,58.8,Serie A,9,47.9
+7829,Wout Weghorst,2023/2024,Other,250.6,171.9,UEFA Euro,9,47.43
+28239,Adam Hložek,2023/2024,Attacking Midfielder,96.9,548.5,UEFA Euro,9,47.2
+6985,Robin Gosens,2023/2024,Full Back,317.3,94.1,UEFA Euro,9,47.18
+8361,Ritsu Doan,2023/2024,Full Back,226.7,190.0,FIFA World Cup,9,47.16
+5536,Yussuf Yurary Poulsen,2023/2024,Other,528.2,55.0,UEFA Euro,9,47.1
+20662,Alexander Nübel,2023/2024,Goalkeeper,190.0,190.0,Ligue 1,9,46.79
+48500,Moritz Jenz,2023/2024,Central Defender,95.0,189.0,Ligue 1,9,46.31
+16554,Joakim Mæhle,2023/2024,Full Back,866.6,95.0,UEFA Euro,9,46.2
+8518,Marcel Sabitzer,2023/2024,Central Midfielder,380.0,190.0,UEFA Euro,9,45.51
+24243,Brenden Aaronson,2023/2024,Attacking Midfielder,126.2,109.9,FIFA World Cup,9,45.11
+9102,Serhou Guirassy,2023/2024,Other,366.7,190.0,Ligue 1,9,44.39
+17974,Gregor Kobel,2023/2024,Goalkeeper,95.0,190.0,FIFA World Cup,9,43.62
+12423,Jadon Sancho,2023/2024,Winger,108.5,68.4,UEFA Euro,9,43.29
+4440,Kevin Trapp,2023/2024,Goalkeeper,3180.0,190.0,Ligue 1,9,42.96
+11391,Borja Iglesias Quintas,2023/2024,Forward,301.0,282.3,La Liga,9,42.93
+50429,Hugo Ekitike,2023/2024,Other,951.2,79.3,Ligue 1,9,42.14
+30401,Ruben Vargas,2023/2024,Attacking Midfielder,420.2,61.4,FIFA World Cup,9,40.96
+16275,Ikoma Loïs Openda,2023/2024,Other,112.1,169.7,Ligue 1,9,40.09
+9082,Przemysław Tytoń,2015/2016,Goalkeeper,190.0,190.0,La Liga,9,39.48
+10955,Harry Kane,2023/2024,Forward,5167.9,179.8,Premier League,9,38.37
+7044,Patrik Schick,2023/2024,Forward,405.4,1118.4,UEFA Euro,9,37.73
+29003,Jonas Omlin,2023/2024,Goalkeeper,95.0,95.0,Ligue 1,9,37.09
+19316,Roland Sallai,2023/2024,Forward,245.9,60.9,UEFA Euro,9,33.89
+7375,Theoson Jordan Siebatcheu,2023/2024,Other,943.4,79.0,Ligue 1,9,32.08
+8949,Takuma Asano,2023/2024,Winger,153.8,64.9,FIFA World Cup,9,30.68

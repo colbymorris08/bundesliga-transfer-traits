@@ -1,3 +1,10 @@
 metric,note
-dispossessed,AUTO SUGGESTION only — your Step 2 is to choose among stable metrics after reviewing redundancy pairs
-pass_progressive,AUTO SUGGESTION only — your Step 2 is to choose among stable metrics after reviewing redundancy pairs
+dispossessed,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+pass_progressive,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+pressures,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+tackles,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+clearances,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+xg,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+dribbles_completed,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+passes_into_final_third,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv
+carries,AUTO SUGGESTION for pizzas/rankings — Step 2: adjust using redundancy_high_pairs_step2.csv

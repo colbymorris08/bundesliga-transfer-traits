@@ -50,7 +50,7 @@ Inbound players are identified from **FBref season records** (first Bundesliga s
 
 ## Methodology discussion (brief)
 
-The core idea is test–retest reliability across a **league change**, not across seasons in the same league. For each per-90 metric we compute Pearson *r* between a player’s prior-league season and their first Bundesliga season. Metrics with *r* ≥ **0.70** are treated as portable (“travel well”); the rest are flagged as more style- or context-dependent.
+The core idea is test–retest reliability across a **league change**, not across seasons in the same league. For each per-90 metric we compute Pearson *r* between a player’s prior-league season and their first Bundesliga season. Metrics with *r* ≥ **0.40** are treated as portable (“travel well”); the rest are flagged as more style- or context-dependent.
 
 Those that clear the gate then go through a **redundancy** screen (pairwise |*r*| ≥ 0.70 within the stable set). Step 2 is human: choose which representative to keep when two stable metrics largely measure the same thing. Final scout cards and **pizza charts** use only that kept set, with **dotted reference lines for average Bundesliga peers** (and a top-peer ring) so arrivals are read against destination norms—not prior-league raw rates.
 
