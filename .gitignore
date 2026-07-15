@@ -2,3 +2,7 @@
 .Rhistory
 ~$*
 *.tmp
+step2_decision_tool.html
+decisions/*.pdf
+decisions/*.json
+!decisions/README.md
