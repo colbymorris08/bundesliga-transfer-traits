@@ -1,0 +1,17 @@
+metric,abbrev,category,label,n_pairs,stability_r,passes_0_70
+dispossessed,DIS,Other,Dispossessed (inverted),60,0.787,True
+pass_progressive,PPC,Passing,Progressive passes (~10m+ toward goal),60,0.7195,True
+pressures,PRS,Defending,Pressures,60,0.677,False
+passes,PAS,Passing,Pass volume,60,0.5318,False
+tackles,TAC,Defending,Tackles,60,0.5318,False
+clearances,CLR,Defending,Clearances,60,0.4914,False
+xg,XG,Attacking,Non-pen xG,60,0.4825,False
+shots,SH,Attacking,Shots,60,0.4474,False
+dribbles_completed,DRB,Carrying,Successful dribbles,60,0.4393,False
+passes_into_final_third,PATT,Passing,Passes into final third,60,0.4314,False
+carries,CRY,Carrying,Carries,60,0.413,False
+carry_progressive,CFGP,Carrying,Progressive carries,60,0.3245,False
+fouls_won,FLW,Other,Fouls won,60,0.3158,False
+aerials_won,AER,Defending,Aerials won,60,0.3117,False
+xa,XA,Attacking,Expected assists,60,0.2889,False
+interceptions,INT,Defending,Interceptions,60,0.1673,False

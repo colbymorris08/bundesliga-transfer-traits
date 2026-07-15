@@ -1,0 +1,3 @@
+metric,abbrev,category,label,n_pairs,stability_r,passes_0_70
+dispossessed,DIS,Other,Dispossessed (inverted),60,0.787,True
+pass_progressive,PPC,Passing,Progressive passes (~10m+ toward goal),60,0.7195,True

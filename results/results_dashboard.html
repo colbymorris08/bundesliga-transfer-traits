@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><title>Results — Bundesliga transfer traits</title>
+<style>
+body{font-family:Georgia,serif;max-width:900px;margin:40px auto;padding:0 20px;color:#1c1c1c;line-height:1.5}
+h1,h2{font-weight:700} table{border-collapse:collapse;width:100%;font-family:system-ui,sans-serif;font-size:13px;margin:12px 0}
+th,td{border-bottom:1px solid #ddd;padding:8px;text-align:left} th{background:#1c1c1c;color:#fff}
+.pass{background:#e8f5e9} .banner{background:#eef3f8;padding:12px;border-radius:6px;font-family:system-ui,sans-serif;font-size:14px}
+code{background:#f0f0f0;padding:2px 5px;border-radius:3px}
+</style></head><body>
+<h1>Analysis results</h1>
+<div class="banner"><strong>Stability threshold r≥0.70:</strong> <strong>2</strong> of 16 metrics pass.<br/>
+Passed: <code>dispossessed, pass_progressive</code><br/>
+Redundancy pairs (|r|≥0.70) among passed: <strong>0</strong> — Step 2 default: push both through.<br/>
+Cohort N=60 (StatsBomb open data). Score = mean BL Y1 percentile on the 2 passed metrics.</div>
+<h2>All metrics by stability</h2>
+<table><tr><th>Metric</th><th>r</th><th>n</th><th>Pass 0.70?</th></tr>
+<tr class='pass'><td>dispossessed</td><td>0.787</td><td>60</td><td>YES</td></tr><tr class='pass'><td>pass_progressive</td><td>0.7195</td><td>60</td><td>YES</td></tr><tr class=''><td>pressures</td><td>0.677</td><td>60</td><td>no</td></tr><tr class=''><td>passes</td><td>0.5318</td><td>60</td><td>no</td></tr><tr class=''><td>tackles</td><td>0.5318</td><td>60</td><td>no</td></tr><tr class=''><td>clearances</td><td>0.4914</td><td>60</td><td>no</td></tr><tr class=''><td>xg</td><td>0.4825</td><td>60</td><td>no</td></tr><tr class=''><td>shots</td><td>0.4474</td><td>60</td><td>no</td></tr><tr class=''><td>dribbles_completed</td><td>0.4393</td><td>60</td><td>no</td></tr><tr class=''><td>passes_into_final_third</td><td>0.4314</td><td>60</td><td>no</td></tr><tr class=''><td>carries</td><td>0.413</td><td>60</td><td>no</td></tr><tr class=''><td>carry_progressive</td><td>0.3245</td><td>60</td><td>no</td></tr><tr class=''><td>fouls_won</td><td>0.3158</td><td>60</td><td>no</td></tr><tr class=''><td>aerials_won</td><td>0.3117</td><td>60</td><td>no</td></tr><tr class=''><td>xa</td><td>0.2889</td><td>60</td><td>no</td></tr><tr class=''><td>interceptions</td><td>0.1673</td><td>60</td><td>no</td></tr></table>
+<h2>Step 2 — your redundancy pick</h2>
+<p>File: <code>results/redundancy_high_pairs_step2.csv</code> (empty / header only — no conflict).</p>
+<p>Recommendation: keep <strong>dispossessed</strong> and <strong>pass_progressive</strong> on the final scout card / pizza.</p>
+<h2>Top target players</h2>
+<table><tr><th>#</th><th>Player</th><th>Pos</th><th>Score</th><th>Source</th></tr>
+<tr><td>1</td><td>Eric Dier</td><td>Central Defender</td><td>100.0</td><td>Premier League</td></tr><tr><td>2</td><td>Alexander Nübel</td><td>Goalkeeper</td><td>99.55</td><td>Ligue 1</td></tr><tr><td>3</td><td>Gregor Kobel</td><td>Goalkeeper</td><td>98.64</td><td>FIFA World Cup</td></tr><tr><td>4</td><td>Josip Juranović</td><td>Full Back</td><td>95.82</td><td>FIFA World Cup</td></tr><tr><td>5</td><td>Dayotchanculle Upamecano</td><td>Central Defender</td><td>94.27</td><td>FIFA World Cup</td></tr><tr><td>6</td><td>Przemysław Tytoń</td><td>Goalkeeper</td><td>93.55</td><td>La Liga</td></tr><tr><td>7</td><td>Kevin Trapp</td><td>Goalkeeper</td><td>93.27</td><td>Ligue 1</td></tr><tr><td>8</td><td>Min Jae Kim</td><td>Central Defender</td><td>87.55</td><td>FIFA World Cup</td></tr><tr><td>9</td><td>Jonas Omlin</td><td>Goalkeeper</td><td>86.73</td><td>Ligue 1</td></tr><tr><td>10</td><td>Nico Schlotterbeck</td><td>Central Defender</td><td>83.45</td><td>FIFA World Cup</td></tr><tr><td>11</td><td>Emiliano Adrián Insúa Zapata</td><td>Full Back</td><td>81.27</td><td>La Liga</td></tr><tr><td>12</td><td>Junior Castello Lukeba</td><td>Central Defender</td><td>80.27</td><td>Ligue 1</td></tr><tr><td>13</td><td>Ko Itakura</td><td>Central Defender</td><td>79.73</td><td>FIFA World Cup</td></tr><tr><td>14</td><td>Piero Martín Hincapié Reyna</td><td>Central Defender</td><td>79.55</td><td>FIFA World Cup</td></tr><tr><td>15</td><td>Willi Orban</td><td>Central Defender</td><td>79.36</td><td>UEFA Euro</td></tr></table>
+<p><a href="interactive_player_explorer.html">Open player explorer (pizzas)</a></p>
+</body></html>

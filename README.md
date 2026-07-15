@@ -1,33 +1,33 @@
 # Bundesliga Transfer Traits (Cal Berkeley)
 
-Which traits travel into the **Bundesliga**, and which source leagues to prioritize?
+**Pipeline:** stability (prior league → Bundesliga Y1) → redundancy (Step 2) → pizza charts.
 
-## Pipeline
+## Latest run (StatsBomb Open Data)
 
-**Stability** (all prior→Bundesliga stats) → **redundancy** → **pizza charts** from the kept set.
+| Item | Value |
+|------|------:|
+| Cohort N | **60** |
+| Metrics tested | **16** |
+| **Passed stability r≥0.70** | **2** (`dispossessed`, `pass_progressive`) |
+| Redundancy pairs among passed | **0** → Step 2 default: push **both** |
 
-| Tier | Role | Data | N |
-|------|------|------|---|
-| **1 Wide** | Outcomes for inbound / first Bundesliga seasons | FBref | ≥500 |
-| **2 Deep** | Portability + pizzas | FBref pairs; StatsBomb deep dive | FBref →500+ pairs; open data ~94–120 |
-
-Inbound players from **FBref season records** (not Transfermarkt scrape).
+See [`results/RESULTS.md`](results/RESULTS.md) and [`results/results_dashboard.html`](results/results_dashboard.html).
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| [`projectproposal.docx`](projectproposal.docx) | Proposal (Word) |
-| [`projectproposal.txt`](projectproposal.txt) | **Editable source** — edit this, then regenerate `projectproposal.docx` |
-| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | PPT template (NYRB deck structure, new fonts/wording) |
-| [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Mock pizza chart image |
-| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Player dropdown by position + pizza |
-| [`methodology_results_brief.html`](methodology_results_brief.html) | Short method / results brief |
-| [`cohort_data.json`](cohort_data.json) | Open-data stress-test cohort |
+| [`projectproposal.txt`](projectproposal.txt) | Editable proposal source |
+| [`projectproposal.docx`](projectproposal.docx) | Word proposal |
+| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Pizzas · **dotted avg Bundesliga** · ranked targets |
+| [`results/`](results/) | CSVs, rankings, stability, redundancy for Step 2 |
+| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | PPT template |
+| [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Mock/static pizza image |
 
-## Edit → Word → GitHub
+## Step 2 (your pick)
 
-1. Edit `projectproposal.txt` and save  
-2. Ask to push (or: `pandoc projectproposal.txt -o projectproposal.docx` then `git add` / commit / push)
+1. Open `results/stability_passed_r070.csv` — metrics that cleared **0.70**
+2. Open `results/redundancy_high_pairs_step2.csv` — conflicting pairs (currently none)
+3. Choose which passed metrics go on the final scout card / pizza
 
-Attribution: FBref / Sports Reference · StatsBomb Open Data (deep dive).
+Inbound IDs come from FBref-style season logic on open data (first Bundesliga season + prior elsewhere), not Transfermarkt scraping.
