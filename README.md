@@ -23,7 +23,8 @@ See [`results/RESULTS.md`](results/RESULTS.md) and [`results/results_dashboard.h
 | [`results/`](results/) | CSVs, rankings, stability, redundancy for Step 2 |
 | [`bundesliga_statsbomb_deck.pptx`](bundesliga_statsbomb_deck.pptx) | **StatsBomb mock deck** (from RBNY general PPT layout) |
 | [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Same deck (alias) |
-| [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Mock/static pizza image |
+| [`mock_pizza_dier_nyrb_style.png`](mock_pizza_dier_nyrb_style.png) | **Eric Dier pizza (NYRB wedge style)** |
+| [`mock_pizza_bundesliga.png`](mock_pizza_bundesliga.png) | Original matplotlib mock (kept) |
 
 ## Step 2 (your pick)
 
