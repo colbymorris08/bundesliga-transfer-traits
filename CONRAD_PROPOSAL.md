@@ -10,7 +10,7 @@
 
 ## Research question
 
-When players transfer **into the 1. Bundesliga** from other leagues, which performance traits remain **stable vs. league-context**, and which **source leagues** produce the most effective arrivals?
+When players transfer **into the Bundesliga** from other leagues, which performance traits remain **stable vs. league-context**, and which **source leagues** produce the most effective arrivals?
 
 Two evidence layers:
 
@@ -19,7 +19,9 @@ Two evidence layers:
 | **Tier 1 — Wide** | Outcomes for *all* inbound / first Bundesliga seasons in the study window | **FBref** player-season stats | **≥500** |
 | **Tier 2 — Deep** | Trait portability + league ranking | FBref prior → Bundesliga Y1 per-90; **StatsBomb Open Data** as event-level deep dive on a smaller overlap | Open data now ~**100**; FBref target **500+ paired** seasons |
 
-This extends the NYRB scouting-metric framework (stability → redundancy → target), **replacing Transfermarkt market value** with a **Destination Effectiveness Score (DES)** and a traits-to-target / leagues-to-prioritize framing.
+This extends the NYRB scouting-metric framework (**stability → redundancy → pizza / profiles**), focused on **which stats travel well** from the prior league into the Bundesliga — not Transfermarkt market value.
+
+Inbound players are identified from **FBref season records** (first Bundesliga season / prior league ≠ Bundesliga), not from scraped Transfermarkt transfer tables.
 
 ---
 
@@ -27,10 +29,10 @@ This extends the NYRB scouting-metric framework (stability → redundancy → ta
 
 | What | Reality |
 |------|---------|
-| **Browsing** | Yes — the site is free to view (transfers, clubs, minutes, values). |
-| **Bulk scrape / bots** | **No** — Transfermarkt Terms of Use ban bots, spiders, and screen scraping, and reserve text/data-mining rights. |
+| **Browsing** | Site is free to view (transfers, clubs, minutes, values). |
+| **Bulk scrape / bots** | Transfermarkt Terms of Use ban bots, spiders, and screen scraping, and reserve text/data-mining rights. |
 | **Official research dump** | Not generally open; they prefer one-off data provision for research requests. |
-| **Implication for this project** | Do **not** scrape Transfermarkt. Use **FBref** as the public performance and season source. Use Transfermarkt only via (a) manual spot-checks, (b) Conrad-approved contact/request, or (c) a pre-published dataset if Conrad signs off. |
+| **Implication for this project** | Use **FBref** as the public performance and season source. Use Transfermarkt only via (a) manual spot-checks, (b) Approved contact/request, or (c) a pre-published dataset. |
 
 **FBref** (Sports Reference) is the primary public dataset for Tier 1–2 metrics: viewable online; usable for coursework with attribution and rate-limited access. Respect their terms; do not redistribute raw dumps beyond the course.
 
@@ -44,25 +46,23 @@ This extends the NYRB scouting-metric framework (stability → redundancy → ta
 - **What:** Outcome metrics only — minutes share; per-90 attacking (shots, xG, progressive passes); defending (tackles, pressures, clearances) by position and **source league**.
 - **Why:** Honest large N; answers “who succeeds after arrival?” without needing event data.
 
-### Tier 2 — Portability model (FBref primary; StatsBomb deep dive)
+### Tier 2 — Portability pipeline (FBref primary; StatsBomb deep dive)
 
 - **Who:** Subset with measurable prior-season club stats in another league on FBref → target **500+** paired player-seasons.
-- **What:** Pre-transfer vs Bundesliga Y1 z-scores / percentiles; portability *r* by metric × position; source-league ranking; light redundancy screen.
-- **StatsBomb Open Data deep dive:** Same questions on the ~**94–120** players who currently have prior + Bundesliga minutes in open data (richer event taxonomy, interactive pizza profiles). Compare whether event-level conclusions **align** with FBref (validation: deeper but smaller).
+- **Pipeline (same order as NYRB):**
+  1. **Stability** — for every FBref per-90 stat, correlate prior-league season vs Bundesliga Year-1 (by position). Keep stats that travel well (high cross-league *r*).
+  2. **Redundancy** — among stable stats, drop near-duplicates (|*r*| ≥ 0.70 within position); keep one representative per cluster.
+  3. **Pizza charts** — player profiles built only from that stable + non-redundant set (prior vs Bundesliga avg/top reference lines).
+- **Source-league ranking:** which prior leagues produce arrivals whose Y1 minutes / profile strength look best on the kept traits.
+- **StatsBomb Open Data deep dive:** Same stability → redundancy → pizza sequence on the ~**94–120** open-data overlap (richer event taxonomy). Check whether Event-level conclusions **align** with FBref.
 
-**Destination Effectiveness Score (replaces market-value Axis 3):**
-
-DES_i = Σ_m [ w_m × Pctile_Bundes(m)_i ] / Σ_m w_m
-
-where w_m = max(0, r_port(m)) and r_port is the correlation of pre-transfer vs Year-1 z-scores for metric m.
-
-**Outputs:** traits to target (high portability) and leagues to prioritize (high Year-1 minutes / DES among source leagues).
+**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive pizza charts, and leagues to prioritize.
 
 ---
 
 ## Data stack
 
-1. **FBref** — primary layer for Tier 1 (N≥500 outcomes) and Tier 2 (portability at scale).  
+1. **FBref** — primary layer for Tier 1 (N≥500 outcomes) and Tier 2 (stability / redundancy / pizza at scale).  
 2. **StatsBomb Open Data** — deep dive + interactive pizza explorer on the smaller open-data overlap.  
 3. **Transfermarkt** — browse / spot-check only; no scraping.
 
@@ -74,31 +74,28 @@ Open-data stress test already completed: Bundesliga first appearances ≈ **675*
 
 | # | File | Description |
 |---|------|-------------|
-| 1 | `CONRAD_PROPOSAL.docx` | This proposal as a Word document for Conrad |
-| 2 | `interactive_player_explorer.html` | Player dropdown sorted by position; StatsBomb-style pizza; DES; stock fonts |
-| 3 | `methodology_results_brief.html` | Short 6-section method/results brief (Tier tables, traits, leagues, cases) |
+| 1 | `CONRAD_PROPOSAL.docx` | This proposal as a Word document |
+| 2 | `interactive_player_explorer.html` | Player dropdown sorted by position; pizza from selected traits; stock fonts |
+| 3 | `methodology_results_brief.html` | Short method/results brief (tiers, stability, redundancy, leagues, cases) |
 | 4 | `cohort_data.json` / `README.md` | Open-data cohort artifact + package notes |
-
-All live in: `cal-bundesliga-transfer-traits/`
 
 ---
 
-## Timeline (≈4–5 weeks)
+## Timeline (≈3 weeks)
 
 | Week | Work |
 |------|------|
-| 1 | FBref Bundesliga cohort freeze (Tier 1 N≥500); document no-scrape policy for Transfermarkt |
-| 2 | Tier 1 outcomes by source league + position |
-| 3 | Tier 2 FBref portability + DES; begin StatsBomb deep dive |
-| 4 | Align FBref vs StatsBomb findings; finalize HTML deliverables |
-| 5 | Write-up + Conrad review |
+| 1 | FBref Bundesliga inbound cohort freeze (Tier 1 N≥500); run **stability** on all prior→Bundesliga stats |
+| 2 | **Redundancy** on stable set; Tier 1 outcomes by source league + position |
+| 3 | **Pizza charts** + StatsBomb deep-dive check; PPT / HTML deliverable + review |
 
 ---
 
-## Why this works for 1 credit
+## Why this works?
 
 - **Honest N:** Tier 1 guarantees ≥500 without claiming open data has 500 paired transfers.  
 - **Narrow:** only into the Bundesliga.  
+- **Clear pipeline:** stability on all stats → redundancy → pizzas from the kept set.  
 - **Accurate where it matters:** FBref multi-season performance for the robust model; StatsBomb for a smaller, deeper event dive.  
 - **Clean ethics:** FBref-first; Transfermarkt not scraped.
 
