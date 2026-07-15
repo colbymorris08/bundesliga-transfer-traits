@@ -298,7 +298,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "South Korea",
+      "intl_teams": {
+        "South Korea": 497.3166666666667
+      }
     },
     {
       "id": 16532,
@@ -417,7 +421,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Spain",
+      "intl_teams": {
+        "Spain": 382.35
+      }
     },
     {
       "id": 30401,
@@ -536,7 +544,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Switzerland",
+      "intl_teams": {
+        "Switzerland": 286.95
+      }
     },
     {
       "id": 39167,
@@ -655,7 +667,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 24243,
@@ -773,7 +787,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "United States",
+      "intl_teams": {
+        "United States": 126.25
+      }
     },
     {
       "id": 39565,
@@ -892,7 +910,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Germany",
+      "intl_teams": {
+        "Germany": 268.2166666666667
+      }
     },
     {
       "id": 28239,
@@ -1010,7 +1032,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Czech Republic",
+      "intl_teams": {
+        "Czech Republic": 206.25
+      }
     },
     {
       "id": 10956,
@@ -1130,7 +1156,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 8519,
@@ -1248,7 +1276,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "France",
+      "intl_teams": {
+        "France": 475.0
+      }
     },
     {
       "id": 43565,
@@ -1366,7 +1398,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "South Korea",
+      "intl_teams": {
+        "South Korea": 281.2
+      }
     },
     {
       "id": 24118,
@@ -1484,7 +1520,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Germany",
+      "intl_teams": {
+        "Germany": 103.71666666666667
+      }
     },
     {
       "id": 40185,
@@ -1602,7 +1642,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 29595,
@@ -1720,7 +1762,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Japan",
+      "intl_teams": {
+        "Japan": 285.0
+      }
     },
     {
       "id": 38004,
@@ -1838,7 +1884,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Ecuador",
+      "intl_teams": {
+        "Ecuador": 285.0
+      }
     },
     {
       "id": 8509,
@@ -1956,7 +2006,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Hungary",
+      "intl_teams": {
+        "Hungary": 570.0
+      }
     },
     {
       "id": 48500,
@@ -2074,7 +2128,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 3913,
@@ -2192,7 +2248,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Switzerland",
+      "intl_teams": {
+        "Switzerland": 159.28333333333333
+      }
     },
     {
       "id": 49337,
@@ -2310,7 +2370,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Croatia",
+      "intl_teams": {
+        "Croatia": 95.0
+      }
     },
     {
       "id": 28914,
@@ -2429,7 +2493,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 3767,
@@ -2548,7 +2614,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 23452,
@@ -2666,7 +2734,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Czech Republic",
+      "intl_teams": {
+        "Czech Republic": 140.38333333333333
+      }
     },
     {
       "id": 8769,
@@ -2784,7 +2856,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Austria",
+      "intl_teams": {
+        "Austria": 382.55
+      }
     },
     {
       "id": 44955,
@@ -2903,7 +2979,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Tunisia",
+      "intl_teams": {
+        "Tunisia": 249.54999999999998
+      }
     },
     {
       "id": 3493,
@@ -3023,7 +3103,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 8518,
@@ -3141,7 +3223,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Austria",
+      "intl_teams": {
+        "Austria": 760.0
+      }
     },
     {
       "id": 42822,
@@ -3259,7 +3345,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Hungary",
+      "intl_teams": {
+        "Hungary": 519.8666666666667
+      }
     },
     {
       "id": 217047,
@@ -3377,7 +3467,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 10955,
@@ -3497,7 +3589,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 19316,
@@ -3615,7 +3709,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Hungary",
+      "intl_teams": {
+        "Hungary": 521.4166666666667
+      }
     },
     {
       "id": 11391,
@@ -3733,7 +3831,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 7044,
@@ -3851,7 +3951,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Czech Republic",
+      "intl_teams": {
+        "Czech Republic": 532.9833333333333
+      }
     },
     {
       "id": 29163,
@@ -3970,7 +4074,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Croatia",
+      "intl_teams": {
+        "Croatia": 570.0
+      }
     },
     {
       "id": 12626,
@@ -4088,7 +4196,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 12034,
@@ -4206,7 +4316,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Germany",
+      "intl_teams": {
+        "Germany": 247.15
+      }
     },
     {
       "id": 5602,
@@ -4325,7 +4439,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Costa Rica",
+      "intl_teams": {
+        "Costa Rica": 261.8333333333333
+      }
     },
     {
       "id": 7198,
@@ -4443,7 +4561,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 8506,
@@ -4561,7 +4681,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Austria",
+      "intl_teams": {
+        "Austria": 625.55
+      }
     },
     {
       "id": 6985,
@@ -4679,7 +4803,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Germany",
+      "intl_teams": {
+        "Germany": 317.26666666666665
+      }
     },
     {
       "id": 16554,
@@ -4798,7 +4926,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Denmark",
+      "intl_teams": {
+        "Denmark": 910.2666666666667
+      }
     },
     {
       "id": 15890,
@@ -4916,7 +5048,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Morocco",
+      "intl_teams": {
+        "Morocco": 377.2
+      }
     },
     {
       "id": 12365,
@@ -5034,7 +5170,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Canada",
+      "intl_teams": {
+        "Canada": 285.0
+      }
     },
     {
       "id": 3676,
@@ -5152,7 +5292,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 7796,
@@ -5272,7 +5414,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 16027,
@@ -5391,7 +5535,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Switzerland",
+      "intl_teams": {
+        "Switzerland": 178.38333333333333
+      }
     },
     {
       "id": 8361,
@@ -5509,7 +5657,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Japan",
+      "intl_teams": {
+        "Japan": 226.70000000000002
+      }
     },
     {
       "id": 20662,
@@ -5627,7 +5779,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 17974,
@@ -5745,7 +5899,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Switzerland",
+      "intl_teams": {
+        "Switzerland": 95.0
+      }
     },
     {
       "id": 9082,
@@ -5863,7 +6021,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 4440,
@@ -5981,7 +6141,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 29003,
@@ -6099,7 +6261,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 7829,
@@ -6218,7 +6382,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Netherlands",
+      "intl_teams": {
+        "Netherlands": 369.18333333333334
+      }
     },
     {
       "id": 5536,
@@ -6337,7 +6505,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Denmark",
+      "intl_teams": {
+        "Denmark": 355.05
+      }
     },
     {
       "id": 16275,
@@ -6456,7 +6628,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 50429,
@@ -6574,7 +6748,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 9102,
@@ -6692,7 +6868,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 7375,
@@ -6810,7 +6988,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 3230,
@@ -6928,7 +7108,9 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": null,
+      "intl_teams": {}
     },
     {
       "id": 8400,
@@ -7048,7 +7230,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Germany",
+      "intl_teams": {
+        "Germany": 268.29999999999995
+      }
     },
     {
       "id": 12423,
@@ -7166,7 +7352,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "England",
+      "intl_teams": {
+        "England": 108.45
+      }
     },
     {
       "id": 8949,
@@ -7284,7 +7474,11 @@
           "stability": 0.4474,
           "passes_threshold": false
         }
-      ]
+      ],
+      "national_team": "Japan",
+      "intl_teams": {
+        "Japan": 153.83333333333331
+      }
     }
   ],
   "top_targets": [
