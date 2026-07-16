@@ -1,7 +1,5 @@
 metric_a,metric_b,r
 PrgP_Progression,PrgP,1
-TklW_Tackles,TklW,1
-Live_Touches,Touches_Touches,0.9999984739034181
 Gls_Per,Gls_Standard,0.9999449947684702
 Att_Short,Cmp_Short,0.9948949530956084
 xG_plus_xAG_Per,npxG_plus_xAG_Per,0.9931094630201099
@@ -19,8 +17,6 @@ TotDist_Total,Att_Total,0.9458034311952602
 xG_Per,xG_plus_xAG_Per,0.9429318654932956
 xG_plus_xAG_Per,npxG_Per,0.9428324950590882
 Tkld_Take,Att_Take,0.9423759753200611
-TklW_Tackles,Tkl_Tackles,0.9409014064660062
-TklW,Tkl_Tackles,0.9409014064660062
 Att_Medium,Cmp_Total,0.9400152908751048
 Cmp_Medium,Cmp_Total,0.9374250610964479
 npxG_Per,npxG_plus_xAG_Per,0.9370036651422099
@@ -30,14 +26,11 @@ xG_plus_xAG_Per,G_plus_A_Per,0.9356643742924555
 Succ_Take,Att_Take,0.9339916438739642
 npxG_Per,SoT_per_90_Standard,0.9336655299814076
 Att_Medium,Att_Total,0.9324699963193341
-Mid_3rd_Touches,Touches_Touches,0.932440963102401
-Mid_3rd_Touches,Live_Touches,0.9324254020974581
 npxG_plus_xAG_Per,G_plus_A_Per,0.9289066354473859
 Att_Long,Cmp_Long,0.9286869215877668
 npxG_plus_xAG_Per,G_plus_A_minus_PK_Per,0.9271154702804273
 xG_Per,Gls_Standard,0.926054904159831
 xG_Per,Gls_Per,0.9259328695415304
-Tkl_plus_Int,Tkl_Tackles,0.9244668902222272
 xG_plus_xAG_Per,G_plus_A_minus_PK_Per,0.9214109368410662
 xG_Per,npxG_plus_xAG_Per,0.9205313615533368
 npxG_Per,Gls_Standard,0.9204614084147079
@@ -59,9 +52,6 @@ Gls_Per,G_plus_A_minus_PK_Per,0.8988737445959563
 PrgR_Receiving,Att_3rd_Touches,0.8983258559299034
 PrgDist_Total,TotDist_Total,0.8971877516097745
 Sh_per_90_Standard,npxG_Per,0.8945219577903982
-Def_3rd_Tackles,Tkl_Tackles,0.8934832064066276
-Tkl_plus_Int,TklW_Tackles,0.8918548444919444
-Tkl_plus_Int,TklW,0.8918548444919444
 PrgC_Progression,PrgC_Carries,0.8912974177774899
 npxG_Per,G_plus_A_Per,0.8910941891713191
 xG_Per,G_plus_A_Per,0.8908634220859095
@@ -91,8 +81,6 @@ Cmp_Short,PrgP,0.8583497061317821
 xG_plus_xAG_Per,G_minus_PK_Per,0.8562193729431218
 Att_Total,Cmp_Short,0.8549718795392351
 npxG_plus_xAG_Per,G_minus_PK_Per,0.8532685810869591
-PrgDist_Carries,Live_Touches,0.8526199896365699
-PrgDist_Carries,Touches_Touches,0.8525044995804512
 npxG_plus_xAG_Per,Gls_Standard,0.850510810534799
 npxG_plus_xAG_Per,Gls_Per,0.8500889179505003
 Sh_per_90_Standard,G_plus_A_Per,0.846891852505348
@@ -101,8 +89,6 @@ Final_Third,Prog,0.8415787044393389
 PrgDist_Total,Att_Total,0.8398959540468102
 Sh_per_90_Standard,G_minus_PK_Per,0.8378944403398929
 Cmp_percent_Medium,Cmp_percent_Total,0.8339497998388307
-Recov,Live_Touches,0.8324127438376312
-Recov,Touches_Touches,0.832374420586908
 PrgR_Receiving,Att_Pen_Touches,0.8310634397637108
 Sh_per_90_Standard,Gls_Standard,0.8291783620126825
 Sh_per_90_Standard,Gls_Per,0.828756158099626
@@ -117,9 +103,6 @@ Att_Total,Final_Third,0.8150993178725141
 Att_3rd_Touches,Final_Third_Carries,0.8101005862976247
 PrgC_Carries,Att_3rd_Touches,0.8086852123035141
 Sh_per_90_Standard,Att_Pen_Touches,0.8067897796047497
-Def_3rd_Tackles,TklW_Tackles,0.8066177585685969
-Def_3rd_Tackles,TklW,0.8066177585685969
-Recov,Mid_3rd_Touches,0.8058046427340843
 npxG_plus_xAG_Per,Att_Pen_Touches,0.8024560799151301
 xG_plus_xAG_Per,Att_Pen_Touches,0.7987046064464473
 PrgC_Progression,Final_Third_Carries,0.7982235252717605
@@ -137,7 +120,6 @@ Cmp_Short,PrgP_Progression,0.7883653627996362
 PrgC_Carries,CPA_Carries,0.7877232402408544
 Won_Aerial,Lost_Aerial,0.7868049601604269
 Cmp_Medium,Cmp_percent_Total,0.7843953261352494
-Mid_3rd_Touches,PrgDist_Carries,0.7835626936388774
 npxG_Per,Att_Pen_Touches,0.7822799554130057
 Final_Third,Att_Short,0.7815427882044671
 PrgR_Receiving,Mis_Carries,0.7789090651674736
@@ -179,7 +161,6 @@ Att_Medium,Cmp_percent_Total,0.7401364714652293
 Att_Total,Cmp_percent_Short,0.7383211457423622
 PrgR_Receiving,Att_Take,0.7360269037004197
 Cmp_Medium,Cmp_percent_Medium,0.7332278282535079
-Recov,Tkl_Tackles,0.7322585116894506
 G_plus_A_Per,xA,0.7299938769379832
 Att_Take,Mis_Carries,0.729946692202251
 PrgR_Progression,CPA_Carries,0.72990145503122
@@ -189,12 +170,9 @@ xG_Per,Off,0.725612130489477
 Att_3rd_Touches,Tkld_Take,0.7246536067768552
 Att_Medium,Final_Third,0.724303761492472
 Att_Short,Prog,0.7238963686828002
-Prog,Mid_3rd_Touches,0.7234190376194041
 PrgC_Progression,CPA_Carries,0.7220373391631087
 PrgC_Carries,Tkld_Take,0.7208578240946221
 CPA_Carries,Succ_Take,0.7201442906708938
-Recov,TklW_Tackles,0.7171607358936642
-Recov,TklW,0.7171607358936642
 npxG_Per,Off,0.7170529841835176
 Att_Total,PrgP_Progression,0.7163028710401765
 Cmp_Short,Prog,0.7153945414991731
@@ -211,8 +189,6 @@ Att_Pen_Touches,G_minus_PK_Per,0.7057914937569912
 Cmp_Medium,Cmp_percent_Short,0.7055765876920528
 xG_plus_xAG_Per,Off,0.7055417648456493
 Att_Take,Dis_Carries,0.7046476155072507
-Prog,Live_Touches,0.7040556347768909
-Prog,Touches_Touches,0.70400463020488
 PrgR_Receiving,Final_Third_Carries,0.7027575460386385
 PrgR_Progression,xG_plus_xAG_Per,0.7015784495466743
 Att_Total,Cmp_percent_Total,0.7008916043136221

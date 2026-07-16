@@ -19,7 +19,8 @@ SEASONS <- 2018:2025
 STAT_TYPES <- c("standard", "shooting", "passing", "possession", "defense", "misc")
 MIN_PRIOR <- 450
 MIN_Y1 <- 450
-STABILITY_GATE <- 0.40
+STABILITY_GATE <- 0.50  # Step 2 primary gate
+REF_GATE_040 <- 0.40
 REDUNDANCY_GATE <- 0.70
 MIN_PAIRS <- 25
 
@@ -248,7 +249,9 @@ for (base in metric_bases) {
   if (!is.finite(r)) next
   stab_list[[length(stab_list) + 1]] <- tibble(
     metric = base, n_pairs = n, stability_r = as.numeric(r),
-    passes_0_40 = r >= STABILITY_GATE, passes_0_70 = r >= 0.70
+    passes_0_40 = r >= REF_GATE_040,
+    passes_0_50 = r >= STABILITY_GATE,
+    passes_0_70 = r >= 0.70
   )
 }
 
@@ -280,7 +283,7 @@ stab <- stab %>% mutate(
   label = vapply(metric, nice_label, character(1))
 )
 
-passed <- stab %>% filter(passes_0_40)
+passed <- stab %>% filter(passes_0_50)
 pass_metrics <- passed$metric
 
 if (length(pass_metrics) >= 2) {
@@ -319,9 +322,10 @@ if (nrow(red_pairs) > 0) {
 # Outputs
 write_csv(stab, file.path(OUT, "fbref_stability_all_metrics.csv"))
 write_csv(stab %>% filter(passes_0_40), file.path(OUT, "fbref_stability_passed_r040.csv"))
+write_csv(stab %>% filter(passes_0_50), file.path(OUT, "fbref_stability_passed_r050.csv"))
 write_csv(stab %>% filter(passes_0_70), file.path(OUT, "fbref_stability_passed_r070.csv"))
 write_csv(red_pairs, file.path(OUT, "fbref_redundancy_high_pairs_step2.csv"))
-write_csv(tibble(metric = auto, note = "AUTO keep higher-stability side of each |r|>=0.70 pair"),
+write_csv(tibble(metric = auto, note = "AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50"),
           file.path(OUT, "fbref_redundancy_auto_shortlist_suggestion.csv"))
 
 pairs_out <- tibble(
@@ -348,9 +352,11 @@ summary <- list(
   seasons_end_year = SEASONS,
   min_prior_minutes = MIN_PRIOR,
   min_y1_minutes = MIN_Y1,
+  stability_gate = STABILITY_GATE,
   n_pairs = nrow(pairs),
   n_metrics_tested = nrow(stab),
   n_pass_0_40 = sum(stab$passes_0_40),
+  n_pass_0_50 = sum(stab$passes_0_50),
   n_pass_0_70 = sum(stab$passes_0_70),
   n_redundancy_pairs = nrow(red_pairs),
   auto_shortlist_n = length(auto),
@@ -364,25 +370,27 @@ md <- c(
   sprintf("**Source:** %s", summary$source),
   sprintf("**Seasons (end years):** %s", paste(SEASONS, collapse = ", ")),
   sprintf("**Minutes:** prior ≥ %d · BL Y1 ≥ %d", MIN_PRIOR, MIN_Y1),
+  sprintf("**Stability gate (Step 2):** **r ≥ %.2f**", STABILITY_GATE),
   sprintf("**Paired inbound N:** **%d**", nrow(pairs)),
   sprintf("**Metrics tested:** %d", nrow(stab)),
-  sprintf("**Passed r ≥ 0.40:** **%d**", sum(stab$passes_0_40)),
+  sprintf("**Passed r ≥ 0.40:** %d", sum(stab$passes_0_40)),
+  sprintf("**Passed r ≥ 0.50:** **%d**", sum(stab$passes_0_50)),
   sprintf("**Passed r ≥ 0.70:** **%d**", sum(stab$passes_0_70)),
-  sprintf("**Redundancy pairs:** **%d**", nrow(red_pairs)),
+  sprintf("**Redundancy pairs (among r≥0.50):** **%d**", nrow(red_pairs)),
   sprintf("**Auto shortlist:** **%d**", length(auto)),
   "",
-  "## Metrics that passed r ≥ 0.40",
+  "## Metrics that passed r ≥ 0.50",
   "",
   "| Abbrev | Metric | Category | r | N |",
   "|---|---|---|---:|---:|"
 )
-pass_tbl <- stab %>% filter(passes_0_40)
+pass_tbl <- stab %>% filter(passes_0_50)
 for (i in seq_len(nrow(pass_tbl))) {
   md <- c(md, sprintf("| %s | %s | %s | %.3f | %d |",
                       pass_tbl$abbrev[i], pass_tbl$label[i], pass_tbl$category[i],
                       pass_tbl$stability_r[i], pass_tbl$n_pairs[i]))
 }
-md <- c(md, "", "## Redundancy pairs (|r|≥0.70)", "")
+md <- c(md, "", "## Redundancy pairs (|r|≥0.70 among r≥0.50)", "")
 if (!nrow(red_pairs)) md <- c(md, "_None_") else {
   md <- c(md, "| A | B | r |", "|---|---|---:|")
   for (i in seq_len(min(40, nrow(red_pairs)))) {
@@ -393,6 +401,6 @@ md <- c(md, "", "## Auto shortlist", "", paste0("- ", auto, collapse = "\n"))
 writeLines(md, file.path(OUT, "FBREF_RESULTS.md"))
 
 message("DONE n_pairs=", nrow(pairs), " tested=", nrow(stab),
-        " pass040=", sum(stab$passes_0_40), " red=", nrow(red_pairs),
+        " pass050=", sum(stab$passes_0_50), " red=", nrow(red_pairs),
         " auto=", length(auto))
-print(head(stab %>% filter(passes_0_40), 20))
+print(head(stab %>% filter(passes_0_50), 20))

@@ -1,0 +1,23 @@
+term,coef,se,p_value,significant_05,model
+La Liga,48.41,266.77,0.8563,False,M1_y1_minutes_league
+Ligue 1,162.73,182.7,0.375,False,M1_y1_minutes_league
+Premier League,87.86,199.74,0.6609,False,M1_y1_minutes_league
+minutes,0.25,0.08,0.0032,True,M1_y1_minutes_league
+pos DF,214.61,139.55,0.127,False,M1_y1_minutes_league
+pos FW,269.2,188.16,0.1554,False,M1_y1_minutes_league
+pos GK,108.23,433.35,0.8032,False,M1_y1_minutes_league
+pos MF,185.3,146.81,0.2096,False,M1_y1_minutes_league
+La Liga,-1.76,3.03,0.5629,False,M2_trait_score_league
+Ligue 1,-1.14,2.06,0.5805,False,M2_trait_score_league
+Premier League,-2.16,2.28,0.346,False,M2_trait_score_league
+minutes,0.0,0.0,0.0019,True,M2_trait_score_league
+La Liga,9.48,258.58,0.9708,False,M3_y1_minutes_league_plus_traits
+Ligue 1,147.17,170.47,0.3899,False,M3_y1_minutes_league_plus_traits
+Premier League,98.45,189.44,0.6044,False,M3_y1_minutes_league_plus_traits
+Final Third,4.86,3.42,0.1583,False,M3_y1_minutes_league_plus_traits
+Def Pen Touches,5.31,4.02,0.1886,False,M3_y1_minutes_league_plus_traits
+Lost Aerial,9.4,3.01,0.0023,True,M3_y1_minutes_league_plus_traits
+Sh Blocks,2.18,3.78,0.5649,False,M3_y1_minutes_league_plus_traits
+PrgDist Total,-4.24,3.66,0.2489,False,M3_y1_minutes_league_plus_traits
+xG Per,2.02,2.54,0.4302,False,M3_y1_minutes_league_plus_traits
+minutes,0.17,0.08,0.0364,True,M3_y1_minutes_league_plus_traits

@@ -3,14 +3,16 @@
 **Source:** FBref Big 5 via worldfootballR load_fb_big5_advanced_season_stats
 **Seasons (end years):** 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025
 **Minutes:** prior ≥ 450 · BL Y1 ≥ 450
+**Stability gate (Step 2):** **r ≥ 0.50**
 **Paired inbound N:** **117**
 **Metrics tested:** 103
-**Passed r ≥ 0.40:** **71**
+**Passed r ≥ 0.40:** 71
+**Passed r ≥ 0.50:** **61**
 **Passed r ≥ 0.70:** **35**
-**Redundancy pairs:** **217**
-**Auto shortlist:** **22**
+**Redundancy pairs (among r≥0.50):** **193**
+**Auto shortlist:** **18**
 
-## Metrics that passed r ≥ 0.40
+## Metrics that passed r ≥ 0.50
 
 | Abbrev | Metric | Category | r | N |
 |---|---|---|---:|---:|
@@ -75,24 +77,12 @@
 | PRGP | PrgP | Passing | 0.540 | 34 |
 | TKLPE | Tkl percent Challenges | Defending | 0.511 | 110 |
 | RECOV | Recov | Defending | 0.503 | 114 |
-| MID3R | Mid 3rd Touches | Carrying | 0.497 | 114 |
-| NPXGP | npxG/Sh Expected | Attacking | 0.476 | 113 |
-| TKLW | TklW Tackles | Defending | 0.450 | 114 |
-| TKLW | TklW | Defending | 0.450 | 114 |
-| PRGDI | PrgDist Carries | Carrying | 0.443 | 114 |
-| CMPPE | Cmp percent Long | Passing | 0.422 | 117 |
-| TKL | Tkl Tackles | Defending | 0.421 | 114 |
-| FK | FK Standard | Other | 0.407 | 117 |
-| LIVE | Live Touches | Carrying | 0.402 | 114 |
-| TOUCH | Touches Touches | Carrying | 0.402 | 114 |
 
-## Redundancy pairs (|r|≥0.70)
+## Redundancy pairs (|r|≥0.70 among r≥0.50)
 
 | A | B | r |
 |---|---|---:|
 | PrgP_Progression | PrgP | 1.000 |
-| TklW_Tackles | TklW | 1.000 |
-| Live_Touches | Touches_Touches | 1.000 |
 | Gls_Per | Gls_Standard | 1.000 |
 | Att_Short | Cmp_Short | 0.995 |
 | xG_plus_xAG_Per | npxG_plus_xAG_Per | 0.993 |
@@ -110,8 +100,6 @@
 | xG_Per | xG_plus_xAG_Per | 0.943 |
 | xG_plus_xAG_Per | npxG_Per | 0.943 |
 | Tkld_Take | Att_Take | 0.942 |
-| TklW_Tackles | Tkl_Tackles | 0.941 |
-| TklW | Tkl_Tackles | 0.941 |
 | Att_Medium | Cmp_Total | 0.940 |
 | Cmp_Medium | Cmp_Total | 0.937 |
 | npxG_Per | npxG_plus_xAG_Per | 0.937 |
@@ -121,15 +109,19 @@
 | Succ_Take | Att_Take | 0.934 |
 | npxG_Per | SoT_per_90_Standard | 0.934 |
 | Att_Medium | Att_Total | 0.932 |
-| Mid_3rd_Touches | Touches_Touches | 0.932 |
-| Mid_3rd_Touches | Live_Touches | 0.932 |
 | npxG_plus_xAG_Per | G_plus_A_Per | 0.929 |
 | Att_Long | Cmp_Long | 0.929 |
 | npxG_plus_xAG_Per | G_plus_A_minus_PK_Per | 0.927 |
 | xG_Per | Gls_Standard | 0.926 |
 | xG_Per | Gls_Per | 0.926 |
-| Tkl_plus_Int | Tkl_Tackles | 0.924 |
 | xG_plus_xAG_Per | G_plus_A_minus_PK_Per | 0.921 |
+| xG_Per | npxG_plus_xAG_Per | 0.921 |
+| npxG_Per | Gls_Standard | 0.920 |
+| G_plus_A_Per | Gls_Standard | 0.920 |
+| npxG_Per | Gls_Per | 0.920 |
+| G_plus_A_Per | Gls_Per | 0.920 |
+| G_plus_A_Per | G_minus_PK_Per | 0.917 |
+| xG_Per | SoT_per_90_Standard | 0.916 |
 
 ## Auto shortlist
 
@@ -151,7 +143,3 @@
 - Def_3rd_Tackles
 - Tkl_percent_Challenges
 - Recov
-- npxG_per_Sh_Expected
-- PrgDist_Carries
-- Cmp_percent_Long
-- FK_Standard

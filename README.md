@@ -28,9 +28,36 @@ See [`results/RESULTS.md`](results/RESULTS.md) and [`results/results_dashboard.h
 | Redundancy pairs | **217** |
 | Auto shortlist | **22** |
 
-See [`results/FBREF_RESULTS.md`](results/FBREF_RESULTS.md).
+See [`results/FBREF_RESULTS.md`](results/FBREF_RESULTS.md). Step-2 shortlist: **26** traits (`decisions/step2_fbref.json`).
 
-## Files
+## Success indicators (traits & leagues → BL Year-1)
+
+Phase 2 asks which **prior traits** and **feeder leagues** associate with BL success (Y1 minutes + stable-trait score).
+
+| Test | Method |
+|------|--------|
+| Traits | Spearman ρ: prior-season trait percentile → Y1 outcome |
+| Leagues | Mean/median Y1 minutes & trait score by prior league |
+
+See [`results/SUCCESS_INDICATORS.md`](results/SUCCESS_INDICATORS.md) · run with `python3 scripts/run_success_indicators.py`
+
+**FBref (N=117):** prior final-third passing, defensive box touches, blocks, aerials ↔ more Y1 minutes. **Leagues:** Ligue 1 highest mean Y1 minutes; all Big 5 feeders viable.
+
+**StatsBomb (N=60):** directional trait signals; league cells mostly intl comps (small N).
+
+## Feeder regression (next phase — explain “best feeder”)
+
+Descriptive league means are not enough. OLS on **Y1 minutes** (FBref N=117) estimates each Big-5 feeder vs **Serie A** (reference), controlling for prior minutes, position, and prior trait percentiles.
+
+| Model | What it tests |
+|-------|----------------|
+| M1 | League dummies → Y1 minutes |
+| M3 | League + prior trait percentiles (mediation) |
+| M4 | 80/20 holdout check (exploratory) |
+
+See [`results/FEEDER_REGRESSION.md`](results/FEEDER_REGRESSION.md) · run with `python3 scripts/run_feeder_regression.py`
+
+**Headline:** Ligue 1 leads descriptively (+163 min vs Serie A in M1) but league dummies are **not significant** at this N; **Lost Aerial** prior pct is (p≈0.002). Trait profile explains more variance than league label (R² 0.09 → 0.22). Still **not** a validated BL performance forecast.
 
 | File | Description |
 |------|-------------|
