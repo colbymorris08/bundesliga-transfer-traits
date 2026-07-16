@@ -22,7 +22,7 @@
 | [`results/redundancy_high_pairs_step2.csv`](results/redundancy_high_pairs_step2.csv) | Near-duplicate pairs |
 | [`results/redundancy_auto_shortlist_suggestion.csv`](results/redundancy_auto_shortlist_suggestion.csv) | Auto shortlist suggestion |
 
-### FBref Big 5 (N=117 · gate r≥0.50)
+### FBref Big 5 (N=137 · gate r≥0.50 · minutes ≥300)
 
 | File | Role |
 |------|------|
@@ -31,19 +31,26 @@
 | [`results/fbref_redundancy_high_pairs_step2.csv`](results/fbref_redundancy_high_pairs_step2.csv) | Near-duplicate pairs |
 | [`results/fbref_redundancy_auto_shortlist_suggestion.csv`](results/fbref_redundancy_auto_shortlist_suggestion.csv) | Auto shortlist suggestion |
 
+## Primary success (powered design)
+
+| File | Role |
+|------|------|
+| [`results/primary_success_traits.csv`](results/primary_success_traits.csv) | 5 pre-specified traits → Y1 minutes + BH FDR |
+| [`results/PRIMARY_SUCCESS.md`](results/PRIMARY_SUCCESS.md) | Write-up |
+
+**Design:** overall cohort only (no league×trait grid) · 5 traits · Benjamini–Hochberg FDR · N=137 from Big‑5 cache (minute gate 300 — no extra scrapes).
+
+**Result:** all 5 FDR-significant (Final Third, Lost Aerial inverted, Aerial win %, Def Pen touches, Shot Blocks).
+
 ## Scripts
 
 | Script | What it builds |
 |--------|----------------|
 | [`run_analysis.py`](run_analysis.py) | StatsBomb stability + redundancy CSVs |
-| [`scripts/run_fbref_stability.R`](scripts/run_fbref_stability.R) | FBref stability + redundancy CSVs |
-| [`scripts/run_success_indicators.py`](scripts/run_success_indicators.py) | Traits / leagues → Y1 minutes |
-| [`scripts/run_feeder_regression.py`](scripts/run_feeder_regression.py) | Feeder-league OLS (why Ligue 1 looks best) |
+| [`scripts/run_fbref_stability.R`](scripts/run_fbref_stability.R) | FBref stability + redundancy + primary panel |
+| [`scripts/run_primary_success.py`](scripts/run_primary_success.py) | Primary traits → Y1 minutes (FDR) |
+| [`scripts/run_success_indicators.py`](scripts/run_success_indicators.py) | Broader trait/league descriptives |
+| [`scripts/run_feeder_regression.py`](scripts/run_feeder_regression.py) | Feeder-league OLS |
+| [`scripts/run_feeder_expand_safe.py`](scripts/run_feeder_expand_safe.py) | Optional: 3 extra feeders, sequential, cached |
 
 **Success proxy:** first-season Bundesliga minutes (Y1). Transfermarkt Δ value would be preferred if licensed data were available.
-
-## Headlines
-
-- **StatsBomb:** 11 metrics pass r≥0.40; 3 redundancy pairs; Step-2 shortlist ~9–11 traits
-- **FBref:** 61 metrics pass r≥0.50; Step-2 shortlist **26** traits
-- **Success:** prior final-third / defensive-box / aerial traits ↔ more Y1 minutes; Ligue 1 leads descriptively on mean Y1 minutes; regression shows league dummies are weak vs trait profile

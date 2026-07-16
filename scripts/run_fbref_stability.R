@@ -17,12 +17,16 @@ dir.create(CACHE, showWarnings = FALSE, recursive = TRUE)
 
 SEASONS <- 2018:2025
 STAT_TYPES <- c("standard", "shooting", "passing", "possession", "defense", "misc")
-MIN_PRIOR <- 450
-MIN_Y1 <- 450
+MIN_PRIOR <- 300
+MIN_Y1 <- 300
 STABILITY_GATE <- 0.50  # Step 2 primary gate
 REF_GATE_040 <- 0.40
 REDUNDANCY_GATE <- 0.70
 MIN_PAIRS <- 25
+# Pre-specified Phase-2 success traits (overall cohort only — not league×trait)
+PRIMARY_SUCCESS_TRAITS <- c(
+  "Lost_Aerial", "Final_Third", "Sh_Blocks", "Def_Pen_Touches", "Won_percent_Aerial"
+)
 
 numify <- function(x) {
   if (is.numeric(x)) return(as.numeric(x))
@@ -341,6 +345,29 @@ pairs_out <- tibble(
   pos = pairs$pos_y1
 )
 write_csv(pairs_out, file.path(OUT, "fbref_inbound_pairs.csv"))
+
+# Primary-trait panel for success analysis (prior rate percentiles built in Python)
+primary_present <- PRIMARY_SUCCESS_TRAITS[PRIMARY_SUCCESS_TRAITS %in% metric_bases]
+prim_list <- list(
+  player_id = pairs$player_id,
+  player = pairs$player_y1,
+  prior_comp = pairs$comp_prior,
+  prior_minutes = pairs$minutes_prior,
+  y1_minutes = pairs$minutes_y1,
+  pos = pairs$pos_y1
+)
+for (b in primary_present) {
+  x <- make_val("prior", b)
+  y <- make_val("y1", b)
+  if (b %in% INVERT || grepl("^Mis_|^Dis_|^Err|Lost_|Tkld_", b)) {
+    x <- -x
+    y <- -y
+  }
+  prim_list[[paste0(b, "_prior")]] <- x
+  prim_list[[paste0(b, "_y1")]] <- y
+}
+write_csv(as_tibble(prim_list), file.path(OUT, "fbref_primary_trait_panel.csv"))
+message("primary traits exported: ", paste(primary_present, collapse = ", "))
 
 if (!is.null(corm)) {
   write_csv(as.data.frame(corm) %>% rownames_to_column("metric"),

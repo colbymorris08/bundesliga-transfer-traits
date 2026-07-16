@@ -1,0 +1,82 @@
+{
+  "design": {
+    "cohort_n": 137,
+    "tests": "5 pre-specified traits \u00d7 Y1 minutes (overall only)",
+    "multiple_testing": "Benjamini\u2013Hochberg FDR on the 5 p-values",
+    "not_done": "No league\u00d7trait Spearman grid (underpowered)"
+  },
+  "traits": [
+    {
+      "trait": "Final_Third",
+      "label": "Final Third passes",
+      "n": 137,
+      "spearman_r": 0.2382,
+      "p_value": 0.0051,
+      "q_value_bh": 0.0213,
+      "significant_fdr_05": true
+    },
+    {
+      "trait": "Lost_Aerial",
+      "label": "Lost Aerial (inverted \u2014 fewer losses = higher)",
+      "n": 137,
+      "spearman_r": 0.2239,
+      "p_value": 0.0085,
+      "q_value_bh": 0.0213,
+      "significant_fdr_05": true
+    },
+    {
+      "trait": "Won_percent_Aerial",
+      "label": "Aerial win %",
+      "n": 137,
+      "spearman_r": 0.2069,
+      "p_value": 0.0153,
+      "q_value_bh": 0.025,
+      "significant_fdr_05": true
+    },
+    {
+      "trait": "Def_Pen_Touches",
+      "label": "Defensive penalty-area touches",
+      "n": 137,
+      "spearman_r": 0.1986,
+      "p_value": 0.02,
+      "q_value_bh": 0.025,
+      "significant_fdr_05": true
+    },
+    {
+      "trait": "Sh_Blocks",
+      "label": "Shot Blocks",
+      "n": 137,
+      "spearman_r": 0.1693,
+      "p_value": 0.048,
+      "q_value_bh": 0.048,
+      "significant_fdr_05": true
+    }
+  ],
+  "league_means_head": [
+    {
+      "prior_comp": "Ligue 1",
+      "n": 60,
+      "mean_y1_minutes": 1464.9,
+      "median_y1_minutes": 1387.5
+    },
+    {
+      "prior_comp": "La Liga",
+      "n": 12,
+      "mean_y1_minutes": 1389.6,
+      "median_y1_minutes": 1311.0
+    },
+    {
+      "prior_comp": "Premier League",
+      "n": 36,
+      "mean_y1_minutes": 1351.5,
+      "median_y1_minutes": 1305.0
+    },
+    {
+      "prior_comp": "Serie A",
+      "n": 29,
+      "mean_y1_minutes": 1260.7,
+      "median_y1_minutes": 955.0
+    }
+  ],
+  "headline": "N=137: FDR-significant \u2014 Final Third passes (\u03c1=0.2382, q=0.0213), Lost Aerial (inverted \u2014 fewer losses = higher) (\u03c1=0.2239, q=0.0213), Aerial win % (\u03c1=0.2069, q=0.025), Defensive penalty-area touches (\u03c1=0.1986, q=0.025), Shot Blocks (\u03c1=0.1693, q=0.048)"
+}

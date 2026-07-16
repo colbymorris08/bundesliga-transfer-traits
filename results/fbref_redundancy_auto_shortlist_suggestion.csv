@@ -1,19 +1,16 @@
 metric,note
 Def_Pen_Touches,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
 PrgC_Progression,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+npxG_Per,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
 PrgDist_Total,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-xG_Per,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-KP,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
 Clr,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Succ_Take,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Won_Aerial,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Final_Third,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Cmp_percent_Medium,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-CrsPA,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Int,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+KP,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
 Crs,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+Won_Aerial,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+Att_Short,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+Att_Take,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+CrsPA,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+Cmp_percent_Medium,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
 Fld,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
 Won_percent_Aerial,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Def_3rd_Tackles,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Tkl_percent_Challenges,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
-Recov,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50
+FK_Standard,AUTO keep higher-stability side of each |r|>=0.70 pair; gate r>=0.50

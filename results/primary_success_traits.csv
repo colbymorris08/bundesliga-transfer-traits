@@ -1,0 +1,6 @@
+trait,label,n,spearman_r,p_value,q_value_bh,significant_fdr_05
+Final_Third,Final Third passes,137,0.2382,0.0051,0.0213,True
+Lost_Aerial,Lost Aerial (inverted — fewer losses = higher),137,0.2239,0.0085,0.0213,True
+Won_percent_Aerial,Aerial win %,137,0.2069,0.0153,0.025,True
+Def_Pen_Touches,Defensive penalty-area touches,137,0.1986,0.02,0.025,True
+Sh_Blocks,Shot Blocks,137,0.1693,0.048,0.048,True
