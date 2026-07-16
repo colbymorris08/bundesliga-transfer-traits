@@ -1,0 +1,23 @@
+metric,note
+Def_Pen_Touches,AUTO keep higher-stability side of each |r|>=0.70 pair
+PrgC_Progression,AUTO keep higher-stability side of each |r|>=0.70 pair
+PrgDist_Total,AUTO keep higher-stability side of each |r|>=0.70 pair
+xG_Per,AUTO keep higher-stability side of each |r|>=0.70 pair
+KP,AUTO keep higher-stability side of each |r|>=0.70 pair
+Clr,AUTO keep higher-stability side of each |r|>=0.70 pair
+Succ_Take,AUTO keep higher-stability side of each |r|>=0.70 pair
+Won_Aerial,AUTO keep higher-stability side of each |r|>=0.70 pair
+Final_Third,AUTO keep higher-stability side of each |r|>=0.70 pair
+Cmp_percent_Medium,AUTO keep higher-stability side of each |r|>=0.70 pair
+CrsPA,AUTO keep higher-stability side of each |r|>=0.70 pair
+Int,AUTO keep higher-stability side of each |r|>=0.70 pair
+Crs,AUTO keep higher-stability side of each |r|>=0.70 pair
+Fld,AUTO keep higher-stability side of each |r|>=0.70 pair
+Won_percent_Aerial,AUTO keep higher-stability side of each |r|>=0.70 pair
+Def_3rd_Tackles,AUTO keep higher-stability side of each |r|>=0.70 pair
+Tkl_percent_Challenges,AUTO keep higher-stability side of each |r|>=0.70 pair
+Recov,AUTO keep higher-stability side of each |r|>=0.70 pair
+npxG_per_Sh_Expected,AUTO keep higher-stability side of each |r|>=0.70 pair
+PrgDist_Carries,AUTO keep higher-stability side of each |r|>=0.70 pair
+Cmp_percent_Long,AUTO keep higher-stability side of each |r|>=0.70 pair
+FK_Standard,AUTO keep higher-stability side of each |r|>=0.70 pair

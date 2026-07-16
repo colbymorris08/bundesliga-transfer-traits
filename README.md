@@ -17,6 +17,19 @@ See [`results/RESULTS.md`](results/RESULTS.md) and [`results/results_dashboard.h
 
 **FBref** is the planned scale layer (Tier 1 N≥500). The HTML explorer has a **Data source** dropdown (StatsBomb live · FBref planned).
 
+## Latest run (FBref Big 5)
+
+| Item | Value |
+|------|------:|
+| Paired inbound N | **117** |
+| Metrics tested | **103** |
+| Passed stability r≥0.40 | **71** |
+| Passed r≥0.70 | **35** |
+| Redundancy pairs | **217** |
+| Auto shortlist | **22** |
+
+See [`results/FBREF_RESULTS.md`](results/FBREF_RESULTS.md).
+
 ## Files
 
 | File | Description |

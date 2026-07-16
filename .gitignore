@@ -7,3 +7,5 @@ decisions/*.pdf
 decisions/*.json
 !decisions/README.md
 step2_statsbomb_decision_tool.html
+results/fbref_cache/
+scripts/probe_*.R

@@ -1,0 +1,13 @@
+{
+  "source": "FBref Big 5 via worldfootballR load_fb_big5_advanced_season_stats",
+  "seasons_end_year": [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "min_prior_minutes": 450,
+  "min_y1_minutes": 450,
+  "n_pairs": 117,
+  "n_metrics_tested": 103,
+  "n_pass_0_40": 71,
+  "n_pass_0_70": 35,
+  "n_redundancy_pairs": 217,
+  "auto_shortlist_n": 22,
+  "auto_shortlist": ["Def_Pen_Touches", "PrgC_Progression", "PrgDist_Total", "xG_Per", "KP", "Clr", "Succ_Take", "Won_Aerial", "Final_Third", "Cmp_percent_Medium", "CrsPA", "Int", "Crs", "Fld", "Won_percent_Aerial", "Def_3rd_Tackles", "Tkl_percent_Challenges", "Recov", "npxG_per_Sh_Expected", "PrgDist_Carries", "Cmp_percent_Long", "FK_Standard"]
+}
