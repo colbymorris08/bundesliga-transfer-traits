@@ -1,4 +1,0 @@
-term,coef,se,p_value,significant_05,model
-La Liga,48.41,266.77,0.8563,False,M1_y1_minutes_league
-Ligue 1,162.73,182.7,0.375,False,M1_y1_minutes_league
-Premier League,87.86,199.74,0.6609,False,M1_y1_minutes_league
