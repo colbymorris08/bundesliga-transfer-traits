@@ -15,14 +15,16 @@ import pandas as pd
 ROOT = Path("/Users/colbymorris/bundesliga-transfer-traits")
 OUT = ROOT / "results"
 OUT.mkdir(exist_ok=True)
-CACHE = Path("/tmp/sb-cache")
+CACHE = OUT / "sb_cache"
 CACHE.mkdir(exist_ok=True)
+# Prefer project cache; fall back to legacy /tmp cache for lineups already fetched
+LEGACY_CACHE = Path("/tmp/sb-cache")
 BASE = "https://raw.githubusercontent.com/statsbomb/open-data/master/data"
 
 STABILITY_THRESHOLD = 0.70
-MIN_PRIOR = 90.0
-MIN_Y1 = 45.0
-MIN_PAIRS = 12
+MIN_PRIOR = 45.0   # relaxed to grow open-data cohort
+MIN_Y1 = 30.0
+MIN_PAIRS = 10
 
 POS_MAP = {
     "Left Back": "Full Back", "Right Back": "Full Back",
@@ -71,9 +73,15 @@ CAT_COLOR = {
 
 
 def fetch_json(path: str):
-    cache_path = CACHE / path.replace("/", "__")
+    key = path.replace("/", "__")
+    cache_path = CACHE / key
     if cache_path.exists():
         return json.loads(cache_path.read_text())
+    legacy = LEGACY_CACHE / key
+    if legacy.exists():
+        data = json.loads(legacy.read_text())
+        cache_path.write_text(json.dumps(data))
+        return data
     data = json.loads(urllib.request.urlopen(f"{BASE}/{path}", timeout=60).read())
     cache_path.write_text(json.dumps(data))
     return data
@@ -132,11 +140,14 @@ def accumulate_events(events, bags, needed):
             shot_xg_by_key_pass[kp] = xg
 
     for ev in events:
-        pid = ev.get("player", {}).get("id")
-        if pid not in needed:
+        player = ev.get("player") or {}
+        pid = player.get("id")
+        if pid is None or pid not in needed:
             continue
-        bag = bags[pid]
-        tname = ev.get("type", {}).get("name")
+        bag = bags.get(pid)
+        if bag is None:
+            continue
+        tname = (ev.get("type") or {}).get("name")
 
         if tname == "Pass":
             bag["passes"] += 1
@@ -241,20 +252,16 @@ def main():
 
     hist_lineups = {}
     hist_matches = {}
-    keep_comps = {
-        "1. Bundesliga", "La Liga", "Premier League", "Serie A", "Ligue 1",
-        "FIFA World Cup", "UEFA Euro", "Champions League",
-        "African Cup of Nations", "Copa America", "Major League Soccer",
-        "Indian Super league",
-    }
+    # Use ALL male open-data competitions / seasons (max prior coverage for BL inbounds)
     for (cname, sname), (cid, sid, gender) in sorted(available.items()):
-        if gender != "male" or cname not in keep_comps:
-            continue
-        y = sy(sname)
-        if cname != "1. Bundesliga" and not (2014 <= y <= 2024):
+        if str(gender).lower() not in ("male", "m"):
             continue
         print(f"  lineups {cname} {sname}", flush=True)
-        players, matches = load_comp_season(cid, sid)
+        try:
+            players, matches = load_comp_season(cid, sid)
+        except Exception as e:
+            print(f"    SKIP {cname} {sname}: {e}", flush=True)
+            continue
         hist_lineups[(cname, sname)] = players
         hist_matches[(cname, sname)] = matches
         print(f"    players={len(players)} matches={len(matches)}")
@@ -330,21 +337,32 @@ def main():
 
     print(f"Event matches to process: {len(needed_event_matches)}")
 
-    prior_bags = {r["player_id"]: empty_bag() for r in cohort_rows}
-    bl_bags = {pid: empty_bag() for pid in (set(cohort_df["player_id"]) | bl_peer_players)}
+    prior_bags = {int(r["player_id"]): empty_bag() for r in cohort_rows}
+    bl_bags = {int(pid): empty_bag() for pid in (set(cohort_df["player_id"]) | bl_peer_players)}
 
+    n_ok = n_fail = 0
     for i, mid in enumerate(sorted(needed_event_matches), 1):
         if i % 40 == 0 or i == 1:
-            print(f"  events {i}/{len(needed_event_matches)}", flush=True)
+            print(f"  events {i}/{len(needed_event_matches)} ok={n_ok} fail={n_fail}", flush=True)
         try:
             events = fetch_json(f"events/{mid}.json")
-        except Exception:
+            n_ok += 1
+        except Exception as e:
+            n_fail += 1
+            if n_fail <= 5:
+                print(f"    event fail {mid}: {e}", flush=True)
             continue
         if mid in bl_match_ids:
             accumulate_events(events, bl_bags, set(bl_bags.keys()))
-        prior_pids = {pid for pid, mids in player_prior_matches.items() if mid in mids}
+        prior_pids = {int(pid) for pid, mids in player_prior_matches.items() if mid in mids}
         if prior_pids:
             accumulate_events(events, prior_bags, prior_pids)
+
+    print(f"  events done ok={n_ok} fail={n_fail}", flush=True)
+    # smoke check
+    sample_pid = int(cohort_rows[0]["player_id"])
+    print(f"  sample prior bag {sample_pid}: {prior_bags[sample_pid]}", flush=True)
+    print(f"  sample y1 bag {sample_pid}: {bl_bags.get(sample_pid)}", flush=True)
 
     prior_minutes = {r["player_id"]: r["prior_minutes"] for r in cohort_rows}
     y1_minutes = {r["player_id"]: r["y1_minutes"] for r in cohort_rows}
@@ -375,6 +393,9 @@ def main():
         mask = a.notna() & b.notna() & np.isfinite(a) & np.isfinite(b)
         n = int(mask.sum())
         r = float(np.corrcoef(a[mask], b[mask])[0, 1]) if n >= MIN_PAIRS else np.nan
+        # skip constant vectors (all-zero bags → undefined corr)
+        if n >= MIN_PAIRS and (float(np.nanstd(a[mask])) < 1e-12 or float(np.nanstd(b[mask])) < 1e-12):
+            r = np.nan
         stability_rows.append({
             "metric": m,
             "abbrev": METRIC_META[m][0],
@@ -382,6 +403,8 @@ def main():
             "label": METRIC_META[m][2],
             "n_pairs": n,
             "stability_r": None if r != r else round(r, 4),
+            "passes_0_40": bool(r == r and r >= 0.40),
+            "passes_0_50": bool(r == r and r >= 0.50),
             "passes_0_70": bool(r == r and r >= STABILITY_THRESHOLD),
         })
 

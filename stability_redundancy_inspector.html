@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Bundesliga Transfer Traits — Stability &amp; Redundancy</title>
+<style>
+  :root { --ink:#1c1c1c; --muted:#5a5f6a; --line:#d0d4db; --bg:#f4f5f7; --card:#fff; --navy:#3d5a80; --pass:#2d6a4f; --cut:#9a3412; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif; background:radial-gradient(ellipse 80% 50% at 8% -10%,#dbe4f0,transparent 55%),var(--bg); color:var(--ink); line-height:1.45; }
+  .wrap { max-width:1200px; margin:0 auto; padding:28px 20px 64px; }
+  h1 { font-family:"IBM Plex Serif",Georgia,serif; font-size:clamp(26px,3.5vw,34px); letter-spacing:-.02em; }
+  .sub { color:var(--muted); font-size:14px; margin-top:8px; max-width:900px; }
+  .tabs { display:flex; gap:0; border-bottom:2px solid var(--ink); margin:22px 0 18px; }
+  .tab { font:600 14px inherit; padding:10px 16px; border:none; background:transparent; cursor:pointer; color:#666; border-bottom:3px solid transparent; margin-bottom:-2px; }
+  .tab.active { color:var(--ink); border-bottom-color:var(--navy); }
+  .panel { display:none; } .panel.active { display:block; }
+  .steps { display:grid; gap:10px; margin:8px 0 20px; }
+  .step { display:grid; grid-template-columns:44px 1fr; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .step .num { width:36px; height:36px; border-radius:50%; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
+  .step h3 { font-size:14px; margin-bottom:2px; } .step p { font-size:13px; color:#444; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:12px 0 16px; }
+  @media(max-width:800px){ .kpis{grid-template-columns:1fr 1fr;} }
+  .kpi { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; }
+  .kpi .v { font-size:20px; font-weight:700; color:var(--navy); }
+  .kpi .l { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-top:2px; }
+  .note { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; font-size:13px; margin-bottom:14px; color:#333; }
+  .note code { font-size:12px; background:#eef3f8; padding:1px 5px; border-radius:3px; }
+  .filters { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
+  .filters label { font-size:12px; font-weight:700; color:var(--muted); display:flex; align-items:center; gap:6px; }
+  .cat { background:var(--card); border:1px solid var(--line); border-radius:10px; margin-bottom:14px; overflow:hidden; }
+  .cat-h { padding:12px 16px; background:var(--ink); color:#fff; display:flex; justify-content:space-between; }
+  .cat-h h2 { font-size:13px; letter-spacing:.06em; text-transform:uppercase; }
+  .split { display:grid; grid-template-columns:1fr 1fr; }
+  @media(max-width:900px){ .split{grid-template-columns:1fr;} }
+  .pane { border-top:1px solid var(--line); }
+  .pane + .pane { border-left:1px solid var(--line); }
+  @media(max-width:900px){ .pane + .pane { border-left:none; } }
+  .pane-h { padding:8px 12px; background:#eef3f8; font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); display:flex; justify-content:space-between; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th,td { padding:7px 10px; text-align:left; border-bottom:1px solid #eceff3; }
+  th { font-size:10px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); background:#fafbfc; }
+  tr.cut td { opacity:.4; text-decoration:line-through; }
+  tr.dim td { opacity:.42; }
+  .rnum { font-variant-numeric:tabular-nums; font-weight:700; }
+  .pill { display:inline-block; padding:1px 7px; border-radius:999px; font-size:10px; font-weight:700; }
+  .pill.y { background:#d8f3e4; color:var(--pass); }
+  .pill.n { background:#f3e8e2; color:var(--cut); }
+  .pill.g { background:#e8eef6; color:var(--navy); }
+  .pill.na { background:#eee; color:#666; }
+  .abbrev { font-family:ui-monospace,Menlo,monospace; font-size:10px; color:var(--muted); }
+  .empty { padding:14px; color:var(--muted); font-size:12px; }
+  .redbox { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; margin-top:10px; }
+  .redbox h3 { font-size:13px; margin-bottom:8px; }
+  footer { margin-top:18px; font-size:11px; color:#888; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Stability &amp; redundancy inspector</h1>
+  <p class="sub">Combined FBref + StatsBomb Step 1–2 view: thresholds, gated metrics, redundancy cuts, and the project process.</p>
+  <nav class="tabs">
+    <button class="tab active" data-panel="process">Project process</button>
+    <button class="tab" data-panel="metrics">Metrics by category</button>
+    <button class="tab" data-panel="redundancy">Redundancy pairs</button>
+  </nav>
+  <section class="panel active" id="panel-process">
+    <div class="kpis">
+      <div class="kpi"><div class="v" id="kFb"></div><div class="l">FBref tested → gated → kept</div></div>
+      <div class="kpi"><div class="v" id="kSb"></div><div class="l">StatsBomb pass → kept</div></div>
+      <div class="kpi"><div class="v" id="kPairs"></div><div class="l">FBref paired N · leagues</div></div>
+      <div class="kpi"><div class="v" id="kSbN"></div><div class="l">StatsBomb N · competitions</div></div>
+    </div>
+    <div class="steps" id="steps"></div>
+    <div class="note" id="gateNote"></div>
+  </section>
+  <section class="panel" id="panel-metrics">
+    <div class="filters">
+      <label><input type="checkbox" id="onlyGated" checked/> Only gated / passed stability</label>
+      <label><input type="checkbox" id="onlyKept"/> Only final shortlist (kept)</label>
+    </div>
+    <div class="note"><strong>FBref:</strong> 105 tested → <strong>43 gated</strong> → <strong>32 kept</strong>. <strong>StatsBomb:</strong> 16 tested → <strong>7</strong> at r≥0.40 → <strong>7 kept</strong>.</div>
+    <div id="cats"></div>
+  </section>
+  <section class="panel" id="panel-redundancy">
+    <div class="redbox" id="redFb"></div>
+    <div class="redbox" id="redSb"></div>
+  </section>
+  <footer>Player graphics / success: interactive_player_explorer.html</footer>
+</div>
+<script>
+const DATA = {"meta":{"fbref_n_pairs":329,"fbref_n_leagues":19,"fbref_n_tested":105,"fbref_n_gated":43,"fbref_n_kept":32,"fbref_n_dropped":11,"gates":{"Attacking":0.6,"Passing":0.6,"Defending":0.5,"Carrying":0.5,"Other":0.6},"redundancy_gate":0.95,"force_keep":["Att_Total","Gls_Per","SoT_per_90_Standard","Tkld_Take"],"min_bl":2021,"min_prior":300,"min_y1":300,"sb_n_pairs":96,"sb_n_leagues":17,"sb_year_span":"1958-2024","sb_bl_seasons":"2015/16 \u00b7 2023/24","sb_stability_gate":0.4,"sb_redundancy_gate":0.85,"sb_n_passed":7,"sb_n_kept":7,"sb_dropped":[],"sb_only_vars":["Progressive passes (~10m+ toward goal) (PPC)","Dispossessed (inverted) (DIS)","Pressures (PRS)","Pass volume (PAS)","Clearances (CLR)","Successful dribbles (DRB)","Passes into final third (PATT)","Shots (SH)","Progressive carries (CFGP)","Carries (CRY)","Tackles (TAC)","Non-pen xG (XG)","Fouls won (FLW)","Interceptions (INT)","Expected assists (XA)","Aerials won (AER)"]},"fbref":{"Attacking":[{"metric":"xG_Per","label":"xG Per","abbrev":"XG","r":0.7968,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"npxG_Per","label":"npxG Per","abbrev":"NPXG","r":0.7926,"n":100,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"Sh_per_90_Standard","label":"Sh/90 Standard","abbrev":"SHPER","r":0.7886,"n":292,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Sh_Standard","label":"Sh Standard","abbrev":"SH","r":0.7885,"n":292,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"SoT_Standard","label":"SoT Standard","abbrev":"SOT","r":0.7745,"n":292,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"SoT_per_90_Standard","label":"SoT/90 Standard","abbrev":"SOTPE","r":0.7745,"n":292,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"G_plus_A_minus_PK_Per","label":"G+A minus PK Per","abbrev":"GPLUS","r":0.6959,"n":100,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"G_minus_PK_Per","label":"G minus PK Per","abbrev":"GMINU","r":0.6653,"n":329,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"Gls_Standard","label":"Gls Standard","abbrev":"GLS","r":0.6608,"n":329,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"Gls_Per","label":"Gls Per","abbrev":"GLS","r":0.6601,"n":329,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Att_Short","label":"Att Short","abbrev":"ATTSH","r":0.5586,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Ast_Per","label":"Ast Per","abbrev":"AST","r":0.4614,"n":317,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PKatt","label":"PKatt","abbrev":"PKATT","r":0.4066,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PK","label":"PK","abbrev":"PK","r":0.3707,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"npxG_per_Sh_Expected","label":"npxG/Sh Expected","abbrev":"NPXGP","r":0.3492,"n":98,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PKatt_Standard","label":"PKatt Standard","abbrev":"PKATT","r":0.2447,"n":329,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"SoT_percent_Standard","label":"SoT% Standard","abbrev":"SOTPE","r":0.1747,"n":266,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PK_Standard","label":"PK Standard","abbrev":"PK","r":0.1432,"n":329,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"G_per_Sh_Standard","label":"G/Sh Standard","abbrev":"GPERS","r":0.1426,"n":266,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"G_per_SoT_Standard","label":"G/SoT Standard","abbrev":"GPERS","r":0.0778,"n":240,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"np:G_minus_xG_Expected","label":"np:G minus xG Expected","abbrev":"NP:GM","r":0.0564,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"G_minus_xG_Expected","label":"G minus xG Expected","abbrev":"GMINU","r":0.0499,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PKcon","label":"PKcon","abbrev":"PKCON","r":-0.0038,"n":119,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PKwon","label":"PKwon","abbrev":"PKWON","r":-0.0169,"n":119,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Passing":[{"metric":"PrgC_Progression","label":"PrgC Progression","abbrev":"PRGC","r":0.8054,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"PrgDist_Total","label":"PrgDist Total","abbrev":"PRGDI","r":0.7889,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"npxG_plus_xAG_Per","label":"npxG+xAG Per","abbrev":"NPXGP","r":0.787,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"xG_plus_xAG_Per","label":"xG+xAG Per","abbrev":"XGPLU","r":0.7861,"n":100,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"Cmp_Long","label":"Cmp Long","abbrev":"CMPLO","r":0.767,"n":100,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"Cmp_Medium","label":"Cmp Medium","abbrev":"CMPME","r":0.7299,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"TotDist_Total","label":"TotDist Total","abbrev":"TOTDI","r":0.7197,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"PrgR_Progression","label":"PrgR Progression","abbrev":"PRGR","r":0.7025,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Crs","label":"Crs","abbrev":"CRS","r":0.6792,"n":275,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Cmp_Total","label":"Cmp Total","abbrev":"CMP","r":0.657,"n":100,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"KP","label":"KP","abbrev":"KP","r":0.6544,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Cmp_percent_Medium","label":"Cmp% Medium","abbrev":"CMPPE","r":0.6373,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"xAG_Per","label":"xAG Per","abbrev":"XAG","r":0.6353,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Final_Third","label":"Final Third","abbrev":"FINAL","r":0.6215,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Cmp_percent_Short","label":"Cmp% Short","abbrev":"CMPPE","r":0.6196,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Cmp_percent_Total","label":"Cmp% Total","abbrev":"CMPPE","r":0.608,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"CrsPA","label":"CrsPA","abbrev":"CRSPA","r":0.594,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Prog","label":"Prog","abbrev":"PROG","r":0.5927,"n":26,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"xA","label":"xA","abbrev":"XA","r":0.583,"n":53,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Cmp_Short","label":"Cmp Short","abbrev":"CMPSH","r":0.5663,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Final_Third_Carries","label":"Final Third Carries","abbrev":"FINAL","r":0.5485,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PrgP_Progression","label":"PrgP Progression","abbrev":"PRGP","r":0.5401,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PrgP","label":"PrgP","abbrev":"PRGP","r":0.4989,"n":40,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Cmp_percent_Long","label":"Cmp% Long","abbrev":"CMPPE","r":0.3804,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Mid_3rd_Tackles","label":"Mid 3rd Tackles","abbrev":"MID3R","r":0.2681,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"A_minus_xA","label":"A minus xA","abbrev":"AMINU","r":0.246,"n":26,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Att_3rd_Tackles","label":"Att 3rd Tackles","abbrev":"ATT3R","r":0.1082,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Carrying":[{"metric":"PrgC_Carries","label":"PrgC Carries","abbrev":"PRGC","r":0.6801,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"CPA_Carries","label":"CPA Carries","abbrev":"CPA","r":0.6582,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Succ_Take","label":"Succ Take","abbrev":"SUCC","r":0.6456,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Att_Take","label":"Att Take","abbrev":"ATT","r":0.6191,"n":95,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"PrgR_Receiving","label":"PrgR Receiving","abbrev":"PRGRR","r":0.5992,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Att_3rd_Touches","label":"Att 3rd Touches","abbrev":"ATT3R","r":0.5377,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Dis_Carries","label":"Dis Carries","abbrev":"DIS","r":0.4513,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"PrgDist_Carries","label":"PrgDist Carries","abbrev":"PRGDI","r":0.4382,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Att_Pen_Touches","label":"Att Pen Touches","abbrev":"ATTPE","r":0.4126,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Mid_3rd_Touches","label":"Mid 3rd Touches","abbrev":"MID3R","r":0.4115,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Mis_Carries","label":"Mis Carries","abbrev":"MIS","r":0.3656,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"TotDist_Carries","label":"TotDist Carries","abbrev":"TOTDI","r":0.3632,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Live_Touches","label":"Live Touches","abbrev":"LIVE","r":0.3213,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Touches_Touches","label":"Touches Touches","abbrev":"TOUCH","r":0.3209,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Carries_Carries","label":"Carries Carries","abbrev":"CARRI","r":0.3104,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Dist_Standard","label":"Dist Standard","abbrev":"DIST","r":0.2455,"n":98,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Succ_percent_Take","label":"Succ% Take","abbrev":"SUCCP","r":0.1289,"n":89,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Defending":[{"metric":"Def_Pen_Touches","label":"Def Pen Touches","abbrev":"DEFPE","r":0.9063,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Def_3rd_Touches","label":"Def 3rd Touches","abbrev":"DEF3R","r":0.7893,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Sh_Blocks","label":"Sh Blocks","abbrev":"SH","r":0.6834,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Clr","label":"Clr","abbrev":"CLR","r":0.6743,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Tkld_Take","label":"Tkld Take","abbrev":"TKLD","r":0.5941,"n":95,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Int","label":"Int","abbrev":"INT","r":0.5736,"n":275,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Won_percent_Aerial","label":"Won% Aerial","abbrev":"WONPE","r":0.4975,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"TklW","label":"TklW","abbrev":"TKLW","r":0.4568,"n":275,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"TklW_Tackles","label":"TklW Tackles","abbrev":"TKLW","r":0.4458,"n":228,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Won_Aerial","label":"Won Aerial","abbrev":"WON","r":0.4247,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Lost_Challenges","label":"Lost Challenges","abbrev":"LOST","r":0.424,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Fls","label":"Fls","abbrev":"FLS","r":0.4103,"n":274,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Recov","label":"Recov","abbrev":"RECOV","r":0.3952,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Tkl_plus_Int","label":"Tkl+Int","abbrev":"TKLPL","r":0.3796,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Def_3rd_Tackles","label":"Def 3rd Tackles","abbrev":"DEF3R","r":0.3495,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Lost_Aerial","label":"Lost Aerial","abbrev":"LOST","r":0.3451,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Att_Challenges","label":"Att Challenges","abbrev":"ATT","r":0.3162,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Tkl_percent_Challenges","label":"Tkl% Challenges","abbrev":"TKLPE","r":0.3092,"n":91,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Pass_Blocks","label":"Pass Blocks","abbrev":"PASS","r":0.2922,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Tkl_Tackles","label":"Tkl Tackles","abbrev":"TKL","r":0.2681,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Tkl_Challenges","label":"Tkl Challenges","abbrev":"TKL","r":0.2108,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Blocks_Blocks","label":"Blocks Blocks","abbrev":"BLOCK","r":0.2029,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Err","label":"Err","abbrev":"ERR","r":0.0868,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Tkld_percent_Take","label":"Tkld% Take","abbrev":"TKLDP","r":0.0757,"n":89,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Other":[{"metric":"Att_Long","label":"Att Long","abbrev":"ATTLO","r":0.7853,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Att_Medium","label":"Att Medium","abbrev":"ATTME","r":0.7236,"n":100,"gated":true,"kept":false,"dropped":true,"below_gate":false},{"metric":"G_plus_A_Per","label":"G+A Per","abbrev":"GPLUS","r":0.7016,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"FK_Standard","label":"FK Standard","abbrev":"FK","r":0.6973,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"Att_Total","label":"Att Total","abbrev":"ATT","r":0.6549,"n":100,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"PPA","label":"PPA","abbrev":"PPA","r":0.593,"n":100,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Fld","label":"Fld","abbrev":"FLD","r":0.5331,"n":275,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Off","label":"Off","abbrev":"OFF","r":0.5054,"n":275,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"CrdY","label":"CrdY","abbrev":"CRDY","r":0.3218,"n":329,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"Rec_Receiving","label":"Rec Receiving","abbrev":"RECRE","r":0.3142,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"CrdR","label":"CrdR","abbrev":"CRDR","r":0.0498,"n":329,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"2CrdY","label":"2CrdY","abbrev":"2CRDY","r":-0.0462,"n":95,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"OG","label":"OG","abbrev":"OG","r":-0.0491,"n":295,"gated":false,"kept":false,"dropped":false,"below_gate":true}]},"statsbomb":{"Attacking":[{"metric":"shots","label":"Shots","abbrev":"SH","r":0.3997,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"xg","label":"Non-pen xG","abbrev":"XG","r":0.3047,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"xa","label":"Expected assists","abbrev":"XA","r":0.1269,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Passing":[{"metric":"pass_progressive","label":"Progressive passes (~10m+ toward goal)","abbrev":"PPC","r":0.7393,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"passes","label":"Pass volume","abbrev":"PAS","r":0.4901,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"passes_into_final_third","label":"Passes into final third","abbrev":"PATT","r":0.4226,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false}],"Carrying":[{"metric":"dribbles_completed","label":"Successful dribbles","abbrev":"DRB","r":0.4616,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"carry_progressive","label":"Progressive carries","abbrev":"CFGP","r":0.3788,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"carries","label":"Carries","abbrev":"CRY","r":0.3785,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Defending":[{"metric":"pressures","label":"Pressures","abbrev":"PRS","r":0.5125,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"clearances","label":"Clearances","abbrev":"CLR","r":0.4653,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"tackles","label":"Tackles","abbrev":"TAC","r":0.3438,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"interceptions","label":"Interceptions","abbrev":"INT","r":0.2006,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true},{"metric":"aerials_won","label":"Aerials won","abbrev":"AER","r":0.1176,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true}],"Other":[{"metric":"dispossessed","label":"Dispossessed (inverted)","abbrev":"DIS","r":0.5854,"n":96,"gated":true,"kept":true,"dropped":false,"below_gate":false},{"metric":"fouls_won","label":"Fouls won","abbrev":"FLW","r":0.2653,"n":96,"gated":false,"kept":false,"dropped":false,"below_gate":true}]},"redundancy_pairs":[{"metric_a":"Sh_per_90_Standard","metric_b":"Sh_Standard","r":0.9999965720050225},{"metric_a":"SoT_Standard","metric_b":"SoT_per_90_Standard","r":0.9999814473737204},{"metric_a":"Gls_Standard","metric_b":"Gls_Per","r":0.9999110048057096},{"metric_a":"G_plus_A_Per","metric_b":"G_plus_A_minus_PK_Per","r":0.9942511814217564},{"metric_a":"npxG_plus_xAG_Per","metric_b":"xG_plus_xAG_Per","r":0.9928622590742646},{"metric_a":"Cmp_Medium","metric_b":"Att_Medium","r":0.9891244343207864},{"metric_a":"xG_Per","metric_b":"npxG_Per","r":0.9884333872439208},{"metric_a":"G_minus_PK_Per","metric_b":"Gls_Per","r":0.9883709162130468},{"metric_a":"G_minus_PK_Per","metric_b":"Gls_Standard","r":0.9883536342705886},{"metric_a":"Cmp_Total","metric_b":"Att_Total","r":0.9819191094190328},{"metric_a":"Att_Take","metric_b":"Tkld_Take","r":-0.9543739143125638},{"metric_a":"Att_Long","metric_b":"Cmp_Long","r":0.952194682474641}],"sb_redundancy_pairs":[],"sb_near_pairs":[{"metric_a":"pass_progressive","metric_b":"passes","r":0.814381,"note":"below keep-threshold 0.85; both retained"}],"timeline":[{"n":1,"title":"Question","body":"Which performance traits travel when a player moves into the 1. Bundesliga \u2014 and which prior profiles line up with Year-1 playing time?"},{"n":2,"title":"Scrape two sources","body":"FBref season tables across 19 leagues (first BL \u22652021). StatsBomb open-data events (17 competitions; BL 2015/16 + 2023/24)."},{"n":3,"title":"Stability","body":"Correlate prior \u2192 BL Y1 per-90 rates. Keep metrics that recur across the move."},{"n":4,"title":"Choose thresholds","body":"Enough metrics vs real stability: FBref category gates \u2192 43 of 105; StatsBomb r\u22650.40 \u2192 7 of 16."},{"n":5,"title":"Redundancy + context","body":"Drop near-duplicates. Prefer stability, then N, then rate/contextual; force-keep SoT/90, Gls/90, Tkld Take, Att Total, passes. FBref 43\u219232; StatsBomb keep all 7."},{"n":6,"title":"Explorer & graphics","body":"Player radars / pizzas on the shortlists (interactive_player_explorer.html)."},{"n":7,"title":"Significance tests","body":"Spearman: prior trait percentiles vs Y1 minutes; feeder-league summaries."}]};
+const CATS = ["Attacking","Passing","Carrying","Defending","Other"];
+let onlyGated = true, onlyKept = false;
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+  };
+});
+const m = DATA.meta;
+document.getElementById('kFb').textContent = `${m.fbref_n_tested} → ${m.fbref_n_gated} → ${m.fbref_n_kept}`;
+document.getElementById('kSb').textContent = `${m.sb_n_passed} → ${m.sb_n_kept}`;
+document.getElementById('kPairs').textContent = `${m.fbref_n_pairs} · ${m.fbref_n_leagues}`;
+document.getElementById('kSbN').textContent = `${m.sb_n_pairs} · ${m.sb_n_leagues}`;
+document.getElementById('gateNote').innerHTML =
+  `<strong>FBref gates:</strong> Att/Pass/Other ≥0.60 · Def/Carry ≥0.50 → <strong>${m.fbref_n_gated}</strong>; ` +
+  `redundancy |r|≥${m.redundancy_gate} → <strong>${m.fbref_n_kept}</strong>` +
+  (m.force_keep?.length ? ` (force-keep <code>${m.force_keep.join('</code> <code>')}</code>)` : '') +
+  `.<br/><strong>StatsBomb:</strong> r≥${m.sb_stability_gate} → ${m.sb_n_passed}; redundancy |r|≥${m.sb_redundancy_gate} → ${m.sb_n_kept} kept.`;
+document.getElementById('steps').innerHTML = DATA.timeline.map(s =>
+  `<div class="step"><div class="num">${s.n}</div><div><h3>${s.title}</h3><p>${s.body}</p></div></div>`
+).join('');
+function fmtR(r){ return r==null ? '<span class="pill na">—</span>' : `<span class="rnum">${Number(r).toFixed(3)}</span>`; }
+function status(row){
+  if (row.kept) return '<span class="pill y">kept</span>';
+  if (row.dropped) return '<span class="pill n">cut</span>';
+  if (row.gated) return '<span class="pill g">gated</span>';
+  return '<span class="pill na">below gate</span>';
+}
+function table(rows){
+  if (!rows.length) return '<div class="empty">None</div>';
+  return `<table><thead><tr><th>Metric</th><th>r</th><th>N</th><th>Status</th></tr></thead><tbody>` +
+    rows.map(row => {
+      const cls = row.dropped ? ' class="cut"' : (row.below_gate ? ' class="dim"' : '');
+      return `<tr${cls}><td><div>${row.label}</div><div class="abbrev">${row.abbrev} · ${row.metric}</div></td><td>${fmtR(row.r)}</td><td>${row.n}</td><td>${status(row)}</td></tr>`;
+    }).join('') + `</tbody></table>`;
+}
+function visible(row){ if (onlyKept) return row.kept; if (onlyGated) return row.gated || row.kept || row.dropped; return true; }
+function renderCats(){
+  const el = document.getElementById('cats'); el.innerHTML = '';
+  CATS.forEach(cat => {
+    const fb = (DATA.fbref[cat]||[]).filter(visible);
+    const sb = (DATA.statsbomb[cat]||[]).filter(visible);
+    const sec = document.createElement('section'); sec.className = 'cat';
+    sec.innerHTML = `<div class="cat-h"><h2>${cat}</h2><div>FBref ${fb.filter(x=>x.kept).length} kept · SB ${sb.filter(x=>x.kept).length} kept</div></div>
+      <div class="split">
+        <div class="pane"><div class="pane-h"><span>FBref</span><span>105→43→32</span></div>${table(fb)}</div>
+        <div class="pane"><div class="pane-h"><span>StatsBomb</span><span>16→7→7</span></div>${table(sb)}</div>
+      </div>`;
+    el.appendChild(sec);
+  });
+}
+function redTable(pairs, title, gate, extra){
+  let html = `<h3>${title} (|r| ≥ ${gate}) — ${pairs.length}</h3>`;
+  if (pairs.length) html += `<table><thead><tr><th>A</th><th>B</th><th>r</th></tr></thead><tbody>${pairs.map(p=>`<tr><td>${p.metric_a}</td><td>${p.metric_b}</td><td class="rnum">${Number(p.r).toFixed(3)}</td></tr>`).join('')}</tbody></table>`;
+  else html += '<div class="empty">No pairs cut at this gate.</div>';
+  if (extra && extra.length) html += `<p style="margin-top:10px;font-size:12px;color:#666">Noted below gate (both kept): ${extra.map(p=>`${p.metric_a}↔${p.metric_b} (${Number(p.r).toFixed(2)})`).join('; ')}</p>`;
+  return html;
+}
+document.getElementById('redFb').innerHTML = redTable(DATA.redundancy_pairs||[], 'FBref redundancy', m.redundancy_gate);
+document.getElementById('redSb').innerHTML = redTable(DATA.sb_redundancy_pairs||[], 'StatsBomb redundancy', m.sb_redundancy_gate, DATA.sb_near_pairs);
+document.getElementById('onlyGated').onchange = e => { onlyGated = e.target.checked; if(onlyGated){ document.getElementById('onlyKept').checked = onlyKept = false; } renderCats(); };
+document.getElementById('onlyKept').onchange = e => { onlyKept = e.target.checked; if(onlyKept){ document.getElementById('onlyGated').checked = onlyGated = false; } renderCats(); };
+renderCats();
+</script>
+</body>
+</html>

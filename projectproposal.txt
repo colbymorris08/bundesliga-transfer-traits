@@ -13,87 +13,98 @@ Two evidence layers:
 
 | Tier | Role | Data backbone | Headline N |
 |------|------|---------------|------------|
-| **Tier 1 — Wide** | Outcomes for *all* inbound / first Bundesliga seasons in the study window | **FBref** player-season stats | **≥500** |
-| **Tier 2 — Deep** | Trait portability + league ranking | FBref prior → Bundesliga Y1 per-90; **StatsBomb Open Data** as event-level deep dive on a smaller overlap | Open data now ~**100**; FBref target **500+ paired** seasons |
+| **Tier 1 — Wide (FBref)** | Prior → first Bundesliga Y1 at scale | **FBref** player-season stats across **19 leagues** | **329** analysis-ready pairs |
+| **Tier 2 — Deep (StatsBomb)** | Event-level portability check on the same inbound logic | **StatsBomb Open Data** (17 competitions as priors) | **96** cohort players |
 
-This extends the NYRB scouting-metric framework (**stability → redundancy → pizza / profiles**), focused on **which stats travel well** from the prior league into the Bundesliga — not Transfermarkt market value.
+This extends the NYRB scouting-metric framework (**stability → redundancy → pizza / profiles → success**), focused on **which stats travel well** from the prior league into the Bundesliga — not Transfermarkt market value.
 
 Inbound players are identified from **FBref season records** (first Bundesliga season / prior league ≠ Bundesliga), not from scraped Transfermarkt transfer tables.
 
 ---
 
-**FBref** (Sports Reference) is the primary public dataset for Tier 1–2 metrics: viewable online; usable for coursework with attribution and rate-limited access. Respect their terms; do not redistribute raw dumps beyond the course.
+**FBref** (Sports Reference) is the primary public dataset for scale metrics: viewable online; usable for coursework with attribution and rate-limited access. Respect their terms; do not redistribute raw dumps beyond the course.
 
 ---
 
-## Two-tier design (Bundesliga only)
+## Design (Bundesliga only)
 
-### Tier 1 — Robust FBref sample (headline N ≥ 500)
+### FBref — scale layer (N = 329)
 
-- **Who:** All players with a first Bundesliga season (or verified inbound transfer season) over a multi-year window (e.g. last 8–12 seasons), with a relaxed minutes filter (e.g. ≥270–450 Bundesliga minutes in Year 1 so N stays ≥500).
-- **What:** Outcome metrics only — minutes share; per-90 attacking (shots, xG, progressive passes); defending (tackles, pressures, clearances) by position and **source league**.
-- **Why:** Honest large N; answers “who succeeds after arrival?” without needing event data.
+- **Who:** Players with a first **1. Bundesliga** season in end-years **2021–2025**, with prior and Y1 minutes ≥ **300′**, and a usable prior season outside 1. BL.
+- **Where priors come from:** season tables across **19 leagues** (Big Five + 14 feeders), plus player-page fills where a league dump did not already cover the inbound.
+- **What we test:** per-90 / rate metrics → **105** tested → category stability gates → **43** gated → light redundancy → **32** shortlisted.
+- **Why:** Honest multi-league N for “which traits travel?” and “which feeders look strongest on Y1 minutes?”
 
-### Tier 2 — Portability pipeline (FBref primary; StatsBomb deep dive)
+### StatsBomb — event deep dive (N = 96)
 
-- **Who:** Subset with measurable prior-season club stats in another league on FBref → target **500+** paired player-seasons.
-- **Pipeline (same order as NYRB):**
-  1. **Stability** — for every FBref per-90 stat, correlate prior-league season vs Bundesliga Year-1 (by position). Keep stats that travel well (high cross-league *r*).
-  2. **Redundancy** — among stable stats, drop near-duplicates (|*r*| ≥ 0.70 within position); keep one representative per cluster.
-  3. **Pizza charts** — player profiles built only from that stable + non-redundant set (prior vs Bundesliga avg/top reference lines).
-- **Source-league ranking:** which prior leagues produce arrivals whose Y1 minutes / profile strength look best on the kept traits.
-- **StatsBomb Open Data deep dive:** Same stability → redundancy → pizza sequence on the ~**94–120** open-data overlap (richer event taxonomy). Check whether Event-level conclusions **align** with FBref.
+- **Who:** Same inbound logic on open data; BL open dumps only **2015/16 + 2023/24**; priors from **all male** open competitions/seasons available (**17** competitions in the working set). Minute floors stay on (relaxed for open-data thinness): prior ≥ **45′**, BL Y1 ≥ **30′**.
+- **Pipeline (same order):**
+  1. **Stability** — correlate prior vs Bundesliga Y1 per-90. Gate **r ≥ 0.40** → **7 of 16** metrics pass.
+  2. **Redundancy** — near-duplicates only at **|r| ≥ 0.85** (so e.g. passes stays with progressive passes) → **7 kept**.
+  3. **Pizza / explorer** — profiles from that shortlist; success tests use **Y1 minutes**.
+- **Role:** Event-level confirmation of which trait *families* travel — not a second league-ranking study. Open-data priors are mixed (club + international), so StatsBomb is read as noisier than FBref.
 
-**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive pizza charts, and leagues to prioritize.
+**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive explorer / pizza charts, and feeder-league / trait→Y1 success readouts.
 
 ---
 
-## Methodology discussion (brief)
+## Methodology (brief)
 
-The core idea is test–retest reliability across a **league change**, not across seasons in the same league. For each per-90 metric we compute Pearson *r* between a player’s prior-league season and their first Bundesliga season. Metrics with *r* ≥ **0.40** are treated as portable (“travel well”); the rest are flagged as more style- or context-dependent.
+The core idea is test–retest reliability across a **league change**, not across seasons in the same league. For each per-90 metric we compute Pearson *r* between a player’s prior-league season and their first Bundesliga season.
 
-Those that clear the gate then go through a **redundancy** screen (pairwise |*r*| ≥ 0.70 within the stable set). Step 2 is human: choose which representative to keep when two stable metrics largely measure the same thing. Final scout cards and **pizza charts** use only that kept set, with **dotted reference lines for average Bundesliga peers** (and a top-peer ring) so arrivals are read against destination norms—not prior-league raw rates.
+**FBref gates (category-specific):** Attacking / Passing / Other **r ≥ 0.60**; Defending / Carrying **r ≥ 0.50**. That yields **43** metrics from **105** tested. Redundancy at **|r| ≥ 0.95** (pick order: stability → sample size → prefer rate/contextual), with force-keeps (**SoT/90**, **Gls/90**, **Tkld Take**, **Att Total**) → final shortlist **32**.
 
-Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ Bundesliga), so we do not rely on scraping Transfermarkt. A larger FBref cohort anchors Tier 1; StatsBomb open data is the event-level deep dive on a smaller overlapping sample. Open-data caveat: partial match coverage and mixed prior contexts (club + international) can compress or inflate some correlations, which is why findings are validated across tiers rather than treated as final on open data alone.
+**StatsBomb gate:** **r ≥ 0.40** → **7** metrics; redundancy **|r| ≥ 0.85** → keep all **7** (including passes).
+
+**League-relative scaling** (within-league z / percentile) was tested on FBref rate→Y1 stability and **did not help**, so absolute per-90 rates were kept for both sources.
+
+Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ 1. BL). Success proxy for Phase 2 = **Year-1 Bundesliga minutes** (playing-time success), not market value.
+
+**Sample:** Destination = **1. Bundesliga** only. FBref first-BL window = end years **2021–2025**, with the **minutes restriction** still applied (prior ≥ **300′** and Y1 ≥ **300′**) — that is how we get analysis-ready **N = 329**, not every BL appearance. StatsBomb keeps its own lower floors (prior ≥ **45′**, Y1 ≥ **30′**) on open-data priors as above.
+
+---
+
+## FBref feeder coverage
+
+Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech** (plus Big Five caches for Y1 / Big-5 priors). Working analysis uses **19 leagues** populating the FBref tables; paired inbound **N = 329**.
 
 ---
 
 ## Data stack
 
-1. **FBref** — primary layer for Tier 1 (N≥500 outcomes) and Tier 2 (stability / redundancy / pizza at scale).  
-2. **StatsBomb Open Data** — deep dive + interactive pizza explorer on the smaller open-data overlap.  
-
-Open-data stress test already completed: Bundesliga first appearances ≈ **675**; with any prior open-data minutes ≈ **120**; analysis-ready (≥90 prior min) ≈ **94** (CM+FB ≈ **35**). That motivates FBref for scale while keeping StatsBomb for depth.
+1. **FBref** — primary layer for stability / redundancy / pizza / success at scale (**329** pairs · **32** traits).  
+2. **StatsBomb Open Data** — event deep dive + explorer toggle (**96** players · **7** traits).  
 
 ---
 
-## Deliverables (current package)
+## Deliverables (submit package)
 
 | # | File | Description |
 |---|------|-------------|
-| 1 | `projectproposal.docx` | This proposal as a Word document |
-| 2 | `interactive_player_explorer.html` | Player dropdown sorted by position; pizza from selected traits; stock fonts |
-| 3 | `methodology_results_brief.html` | Short method/results brief (tiers, stability, redundancy, leagues, cases) |
-| 4 | `cohort_data.json` / `README.md` | Open-data cohort artifact + package notes |
+| 1 | `projectproposal.docx` / `projectproposal.txt` | This proposal |
+| 2 | `bundesliga_transfer_traits.pptx` | Method + final results deck (includes project steps timeline + conclusion) |
+| 3 | `interactive_player_explorer.html` | Success summary + player radars (FBref ↔ StatsBomb) |
+| 4 | `stability_redundancy_inspector.html` | Combined FBref + StatsBomb stability / redundancy inspector |
+| 5 | `README.md` / `results/` | Package notes + CSVs (stability, redundancy, success indicators) |
 
 ---
 
-## Timeline (≈3 weeks)
+## Steps
 
-| Week | Work |
-|------|------|
-| 1 | FBref Bundesliga inbound cohort freeze (Tier 1 N≥500); run **stability** on all prior→Bundesliga stats |
-| 2 | **Redundancy** on stable set; Tier 1 outcomes by source league + position |
-| 3 | **Pizza charts** + StatsBomb deep-dive check; PPT / HTML deliverable + review |
+- Build the inbound cohort: first 1. BL season in the study window, prior season ≠ 1. BL, **and** clear the minutes floors (FBref prior/Y1 ≥ **300′**; StatsBomb prior ≥ **45′** / Y1 ≥ **30′**); pull that prior-league season’s stats  
+
+- **Stability** — correlate prior → BL Year-1; choose source-specific thresholds so we keep enough metrics without pretending weak correlations are portable  
+- **Redundancy** — drop near-duplicates with contextual keep rules; shortlist the scout card (**32** FBref · **7** StatsBomb)  
+- **Profiles & significance** — explorer / pizza graphics; Spearman trait & league tests vs **Y1 minutes**  
 
 ---
 
 ## Why this works?
 
-- **Honest N:** Tier 1 guarantees ≥500 without claiming open data has 500 paired transfers.  
+- **Honest N:** FBref **329** paired seasons for the scale story; StatsBomb **96** for event depth — not a claim that open data alone has hundreds of clean feeder→BL pairs.  
 - **Narrow:** only into the Bundesliga.  
-- **Clear pipeline:** stability on all stats → redundancy → pizzas from the kept set.  
-- **Accurate where it matters:** FBref multi-season performance for the robust model; StatsBomb for a smaller, deeper event dive.  
-- **Data Source:** FBref-first.
+- **Clear pipeline:** stability → thresholds → redundancy → explorer → significance.  
+- **Multi-league FBref:** same method beyond Big-5-only anecdotes.  
+- **Accurate where it matters:** FBref for portable rates + feeder readouts; StatsBomb as a smaller, deeper event check.  
 
 Attributions: FBref / Sports Reference; StatsBomb Open Data (where used).

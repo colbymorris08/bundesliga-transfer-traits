@@ -43,8 +43,13 @@ def spearman_row(prior: pd.Series, outcome: pd.Series) -> dict:
 
 
 def run_statsbomb() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
-    sb_dec = json.loads((ROOT / "decisions" / "step2_decisions.json").read_text())
-    shortlist = sb_dec["statsbomb"]["final_shortlist"]
+    sb_path = OUT / "statsbomb_step2_decisions.json"
+    if sb_path.exists():
+        sb_dec = json.loads(sb_path.read_text())
+        shortlist = sb_dec["auto_shortlist"]
+    else:
+        sb_dec = json.loads((ROOT / "decisions" / "step2_decisions.json").read_text())
+        shortlist = sb_dec["statsbomb"]["final_shortlist"]
 
     cohort = pd.read_csv(OUT / "cohort.csv")
     prior = pd.read_csv(OUT / "prior_p90.csv").set_index("player_id")
@@ -155,7 +160,9 @@ def run_fbref() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
             })
 
     long_df = pd.DataFrame(rows)
-    long_df["y1_minutes_pct"] = long_df.groupby("player_id")["y1_minutes"].transform(lambda s: s.rank(pct=True) * 100)
+    player_mins = long_df.drop_duplicates("player_id")[["player_id", "y1_minutes"]].copy()
+    player_mins["y1_minutes_pct"] = player_mins["y1_minutes"].rank(pct=True) * 100
+    long_df = long_df.merge(player_mins[["player_id", "y1_minutes_pct"]], on="player_id", how="left")
 
     trait_rows = []
     for m in shortlist:
