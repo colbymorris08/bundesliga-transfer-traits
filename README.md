@@ -29,7 +29,7 @@
 ## Local results (not in git)
 
 Regenerable under `results/` (gitignored): stability/redundancy CSVs, success indicators, caches.
-Headline numbers and feeder-regression tables are in this README; interactive outputs are the explorer + inspector HTML.
+Headline numbers and feeder-regression tables are in this README. **Interactive results** (success tables, radars, gates) live in the explorer + inspector HTML — download either `.html` file and open it in a browser (fully self-contained; no server or install needed).
 
 ## Exploratory feeder regression (Phase 2b)
 
