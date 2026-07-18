@@ -1,56 +1,70 @@
 # Bundesliga Transfer Traits (Cal Berkeley)
 
-**Pipeline:** stability (prior → Bundesliga Y1) → redundancy (Step 2) → scout pizza / explorer → success indicators (Y1 minutes).
+**Pipeline:** stability (prior → Bundesliga Y1) → redundancy → scout pizza / explorer → success indicators (Y1 minutes).
 
-## Deliverables
+**Destination:** **1. Bundesliga** only. **FBref** = scale · **StatsBomb** open data = event deep dive.
+
+## Deliverables (submit)
 
 | File | Role |
 |------|------|
-| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Deck — method + results |
-| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player examples |
+| [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Deck — method + final results + conclusion |
+| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player radars (FBref ↔ StatsBomb) |
+| [`stability_redundancy_inspector.html`](stability_redundancy_inspector.html) | Metric gates & redundancy by category |
 | [`projectproposal.docx`](projectproposal.docx) | Proposal (Word) |
-| [`projectproposal.txt`](projectproposal.txt) | Proposal source (edit here → reconvert to docx) |
+| [`projectproposal.txt`](projectproposal.txt) | Proposal source |
 
-## Stability & redundancy CSVs
+## Final sample & shortlists
 
-### StatsBomb (N=60 · gate r≥0.40)
+| Layer | N | Stability | Redundancy | Shortlist |
+|-------|--:|-----------|------------|----------:|
+| **FBref** | **329** pairs · **19** leagues · **105→43→32** | Att/Pass/Other ≥0.60 · Def/Carry ≥0.50 → **43** | \|r\|≥0.95 | **32** |
+| **StatsBomb** | **96** · **17** competitions | r≥0.40 | \|r\|≥0.85 (passes kept) | **7** |
 
-| File | Role |
-|------|------|
-| [`results/stability_all_metrics.csv`](results/stability_all_metrics.csv) | All metrics tested |
-| [`results/stability_passed_r040.csv`](results/stability_passed_r040.csv) | Passed stability gate |
-| [`results/redundancy_high_pairs_step2.csv`](results/redundancy_high_pairs_step2.csv) | Near-duplicate pairs |
-| [`results/redundancy_auto_shortlist_suggestion.csv`](results/redundancy_auto_shortlist_suggestion.csv) | Auto shortlist suggestion |
+- FBref window: first BL season end-years **2021–2025**; **minutes restriction** prior/Y1 ≥**300′** (N=329 is after that gate)
+- StatsBomb: all male open comps as priors; BL open dumps **2015/16 + 2023/24**; prior ≥**45′** · Y1 ≥**30′**
+- Success proxy: **Year-1 Bundesliga minutes** (not Transfermarkt value)
+- League-relative scaling tested on FBref — **did not help** rate→Y1 stability; not applied
 
-### FBref Big 5 (N=137 · gate r≥0.50 · minutes ≥300)
+## Local results (not in git)
 
-| File | Role |
-|------|------|
-| [`results/fbref_stability_all_metrics.csv`](results/fbref_stability_all_metrics.csv) | All metrics tested |
-| [`results/fbref_stability_passed_r050.csv`](results/fbref_stability_passed_r050.csv) | Passed stability gate |
-| [`results/fbref_redundancy_high_pairs_step2.csv`](results/fbref_redundancy_high_pairs_step2.csv) | Near-duplicate pairs |
-| [`results/fbref_redundancy_auto_shortlist_suggestion.csv`](results/fbref_redundancy_auto_shortlist_suggestion.csv) | Auto shortlist suggestion |
+Regenerable under `results/` (gitignored): stability/redundancy CSVs, success indicators, caches.
+Headline numbers and feeder-regression tables are in this README; interactive outputs are the explorer + inspector HTML.
 
-## Primary success (powered design)
+## Exploratory feeder regression (Phase 2b)
 
-| File | Role |
-|------|------|
-| [`results/primary_success_traits.csv`](results/primary_success_traits.csv) | 5 pre-specified traits → Y1 minutes + BH FDR |
-| [`results/PRIMARY_SUCCESS.md`](results/PRIMARY_SUCCESS.md) | Write-up |
+Big-5 FBref subset (**N = 117**). Outcome = Y1 Bundesliga minutes. Reference league = **Serie A**. Associative / exploratory — not a validated forecast.
 
-**Design:** overall cohort only (no league×trait grid) · 5 traits · Benjamini–Hochberg FDR · N=137 from Big‑5 cache (minute gate 300 — no extra scrapes).
+**M1** · `y1_minutes ~ league + prior_minutes + position` · R² = 0.086  
+**M3** · M1 + prior trait percentiles · R² = 0.215  
+**M4** · 80/20 holdout correlation(pred, actual) = 0.35
 
-**Result:** all 5 FDR-significant (Final Third, Lost Aerial inverted, Aerial win %, Def Pen touches, Shot Blocks).
+### League effects (M1 · Δ Y1 minutes vs Serie A)
 
-## Scripts
+| League | Δ Y1 min | p |
+|--------|--------:|--:|
+| La Liga | +48 | 0.856 |
+| Ligue 1 | +163 | 0.375 |
+| Premier League | +88 | 0.661 |
 
-| Script | What it builds |
-|--------|----------------|
-| [`run_analysis.py`](run_analysis.py) | StatsBomb stability + redundancy CSVs |
-| [`scripts/run_fbref_stability.R`](scripts/run_fbref_stability.R) | FBref stability + redundancy + primary panel |
-| [`scripts/run_primary_success.py`](scripts/run_primary_success.py) | Primary traits → Y1 minutes (FDR) |
-| [`scripts/run_success_indicators.py`](scripts/run_success_indicators.py) | Broader trait/league descriptives |
-| [`scripts/run_feeder_regression.py`](scripts/run_feeder_regression.py) | Feeder-league OLS |
-| [`scripts/run_feeder_expand_safe.py`](scripts/run_feeder_expand_safe.py) | Optional: 3 extra feeders, sequential, cached |
+None significant at p &lt; 0.05 — league gaps shrink to noise once minutes and position are held.
 
-**Success proxy:** first-season Bundesliga minutes (Y1). Transfermarkt Δ value would be preferred if licensed data were available.
+### Prior trait effects (M3 · controlling for league)
+
+| Trait %ile | Δ Y1 min | p |
+|------------|--------:|--:|
+| Lost Aerial* | +9 | 0.002 |
+| Final Third | +5 | 0.158 |
+| Def Pen Touches | +5 | 0.189 |
+| PrgDist Total | −4 | 0.249 |
+| xG Per | +2 | 0.430 |
+| Sh Blocks | +2 | 0.565 |
+
+\* p &lt; 0.05. Takeaway: **trait profile matters more than league label** in this open-data subset.
+
+## Rebuild (optional)
+
+```bash
+python3 scripts/finalize_deliverables.py   # explorer + success p-values from final shortlists
+python3 scripts/run_success_indicators.py  # Phase-2 Spearman only
+```

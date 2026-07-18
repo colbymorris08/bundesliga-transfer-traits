@@ -39,3 +39,6 @@ methodology_results_brief.html
 cohort_data.json
 bundesliga_statsbomb_deck.pptx
 mock_pizza_*.png
+
+# Result dumps — regenerable locally; do not ship in git
+results/
