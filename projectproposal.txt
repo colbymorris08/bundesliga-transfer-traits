@@ -13,7 +13,7 @@ Two evidence layers:
 
 | Tier | Role | Data backbone | Headline N |
 |------|------|---------------|------------|
-| **Tier 1 — Wide (FBref)** | Prior → first Bundesliga Year-1 at scale | **Football Reference (FBref)** player-season stats across **19 leagues** | **329** analysis-ready pairs |
+| **Tier 1 — Wide (FBref)** | Prior → Year 1 in Bundesliga at scale | **Football Reference (FBref)** player-season stats across **19 leagues** | **329** analysis-ready pairs |
 | **Tier 2 — Deep (StatsBomb)** | Event-level portability check on the same inbound logic | **StatsBomb Open Data** (17 competitions as priors) | **96** cohort players |
 
 This extends the NYRB scouting-metric framework: metric **stability** testing with a floor, filtering to metric **redundancy** testing with a floor, filtering to a final per-position metric list for **pizza chart–based player profiles**, and finally testing for **league-based success** — focused on which stats travel well from the prior league into the Bundesliga, not Transfermarkt market value.
@@ -30,21 +30,21 @@ Inbound players are identified from **Football Reference (FBref) season statisti
 
 ### FBref — scale layer (N = 329)
 
-- **Who:** Players with a first **1. Bundesliga** season in end-years **2021–2025**, with prior and Year-1 minutes ≥ **300′**, and a usable prior season outside the 1. Bundesliga.
+- **Who:** Players with a first **1. Bundesliga** season in end-years **2021–2025**, with prior and Year 1 in Bundesliga minutes ≥ **300′**, and a usable prior season outside the 1. Bundesliga.
 - **Where priors come from:** season tables across **19 leagues** (Big Five + 14 feeders), plus player-page fills where a league dump did not already cover the inbound.
 - **What we test:** per-90 / rate metrics → **105 metrics tested** → **43 metrics met the stability floor** → **32 metrics met the redundancy floor for the final list**.
-- **Why:** Honest multi-league N for “which traits travel?” and “which feeders look strongest on Year-1 minutes?”
+- **Why:** Honest multi-league N for “which traits travel?” and “which feeders look strongest on Year 1 in Bundesliga minutes?”
 
 ### StatsBomb — event deep dive (N = 96)
 
-- **Who:** Same inbound logic on open data; 1. Bundesliga open dumps only **2015/16 + 2023/24**; priors from **all male** open competitions/seasons available (**17** competitions in the working set). Minute floors stay on (relaxed for open-data thinness): prior ≥ **45′**, Bundesliga Year-1 ≥ **30′**.
+- **Who:** Same inbound logic on open data; 1. Bundesliga open dumps only **2015/16 + 2023/24**; priors from **all male** open competitions/seasons available (**17** competitions in the working set). Minute floors stay on (relaxed for open-data thinness): prior ≥ **45′**, Year 1 in Bundesliga ≥ **30′**.
 - **Pipeline (same order):**
-  1. **Stability** — correlate prior vs Bundesliga Year-1 per-90. Gate **Pearson r ≥ 0.40** → **7 of 16** metrics pass.
+  1. **Stability** — correlate prior vs Year 1 in Bundesliga per-90. Gate **Pearson r ≥ 0.40** → **7 of 16** metrics pass.
   2. **Redundancy** — near-duplicates only at **Pearson |r| ≥ 0.85** (so e.g. passes stays with progressive passes) → **7 kept**.
-  3. **Pizza / explorer** — profiles from that shortlist; success tests use **Year-1 Bundesliga minutes**.
+  3. **Pizza / explorer** — profiles from that shortlist; success tests use **Year 1 in Bundesliga minutes**.
 - **Role:** Event-level confirmation of which trait *families* travel — not a second league-ranking study. Open-data priors are mixed (club + international), so StatsBomb is read as noisier than FBref.
 
-**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive explorer / pizza charts, and feeder-league / trait→Year-1 success readouts.
+**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive explorer / pizza charts, and feeder-league / trait→Year 1 in Bundesliga success readouts.
 
 ---
 
@@ -56,17 +56,17 @@ The core idea is test–retest reliability across a **league change**, not acros
 
 **StatsBomb gate:** **Pearson r ≥ 0.40** → **7** metrics; redundancy **Pearson |r| ≥ 0.85** → keep all **7** (including passes).
 
-**League-relative scaling:** We tried scoring each rate as “how high is this vs peers in the same prior league” (within-league z-score or percentile) instead of the raw per-90. It **did not improve** prior→Bundesliga Year-1 stability on FBref, so we kept absolute per-90 rates for both sources.
+**League-relative scaling:** We tried scoring each rate as “how high is this vs peers in the same prior league” (within-league z-score or percentile) instead of the raw per-90. It **did not improve** prior→Year 1 in Bundesliga stability on FBref, so we kept absolute per-90 rates for both sources.
 
-Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ 1. Bundesliga). Success proxy for Phase 2 = **Year-1 Bundesliga minutes** (playing-time success), not market value.
+Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ 1. Bundesliga). Success proxy for Phase 2 = **Year 1 in Bundesliga minutes** (playing-time success), not market value.
 
-**Sample:** Destination = **1. Bundesliga** only. FBref first-Bundesliga window = end years **2021–2025**, with the **minutes restriction** still applied (prior ≥ **300′** and Year-1 ≥ **300′**) — that is how we get analysis-ready **N = 329**, not every Bundesliga appearance. StatsBomb keeps its own lower floors (prior ≥ **45′**, Year-1 ≥ **30′**) on open-data priors as above.
+**Sample:** Destination = **1. Bundesliga** only. FBref first-Bundesliga window = end years **2021–2025**, with the **minutes restriction** still applied (prior ≥ **300′** and Year 1 in Bundesliga ≥ **300′**) — that is how we get analysis-ready **N = 329**, not every Bundesliga appearance. StatsBomb keeps its own lower floors (prior ≥ **45′**, Year 1 in Bundesliga ≥ **30′**) on open-data priors as above.
 
 ---
 
 ## FBref feeder coverage
 
-Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech** (plus Big Five caches for Year-1 / Big-5 priors). Working analysis uses **19 leagues** populating the FBref tables; paired inbound **N = 329**.
+Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech** (plus Big Five caches for Year 1 in Bundesliga / Big-5 priors). Working analysis uses **19 leagues** populating the FBref tables; paired inbound **N = 329**.
 
 ---
 
@@ -91,10 +91,10 @@ Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie 
 
 ## Steps
 
-- Build the inbound cohort: first 1. Bundesliga season in the study window, prior season ≠ 1. Bundesliga, **and** clear the minutes floors (FBref prior/Year-1 ≥ **300′**; StatsBomb prior ≥ **45′** / Year-1 ≥ **30′**); pull that prior-league season’s stats  
-- **Stability** — correlate prior → Bundesliga Year-1; choose source-specific thresholds so we keep enough metrics without pretending weak correlations are portable  
+- Build the inbound cohort: first 1. Bundesliga season in the study window, prior season ≠ 1. Bundesliga, **and** clear the minutes floors (FBref prior/Year 1 in Bundesliga ≥ **300′**; StatsBomb prior ≥ **45′** / Year 1 in Bundesliga ≥ **30′**); pull that prior-league season’s stats  
+- **Stability** — correlate prior → Year 1 in Bundesliga; choose source-specific thresholds so we keep enough metrics without pretending weak correlations are portable  
 - **Redundancy** — drop near-duplicates with contextual keep rules; shortlist the scout card (**32** FBref · **7** StatsBomb)  
-- **Profiles & significance** — explorer / pizza graphics; Spearman trait & league tests vs **Year-1 Bundesliga minutes**  
+- **Profiles & significance** — explorer / pizza graphics; Spearman trait & league tests vs **Year 1 in Bundesliga minutes**  
 
 ---
 

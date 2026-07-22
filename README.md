@@ -1,6 +1,6 @@
 # Bundesliga Transfer Traits (Cal Berkeley)
 
-**Pipeline:** stability (prior → Bundesliga Y1) → redundancy → scout pizza / explorer → success indicators (Y1 minutes).
+**Pipeline:** stability (prior → Bundesliga Year 1 in Bundesliga) → redundancy → scout pizza / explorer → success indicators (Year 1 in Bundesliga minutes).
 
 **Destination:** **1. Bundesliga** only. **FBref** = scale · **StatsBomb** open data = event deep dive.
 
@@ -21,10 +21,10 @@
 | **FBref** | **329** pairs · **19** leagues · **105→43→32** | Att/Pass/Other ≥0.60 · Def/Carry ≥0.50 → **43** | \|r\|≥0.95 | **32** |
 | **StatsBomb** | **96** · **17** competitions | r≥0.40 | \|r\|≥0.85 (passes kept) | **7** |
 
-- FBref window: first BL season end-years **2021–2025**; **minutes restriction** prior/Y1 ≥**300′** (N=329 is after that gate)
-- StatsBomb: all male open comps as priors; BL open dumps **2015/16 + 2023/24**; prior ≥**45′** · Y1 ≥**30′**
-- Success proxy: **Year-1 Bundesliga minutes** (not Transfermarkt value)
-- League-relative scaling tested on FBref — **did not help** rate→Y1 stability; not applied
+- FBref window: first BL season end-years **2021–2025**; **minutes restriction** prior / Year 1 in Bundesliga ≥**300′** (N=329 is after that gate)
+- StatsBomb: all male open comps as priors; BL open dumps **2015/16 + 2023/24**; prior ≥**45′** · Year 1 in Bundesliga ≥**30′**
+- Success proxy: **Year 1 in Bundesliga minutes** (not Transfermarkt value)
+- League-relative scaling tested on FBref — **did not help** rate→Year 1 in Bundesliga stability; not applied
 
 ## Local results (not in git)
 
@@ -33,15 +33,15 @@ Headline numbers and feeder-regression tables are in this README. **Interactive 
 
 ## Exploratory feeder regression (Phase 2b)
 
-Big-5 FBref subset (**N = 117**). Outcome = Y1 Bundesliga minutes. Reference league = **Serie A**. Associative / exploratory — not a validated forecast.
+Big-5 FBref subset (**N = 117**). Outcome = Year 1 in Bundesliga minutes. Reference league = **Serie A**. Associative / exploratory — not a validated forecast.
 
 **M1** · `y1_minutes ~ league + prior_minutes + position` · R² = 0.086  
 **M3** · M1 + prior trait percentiles · R² = 0.215  
 **M4** · 80/20 holdout correlation(pred, actual) = 0.35
 
-### League effects (M1 · Δ Y1 minutes vs Serie A)
+### League effects (M1 · Δ Year 1 in Bundesliga minutes vs Serie A)
 
-| League | Δ Y1 min | p |
+| League | Δ Year 1 in Bundesliga min | p |
 |--------|--------:|--:|
 | La Liga | +48 | 0.856 |
 | Ligue 1 | +163 | 0.375 |
@@ -51,7 +51,7 @@ None significant at p &lt; 0.05 — league gaps shrink to noise once minutes and
 
 ### Prior trait effects (M3 · controlling for league)
 
-| Trait %ile | Δ Y1 min | p |
+| Trait %ile | Δ Year 1 in Bundesliga min | p |
 |------------|--------:|--:|
 | Lost Aerial* | +9 | 0.002 |
 | Final Third | +5 | 0.158 |
