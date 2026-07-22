@@ -13,16 +13,16 @@ Two evidence layers:
 
 | Tier | Role | Data backbone | Headline N |
 |------|------|---------------|------------|
-| **Tier 1 — Wide (FBref)** | Prior → first Bundesliga Y1 at scale | **FBref** player-season stats across **19 leagues** | **329** analysis-ready pairs |
+| **Tier 1 — Wide (FBref)** | Prior → first Bundesliga Year-1 at scale | **Football Reference (FBref)** player-season stats across **19 leagues** | **329** analysis-ready pairs |
 | **Tier 2 — Deep (StatsBomb)** | Event-level portability check on the same inbound logic | **StatsBomb Open Data** (17 competitions as priors) | **96** cohort players |
 
-This extends the NYRB scouting-metric framework (**stability → redundancy → pizza / profiles → success**), focused on **which stats travel well** from the prior league into the Bundesliga — not Transfermarkt market value.
+This extends the NYRB scouting-metric framework: metric **stability** testing with a floor, filtering to metric **redundancy** testing with a floor, filtering to a final per-position metric list for **pizza chart–based player profiles**, and finally testing for **league-based success** — focused on which stats travel well from the prior league into the Bundesliga, not Transfermarkt market value.
 
-Inbound players are identified from **FBref season records** (first Bundesliga season / prior league ≠ Bundesliga), not from scraped Transfermarkt transfer tables.
+Inbound players are identified from **Football Reference (FBref) season statistics** (a player’s first Bundesliga season / their prior professional league if non-Bundesliga), not from scraped Transfermarkt transfer tables.
 
 ---
 
-**FBref** (Sports Reference) is the primary public dataset for scale metrics: viewable online; usable for coursework with attribution and rate-limited access. Respect their terms; do not redistribute raw dumps beyond the course.
+**Football Reference (FBref)** / Sports Reference is the primary public dataset for scale metrics: viewable online; usable for coursework with attribution and rate-limited access. Respect their terms; do not redistribute raw dumps beyond the course.
 
 ---
 
@@ -30,21 +30,21 @@ Inbound players are identified from **FBref season records** (first Bundesliga s
 
 ### FBref — scale layer (N = 329)
 
-- **Who:** Players with a first **1. Bundesliga** season in end-years **2021–2025**, with prior and Y1 minutes ≥ **300′**, and a usable prior season outside 1. BL.
+- **Who:** Players with a first **1. Bundesliga** season in end-years **2021–2025**, with prior and Year-1 minutes ≥ **300′**, and a usable prior season outside the 1. Bundesliga.
 - **Where priors come from:** season tables across **19 leagues** (Big Five + 14 feeders), plus player-page fills where a league dump did not already cover the inbound.
-- **What we test:** per-90 / rate metrics → **105** tested → category stability gates → **43** gated → light redundancy → **32** shortlisted.
-- **Why:** Honest multi-league N for “which traits travel?” and “which feeders look strongest on Y1 minutes?”
+- **What we test:** per-90 / rate metrics → **105 metrics tested** → **43 metrics met the stability floor** → **32 metrics met the redundancy floor for the final list**.
+- **Why:** Honest multi-league N for “which traits travel?” and “which feeders look strongest on Year-1 minutes?”
 
 ### StatsBomb — event deep dive (N = 96)
 
-- **Who:** Same inbound logic on open data; BL open dumps only **2015/16 + 2023/24**; priors from **all male** open competitions/seasons available (**17** competitions in the working set). Minute floors stay on (relaxed for open-data thinness): prior ≥ **45′**, BL Y1 ≥ **30′**.
+- **Who:** Same inbound logic on open data; 1. Bundesliga open dumps only **2015/16 + 2023/24**; priors from **all male** open competitions/seasons available (**17** competitions in the working set). Minute floors stay on (relaxed for open-data thinness): prior ≥ **45′**, Bundesliga Year-1 ≥ **30′**.
 - **Pipeline (same order):**
-  1. **Stability** — correlate prior vs Bundesliga Y1 per-90. Gate **r ≥ 0.40** → **7 of 16** metrics pass.
-  2. **Redundancy** — near-duplicates only at **|r| ≥ 0.85** (so e.g. passes stays with progressive passes) → **7 kept**.
-  3. **Pizza / explorer** — profiles from that shortlist; success tests use **Y1 minutes**.
+  1. **Stability** — correlate prior vs Bundesliga Year-1 per-90. Gate **Pearson r ≥ 0.40** → **7 of 16** metrics pass.
+  2. **Redundancy** — near-duplicates only at **Pearson |r| ≥ 0.85** (so e.g. passes stays with progressive passes) → **7 kept**.
+  3. **Pizza / explorer** — profiles from that shortlist; success tests use **Year-1 Bundesliga minutes**.
 - **Role:** Event-level confirmation of which trait *families* travel — not a second league-ranking study. Open-data priors are mixed (club + international), so StatsBomb is read as noisier than FBref.
 
-**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive explorer / pizza charts, and feeder-league / trait→Y1 success readouts.
+**Outputs:** traits that transferred well (stability), a short non-redundant scout card (redundancy), interactive explorer / pizza charts, and feeder-league / trait→Year-1 success readouts.
 
 ---
 
@@ -52,27 +52,27 @@ Inbound players are identified from **FBref season records** (first Bundesliga s
 
 The core idea is test–retest reliability across a **league change**, not across seasons in the same league. For each per-90 metric we compute Pearson *r* between a player’s prior-league season and their first Bundesliga season.
 
-**FBref gates (category-specific):** Attacking / Passing / Other **r ≥ 0.60**; Defending / Carrying **r ≥ 0.50**. That yields **43** metrics from **105** tested. Redundancy at **|r| ≥ 0.95** (pick order: stability → sample size → prefer rate/contextual), with force-keeps (**SoT/90**, **Gls/90**, **Tkld Take**, **Att Total**) → final shortlist **32**.
+**FBref gates (category-specific):** Attacking / Passing / Other **Pearson r ≥ 0.60**; Defending / Carrying **Pearson r ≥ 0.50** (a slightly lower floor so enough defensive/carrying metrics remain for a usable shortlist). That yields **43 metrics that met the stability floor** from **105 metrics tested**. Redundancy at **Pearson |r| ≥ 0.95** (pick order: stability → sample size → prefer rate/contextual) → **32 metrics met the redundancy floor for the final list**.
 
-**StatsBomb gate:** **r ≥ 0.40** → **7** metrics; redundancy **|r| ≥ 0.85** → keep all **7** (including passes).
+**StatsBomb gate:** **Pearson r ≥ 0.40** → **7** metrics; redundancy **Pearson |r| ≥ 0.85** → keep all **7** (including passes).
 
-**League-relative scaling** (within-league z / percentile) was tested on FBref rate→Y1 stability and **did not help**, so absolute per-90 rates were kept for both sources.
+**League-relative scaling:** We tried scoring each rate as “how high is this vs peers in the same prior league” (within-league z-score or percentile) instead of the raw per-90. It **did not improve** prior→Bundesliga Year-1 stability on FBref, so we kept absolute per-90 rates for both sources.
 
-Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ 1. BL). Success proxy for Phase 2 = **Year-1 Bundesliga minutes** (playing-time success), not market value.
+Inbound status is inferred from playing records (first Bundesliga season / prior competition ≠ 1. Bundesliga). Success proxy for Phase 2 = **Year-1 Bundesliga minutes** (playing-time success), not market value.
 
-**Sample:** Destination = **1. Bundesliga** only. FBref first-BL window = end years **2021–2025**, with the **minutes restriction** still applied (prior ≥ **300′** and Y1 ≥ **300′**) — that is how we get analysis-ready **N = 329**, not every BL appearance. StatsBomb keeps its own lower floors (prior ≥ **45′**, Y1 ≥ **30′**) on open-data priors as above.
+**Sample:** Destination = **1. Bundesliga** only. FBref first-Bundesliga window = end years **2021–2025**, with the **minutes restriction** still applied (prior ≥ **300′** and Year-1 ≥ **300′**) — that is how we get analysis-ready **N = 329**, not every Bundesliga appearance. StatsBomb keeps its own lower floors (prior ≥ **45′**, Year-1 ≥ **30′**) on open-data priors as above.
 
 ---
 
 ## FBref feeder coverage
 
-Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech** (plus Big Five caches for Y1 / Big-5 priors). Working analysis uses **19 leagues** populating the FBref tables; paired inbound **N = 329**.
+Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech** (plus Big Five caches for Year-1 / Big-5 priors). Working analysis uses **19 leagues** populating the FBref tables; paired inbound **N = 329**.
 
 ---
 
 ## Data stack
 
-1. **FBref** — primary layer for stability / redundancy / pizza / success at scale (**329** pairs · **32** traits).  
+1. **Football Reference (FBref)** — primary layer for stability / redundancy / pizza / success at scale (**329** pairs · **32** traits).  
 2. **StatsBomb Open Data** — event deep dive + explorer toggle (**96** players · **7** traits).  
 
 ---
@@ -82,29 +82,28 @@ Season dumps (slimmed to inbound-roster players): **2. Bundesliga · Eredivisie 
 | # | File | Description |
 |---|------|-------------|
 | 1 | `projectproposal.docx` / `projectproposal.txt` | This proposal |
-| 2 | `bundesliga_transfer_traits.pptx` | Method + final results deck (includes project steps timeline + conclusion) |
+| 2 | `bundesliga_transfer_traits.pptx` | Method + final results deck (includes project steps timeline + conclusion + metric glossary) |
 | 3 | `interactive_player_explorer.html` | Success summary + player radars (FBref ↔ StatsBomb) |
 | 4 | `stability_redundancy_inspector.html` | Combined FBref + StatsBomb stability / redundancy inspector |
-| 5 | `README.md` / `results/` | Package notes + CSVs (stability, redundancy, success indicators) |
+| 5 | `README.md` | Package notes + feeder-regression tables |
 
 ---
 
 ## Steps
 
-- Build the inbound cohort: first 1. BL season in the study window, prior season ≠ 1. BL, **and** clear the minutes floors (FBref prior/Y1 ≥ **300′**; StatsBomb prior ≥ **45′** / Y1 ≥ **30′**); pull that prior-league season’s stats  
-
-- **Stability** — correlate prior → BL Year-1; choose source-specific thresholds so we keep enough metrics without pretending weak correlations are portable  
+- Build the inbound cohort: first 1. Bundesliga season in the study window, prior season ≠ 1. Bundesliga, **and** clear the minutes floors (FBref prior/Year-1 ≥ **300′**; StatsBomb prior ≥ **45′** / Year-1 ≥ **30′**); pull that prior-league season’s stats  
+- **Stability** — correlate prior → Bundesliga Year-1; choose source-specific thresholds so we keep enough metrics without pretending weak correlations are portable  
 - **Redundancy** — drop near-duplicates with contextual keep rules; shortlist the scout card (**32** FBref · **7** StatsBomb)  
-- **Profiles & significance** — explorer / pizza graphics; Spearman trait & league tests vs **Y1 minutes**  
+- **Profiles & significance** — explorer / pizza graphics; Spearman trait & league tests vs **Year-1 Bundesliga minutes**  
 
 ---
 
 ## Why this works?
 
-- **Honest N:** FBref **329** paired seasons for the scale story; StatsBomb **96** for event depth — not a claim that open data alone has hundreds of clean feeder→BL pairs.  
+- **Honest N:** FBref **329** paired seasons for the scale story; StatsBomb **96** for event depth — not a claim that open data alone has hundreds of clean feeder→Bundesliga pairs.  
 - **Narrow:** only into the Bundesliga.  
 - **Clear pipeline:** stability → thresholds → redundancy → explorer → significance.  
 - **Multi-league FBref:** same method beyond Big-5-only anecdotes.  
 - **Accurate where it matters:** FBref for portable rates + feeder readouts; StatsBomb as a smaller, deeper event check.  
 
-Attributions: FBref / Sports Reference; StatsBomb Open Data (where used).
+Attributions: Football Reference / Sports Reference; StatsBomb Open Data (where used).
