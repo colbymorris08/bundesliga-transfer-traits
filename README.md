@@ -67,6 +67,8 @@ None significant at p &lt; 0.05 — league gaps shrink to noise once minutes and
 
 ## Rebuild (optional)
 
+Analysis / scrape helpers live under `scripts/`.
+
 ```bash
 python3 scripts/finalize_deliverables.py   # explorer + success p-values from final shortlists
 python3 scripts/run_success_indicators.py  # Phase-2 Spearman only
