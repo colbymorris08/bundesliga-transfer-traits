@@ -7,13 +7,15 @@
 
 ## Deliverables (submit)
 
+These five files are the package outputs:
+
 | File | Role |
 |------|------|
 | [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Deck — method + final results + conclusion |
+| [`README.md`](README.md) | Package overview + prior-league regression tables |
 | [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player radar charts (Football Reference ↔ StatsBomb) |
 | [`stability_redundancy_inspector.html`](stability_redundancy_inspector.html) | Consistency floors & near-duplicate cuts by category |
-| [`projectproposal.docx`](projectproposal.docx) | Proposal (Word) |
-| [`projectproposal.txt`](projectproposal.txt) | Proposal source |
+| [`projectproposal.docx`](projectproposal.docx) | Proposal memo (Word); [`projectproposal.txt`](projectproposal.txt) is the plain-text source of the same memo |
 
 ## Final sample & shortlists
 

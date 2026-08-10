@@ -134,13 +134,15 @@ After the shortlist exists:
 
 ## What we produced (deliverables)
 
+These five files are the package outputs:
+
 | # | File | What a reader gets |
 |---|------|--------------------|
-| 1 | `projectproposal.docx` / `projectproposal.txt` | This self-contained memo |
-| 2 | `bundesliga_transfer_traits.pptx` | Method + results deck (steps, tables, conclusion, metric glossary) |
+| 1 | `bundesliga_transfer_traits.pptx` | Method + results deck (steps, tables, conclusion, metric glossary) |
+| 2 | `README.md` | Package overview + prior-league regression tables |
 | 3 | `interactive_player_explorer.html` | Success summary + player radar charts (Football Reference ↔ StatsBomb); open in a browser offline |
 | 4 | `stability_redundancy_inspector.html` | Combined consistency / near-duplicate inspector for both sources |
-| 5 | `README.md` | Package notes + prior-league regression tables |
+| 5 | `projectproposal.docx` | This self-contained memo (Word); `projectproposal.txt` is the plain-text source of the same memo |
 
 Headline findings (detail in the deck and explorer): Football Reference shortlist **105 → 43 → 32**; StatsBomb **16 → 7** (all seven kept). Football Reference traits most linked to first-season Bundesliga minutes (p < 0.05 in the exploratory trait screen) include passes into the final third, shot blocks, progressive carry distance, and defensive work in the penalty area. Prior-league gaps are modest relative to prior trait profile in the exploratory OLS.
 
