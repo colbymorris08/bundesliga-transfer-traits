@@ -77,10 +77,13 @@
   #explainer .t{color:#ffd166;font-weight:700;margin-bottom:4px}
   footer{margin-top:16px;font-size:11px;color:#777}
 
-  .top-nav{display:flex;gap:0;border-bottom:2px solid #1c1c1c;margin-bottom:20px}
-  .top-nav .tab{font:600 14px system-ui;padding:12px 20px;background:transparent;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;color:#555}
-  .top-nav .tab:hover{color:#1c1c1c;background:#eef3f8}
-  .top-nav .tab.active{color:#1c1c1c;border-bottom-color:#3d5a80;background:#fff}
+  .top-nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:22px;padding:12px 14px;background:#fff;border:1px solid #d0d4db;border-radius:10px;box-shadow:0 1px 2px rgba(28,28,28,.04)}
+  .top-nav .nav-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#666;margin-right:4px}
+  .top-nav .tab{font:600 15px system-ui;padding:12px 22px;border-radius:8px;border:2px solid #1c1c1c;background:#fff;color:#1c1c1c;cursor:pointer;box-shadow:0 1px 0 rgba(28,28,28,.08);transition:background .12s,color .12s,box-shadow .12s,transform .12s}
+  .top-nav .tab:hover{background:#eef3f8;transform:translateY(-1px);box-shadow:0 2px 6px rgba(28,28,28,.1)}
+  .top-nav .tab:focus-visible{outline:3px solid #3d5a80;outline-offset:2px}
+  .top-nav .tab.active{background:#1c1c1c;color:#fff;border-color:#1c1c1c;box-shadow:0 2px 8px rgba(28,28,28,.2)}
+  .top-nav .tab.active:hover{background:#333;color:#fff;transform:none}
   .rho-weak{color:#888}
   .rho-mod{color:#3d5a80;font-weight:600}
   .rho-strong{color:#1b7a45;font-weight:700}
@@ -111,8 +114,9 @@
 <body>
 <div class="wrap">
 <nav class="top-nav" aria-label="Main views">
-  <button type="button" class="tab active" data-view="landing">Success summary</button>
-  <button type="button" class="tab" data-view="explorer">Player examples</button>
+  <span class="nav-label">View</span>
+  <button type="button" class="tab active" data-view="landing" aria-pressed="true">Success summary</button>
+  <button type="button" class="tab" data-view="explorer" aria-pressed="false">Player examples</button>
 </nav>
 
 <!-- ========== LANDING ========== -->
@@ -309,7 +313,9 @@ function switchView(view){
   viewLanding.classList.toggle('hide', !landing);
   viewExplorer.classList.toggle('hide', landing);
   document.querySelectorAll('.top-nav .tab').forEach(t=>{
-    t.classList.toggle('active', t.dataset.view === view);
+    const on = t.dataset.view === view;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-pressed', on ? 'true' : 'false');
   });
   history.replaceState(null, '', landing ? location.pathname : '#explore');
   if (!landing && !window._explorerReady) { buildScale(); loadPlayers(); window._explorerReady = true; }
