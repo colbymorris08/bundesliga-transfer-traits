@@ -1,47 +1,48 @@
 # Bundesliga Transfer Traits (Cal Berkeley)
 
-**Pipeline:** stability (prior → Bundesliga Year 1 in Bundesliga) → redundancy → scout pizza / explorer → success indicators (Year 1 in Bundesliga minutes).
+**Pipeline:** consistency check (prior season → first Bundesliga season) → drop near-duplicates → category radar charts / explorer → success tests (first-season Bundesliga minutes).
 
-**Destination:** **1. Bundesliga** only. **FBref** = scale · **StatsBomb** open data = event deep dive.
+**Destination:** the **Bundesliga** only (Germany’s top men’s soccer league).  
+**Football Reference** = larger sample, season-rate metrics. **StatsBomb** open data = smaller sample, deeper event metrics.
 
 ## Deliverables (submit)
 
 | File | Role |
 |------|------|
 | [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Deck — method + final results + conclusion |
-| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player radars (FBref ↔ StatsBomb) |
-| [`stability_redundancy_inspector.html`](stability_redundancy_inspector.html) | Metric gates & redundancy by category |
+| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player radar charts (Football Reference ↔ StatsBomb) |
+| [`stability_redundancy_inspector.html`](stability_redundancy_inspector.html) | Consistency floors & near-duplicate cuts by category |
 | [`projectproposal.docx`](projectproposal.docx) | Proposal (Word) |
 | [`projectproposal.txt`](projectproposal.txt) | Proposal source |
 
 ## Final sample & shortlists
 
-| Layer | N | Stability | Redundancy | Shortlist |
-|-------|--:|-----------|------------|----------:|
-| **FBref** | **329** pairs · **19** leagues · **105→43→32** | Att/Pass/Other ≥0.60 · Def/Carry ≥0.50 → **43** | \|r\|≥0.95 | **32** |
-| **StatsBomb** | **96** · **17** competitions | r≥0.40 | \|r\|≥0.85 (passes kept) | **7** |
+| Layer | N | Consistency floor | Near-duplicate filter | Shortlist |
+|-------|--:|-------------------|----------------------|----------:|
+| **Football Reference** | **329** pairs · **19** leagues · **105→43→32** | Attacking / Passing / Other ≥0.60 · Defending / Carrying ≥0.50 → **43** | \|r\|≥0.95 | **32** |
+| **StatsBomb** | **96** · **17** competitions | r≥0.40 | \|r\|≥0.85 (all kept) | **7** |
 
-- FBref window: first BL season end-years **2021–2025**; **minutes restriction** prior / Year 1 in Bundesliga ≥**300′** (N=329 is after that gate)
-- StatsBomb: all male open comps as priors; BL open dumps **2015/16 + 2023/24**; prior ≥**45′** · Year 1 in Bundesliga ≥**30′**
-- Success proxy: **Year 1 in Bundesliga minutes** (not Transfermarkt value)
-- League-relative scaling tested on FBref — **did not help** rate→Year 1 in Bundesliga stability; not applied
+- Football Reference window: first Bundesliga season end-years **2021–2025**; minutes floor prior / first Bundesliga season ≥**300′** (N=329 is after that gate)
+- StatsBomb: men’s open competitions as priors; Bundesliga open match files **2015/16 + 2023/24**; prior ≥**45′** · first Bundesliga season ≥**30′**
+- Success measure: **minutes in the first Bundesliga season** (not Transfermarkt market value)
+- League-relative scaling tested on Football Reference — **did not help** prior→first-season consistency; not applied
 
 ## Local results (not in git)
 
-Regenerable under `results/` (gitignored): stability/redundancy CSVs, success indicators, caches.
-Headline numbers and feeder-regression tables are in this README. **Interactive results** (success tables, radars, gates) live in the explorer + inspector HTML — download either `.html` file and open it in a browser (fully self-contained; no server or install needed).
+Regenerable under `results/` (gitignored): consistency / near-duplicate CSVs, success indicators, caches.  
+Headline numbers and prior-league regression tables are in this README. **Interactive results** (success tables, radars, gates) live in the explorer + inspector HTML — download either `.html` file and open it in a browser (fully self-contained; no server or install needed).
 
-## Exploratory feeder regression (Phase 2b)
+## Exploratory prior-league regression (Phase 2b)
 
-Big-5 FBref subset (**N = 117**). Outcome = Year 1 in Bundesliga minutes. Reference league = **Serie A**. Associative / exploratory — not a validated forecast.
+Big Five European leagues subset on Football Reference (**N = 117**): Premier League, La Liga, Serie A, Ligue 1 (plus Bundesliga as destination). Outcome = first-season Bundesliga minutes. Reference league = **Serie A**. Associative / exploratory — not a validated forecast.
 
-**M1** · `y1_minutes ~ league + prior_minutes + position` · R² = 0.086  
-**M3** · M1 + prior trait percentiles · R² = 0.215  
-**M4** · 80/20 holdout correlation(pred, actual) = 0.35
+**Model 1** · `first_season_minutes ~ prior_league + prior_minutes + position` · R² = 0.086  
+**Model 2** · Model 1 + prior trait percentiles · R² = 0.215  
+**Model 3** · 80/20 holdout correlation(predicted, actual) = 0.35
 
-### League effects (M1 · Δ Year 1 in Bundesliga minutes vs Serie A)
+### League effects (Model 1 · change in first-season Bundesliga minutes vs Serie A)
 
-| League | Δ Year 1 in Bundesliga min | p |
+| League | Change in first-season minutes | p |
 |--------|--------:|--:|
 | La Liga | +48 | 0.856 |
 | Ligue 1 | +163 | 0.375 |
@@ -49,18 +50,18 @@ Big-5 FBref subset (**N = 117**). Outcome = Year 1 in Bundesliga minutes. Refere
 
 None significant at p &lt; 0.05 — league gaps shrink to noise once minutes and position are held.
 
-### Prior trait effects (M3 · controlling for league)
+### Prior trait effects (Model 2 · controlling for league)
 
-| Trait %ile | Δ Year 1 in Bundesliga min | p |
+| Trait percentile | Change in first-season minutes | p |
 |------------|--------:|--:|
-| Lost Aerial* | +9 | 0.002 |
-| Final Third | +5 | 0.158 |
-| Def Pen Touches | +5 | 0.189 |
-| PrgDist Total | −4 | 0.249 |
-| xG Per | +2 | 0.430 |
-| Sh Blocks | +2 | 0.565 |
+| Aerials lost (fewer is better)* | +9 | 0.002 |
+| Passes into the final third | +5 | 0.158 |
+| Defensive penalty-area touches | +5 | 0.189 |
+| Progressive carry distance | −4 | 0.249 |
+| Expected goals (xG) | +2 | 0.430 |
+| Shot blocks | +2 | 0.565 |
 
-\* p &lt; 0.05. Takeaway: **trait profile matters more than league label** in this open-data subset.
+\* p &lt; 0.05. Takeaway: **the player’s prior trait profile matters more than the prior-league label** in this open-data subset.
 
 ## Rebuild (optional)
 

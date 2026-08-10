@@ -1,35 +1,35 @@
 # Independent Study Proposal / Memo
 
-**Working title:** Which traits travel into the Bundesliga — and which source leagues should scouts prioritize?  
+**Working title:** Which traits stay consistent after a move into the Bundesliga — and which prior leagues line up with more first-season playing time?  
 **Author:** Colby Morris · Berkeley Haas independent study  
-**Scope:** Destination = **1. Bundesliga** only (inbound transfers into Germany’s top men’s division).  
+**Scope:** Destination = the **Bundesliga** only (Germany’s top men’s soccer league; players arriving from other competitions).  
 **Public package:** https://github.com/colbymorris08/bundesliga-transfer-traits  
 
 ---
 
 ## What this project is
 
-Clubs and scouts often ask two related questions when a player moves **into the Bundesliga** from another competition:
+Clubs and analysts often ask two related questions when a player moves **into the Bundesliga** from another competition:
 
-1. Which **performance traits** (passing volume, progressive carries, defensive actions, and so on) look **similar before and after** the move — i.e., which stats “travel” rather than reflecting only the prior league’s style or pace?  
+1. Which **performance traits** (pass volume, progressive carries, defensive actions, and so on) look **similar before and after** the move — i.e., which stats “travel” rather than reflecting only the prior league’s style or pace?  
 2. Which **prior leagues** (and which prior trait profiles) line up with a stronger **first Bundesliga season**?
 
 This project answers those questions with a fixed, transparent pipeline on public data. It is **not** a market-value or Transfermarkt study. The open-data success marker is **minutes played in the player’s first Bundesliga season** (“Year 1 in Bundesliga minutes”): more minutes means the club gave the arrival a real role.
 
-The work extends a scouting-metric framework used in a New York Red Bulls (NYRB) project setting, written out as four stages rather than jargon arrows:
+The work extends a metric-evaluation framework used in a New York Red Bulls internship project, written out as four stages:
 
-1. **Metric stability testing with a floor** — for each rate statistic, correlate the prior-league season with Year 1 in the Bundesliga; keep only metrics that clear a minimum correlation.  
-2. **Metric redundancy testing with a floor** — among the surviving metrics, drop near-duplicates so the scout card is short and non-redundant.  
-3. **Final per-position metric list → pizza / radar profiles** — use that shortlist to build player profiles (interactive explorer and pizza-style category radars).  
-4. **League- and trait-based success testing** — ask which prior traits and feeder leagues line up with more Year 1 in Bundesliga minutes (and, exploratorily, whether league labels still matter after controls).
+1. **Consistency testing with a floor** — for each rate statistic, correlate the prior-league season with the first Bundesliga season; keep only metrics that clear a minimum correlation.  
+2. **Near-duplicate testing with a floor** — among the surviving metrics, drop traits that almost always move together so the shortlist is short and non-redundant.  
+3. **Final shortlist → category radar profiles** — use that shortlist to build player profiles (interactive explorer and category radar charts).  
+4. **League- and trait-based success testing** — ask which prior traits and prior leagues line up with more first-season Bundesliga minutes (and, exploratorily, whether league labels still matter after controls).
 
 ---
 
 ## Research question (explicit)
 
-When players transfer **into the Bundesliga** from other leagues, which performance traits remain **stable across that league change**, and which **source (feeder) leagues** — and prior trait profiles — produce the most effective arrivals, where “effective” means **more Year 1 in Bundesliga minutes**?
+When players transfer **into the Bundesliga** from other leagues, which performance traits remain **consistent across that league change**, and which **source (prior) leagues** — and prior trait profiles — produce the most effective arrivals, where “effective” means **more first-season Bundesliga minutes**?
 
-“Stable vs. league-context” means: a high (or low) ranking on a per-90 rate in the prior league tends to recur in the first Bundesliga season, rather than disappearing once the player changes competition.
+“Consistent vs. league-context” means: a high (or low) ranking on a per-90-minute rate in the prior league tends to recur in the first Bundesliga season, rather than disappearing once the player changes competition.
 
 ---
 
@@ -37,22 +37,23 @@ When players transfer **into the Bundesliga** from other leagues, which performa
 
 | Term | Meaning in this memo |
 |------|----------------------|
-| **1. Bundesliga** | Germany’s top men’s professional league (destination for every analysis pair). |
-| **Inbound / first Bundesliga season** | A player’s first season with recorded 1. Bundesliga minutes in the study window. |
-| **Prior season** | The professional season immediately before that first Bundesliga season, played in a **non–1. Bundesliga** competition. |
-| **Year 1 in Bundesliga** | That first Bundesliga season (sometimes abbreviated Y1 elsewhere; this memo spells it out). |
-| **Feeder / source league** | The prior competition the player came from (e.g. Ligue 1, Championship, 2. Bundesliga). |
-| **Per-90 / rate metric** | A counting or rate statistic scaled to 90 minutes played (volume and intensity comparable across minutes totals). |
-| **Football Reference (FBref)** | Sports Reference’s public soccer tables — the **scale** layer (many leagues, season stats). |
+| **Bundesliga** | Germany’s top men’s professional soccer league (destination for every analysis pair). |
+| **Arriving player / first Bundesliga season** | A player’s first season with recorded Bundesliga minutes in the study window. |
+| **Prior season** | The professional season immediately before that first Bundesliga season, played in a **non-Bundesliga** competition. |
+| **Year 1 in Bundesliga** | That first Bundesliga season (spelled out everywhere; not abbreviated). |
+| **Prior / source league** | The competition the player came from (e.g. Ligue 1, Championship, 2. Bundesliga). |
+| **Per-90 / rate metric** | A counting or rate statistic scaled to 90 minutes played (volume and intensity comparable across different minutes totals). |
+| **Football Reference** | Sports Reference’s public soccer tables — the **scale** layer (many leagues, season stats). The short site name “Football Reference” is avoided in this memo; we write Football Reference. |
 | **StatsBomb Open Data** | Free event-level match data — the **deep** layer (fewer clean Bundesliga seasons, richer event metrics). |
-| **Stability (Pearson r)** | Correlation of the **same** per-90 metric: prior season ↔ Year 1 in Bundesliga. High *r* ⇒ the trait travels. |
-| **Redundancy (Pearson \|r\|)** | Correlation **between two different** metrics in the same season. Very high \|r\| ⇒ near-duplicates; keep one. |
-| **Pizza / radar profile** | Category chart of the shortlisted traits (prior vs Year 1 in Bundesliga percentiles vs peers). |
-| **Success (Phase 2)** | **Year 1 in Bundesliga minutes** (playing-time opportunity). Preferred club outcome would be Δ Transfermarkt market value; we do not scrape Transfermarkt (terms of service), so minutes are the open-data proxy. |
-| **Spearman ρ** | Rank correlation used in Phase 2 (prior trait percentile ↔ Year 1 minutes). Robust when minutes are skewed. |
-| **Analysis-ready pair** | One player with usable prior + Year 1 seasons that clear the **minutes floors** below — not every Bundesliga appearance. |
+| **Consistency / stability (Pearson r)** | Correlation of the **same** per-90 metric: prior season ↔ first Bundesliga season. High *r* ⇒ the trait travels. |
+| **Near-duplicates (Pearson \|r\|)** | Correlation **between two different** metrics in the same season. Very high \|r\| ⇒ near-duplicates; keep one. |
+| **Category radar profile** | Category chart of the shortlisted traits (prior vs first-season Bundesliga percentiles vs peers). |
+| **Success (Phase 2)** | **First-season Bundesliga minutes** (playing-time opportunity). Preferred club outcome would be change in Transfermarkt market value; we do not scrape Transfermarkt (terms of service), so minutes are the open-data proxy. |
+| **Spearman ρ** | Rank correlation used in Phase 2 (prior trait percentile ↔ first-season minutes). Robust when minutes are skewed. |
+| **Analysis-ready pair** | One player with usable prior + first Bundesliga seasons that clear the **minutes floors** below — not every Bundesliga appearance. |
+| **Big Five** | Premier League, La Liga, Serie A, Ligue 1, Bundesliga — Europe’s five largest men’s top divisions. |
 
-Inbound status is inferred from **playing records** (first Bundesliga season and prior competition ≠ 1. Bundesliga), not from scraped Transfermarkt transfer tables.
+Arrival status is inferred from **playing records** (first Bundesliga season and prior competition ≠ Bundesliga), not from scraped Transfermarkt transfer tables.
 
 ---
 
@@ -60,46 +61,46 @@ Inbound status is inferred from **playing records** (first Bundesliga season and
 
 | Tier | Role | Data | Analysis-ready N |
 |------|------|------|------------------|
-| **Tier 1 — Wide (FBref)** | Same pipeline at scale across many feeders | Football Reference player-season stats, **19 leagues** | **329** prior→Year 1 pairs |
-| **Tier 2 — Deep (StatsBomb)** | Event-level check on the **same inbound logic** | StatsBomb Open Data, **17** competitions as priors | **96** cohort players |
+| **Tier 1 — Wide (Football Reference)** | Same pipeline at scale across many prior leagues | Football Reference player-season stats, **19 leagues** | **329** prior→first-season pairs |
+| **Tier 2 — Deep (StatsBomb)** | Event-level check on the **same arrival logic** | StatsBomb Open Data, **17** competitions as priors | **96** cohort players |
 
-FBref answers “which rates travel?” and “which feeders look strongest?” at honest multi-league sample size. StatsBomb asks whether **event-level trait families** also travel; it is **not** a second league-ranking study. StatsBomb priors mix club and international competitions (e.g. FIFA World Cup, UEFA European Championship, UEFA Champions League), so that layer is noisier by design.
+Football Reference answers “which rates travel?” and “which prior leagues look strongest?” at honest multi-league sample size. StatsBomb asks whether **event-level trait families** also travel; it is **not** a second league-ranking study. StatsBomb priors mix club and international competitions (e.g. FIFA World Cup, UEFA European Championship, UEFA Champions League), so that layer is noisier by design.
 
-**Attribution / use:** FBref / Sports Reference is viewable online and usable for coursework with attribution and rate-limited access — respect their terms; do not redistribute raw dumps beyond the course. StatsBomb Open Data is used where available under their open license.
+**Attribution / use:** Football Reference / Sports Reference is viewable online and usable for coursework with attribution and rate-limited access — respect their terms; do not redistribute raw dumps beyond the course. StatsBomb Open Data is used where available under their open license.
 
 ---
 
 ## Design — who is in the sample?
 
-### FBref — scale layer (N = 329)
+### Football Reference — scale layer (N = 329)
 
-- **Who:** Players with a first **1. Bundesliga** season in calendar end-years **2021–2025**.  
-- **Minutes floors (both sides):** prior season ≥ **300′** and Year 1 in Bundesliga ≥ **300′**. Those floors — not “anyone who appeared in the Bundesliga” — produce **N = 329**.  
-- **Prior sources:** season tables across **19 leagues** (Big Five plus feeders such as 2. Bundesliga, Eredivisie, Championship, Segunda, Serie B, and others listed below), with player-page fills when a league dump did not already cover the inbound.  
-- **What we ran on rates:** **105 metrics tested** → **43 metrics met the stability floor** → **32 metrics met the redundancy floor** for the final scout shortlist.  
-- **Why this design:** Honest multi-league N for “which traits travel?” and “which feeders look strongest on Year 1 in Bundesliga minutes?”
+- **Who:** Players with a first **Bundesliga** season in calendar end-years **2021–2025**.  
+- **Minutes floors (both sides):** prior season ≥ **300′** and first Bundesliga season ≥ **300′**. Those floors — not “anyone who appeared in the Bundesliga” — produce **N = 329**.  
+- **Prior sources:** season tables across **19 leagues** (Big Five plus other prior leagues such as 2. Bundesliga, Eredivisie, Championship, Segunda, Serie B, and others listed below), with player-page fills when a league dump did not already cover the arrival.  
+- **What we ran on rates:** **105 metrics tested** → **43 metrics met the consistency floor** → **32 metrics met the near-duplicate floor** for the final shortlist.  
+- **Why this design:** Honest multi-league N for “which traits travel?” and “which prior leagues look strongest on first-season Bundesliga minutes?”
 
 ### StatsBomb — event deep dive (N = 96)
 
-- **Who:** Same inbound logic on open data. Open 1. Bundesliga event dumps exist only for **2015/16** and **2023/24**. Priors come from **all male** open competitions/seasons in the working set (**17** competitions).  
-- **Minutes floors (relaxed for thin open data):** prior ≥ **45′**, Year 1 in Bundesliga ≥ **30′**.  
+- **Who:** Same arrival logic on open data. Open Bundesliga event dumps exist only for **2015/16** and **2023/24**. Priors come from **all men’s** open competitions/seasons in the working set (**17** competitions).  
+- **Minutes floors (relaxed for thin open data):** prior ≥ **45′**, first Bundesliga season ≥ **30′**.  
 - **Same pipeline order:**  
-  1. **Stability** — correlate prior vs Year 1 in Bundesliga per-90. Gate **Pearson r ≥ 0.40** → **7 of 16** metrics pass.  
-  2. **Redundancy** — near-duplicates only at **Pearson \|r\| ≥ 0.85** (so, for example, pass volume can stay alongside progressive passes) → **7 kept**.  
-  3. **Pizza / explorer + success** — profiles from that shortlist; Phase 2 uses **Year 1 in Bundesliga minutes**.  
-- **Role:** Confirm which trait *families* travel at event granularity — not to re-rank feeder leagues.
+  1. **Consistency** — correlate prior vs first Bundesliga season per-90. Gate **Pearson r ≥ 0.40** → **7 of 16** metrics pass.  
+  2. **Near-duplicates** — only at **Pearson \|r\| ≥ 0.85** (so, for example, pass volume can stay alongside progressive passes) → **7 kept**.  
+  3. **Radar charts / explorer + success** — profiles from that shortlist; Phase 2 uses **first-season Bundesliga minutes**.  
+- **Role:** Confirm which trait *families* travel at event granularity — not to re-rank prior leagues.
 
-**FBref feeder dumps used (slimmed to inbound-roster players):** 2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech (plus Big Five caches for Year 1 / Big-5 priors). Working analysis uses **19 leagues** in the FBref tables; paired inbound **N = 329**.
+**Football Reference prior-league dumps used (slimmed to arriving-roster players):** 2. Bundesliga · Eredivisie · Austria · Portugal · Belgium · Swiss · Turkey · Championship · Ligue 2 · Segunda · Serie B · Denmark · Poland · Czech (plus Big Five caches for first-season / Big Five priors). Working analysis uses **19 leagues** in the Football Reference tables; paired arrival **N = 329**.
 
 ---
 
 ## Methodology (self-contained)
 
-The core idea is **test–retest reliability across a league change**, not across two seasons in the same league. For each per-90 metric we compute **Pearson r** between the player’s prior-league season and their Year 1 in Bundesliga season.
+The core idea is **test–retest reliability across a league change**, not across two seasons in the same league. For each per-90 metric we compute **Pearson r** between the player’s prior-league season and their first Bundesliga season.
 
-### Stability floors (what “met the stability floor” means)
+### Consistency floors (what “met the consistency floor” means)
 
-**FBref (category-specific):**
+**Football Reference (category-specific):**
 
 - Attacking / Passing / Other: **Pearson r ≥ 0.60**  
 - Defending / Carrying: **Pearson r ≥ 0.50** (slightly lower so enough defensive and carrying metrics remain for a usable shortlist)
@@ -108,26 +109,26 @@ Result: **43 of 105** tested metrics cleared the floor.
 
 **StatsBomb:** **Pearson r ≥ 0.40** → **7** metrics.
 
-### Redundancy floors (what “met the redundancy floor” means)
+### Near-duplicate floors (what “met the near-duplicate floor” means)
 
-Among metrics that already cleared stability, drop near-duplicates:
+Among metrics that already cleared consistency, drop near-duplicates:
 
-- **FBref:** **Pearson \|r\| ≥ 0.95** between two shortlist candidates. Pick order when choosing which to keep: higher stability first, then larger sample size, then prefer rate/contextual metrics → **32** remain.  
-- **StatsBomb:** **Pearson \|r\| ≥ 0.85** → all **7** kept (including passes).
+- **Football Reference:** **Pearson \|r\| ≥ 0.95** between two shortlist candidates. Pick order when choosing which to keep: higher consistency first, then larger sample size, then prefer rate/contextual metrics → **32** remain.  
+- **StatsBomb:** **Pearson \|r\| ≥ 0.85** → all **7** kept (including pass volume).
 
 There are **no forced keeps** of vanity scoring stats outside that rule set.
 
 ### League-relative scaling (tested and not used)
 
-We also tried scoring each rate as **“how high is this vs peers in the same prior league”** (within-league z-score or percentile) instead of the raw per-90. That **did not improve** prior→Year 1 in Bundesliga stability on FBref, so both sources keep **absolute per-90 rates**. On StatsBomb the idea is even less meaningful because priors mix World Cup / Euro / Champions League / clubs.
+We also tried scoring each rate as **“how high is this vs peers in the same prior league”** (within-league z-score or percentile) instead of the raw per-90. That **did not improve** prior→first-season consistency on Football Reference, so both sources keep **absolute per-90 rates**. On StatsBomb the idea is even less meaningful because priors mix World Cup / European Championship / Champions League / clubs.
 
 ### Phase 2 — success indicators
 
 After the shortlist exists:
 
-- **Spearman** tests: prior-season trait **percentile** vs **Year 1 in Bundesliga minutes** (and secondary outcomes such as minutes percentile and a stable-trait profile score).  
-- **Feeder summaries:** mean Year 1 outcomes by prior league (descriptive).  
-- **Exploratory OLS** on a Big-5 FBref subset (**N = 117**): Year 1 minutes ~ prior league (Serie A as baseline) + prior minutes + position, then models that add prior trait percentiles. Associative only — not a validated forecast. Headline pattern: **league gaps look modest**; adding traits raises fit more than league labels alone (see README / deck for coefficients).
+- **Spearman** tests: prior-season trait **percentile** vs **first-season Bundesliga minutes** (and secondary outcomes such as minutes percentile and a shortlisted-trait profile score).  
+- **Prior-league summaries:** mean first-season outcomes by prior league (descriptive).  
+- **Exploratory OLS** on a Big Five Football Reference subset (**N = 117**): first-season minutes ~ prior league (Serie A as baseline) + prior minutes + position, then models that add prior trait percentiles. Associative only — not a validated forecast. Headline pattern: **league gaps look modest**; adding traits raises fit more than league labels alone (see README / deck for coefficients).
 
 ---
 
@@ -137,30 +138,30 @@ After the shortlist exists:
 |---|------|--------------------|
 | 1 | `projectproposal.docx` / `projectproposal.txt` | This self-contained memo |
 | 2 | `bundesliga_transfer_traits.pptx` | Method + results deck (steps, tables, conclusion, metric glossary) |
-| 3 | `interactive_player_explorer.html` | Success summary + player radars (FBref ↔ StatsBomb); open in a browser offline |
-| 4 | `stability_redundancy_inspector.html` | Combined stability / redundancy inspector for both sources |
-| 5 | `README.md` | Package notes + feeder-regression tables |
+| 3 | `interactive_player_explorer.html` | Success summary + player radar charts (Football Reference ↔ StatsBomb); open in a browser offline |
+| 4 | `stability_redundancy_inspector.html` | Combined consistency / near-duplicate inspector for both sources |
+| 5 | `README.md` | Package notes + prior-league regression tables |
 
-Headline findings (detail in the deck and explorer): FBref shortlist **105 → 43 → 32**; StatsBomb **16 → 7** (all seven kept). FBref traits most linked to Year 1 in Bundesliga minutes (p < 0.05 in the exploratory trait screen) include final-third passing, shot blocks, progressive carry distance, and box defending. Feeder-league gaps are modest relative to prior trait profile in the exploratory OLS.
+Headline findings (detail in the deck and explorer): Football Reference shortlist **105 → 43 → 32**; StatsBomb **16 → 7** (all seven kept). Football Reference traits most linked to first-season Bundesliga minutes (p < 0.05 in the exploratory trait screen) include passes into the final third, shot blocks, progressive carry distance, and defensive work in the penalty area. Prior-league gaps are modest relative to prior trait profile in the exploratory OLS.
 
 ---
 
 ## Steps (how the work was done)
 
-1. Build the inbound cohort: first 1. Bundesliga season in the study window, prior season ≠ 1. Bundesliga, **and** clear the minutes floors (FBref prior / Year 1 ≥ **300′**; StatsBomb prior ≥ **45′** / Year 1 ≥ **30′**); pull that prior-league season’s stats.  
-2. **Stability** — correlate prior → Year 1 in Bundesliga; apply the source-specific Pearson floors above.  
-3. **Redundancy** — drop near-duplicates with the pick rules above; shortlist the scout card (**32** FBref · **7** StatsBomb).  
-4. **Profiles & significance** — explorer / pizza graphics; Spearman trait and league tests vs **Year 1 in Bundesliga minutes**; exploratory OLS on the Big-5 subset.
+1. Build the arrival cohort: first Bundesliga season in the study window, prior season ≠ Bundesliga, **and** clear the minutes floors (Football Reference prior / first season ≥ **300′**; StatsBomb prior ≥ **45′** / first season ≥ **30′**); pull that prior-league season’s stats.  
+2. **Consistency** — correlate prior → first Bundesliga season; apply the source-specific Pearson floors above.  
+3. **Near-duplicates** — drop near-duplicates with the pick rules above; shortlist (**32** Football Reference · **7** StatsBomb).  
+4. **Profiles & significance** — explorer / radar charts; Spearman trait and league tests vs **first-season Bundesliga minutes**; exploratory OLS on the Big Five subset.
 
 ---
 
 ## Why this design works for a one-credit / independent-study package
 
-- **Honest N:** FBref **329** paired seasons for the scale story; StatsBomb **96** for event depth — not a claim that open data alone has hundreds of clean feeder→Bundesliga event pairs.  
+- **Honest N:** Football Reference **329** paired seasons for the scale story; StatsBomb **96** for event depth — not a claim that open data alone has hundreds of clean prior-league→Bundesliga event pairs.  
 - **Narrow destination:** only into the Bundesliga, so “travel” has one clear meaning.  
-- **Clear pipeline:** stability → thresholds → redundancy → explorer → significance, each defined above.  
-- **Multi-league FBref:** same method beyond Big-Five-only anecdotes.  
-- **Accurate roles for each source:** FBref for portable rates and feeder readouts; StatsBomb as a smaller, deeper event check.  
+- **Clear pipeline:** consistency → thresholds → near-duplicates → explorer → significance, each defined above.  
+- **Multi-league Football Reference:** same method beyond Big-Five-only anecdotes.  
+- **Accurate roles for each source:** Football Reference for rates that travel and prior-league readouts; StatsBomb as a smaller, deeper event check.  
 - **Self-contained package:** memo + deck + HTML tools; regenerable analysis tables stay local (`results/`, gitignored) while headline numbers live in this memo, the README, and the deck.
 
 **Attributions:** Football Reference / Sports Reference; StatsBomb Open Data (where used).
