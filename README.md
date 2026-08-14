@@ -5,6 +5,9 @@
 **Destination:** the **Bundesliga** only (Germany’s top men’s soccer league).  
 **Football Reference** = larger sample, season-rate metrics. **StatsBomb** open data = smaller sample, deeper event metrics.
 
+**Live explorer:** https://colbymorris08.github.io/bundesliga-transfer-traits/  
+(Inspector: https://colbymorris08.github.io/bundesliga-transfer-traits/inspector.html — same tools as the `.html` files in this repo.)
+
 ## Deliverables (submit)
 
 These five files are the package outputs:
@@ -13,7 +16,7 @@ These five files are the package outputs:
 |------|------|
 | [`bundesliga_transfer_traits.pptx`](bundesliga_transfer_traits.pptx) | Deck — method + final results + conclusion |
 | [`README.md`](README.md) | Package overview + prior-league regression tables |
-| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player radar charts (Football Reference ↔ StatsBomb) |
+| [`interactive_player_explorer.html`](interactive_player_explorer.html) | Success summary + player radar charts — [live site](https://colbymorris08.github.io/bundesliga-transfer-traits/) (HTML in repo too) |
 | [`stability_redundancy_inspector.html`](stability_redundancy_inspector.html) | Consistency floors & near-duplicate cuts by category |
 | [`projectproposal.docx`](projectproposal.docx) | Proposal memo (Word); [`projectproposal.txt`](projectproposal.txt) is the plain-text source of the same memo |
 
@@ -32,7 +35,7 @@ These five files are the package outputs:
 ## Local results (not in git)
 
 Regenerable under `results/` (gitignored): consistency / near-duplicate CSVs, success indicators, caches.  
-Headline numbers and prior-league regression tables are in this README. **Interactive results** (success tables, radars, gates) live in the explorer + inspector HTML — download either `.html` file and open it in a browser (fully self-contained; no server or install needed).
+Headline numbers and prior-league regression tables are in this README. **Interactive results** also live on the [public explorer](https://colbymorris08.github.io/bundesliga-transfer-traits/) (and as `.html` files in this repo — download and open in a browser with no server needed).
 
 ## Exploratory prior-league regression (Phase 2b)
 
