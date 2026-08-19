@@ -229,6 +229,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
         "infant_mortality", "gdp_growth", "gdp_per_capita_ppp",
         "inflation", "unemployment", "political_stability",
         "total_conflict_magnitude", "democracy_score",
+        "acled_polviolence_events", "acled_fatalities", "fsi_total",
     ]
     for col in lag_cols:
         if col in df.columns:

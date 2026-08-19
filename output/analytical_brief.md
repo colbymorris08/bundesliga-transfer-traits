@@ -15,8 +15,8 @@ forecast democratic transitions.
 
 **Key finding:** Structural indicators — particularly incumbent tenure length, economic
 conditions, and state capacity — predict electoral turnovers with a ROC-AUC of
-**0.714**, confirming that party shifts are not random but follow identifiable
-patterns. The ensemble model achieves **0.695** ROC-AUC on out-of-sample data
+**0.705**, confirming that party shifts are not random but follow identifiable
+patterns. The ensemble model achieves **0.670** ROC-AUC on out-of-sample data
 (2010–2024).
 
 ---
@@ -70,9 +70,9 @@ Gradient Boosting), evaluated on temporal split (train: pre-2010, test: 2010–2
 
 | Model | ROC-AUC | Brier Score |
 |---|---|---|
-| Random Forest | 0.714 | 0.244 |
-| Gradient Boosting | 0.711 | 0.114 |
-| Ensemble | 0.695 | 0.172 |
+| Random Forest | 0.705 | 0.255 |
+| Gradient Boosting | 0.696 | 0.115 |
+| Ensemble | 0.670 | 0.174 |
 
 ### Top Predictive Factors
 
@@ -95,13 +95,13 @@ Gradient Boosting), evaluated on temporal split (train: pre-2010, test: 2010–2
 
 ### Regional Variation
 
-**MENA + Persian Sphere:** ROC-AUC 0.521 (n=495, 9 countries, event rate 7.1%)
+**MENA + Persian Sphere:** ROC-AUC 0.550 (n=495, 9 countries, event rate 7.1%)
 
-**Latin America:** ROC-AUC 0.718 (n=1100, 20 countries, event rate 9.8%)
+**Latin America:** ROC-AUC 0.705 (n=1100, 20 countries, event rate 9.8%)
 
-**Sub-Saharan Africa:** ROC-AUC 0.709 (n=385, 7 countries, event rate 5.5%)
+**Sub-Saharan Africa:** ROC-AUC 0.734 (n=385, 7 countries, event rate 5.5%)
 
-**Asia-Pacific:** ROC-AUC 0.638 (n=495, 9 countries, event rate 8.9%)
+**Asia-Pacific:** ROC-AUC 0.596 (n=495, 9 countries, event rate 8.9%)
 
 ---
 

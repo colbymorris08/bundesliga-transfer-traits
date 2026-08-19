@@ -95,56 +95,128 @@ def load_mepv() -> pd.DataFrame | None:
 
 
 def load_acled() -> pd.DataFrame | None:
-    """Load ACLED conflict events (aggregated to country-year).
-
-    User must download from acleddata.com and save as data/acled.csv.
-    Expected columns: country, year, event_type, fatalities (or similar).
-    """
-    path = DATA / "acled.csv"
+    """Load ACLED aggregated country-year data."""
+    path = DATA / "acled_aggregated.csv"
     if not path.exists():
         return None
 
-    df = pd.read_csv(path, low_memory=False)
-    if "country" not in df.columns or "year" not in df.columns:
-        print("  ACLED: unexpected column format, skipping")
-        return None
+    df = pd.read_csv(path)
+    df = df.rename(columns={"country_name": "country_raw", "year": "year"})
 
-    agg = df.groupby(["country", "year"]).agg(
-        acled_events=("event_type", "count"),
-        acled_fatalities=("fatalities", "sum"),
-    ).reset_index()
+    # Map ACLED country names to ISO3
+    name_to_iso = {v: k for k, v in {
+        "AFG": "Afghanistan", "ALB": "Albania", "DZA": "Algeria", "AGO": "Angola",
+        "ARG": "Argentina", "ARM": "Armenia", "AUS": "Australia", "AUT": "Austria",
+        "AZE": "Azerbaijan", "BHR": "Bahrain", "BGD": "Bangladesh", "BLR": "Belarus",
+        "BEL": "Belgium", "BEN": "Benin", "BOL": "Bolivia", "BIH": "Bosnia and Herzegovina",
+        "BWA": "Botswana", "BRA": "Brazil", "BFA": "Burkina Faso", "BDI": "Burundi",
+        "KHM": "Cambodia", "CMR": "Cameroon", "CAN": "Canada", "CAF": "Central African Republic",
+        "TCD": "Chad", "CHL": "Chile", "CHN": "China", "COL": "Colombia",
+        "COD": "Democratic Republic of Congo", "COG": "Republic of Congo",
+        "CRI": "Costa Rica", "CIV": "Ivory Coast", "HRV": "Croatia", "CUB": "Cuba",
+        "CZE": "Czech Republic", "DNK": "Denmark", "DOM": "Dominican Republic",
+        "ECU": "Ecuador", "EGY": "Egypt", "SLV": "El Salvador", "ERI": "Eritrea",
+        "EST": "Estonia", "ETH": "Ethiopia", "FIN": "Finland", "FRA": "France",
+        "DEU": "Germany", "GHA": "Ghana", "GRC": "Greece", "GTM": "Guatemala",
+        "GIN": "Guinea", "GNB": "Guinea-Bissau", "HTI": "Haiti", "HND": "Honduras",
+        "HUN": "Hungary", "IND": "India", "IDN": "Indonesia", "IRN": "Iran",
+        "IRQ": "Iraq", "IRL": "Ireland", "ISR": "Israel", "ITA": "Italy",
+        "JAM": "Jamaica", "JPN": "Japan", "JOR": "Jordan", "KAZ": "Kazakhstan",
+        "KEN": "Kenya", "KWT": "Kuwait", "KGZ": "Kyrgyzstan", "LAO": "Laos",
+        "LVA": "Latvia", "LBN": "Lebanon", "LSO": "Lesotho", "LBR": "Liberia",
+        "LBY": "Libya", "LTU": "Lithuania", "MKD": "Macedonia", "MDG": "Madagascar",
+        "MWI": "Malawi", "MYS": "Malaysia", "MLI": "Mali", "MRT": "Mauritania",
+        "MUS": "Mauritius", "MEX": "Mexico", "MDA": "Moldova", "MNG": "Mongolia",
+        "MNE": "Montenegro", "MAR": "Morocco", "MOZ": "Mozambique", "MMR": "Myanmar",
+        "NAM": "Namibia", "NPL": "Nepal", "NLD": "Netherlands", "NZL": "New Zealand",
+        "NIC": "Nicaragua", "NER": "Niger", "NGA": "Nigeria", "NOR": "Norway",
+        "OMN": "Oman", "PAK": "Pakistan", "PSE": "Palestine", "PAN": "Panama",
+        "PNG": "Papua New Guinea", "PRY": "Paraguay", "PER": "Peru", "PHL": "Philippines",
+        "POL": "Poland", "PRT": "Portugal", "QAT": "Qatar", "ROU": "Romania",
+        "RUS": "Russia", "RWA": "Rwanda", "SAU": "Saudi Arabia", "SEN": "Senegal",
+        "SRB": "Serbia", "SLE": "Sierra Leone", "SGP": "Singapore", "SVK": "Slovakia",
+        "SVN": "Slovenia", "SOM": "Somalia", "ZAF": "South Africa", "SSD": "South Sudan",
+        "KOR": "South Korea", "ESP": "Spain", "LKA": "Sri Lanka", "SDN": "Sudan",
+        "SWZ": "Eswatini", "SWE": "Sweden", "CHE": "Switzerland", "SYR": "Syria",
+        "TJK": "Tajikistan", "TZA": "Tanzania", "THA": "Thailand", "TLS": "Timor-Leste",
+        "TGO": "Togo", "TTO": "Trinidad and Tobago", "TUN": "Tunisia", "TUR": "Turkey",
+        "TKM": "Turkmenistan", "UGA": "Uganda", "UKR": "Ukraine", "ARE": "United Arab Emirates",
+        "GBR": "United Kingdom", "USA": "United States of America", "URY": "Uruguay",
+        "UZB": "Uzbekistan", "VEN": "Venezuela", "VNM": "Vietnam", "YEM": "Yemen",
+        "ZMB": "Zambia", "ZWE": "Zimbabwe",
+    }.items()}
 
-    return agg
+    df["country"] = df["country_raw"].map(name_to_iso)
+    df = df.dropna(subset=["country"])
+    df = df.drop(columns=["country_raw"])
+
+    return df
 
 
 def load_fsi() -> pd.DataFrame | None:
-    """Load Fragile States Index data.
-
-    User must download Excel files from fragilestatesindex.org/excel
-    and place as data/fsi_YYYY.xlsx (one per year).
-    """
-    fsi_files = sorted(DATA.glob("fsi_*.xlsx"))
-    if not fsi_files:
+    """Load Fragile States Index combined data."""
+    path = DATA / "fsi_combined.csv"
+    if not path.exists():
         return None
 
-    frames = []
-    for f in fsi_files:
-        try:
-            year = int(f.stem.split("_")[1])
-            df = pd.read_excel(f)
-            df["year"] = year
-            frames.append(df)
-        except Exception:
-            continue
-
-    if not frames:
+    df = pd.read_csv(path)
+    if "Country" not in df.columns or "Total" not in df.columns:
         return None
 
-    combined = pd.concat(frames, ignore_index=True)
-    if "Total" in combined.columns and "Country" in combined.columns:
-        combined = combined.rename(columns={"Total": "fsi_total", "Country": "country_name"})
+    # Map FSI country names to ISO3
+    fsi_name_map = {
+        "United States": "USA", "United Kingdom": "GBR", "France": "FRA",
+        "Germany": "DEU", "Italy": "ITA", "Spain": "ESP", "Japan": "JPN",
+        "Canada": "CAN", "Australia": "AUS", "Brazil": "BRA", "Mexico": "MEX",
+        "India": "IND", "China": "CHN", "Russia": "RUS", "South Korea": "KOR",
+        "South Africa": "ZAF", "Turkey": "TUR", "Argentina": "ARG", "Colombia": "COL",
+        "Chile": "CHL", "Peru": "PER", "Venezuela": "VEN", "Ecuador": "ECU",
+        "Bolivia": "BOL", "Paraguay": "PRY", "Uruguay": "URY", "Costa Rica": "CRI",
+        "Panama": "PAN", "Nicaragua": "NIC", "El Salvador": "SLV", "Guatemala": "GTM",
+        "Honduras": "HND", "Dominican Republic": "DOM", "Jamaica": "JAM",
+        "Trinidad and Tobago": "TTO", "Cuba": "CUB", "Haiti": "HTI",
+        "Iran": "IRN", "Iraq": "IRQ", "Israel": "ISR", "Jordan": "JOR",
+        "Lebanon": "LBN", "Egypt": "EGY", "Saudi Arabia": "SAU", "Syria": "SYR",
+        "Yemen": "YEM", "Libya": "LBY", "Tunisia": "TUN", "Morocco": "MAR",
+        "Algeria": "DZA", "Nigeria": "NGA", "Kenya": "KEN", "Ghana": "GHA",
+        "Senegal": "SEN", "Ethiopia": "ETH", "Tanzania": "TZA",
+        "Congo Democratic Republic": "COD", "Cameroon": "CMR", "Mali": "MLI",
+        "Burkina Faso": "BFA", "Niger": "NER", "Chad": "TCD",
+        "Cote d'Ivoire": "CIV", "Ivory Coast": "CIV",
+        "Mozambique": "MOZ", "Botswana": "BWA", "Mauritius": "MUS",
+        "Poland": "POL", "Czech Republic": "CZE", "Hungary": "HUN",
+        "Greece": "GRC", "Portugal": "PRT", "Austria": "AUT",
+        "Belgium": "BEL", "Netherlands": "NLD", "Switzerland": "CHE",
+        "Sweden": "SWE", "Norway": "NOR", "Denmark": "DNK", "Ireland": "IRL",
+        "New Zealand": "NZL", "Indonesia": "IDN", "Philippines": "PHL",
+        "Thailand": "THA", "Malaysia": "MYS",
+        "Pakistan": "PAK", "Afghanistan": "AFG", "Bangladesh": "BGD",
+        "Myanmar": "MMR", "Sri Lanka": "LKA", "Nepal": "NPL",
+        "Ukraine": "UKR", "Georgia": "GEO", "Serbia": "SRB",
+    }
 
-    return combined
+    df["country"] = df["Country"].map(fsi_name_map)
+    df = df.dropna(subset=["country"])
+    df = df.rename(columns={"Year": "year", "Total": "fsi_total", "Rank": "fsi_rank"})
+
+    # Keep key sub-indicators
+    col_map = {
+        "C1: Security Apparatus": "fsi_security",
+        "C2: Factionalized Elites": "fsi_factionalized_elites",
+        "C3: Group Grievance": "fsi_group_grievance",
+        "E1: Economy": "fsi_economy",
+        "E2: Economic Inequality": "fsi_inequality",
+        "P1: State Legitimacy": "fsi_legitimacy",
+        "P2: Public Services": "fsi_public_services",
+        "P3: Human Rights": "fsi_human_rights",
+        "X1: External Intervention": "fsi_external_intervention",
+    }
+    for old, new in col_map.items():
+        if old in df.columns:
+            df[new] = pd.to_numeric(df[old], errors="coerce")
+
+    keep = ["country", "year", "fsi_total", "fsi_rank"] + [v for v in col_map.values() if v in df.columns]
+    return df[keep]
 
 
 def merge_external_data(base_df: pd.DataFrame) -> pd.DataFrame:
@@ -169,19 +241,22 @@ def merge_external_data(base_df: pd.DataFrame) -> pd.DataFrame:
     else:
         print("  MEPV: not found (run download or place data/mepv.csv)")
 
-    # ACLED (optional)
+    # ACLED
     acled = load_acled()
     if acled is not None:
         df = df.merge(acled, on=["country", "year"], how="left")
-        print(f"  ACLED merged: {df['acled_events'].notna().sum()} non-null")
+        n = df["acled_polviolence_events"].notna().sum()
+        print(f"  ACLED merged: {n} non-null conflict observations")
     else:
-        print("  ACLED: not found (register at acleddata.com, export CSV → data/acled.csv)")
+        print("  ACLED: not found (place data/acled_aggregated.csv)")
 
-    # FSI (optional)
+    # FSI
     fsi = load_fsi()
     if fsi is not None:
-        print(f"  FSI loaded: {len(fsi)} rows")
+        df = df.merge(fsi, on=["country", "year"], how="left")
+        n = df["fsi_total"].notna().sum()
+        print(f"  FSI merged: {n} non-null fragility scores")
     else:
-        print("  FSI: not found (download from fragilestatesindex.org/excel → data/fsi_YYYY.xlsx)")
+        print("  FSI: not found (place data/fsi_combined.csv)")
 
     return df
