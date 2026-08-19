@@ -72,8 +72,36 @@ Output files land in `output/`.
 
 ## Extensions
 
+## Regional Analysis
+
+The model runs subset analysis for four regions plus a great-power competition overlay:
+- **MENA + Persian Sphere** — Iran, Iraq, Turkey, Lebanon, Tunisia, Morocco, etc.
+- **Latin America** — 20 countries including Venezuela, Nicaragua, Colombia
+- **Sub-Saharan Africa** — Nigeria, Kenya, Ghana, Senegal, etc.
+- **Asia-Pacific** — Japan, Korea, India, Indonesia, etc.
+
+Great-power competition analysis tracks Chinese economic penetration, Russian influence operations, and Iranian proxy networks as contextual factors for electoral instability.
+
+## V-Dem Integration
+
+For richer regime classification, download the V-Dem dataset:
+1. Go to https://v-dem.net/data/the-v-dem-dataset/
+2. Download "Country-Year: V-Dem Core" in CSV format (free with email)
+3. Place it as `data/vdem_core.csv`
+4. Re-run the model — it will automatically detect and merge V-Dem variables
+
+## Output Files
+
+- `output/analytical_brief.md` — 3-4 page policy-style brief
+- `output/country_predictions.csv` — per-country shift probabilities
+- `output/feature_importance.csv` — Random Forest feature rankings
+- `output/regional_analysis.txt` — regional subset results
+- `output/regional_results.csv` — region comparison table
+- `output/full_dataset.csv` — complete merged dataset
+
+## Extensions
+
 To improve this model further:
-- Add V-Dem dataset (requires manual download from v-dem.net) for richer regime classification
 - Add ACLED event-level data for more precise conflict coding
 - Add electoral system variables (PR vs majoritarian affects turnover frequency)
 - Implement the full PITF split-population duration model

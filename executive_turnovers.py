@@ -57,6 +57,25 @@ TURNOVERS: dict[str, list[int]] = {
     "TTO": [1986, 1991, 1995, 2001, 2010, 2015, 2020],
     "BWA": [],  # BDP continuous rule
     "MUS": [1982, 1995, 2000, 2005, 2014, 2024],
+    # MENA / Persian sphere (where elections occur)
+    "TUN": [2011, 2014, 2019],
+    "MAR": [1998, 2002, 2007, 2011, 2016, 2021],
+    "IRN": [1997, 2005, 2013],  # reformist/hardliner swings within system
+    "IRQ": [2006, 2010, 2014, 2018, 2021],
+    "LBN": [2005, 2009, 2018, 2022],
+    "JOR": [],  # monarchy — PM appointed
+    "EGY": [2012],  # Morsi election; 2013 coup reversed it
+    # Latin America additions (Venezuela, Nicaragua pre-authoritarian, Ecuador, Bolivia)
+    "VEN": [1998, 2013],  # Chávez rise; Maduro's 2018+ are not competitive elections
+    "NIC": [1990, 1996, 2006],  # pre-Ortega consolidation
+    "ECU": [1996, 1998, 2002, 2006, 2009, 2013, 2017, 2021],
+    "BOL": [2005, 2019, 2020],
+    "PRY": [2008, 2013, 2023],
+    "PAN": [1994, 1999, 2004, 2009, 2014, 2019, 2024],
+    "DOM": [1996, 2000, 2004, 2012, 2020],
+    "SLV": [1994, 2009, 2019],
+    "GTM": [1996, 2000, 2004, 2008, 2012, 2016, 2020, 2023],
+    "HND": [2006, 2009, 2014, 2022],
 }
 
 YEAR_RANGE = range(1970, 2025)

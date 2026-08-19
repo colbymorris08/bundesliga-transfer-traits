@@ -1,0 +1,73 @@
+======================================================================
+REGIONAL SUBSET ANALYSIS
+======================================================================
+
+  MENA + Persian Sphere
+    Middle East, North Africa, and Persian-speaking states. Covers Iran hard-target ...
+    Countries: 9, Obs: 495, Test: 135
+    Event rate: 0.071
+    ROC-AUC: 0.452  |  Brier: 0.279
+    Top 5 drivers: infant_mortality_lag1, unemployment_lag1, infant_mortality, inflation, gdp_per_capita_ppp_lag1
+    Highest risk (latest year):
+      TUR (2024): 0.781 [held]
+      IRN (2024): 0.726 [held]
+      ISR (2024): 0.592 [held]
+      EGY (2024): 0.547 [held]
+      TUN (2024): 0.498 [held]
+
+  Latin America
+    Western Hemisphere south of the US. Includes both stable democracies (Chile, Uru...
+    Countries: 20, Obs: 1100, Test: 300
+    Event rate: 0.098
+    ROC-AUC: 0.700  |  Brier: 0.242
+    Top 5 drivers: infant_mortality, infant_mortality_lag1, tenure_years, gdp_per_capita_ppp, gdp_growth_lag1
+    Highest risk (latest year):
+      SLV (2024): 0.768 [held]
+      NIC (2024): 0.758 [held]
+      BOL (2024): 0.713 [held]
+      JAM (2024): 0.710 [held]
+      MEX (2024): 0.618 [held]
+
+  Sub-Saharan Africa
+    Sub-Saharan Africa. Includes both democratic success stories (Ghana, Senegal, Bo...
+    Countries: 7, Obs: 385, Test: 105
+    Event rate: 0.055
+    ROC-AUC: 0.676  |  Brier: 0.167
+    Top 5 drivers: gdp_per_capita_ppp_lag1, inflation_lag1, gdp_per_capita_ppp, tenure_years, gdp_growth_lag1
+    Highest risk (latest year):
+      SEN (2024): 0.720 [SHIFT]
+      ZAF (2024): 0.446 [held]
+      KEN (2024): 0.399 [held]
+      MUS (2024): 0.339 [SHIFT]
+      GHA (2024): 0.287 [SHIFT]
+
+  Asia-Pacific
+    Indo-Pacific democracies. Ranges from consolidated democracies (Japan, Australia...
+    Countries: 9, Obs: 495, Test: 135
+    Event rate: 0.089
+    ROC-AUC: 0.612  |  Brier: 0.209
+    Top 5 drivers: gdp_growth_2yr_avg, gdp_growth_lag1, gdp_growth, tenure_years, population
+    Highest risk (latest year):
+      JPN (2024): 0.716 [held]
+      IND (2024): 0.572 [held]
+      MYS (2024): 0.481 [held]
+      NZL (2024): 0.438 [held]
+      IDN (2024): 0.419 [held]
+
+======================================================================
+GREAT-POWER COMPETITION OVERLAY
+======================================================================
+
+  Chinese Economic Penetration (Latin America)
+  Countries where China has become a top-3 trading partner or major infrastructure investor, potential
+    High-influence (BRA, CHL, PER, ARG, VEN, ECU, BOL, CUB, NIC): turnover rate 0.098
+    Moderate-influence (COL, MEX, URY, CRI, PAN, DOM): turnover rate 0.103
+
+  Russian Influence (Latin America)
+  Countries with active Russian military, intelligence, or diplomatic influence operations.
+    High-influence (VEN, NIC, CUB): turnover rate 0.045
+    Moderate-influence (MEX, ARG, BRA): turnover rate 0.097
+
+  Iranian Proxy Network (MENA)
+  States where Iran maintains proxy militias or significant political influence through Shia networks.
+    High-influence (IRQ, LBN, SYR, YEM, PSE): turnover rate 0.082

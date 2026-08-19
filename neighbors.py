@@ -53,6 +53,25 @@ BORDERS: dict[str, list[str]] = {
     "ISR": ["LBN", "SYR", "JOR", "EGY", "PSE"],
     "AUS": [],
     "NZL": [],
+    # MENA
+    "TUN": ["DZA", "LBY"],
+    "MAR": ["DZA", "MRT"],
+    "IRN": ["IRQ", "TUR", "AFG", "PAK", "TKM", "ARM", "AZE"],
+    "IRQ": ["IRN", "TUR", "SYR", "JOR", "SAU", "KWT"],
+    "LBN": ["SYR", "ISR"],
+    "JOR": ["ISR", "IRQ", "SYR", "SAU", "PSE"],
+    "EGY": ["LBY", "SDN", "ISR", "PSE"],
+    # Latin America additions
+    "VEN": ["COL", "BRA", "GUY"],
+    "NIC": ["HND", "CRI"],
+    "ECU": ["COL", "PER"],
+    "BOL": ["BRA", "PRY", "ARG", "CHL", "PER"],
+    "PRY": ["BRA", "ARG", "BOL"],
+    "PAN": ["CRI", "COL"],
+    "DOM": ["HTI"],
+    "SLV": ["GTM", "HND"],
+    "GTM": ["MEX", "BLZ", "SLV", "HND"],
+    "HND": ["GTM", "SLV", "NIC"],
 }
 
 CONFLICT_COUNTRIES_BY_YEAR: dict[int, set[str]] = {}
