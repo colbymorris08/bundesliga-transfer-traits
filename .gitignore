@@ -3,5 +3,5 @@ __pycache__/
 output/wb_data_cache.parquet
 output/wgi_data_cache.parquet
 data/vdem_core.csv
-data/*.csv
+data/acled.csv
 .DS_Store

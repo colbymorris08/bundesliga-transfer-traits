@@ -6,53 +6,53 @@ REGIONAL SUBSET ANALYSIS
     Middle East, North Africa, and Persian-speaking states. Covers Iran hard-target ...
     Countries: 9, Obs: 495, Test: 135
     Event rate: 0.071
-    ROC-AUC: 0.452  |  Brier: 0.279
-    Top 5 drivers: infant_mortality_lag1, unemployment_lag1, infant_mortality, inflation, gdp_per_capita_ppp_lag1
+    ROC-AUC: 0.521  |  Brier: 0.254
+    Top 5 drivers: democracy_score, unemployment_lag1, infant_mortality, unemployment, inflation
     Highest risk (latest year):
-      TUR (2024): 0.781 [held]
-      IRN (2024): 0.726 [held]
-      ISR (2024): 0.592 [held]
-      EGY (2024): 0.547 [held]
-      TUN (2024): 0.498 [held]
+      ISR (2024): 0.667 [held]
+      TUN (2024): 0.638 [held]
+      TUR (2024): 0.602 [held]
+      LBN (2024): 0.575 [held]
+      IRN (2024): 0.558 [held]
 
   Latin America
     Western Hemisphere south of the US. Includes both stable democracies (Chile, Uru...
     Countries: 20, Obs: 1100, Test: 300
     Event rate: 0.098
-    ROC-AUC: 0.700  |  Brier: 0.242
-    Top 5 drivers: infant_mortality, infant_mortality_lag1, tenure_years, gdp_per_capita_ppp, gdp_growth_lag1
+    ROC-AUC: 0.718  |  Brier: 0.244
+    Top 5 drivers: tenure_years, infant_mortality, democracy_score, infant_mortality_lag1, gdp_per_capita_ppp
     Highest risk (latest year):
-      SLV (2024): 0.768 [held]
-      NIC (2024): 0.758 [held]
-      BOL (2024): 0.713 [held]
-      JAM (2024): 0.710 [held]
-      MEX (2024): 0.618 [held]
+      SLV (2024): 0.761 [held]
+      BOL (2024): 0.737 [held]
+      JAM (2024): 0.734 [held]
+      NIC (2024): 0.722 [held]
+      URY (2024): 0.631 [held]
 
   Sub-Saharan Africa
     Sub-Saharan Africa. Includes both democratic success stories (Ghana, Senegal, Bo...
     Countries: 7, Obs: 385, Test: 105
     Event rate: 0.055
-    ROC-AUC: 0.676  |  Brier: 0.167
-    Top 5 drivers: gdp_per_capita_ppp_lag1, inflation_lag1, gdp_per_capita_ppp, tenure_years, gdp_growth_lag1
+    ROC-AUC: 0.709  |  Brier: 0.163
+    Top 5 drivers: tenure_years, inflation_lag1, democracy_score, gdp_per_capita_ppp_lag1, gdp_per_capita_ppp
     Highest risk (latest year):
-      SEN (2024): 0.720 [SHIFT]
-      ZAF (2024): 0.446 [held]
-      KEN (2024): 0.399 [held]
-      MUS (2024): 0.339 [SHIFT]
-      GHA (2024): 0.287 [SHIFT]
+      SEN (2024): 0.681 [SHIFT]
+      ZAF (2024): 0.463 [held]
+      MUS (2024): 0.425 [SHIFT]
+      GHA (2024): 0.371 [SHIFT]
+      KEN (2024): 0.361 [held]
 
   Asia-Pacific
     Indo-Pacific democracies. Ranges from consolidated democracies (Japan, Australia...
     Countries: 9, Obs: 495, Test: 135
     Event rate: 0.089
-    ROC-AUC: 0.612  |  Brier: 0.209
-    Top 5 drivers: gdp_growth_2yr_avg, gdp_growth_lag1, gdp_growth, tenure_years, population
+    ROC-AUC: 0.638  |  Brier: 0.211
+    Top 5 drivers: tenure_years, gdp_growth, gdp_growth_2yr_avg, democracy_score, gdp_growth_lag1
     Highest risk (latest year):
-      JPN (2024): 0.716 [held]
-      IND (2024): 0.572 [held]
-      MYS (2024): 0.481 [held]
-      NZL (2024): 0.438 [held]
-      IDN (2024): 0.419 [held]
+      JPN (2024): 0.740 [held]
+      IND (2024): 0.560 [held]
+      IDN (2024): 0.484 [held]
+      NZL (2024): 0.481 [held]
+      AUS (2024): 0.409 [held]
 
 ======================================================================
 GREAT-POWER COMPETITION OVERLAY

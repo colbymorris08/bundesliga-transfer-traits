@@ -228,6 +228,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     lag_cols = [
         "infant_mortality", "gdp_growth", "gdp_per_capita_ppp",
         "inflation", "unemployment", "political_stability",
+        "total_conflict_magnitude", "democracy_score",
     ]
     for col in lag_cols:
         if col in df.columns:
@@ -265,7 +266,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
 def run_model(df: pd.DataFrame) -> dict:
     """Train ensemble model, evaluate on time-series split."""
     target = "party_shift"
-    exclude = {"country", "year", target}
+    exclude = {"country", "year", target, "regime_label", "country_code", "country_name"}
     feature_cols = [c for c in df.columns if c not in exclude and df[c].dtype in ("float64", "int64", "float32")]
 
     df_model = df[["country", "year", target] + feature_cols].dropna(subset=feature_cols)
@@ -596,6 +597,10 @@ def main():
     print("\n[5b/8] Integrating V-Dem regime classification...")
     from vdem_integration import merge_vdem
     df = merge_vdem(df)
+
+    print("\n[5c/8] Loading external datasets (Polity5, MEPV, ACLED, FSI)...")
+    from external_data import merge_external_data
+    df = merge_external_data(df)
 
     df = compute_regime_features(df)
     df = compute_tenure(df)
