@@ -81,6 +81,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-muted)}
 .legend-dot{width:8px;height:8px;border-radius:50%}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.price-table-wrap{max-height:400px;overflow-y:auto;border-radius:8px;border:1px solid var(--border)}
+.price-table{width:100%;border-collapse:collapse;font-size:13px}
+.price-table th{background:#0f1117;color:var(--text-muted);font-size:10px;text-transform:uppercase;letter-spacing:.04em;padding:8px 12px;text-align:left;position:sticky;top:0;z-index:1}
+.price-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.price-table tr:hover{background:rgba(59,130,246,0.05)}
+.pred-table td:first-child{font-weight:500}
+h4{font-family:-apple-system,sans-serif}
 .stat-card{background:var(--bg);border:1px solid var(--card-border);border-radius:8px;padding:12px}
 .stat-card .stat-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
 .stat-card .stat-value{font-size:16px;font-weight:600}
@@ -363,10 +370,8 @@ function openModal(id) {
     </div>
     <div class="chart-section">
       <h3>Price History & Predictions</h3>
-      <div class="chart-wrap">
-        <canvas id="priceChart"></canvas>
-        <div class="chart-legend" id="chartLegend"></div>
-      </div>
+      <div class="price-table-wrap" id="priceTableWrap"></div>
+      <div class="chart-legend" id="chartLegend"></div>
     </div>
     <div class="chart-section">
       <h3>Key Statistics</h3>
@@ -381,11 +386,37 @@ function openModal(id) {
     </div>`;
 
   drawGauge(document.getElementById('gaugeCanvas'), card.rating.score);
-  const predColors = drawChart(document.getElementById('priceChart'), card.history, card.predictions, card.trend);
+
+  // Build price history table instead of blurry canvas chart
+  const tableWrap = document.getElementById('priceTableWrap');
+  const hist = card.history;
+  const step = Math.max(1, Math.floor(hist.length / 12));
+  const samples = hist.filter((_, i) => i % step === 0 || i === hist.length - 1);
+
+  let tableHTML = `<table class="price-table"><thead><tr><th>Date</th><th>Price</th><th>Change</th></tr></thead><tbody>`;
+  samples.forEach((pt, i) => {
+    const prev = i > 0 ? samples[i-1].price : pt.price;
+    const chg = ((pt.price - prev) / prev * 100).toFixed(1);
+    const color = chg > 0 ? 'var(--green)' : chg < 0 ? 'var(--red)' : 'var(--text-muted)';
+    const arrow = chg > 0 ? '\u25b2' : chg < 0 ? '\u25bc' : '\u25b6';
+    tableHTML += `<tr><td>${new Date(pt.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit'})}</td><td style="font-weight:700">${fmt(pt.price)}</td><td style="color:${color}">${arrow} ${chg}%</td></tr>`;
+  });
+  tableHTML += `</tbody></table>`;
+
+  // Prediction scenarios table
+  tableHTML += `<h4 style="margin:16px 0 8px;font-size:13px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em">Predicted Scenarios (12-month)</h4>`;
+  tableHTML += `<table class="price-table pred-table"><thead><tr><th>Scenario</th><th>Probability</th><th>Target Price</th><th>Return</th></tr></thead><tbody>`;
+  const predColors = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444', '#a855f7'];
+  card.predictions.forEach((pred, i) => {
+    const ret = ((pred.target_price - card.current_price) / card.current_price * 100).toFixed(1);
+    const retColor = ret > 0 ? 'var(--green)' : 'var(--red)';
+    tableHTML += `<tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${predColors[i]};margin-right:6px"></span>${pred.label}</td><td style="font-weight:600">${(pred.probability*100).toFixed(0)}%</td><td style="font-weight:700">${fmt(pred.target_price)}</td><td style="color:${retColor};font-weight:600">${ret > 0 ? '+' : ''}${ret}%</td></tr>`;
+  });
+  tableHTML += `</tbody></table>`;
+  tableWrap.innerHTML = tableHTML;
 
   const legendEl = document.getElementById('chartLegend');
-  legendEl.innerHTML = `<div class="legend-item"><div class="legend-dot" style="background:${card.trend === 'up' ? '#22c55e' : card.trend === 'down' ? '#ef4444' : '#3b82f6'}"></div>Historical</div>` +
-    card.predictions.map((p, i) => `<div class="legend-item"><div class="legend-dot" style="background:${predColors[i]}"></div>${p.label} (${(p.probability * 100).toFixed(0)}%)</div>`).join('');
+  legendEl.innerHTML = card.predictions.map((p, i) => `<div class="legend-item"><div class="legend-dot" style="background:${predColors[i]}"></div>${p.label} (${(p.probability * 100).toFixed(0)}%)</div>`).join('');
 
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
