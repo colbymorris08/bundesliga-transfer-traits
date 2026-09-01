@@ -17,379 +17,460 @@ a{color:var(--blue);text-decoration:none}
 button{cursor:pointer;font-family:inherit}
 input{font-family:inherit}
 
-/* Header */
-.header{padding:32px 24px 20px;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0f1018 0%,var(--bg) 100%)}
+.header{padding:28px 24px 18px;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0f1018 0%,var(--bg) 100%)}
 .header h1{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;background:linear-gradient(135deg,#fff 0%,var(--green) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.header .subtitle{color:var(--text-muted);font-size:.82rem;margin-top:6px;letter-spacing:.04em}
+.header .subtitle{color:var(--text-muted);font-size:.78rem;margin-top:4px;letter-spacing:.05em;text-transform:uppercase}
 
-/* Container */
-.container{max-width:960px;margin:0 auto;padding:0 20px}
+.container{max-width:980px;margin:0 auto;padding:0 20px}
 
 /* Hero Search */
-.hero{padding:48px 0 40px;text-align:center}
-.hero h2{font-size:1.1rem;color:var(--text-muted);font-weight:400;margin-bottom:24px}
-.search-form{display:flex;gap:10px;max-width:680px;margin:0 auto}
-.search-input{flex:1;padding:14px 20px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s}
-.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+.hero{padding:44px 0 12px;text-align:center}
+.search-form{display:flex;gap:10px;max-width:720px;margin:0 auto}
+.search-input{flex:1;padding:16px 22px;border-radius:14px;border:2px solid var(--border);background:var(--card);color:var(--text);font-size:1.05rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.search-input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.1)}
 .search-input::placeholder{color:#4a5568}
-.search-btn{padding:14px 28px;border-radius:12px;border:none;background:var(--green);color:#000;font-weight:600;font-size:.95rem;transition:opacity .15s}
+.search-btn{padding:16px 32px;border-radius:14px;border:none;background:var(--green);color:#000;font-weight:700;font-size:1rem;transition:opacity .15s}
 .search-btn:hover{opacity:.85}
 .search-btn:disabled{opacity:.5;cursor:not-allowed}
 
 /* Spinner */
-.spinner{display:inline-block;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.15);border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite}
+.spinner{display:inline-block;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.12);border-top-color:var(--green);border-radius:50%;animation:spin .65s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-wrap{text-align:center;padding:40px 0}
 .loading-wrap .spinner{width:32px;height:32px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* Result Card */
-.result-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:28px;text-align:left;animation:fadeIn .3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.result-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px}
-.result-query{font-size:.85rem;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
-.result-fv{font-size:2.4rem;font-weight:700;letter-spacing:-.02em}
-.result-badge{display:inline-block;padding:6px 16px;border-radius:8px;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
-.badge-LIQUIDATE{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.result-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:24px;text-align:left;animation:fadeIn .3s ease}
+.result-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.result-query{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+.result-query span{color:var(--text);font-weight:600}
+.result-fv{font-size:2.6rem;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+.result-right{text-align:right}
+.result-badge{display:inline-block;padding:6px 18px;border-radius:8px;font-weight:700;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase}
+.badge-LIQUIDATE{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.25)}
 .badge-HOLD{background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.25)}
 .badge-REVIEW{background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.25)}
+.result-sales-count{font-size:.72rem;color:var(--text-muted);margin-top:6px}
 
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
-.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
-.stat-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-.stat-val{font-size:1.15rem;font-weight:600}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:18px 0}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.stat-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.stat-val{font-size:1.1rem;font-weight:600}
 
-.score-bar-wrap{margin-top:6px;height:6px;background:#1e2030;border-radius:3px;overflow:hidden}
-.score-bar{height:100%;border-radius:3px;transition:width .4s ease}
+.score-bar-wrap{height:6px;background:#1e2030;border-radius:3px;overflow:hidden;margin-top:4px}
+.score-bar{height:100%;border-radius:3px;transition:width .5s ease}
 
-.reason-text{color:var(--text-muted);font-size:.88rem;line-height:1.5;padding:12px 16px;background:var(--surface);border-radius:10px;border-left:3px solid var(--gold);margin-bottom:20px}
+.reason-box{color:var(--text-muted);font-size:.86rem;line-height:1.5;padding:12px 16px;background:var(--surface);border-radius:10px;border-left:3px solid var(--gold);margin:16px 0}
+.reason-box .proceeds{color:var(--green);font-weight:600;margin-top:4px}
 
 /* Grade Ladder */
-.grade-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.85rem}
-.grade-table caption{text-align:left;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;padding-bottom:8px}
-.grade-table th{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);font-weight:500;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
-.grade-table td{padding:8px 12px;border-bottom:1px solid rgba(26,29,46,.5)}
+.grade-section{margin:20px 0 0}
+.grade-section-title{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.grade-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.grade-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text-muted);font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em}
+.grade-table td{padding:10px 10px;border-bottom:1px solid rgba(26,29,46,.5)}
 .grade-table tr:last-child td{border-bottom:none}
+.grade-row{cursor:pointer;transition:background .15s}
+.grade-row:hover{background:rgba(59,130,246,.06)}
+.grade-row.active{background:rgba(34,197,94,.08);border-left:2px solid var(--green)}
+.grade-row .grade-name{font-weight:600}
+.grade-row .grade-action{color:var(--blue);font-size:.78rem;font-weight:500}
+.grade-row .grade-range{color:var(--text-muted);font-size:.78rem}
 
-/* Matched Cards */
-.matched-section h4{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
-.matched-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-.matched-tile{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .15s}
-.matched-tile:hover{border-color:#2a2d4e}
-.matched-tile img{width:100%;height:160px;object-fit:cover;background:#0d0e14}
-.matched-tile .tile-info{padding:10px 12px}
-.matched-tile .tile-title{font-size:.78rem;color:var(--text);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.matched-tile .tile-price{font-size:.9rem;font-weight:600;color:var(--green);margin-top:4px}
+.grade-detail{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:12px;animation:fadeIn .25s ease}
+.grade-detail-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.grade-detail-title{font-size:1rem;font-weight:600}
+.grade-detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
 
-/* No result */
-.no-result{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.95rem}
-.no-result .icon{font-size:2rem;margin-bottom:12px;opacity:.5}
+/* Category Tabs */
+.categories-section{padding:28px 0 0;border-top:1px solid var(--border);margin-top:32px}
+.cat-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+.cat-tabs::-webkit-scrollbar{height:3px}
+.cat-tabs::-webkit-scrollbar-track{background:transparent}
+.cat-tabs::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.cat-tab{flex-shrink:0;padding:8px 18px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text-muted);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.cat-tab:hover{border-color:#2a2d4e;color:var(--text)}
+.cat-tab.active{border-color:var(--green);color:var(--green);background:rgba(34,197,94,.06)}
+.cat-tab .cat-count{font-size:.68rem;background:rgba(255,255,255,.06);padding:2px 7px;border-radius:5px;font-weight:600}
+.cat-tab.active .cat-count{background:rgba(34,197,94,.15)}
 
-/* Error */
-.error-msg{text-align:center;padding:24px;color:var(--red);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:12px;margin-top:20px;font-size:.9rem}
-
-/* Section Titles */
-.section-title{font-size:1rem;font-weight:600;margin-bottom:16px;color:var(--text);display:flex;align-items:center;gap:8px}
-.section-title .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+/* Floor Stats */
+.floor-section{padding:20px 0 0}
+.floor-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.floor-stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;transition:border-color .15s}
+.floor-stat-card:hover{border-color:#2a2d4e}
+.floor-stat-card .fs-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.floor-stat-card .fs-val{font-size:1.35rem;font-weight:700}
 
 /* Market Movers */
-.movers-section{padding:40px 0 32px;border-top:1px solid var(--border)}
-.movers-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
-.movers-scroll::-webkit-scrollbar{height:4px}
-.movers-scroll::-webkit-scrollbar-track{background:transparent}
-.movers-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
-.mover-card{flex:0 0 200px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .15s}
+.movers-section{padding:28px 0 32px;border-top:1px solid var(--border);margin-top:24px}
+.section-title{font-size:1rem;font-weight:600;margin-bottom:14px;color:var(--text);display:flex;align-items:center;gap:8px}
+.section-title .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.movers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.mover-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .15s;cursor:pointer}
 .mover-card:hover{border-color:#2a2d4e}
 .mover-label{font-size:.95rem;font-weight:600;text-transform:capitalize;margin-bottom:4px}
-.mover-cat{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;background:rgba(168,85,247,.12);color:var(--purple);margin-bottom:10px}
+.mover-cat{display:inline-block;padding:2px 8px;border-radius:5px;font-size:.64rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.cat-baseball{background:rgba(239,68,68,.12);color:var(--red)}
+.cat-basketball{background:rgba(59,130,246,.12);color:var(--blue)}
+.cat-football{background:rgba(34,197,94,.12);color:var(--green)}
+.cat-soccer{background:rgba(168,85,247,.12);color:var(--purple)}
+.cat-pokemon{background:rgba(245,158,11,.12);color:var(--gold)}
+.cat-hockey{background:rgba(96,165,250,.12);color:#60a5fa}
+.cat-wnba{background:rgba(244,114,182,.12);color:#f472b6}
+.cat-default{background:rgba(148,163,184,.1);color:var(--text-muted)}
 .mover-price{font-size:1.15rem;font-weight:700;margin-bottom:2px}
 .mover-change{font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:4px}
 .mover-n{font-size:.7rem;color:var(--text-muted);margin-top:6px}
+.movers-empty{text-align:center;padding:32px;color:var(--text-muted);font-size:.88rem}
 
-/* Floor Section */
-.floor-section{padding:32px 0 40px;border-top:1px solid var(--border)}
-.floor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.floor-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color .15s}
-.floor-card:hover{border-color:#2a2d4e}
-.floor-cat{font-size:.95rem;font-weight:600;text-transform:capitalize;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.floor-cat .cat-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-.floor-stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(26,29,46,.5);font-size:.82rem}
-.floor-stat:last-child{border-bottom:none}
-.floor-stat .fl-label{color:var(--text-muted)}
-.floor-stat .fl-val{font-weight:600}
-.floor-loading,.movers-loading{text-align:center;padding:24px;color:var(--text-muted);font-size:.85rem}
+.error-msg{text-align:center;padding:20px;color:var(--red);background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);border-radius:12px;margin-top:16px;font-size:.88rem}
+.no-result{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.95rem}
+.no-result .icon{font-size:2rem;margin-bottom:12px;opacity:.5}
 
 /* Footer */
-.footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;color:var(--text-muted);font-size:.78rem;line-height:1.8}
-.footer p{margin-bottom:6px}
+.footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center;color:var(--text-muted);font-size:.76rem;line-height:2;margin-top:40px}
 .footer .coming-soon{color:var(--purple);font-weight:500}
 
-/* Responsive */
 @media(max-width:640px){
-  .hero{padding:32px 0 28px}
+  .hero{padding:28px 0 8px}
   .search-form{flex-direction:column}
   .search-btn{width:100%}
-  .result-fv{font-size:1.8rem}
+  .result-fv{font-size:1.9rem}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .matched-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
-  .floor-grid{grid-template-columns:1fr 1fr}
-  .mover-card{flex:0 0 170px}
+  .floor-stats{grid-template-columns:repeat(2,1fr)}
+  .movers-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
   .header h1{font-size:1.6rem}
+  .grade-detail-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:400px){
   .stats-grid{grid-template-columns:1fr}
-  .floor-grid{grid-template-columns:1fr}
+  .floor-stats{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header class="header">
   <h1>Card Vault</h1>
-  <p class="subtitle">Valuation Intelligence &amp; Liquidation Analytics &mdash; Powered by Cause Collectibles</p>
+  <p class="subtitle">Valuation Intelligence &amp; Liquidation Analytics</p>
 </header>
 
 <div class="container">
 
   <!-- Hero Search -->
   <section class="hero">
-    <h2>Search any card, memorabilia, art, watch, or collectible&hellip;</h2>
     <form class="search-form" id="searchForm">
-      <input class="search-input" id="searchInput" type="text" placeholder="e.g. Luka Doncic Prizm PSA 10" autocomplete="off" required>
+      <input class="search-input" id="searchInput" type="text" placeholder="Search player, set, year... (e.g. Doncic Prizm 2018)" autocomplete="off" required>
       <button class="search-btn" type="submit" id="searchBtn">Search</button>
     </form>
-    <div id="searchResult"></div>
+  </section>
+
+  <!-- Search Results -->
+  <div id="searchResult"></div>
+
+  <!-- Category Tabs -->
+  <section class="categories-section" id="categoriesSection">
+    <div class="cat-tabs" id="catTabs">
+      <div class="cat-tab active" data-cat="all">All</div>
+    </div>
+    <div class="floor-section" id="floorSection" style="display:none"></div>
   </section>
 
   <!-- Market Movers -->
   <section class="movers-section">
     <div class="section-title"><span class="dot" style="background:var(--green)"></span> Market Movers</div>
-    <div id="moversContainer"><div class="movers-loading"><span class="spinner"></span></div></div>
-  </section>
-
-  <!-- Market Floor -->
-  <section class="floor-section">
-    <div class="section-title"><span class="dot" style="background:var(--blue)"></span> Market Floor</div>
-    <div id="floorContainer"><div class="floor-loading"><span class="spinner"></span></div></div>
+    <div id="moversContainer"><div class="loading-wrap"><div class="spinner"></div></div></div>
   </section>
 
 </div>
 
-<!-- Footer -->
 <footer class="footer">
-  <p class="coming-soon">Coming soon: Art (LiveArt API) &middot; Watches (WatchCharts) &middot; Comics (GPAnalysis) &middot; Daily auto-refresh</p>
-  <p>Every transaction improves future valuations &mdash; the data flywheel</p>
-  <p>Powered by HoodCar Market Data API &middot; 130Point &middot; eBay Sold Comps</p>
+  <p class="coming-soon">Coming soon: Art (LiveArt API) &middot; Watches (WatchCharts) &middot; Comics (GPAnalysis)</p>
+  <p>Every transaction improves future valuations</p>
+  <p>Powered by HoodCar Market Data API</p>
 </footer>
 
 <script>
 (function(){
-  const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2});
-  const fmtInt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0});
-  const fmtNum = new Intl.NumberFormat('en-US');
-  const fmtPct = new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const fmt=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0});
+  const fmt2=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
+  const fmtNum=new Intl.NumberFormat('en-US');
+  const fmtPct=new Intl.NumberFormat('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
 
   function $(id){return document.getElementById(id)}
 
+  const cache={categories:null,floor:{}};
+  let allMovers=[];
+  let activeCategory='all';
+  let currentQuery='';
+
   /* ── Search ── */
-  const form = $('searchForm');
-  const input = $('searchInput');
-  const btn = $('searchBtn');
-  const resultEl = $('searchResult');
+  const form=$('searchForm'),input=$('searchInput'),btn=$('searchBtn'),resultEl=$('searchResult');
 
-  form.addEventListener('submit', async function(e){
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    const q = input.value.trim();
-    if(!q) return;
-
-    btn.disabled = true;
-    resultEl.innerHTML = '<div class="loading-wrap"><div class="spinner"></div></div>';
-
-    try {
-      const resp = await fetch('/api/search?q=' + encodeURIComponent(q));
-      if(!resp.ok) throw new Error('API returned ' + resp.status);
-      const d = await resp.json();
-      if(d.error){
-        resultEl.innerHTML = '<div class="error-msg">' + esc(d.error) + '</div>';
-        return;
-      }
-      if(d.fair_value == null && !d.matched_cards?.length){
-        resultEl.innerHTML = '<div class="no-result"><div class="icon">&#128269;</div>No data found &mdash; this item may need manual appraisal</div>';
-        return;
-      }
-      resultEl.innerHTML = renderResult(d);
-    } catch(err){
-      resultEl.innerHTML = '<div class="error-msg">Search failed: ' + esc(err.message) + '</div>';
-    } finally {
-      btn.disabled = false;
-    }
+    const q=input.value.trim();
+    if(!q)return;
+    currentQuery=q;
+    doSearch(q);
   });
 
-  function renderResult(d){
-    const rec = d.recommendation || {};
-    const rating = rec.rating || 'REVIEW';
-    const scoreColor = (d.buy_score||0) >= 70 ? 'var(--green)' : (d.buy_score||0) >= 40 ? 'var(--gold)' : 'var(--red)';
-    let html = '<div class="result-card">';
-
-    /* Header row */
-    html += '<div class="result-header">';
-    html += '<div><div class="result-query">' + esc(d.query||'') + '</div>';
-    html += '<div class="result-fv">' + (d.fair_value != null ? fmt.format(d.fair_value) : '—') + '</div></div>';
-    html += '<div class="result-badge badge-' + rating + '">' + rating + '</div>';
-    html += '</div>';
-
-    /* Stats */
-    html += '<div class="stats-grid">';
-    html += statBox('Buy Score', d.buy_score != null ? d.buy_score + '/100' : '—', scoreColor);
-    html += statBox('Verdict', d.verdict || '—');
-    html += statBox('Confidence', d.confidence != null ? d.confidence + '%' : '—');
-    html += statBox('Liquidity', d.liquidity != null ? d.liquidity + '%' : '—');
-    if(d.last_sale && d.last_sale.price != null){
-      html += statBox('Last Sale', fmt.format(d.last_sale.price), null, d.last_sale.date || '');
+  async function doSearch(q,grade){
+    btn.disabled=true;
+    resultEl.innerHTML='<div class="loading-wrap"><div class="spinner"></div></div>';
+    let url='/api/search?q='+encodeURIComponent(q);
+    if(grade)url+='&grade='+encodeURIComponent(grade);
+    try{
+      const resp=await fetch(url);
+      if(!resp.ok)throw new Error('API returned '+resp.status);
+      const d=await resp.json();
+      if(d.error){resultEl.innerHTML='<div class="error-msg">'+esc(d.error)+'</div>';return;}
+      if(d.fair_value==null&&!(d.grade_ladder&&d.grade_ladder.length)){
+        resultEl.innerHTML='<div class="no-result"><div class="icon">&#128269;</div>No data found &mdash; this item may need manual appraisal</div>';
+        return;
+      }
+      renderResult(d,grade);
+    }catch(err){
+      resultEl.innerHTML='<div class="error-msg">Search failed: '+esc(err.message)+'</div>';
+    }finally{
+      btn.disabled=false;
     }
-    if(rec.est_net_proceeds != null){
-      html += statBox('Est. Net Proceeds', fmt.format(rec.est_net_proceeds), 'var(--green)');
-    }
-    html += '</div>';
-
-    /* Buy score bar */
-    if(d.buy_score != null){
-      html += '<div class="score-bar-wrap"><div class="score-bar" style="width:' + Math.min(d.buy_score,100) + '%;background:' + scoreColor + '"></div></div>';
-      html += '<div style="height:16px"></div>';
-    }
-
-    /* Recommendation reason */
-    if(rec.reason){
-      html += '<div class="reason-text">' + esc(rec.reason) + '</div>';
-    }
-
-    /* Grade Ladder */
-    if(d.grade_ladder && d.grade_ladder.length){
-      html += '<table class="grade-table"><caption>Grade Ladder</caption><thead><tr><th>Grade</th><th>Value</th></tr></thead><tbody>';
-      d.grade_ladder.forEach(function(g){
-        html += '<tr><td>' + esc(g.grade||'') + '</td><td>' + (g.value != null ? fmt.format(g.value) : '—') + '</td></tr>';
-      });
-      html += '</tbody></table>';
-    }
-
-    /* Matched Cards */
-    if(d.matched_cards && d.matched_cards.length){
-      html += '<div class="matched-section"><h4>Matched Comparables</h4><div class="matched-grid">';
-      d.matched_cards.forEach(function(c){
-        html += '<div class="matched-tile">';
-        if(c.image) html += '<img src="' + esc(c.image) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
-        html += '<div class="tile-info">';
-        html += '<div class="tile-title">' + esc(c.title||'Untitled') + '</div>';
-        if(c.price != null) html += '<div class="tile-price">' + fmt.format(c.price) + '</div>';
-        html += '</div></div>';
-      });
-      html += '</div></div>';
-    }
-
-    html += '</div>';
-    return html;
   }
 
-  function statBox(label, val, color, sub){
-    let h = '<div class="stat-box"><div class="stat-label">' + esc(label) + '</div>';
-    h += '<div class="stat-val"' + (color ? ' style="color:'+color+'"' : '') + '>' + esc(String(val)) + '</div>';
-    if(sub) h += '<div style="font-size:.7rem;color:var(--text-muted);margin-top:2px">' + esc(sub) + '</div>';
-    h += '</div>';
-    return h;
+  function renderResult(d,activeGrade){
+    const rec=d.recommendation||{};
+    const rating=rec.rating||'REVIEW';
+    const scoreColor=scoreClr(d.buy_score);
+    const trendColor=(d.trend_30d||0)>=0?'var(--green)':'var(--red)';
+    const trendArrow=(d.trend_30d||0)>=0?'&#9650;':'&#9660;';
+
+    let h='<div class="result-card">';
+
+    h+='<div class="result-header"><div>';
+    h+='<div class="result-query">Results for <span>\''+esc(d.query||currentQuery)+'\'</span></div>';
+    h+='<div class="result-fv">'+(d.fair_value!=null?fmt.format(d.fair_value):'&mdash;')+'</div>';
+    h+='</div><div class="result-right">';
+    h+='<div class="result-badge badge-'+rating+'">'+rating+'</div>';
+    if(d.sample_size!=null)h+='<div class="result-sales-count">'+fmtNum.format(d.sample_size)+' recent sales</div>';
+    h+='</div></div>';
+
+    h+='<div class="stats-grid">';
+    h+=statBox('Fair Value',d.fair_value!=null?fmt.format(d.fair_value):'—');
+    h+=statBox('Avg Price',d.avg_price!=null?fmt.format(d.avg_price):'—');
+    h+=buyScoreBox(d.buy_score,scoreColor);
+    h+=statBox('90-Day Sales',d.sales_90d!=null?fmtNum.format(d.sales_90d):'—');
+    h+=statBox('30-Day Trend',d.trend_30d!=null?'<span style="color:'+trendColor+'">'+trendArrow+' '+fmtPct.format(Math.abs(d.trend_30d))+'%</span>':'—');
+    h+=statBox('Liquidity',d.liquidity!=null?d.liquidity+'%':'—');
+    h+='</div>';
+
+    if(rec.reason||rec.est_net_proceeds!=null){
+      const borderClr=rating==='LIQUIDATE'?'var(--green)':rating==='HOLD'?'var(--gold)':'var(--blue)';
+      h+='<div class="reason-box" style="border-left-color:'+borderClr+'">';
+      if(rec.reason)h+=esc(rec.reason);
+      if(rec.est_net_proceeds!=null)h+='<div class="proceeds">Est. Net Proceeds: '+fmt.format(rec.est_net_proceeds)+'</div>';
+      h+='</div>';
+    }
+
+    if(d.grade_ladder&&d.grade_ladder.length){
+      h+='<div class="grade-section">';
+      h+='<div class="grade-section-title">Grade Ladder &mdash; click a grade to drill down</div>';
+      h+='<table class="grade-table"><thead><tr><th>Grade</th><th>Fair Value</th><th>Low</th><th>High</th><th>Sales</th><th></th></tr></thead><tbody>';
+      d.grade_ladder.forEach(function(g){
+        const isActive=activeGrade&&g.grade===activeGrade;
+        h+='<tr class="grade-row'+(isActive?' active':'')+'" data-grade="'+esc(g.grade)+'">';
+        h+='<td class="grade-name">'+esc(g.grade)+'</td>';
+        h+='<td>'+(g.value!=null?fmt.format(g.value):'—')+'</td>';
+        h+='<td class="grade-range">'+(g.low!=null?fmt.format(g.low):'—')+'</td>';
+        h+='<td class="grade-range">'+(g.high!=null?fmt.format(g.high):'—')+'</td>';
+        h+='<td>'+(g.sample_size!=null?fmtNum.format(g.sample_size):'—')+'</td>';
+        h+='<td class="grade-action">'+(isActive?'&#10003; Selected':'Select &rarr;')+'</td>';
+        h+='</tr>';
+      });
+      h+='</tbody></table></div>';
+    }
+
+    if(activeGrade&&d.recommendation){
+      h+='<div class="grade-detail">';
+      h+='<div class="grade-detail-header"><div class="grade-detail-title">'+esc(activeGrade)+' Detail</div>';
+      h+='<div class="result-badge badge-'+(rec.rating||'REVIEW')+'">'+(rec.rating||'REVIEW')+'</div></div>';
+      h+='<div class="grade-detail-grid">';
+      h+=statBox('Fair Value',d.fair_value!=null?fmt.format(d.fair_value):'—');
+      h+=statBox('Confidence',d.confidence!=null?d.confidence+'%':'—');
+      h+=statBox('Est. Proceeds',rec.est_net_proceeds!=null?fmt.format(rec.est_net_proceeds):'—','var(--green)');
+      h+=statBox('Last Sale',d.last_sale!=null?fmt.format(d.last_sale):'—');
+      h+='</div></div>';
+    }
+
+    h+='</div>';
+    resultEl.innerHTML=h;
+
+    resultEl.querySelectorAll('.grade-row').forEach(function(row){
+      row.addEventListener('click',function(){
+        const grade=this.getAttribute('data-grade');
+        doSearch(currentQuery,grade);
+      });
+    });
+  }
+
+  function statBox(label,val,color){
+    return '<div class="stat-box"><div class="stat-label">'+esc(label)+'</div><div class="stat-val"'+(color?' style="color:'+color+'"':'')+'>'+val+'</div></div>';
+  }
+
+  function buyScoreBox(score,color){
+    if(score==null)return statBox('Buy Score','—');
+    return '<div class="stat-box"><div class="stat-label">Buy Score</div><div class="stat-val" style="color:'+color+'">'+score+' / 100</div>'
+      +'<div class="score-bar-wrap"><div class="score-bar" style="width:'+Math.min(score,100)+'%;background:'+color+'"></div></div></div>';
+  }
+
+  function scoreClr(s){return s>=70?'var(--green)':s>=40?'var(--gold)':'var(--red)'}
+
+  /* ── Categories ── */
+  async function loadCategories(){
+    try{
+      const resp=await fetch('/api/categories');
+      if(!resp.ok)throw new Error('Status '+resp.status);
+      const d=await resp.json();
+      cache.categories=d.categories||[];
+      renderCatTabs();
+    }catch(e){
+      $('catTabs').innerHTML='<div style="color:var(--text-muted);font-size:.82rem;padding:8px">Could not load categories</div>';
+    }
+  }
+
+  function renderCatTabs(){
+    const cats=cache.categories||[];
+    let h='<div class="cat-tab'+(activeCategory==='all'?' active':'')+'" data-cat="all">All</div>';
+    cats.forEach(function(c){
+      const name=capitalize(c.category);
+      const active=activeCategory===c.category?' active':'';
+      h+='<div class="cat-tab'+active+'" data-cat="'+esc(c.category)+'">';
+      h+=esc(name);
+      if(c.listings!=null)h+='<span class="cat-count">'+fmtNum.format(c.listings)+'</span>';
+      h+='</div>';
+    });
+    $('catTabs').innerHTML=h;
+
+    $('catTabs').querySelectorAll('.cat-tab').forEach(function(tab){
+      tab.addEventListener('click',function(){
+        const cat=this.getAttribute('data-cat');
+        setActiveCategory(cat);
+      });
+    });
+  }
+
+  function setActiveCategory(cat){
+    activeCategory=cat;
+    $('catTabs').querySelectorAll('.cat-tab').forEach(function(t){
+      t.classList.toggle('active',t.getAttribute('data-cat')===cat);
+    });
+    filterMovers();
+    if(cat==='all'){
+      $('floorSection').style.display='none';
+    }else{
+      loadFloor(cat);
+    }
+  }
+
+  /* ── Floor ── */
+  async function loadFloor(cat){
+    const section=$('floorSection');
+    section.style.display='block';
+    section.innerHTML='<div class="loading-wrap"><div class="spinner"></div></div>';
+
+    if(cache.floor[cat]){
+      renderFloor(cache.floor[cat],cat);
+      return;
+    }
+
+    try{
+      const resp=await fetch('/api/floor?category='+encodeURIComponent(cat));
+      if(!resp.ok)throw new Error('Status '+resp.status);
+      const d=await resp.json();
+      const info=(d.categories&&d.categories.length)?d.categories[0]:d;
+      cache.floor[cat]=info;
+      renderFloor(info,cat);
+    }catch(e){
+      section.innerHTML='<div class="error-msg" style="font-size:.82rem">Could not load floor data</div>';
+    }
+  }
+
+  function renderFloor(d,cat){
+    const section=$('floorSection');
+    let h='<div style="margin-bottom:6px;font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">'+capitalize(cat)+' Floor Stats</div>';
+    h+='<div class="floor-stats">';
+    h+=floorCard('Total Listings',d.listings!=null?fmtNum.format(d.listings):'—');
+    h+=floorCard('Total Market Value',d.total_value!=null?fmt.format(d.total_value):'—','var(--green)');
+    h+=floorCard('Average Price',d.avg!=null?fmt.format(d.avg):'—');
+    h+=floorCard('Median Price',d.median!=null?fmt.format(d.median):'—');
+    h+='</div>';
+    section.innerHTML=h;
+  }
+
+  function floorCard(label,val,color){
+    return '<div class="floor-stat-card"><div class="fs-label">'+esc(label)+'</div><div class="fs-val"'+(color?' style="color:'+color+'"':'')+'>'+val+'</div></div>';
   }
 
   /* ── Market Movers ── */
-  (async function loadMovers(){
-    const el = $('moversContainer');
-    try {
-      const resp = await fetch('/api/movers');
-      if(!resp.ok) throw new Error('Status ' + resp.status);
-      const d = await resp.json();
-      const movers = d.movers || d;
-      if(!Array.isArray(movers) || !movers.length){
-        el.innerHTML = '<div class="movers-loading" style="color:var(--text-muted)">No movers data available</div>';
-        return;
-      }
-      let html = '<div class="movers-scroll">';
-      movers.forEach(function(m){
-        const up = m.direction === 'up' || (m.pct_change||0) > 0;
-        const color = up ? 'var(--green)' : 'var(--red)';
-        const arrow = up ? '&#9650;' : '&#9660;';
-        html += '<div class="mover-card">';
-        html += '<div class="mover-label">' + esc(m.label||'') + '</div>';
-        html += '<div class="mover-cat">' + esc(m.category||'') + '</div>';
-        html += '<div class="mover-price">' + (m.current_avg != null ? fmtInt.format(m.current_avg) : '—') + '</div>';
-        html += '<div class="mover-change" style="color:' + color + '">' + arrow + ' ' + fmtPct.format(Math.abs(m.pct_change||0)) + '%</div>';
-        if(m.n != null) html += '<div class="mover-n">' + fmtNum.format(m.n) + ' listings</div>';
-        html += '</div>';
-      });
-      html += '</div>';
-      el.innerHTML = html;
-    } catch(err){
-      el.innerHTML = '<div class="error-msg" style="font-size:.82rem">Could not load movers: ' + esc(err.message) + '</div>';
+  async function loadMovers(){
+    const el=$('moversContainer');
+    try{
+      const resp=await fetch('/api/movers');
+      if(!resp.ok)throw new Error('Status '+resp.status);
+      const d=await resp.json();
+      allMovers=d.movers||d;
+      if(!Array.isArray(allMovers))allMovers=[];
+      filterMovers();
+    }catch(err){
+      el.innerHTML='<div class="error-msg" style="font-size:.82rem">Could not load movers: '+esc(err.message)+'</div>';
     }
-  })();
+  }
 
-  /* ── Market Floor ── */
-  (async function loadFloor(){
-    const el = $('floorContainer');
-    const cats = ['basketball','football','baseball','pokemon'];
-    const icons = {basketball:'&#127936;',football:'&#127944;',baseball:'&#9918;',pokemon:'&#9889;'};
-    const iconBg = {basketball:'rgba(59,130,246,.15)',football:'rgba(34,197,94,.15)',baseball:'rgba(239,68,68,.15)',pokemon:'rgba(245,158,11,.15)'};
+  function filterMovers(){
+    const el=$('moversContainer');
+    const filtered=activeCategory==='all'?allMovers:allMovers.filter(function(m){return m.category===activeCategory});
+    if(!filtered.length){
+      el.innerHTML='<div class="movers-empty">No movers'+(activeCategory!=='all'?' in '+capitalize(activeCategory):'')+'</div>';
+      return;
+    }
+    let h='<div class="movers-grid">';
+    filtered.forEach(function(m){
+      const up=m.direction==='up'||(m.pct_change||0)>0;
+      const color=up?'var(--green)':'var(--red)';
+      const arrow=up?'&#9650;':'&#9660;';
+      const catClass='cat-'+(m.category||'default');
+      h+='<div class="mover-card" data-label="'+esc(m.label||'')+'">';
+      h+='<div class="mover-label">'+esc(m.label||'')+'</div>';
+      h+='<div class="mover-cat '+catClass+'">'+esc(m.category||'')+'</div>';
+      h+='<div class="mover-price">'+(m.current_avg!=null?fmt.format(m.current_avg):'—')+'</div>';
+      h+='<div class="mover-change" style="color:'+color+'">'+arrow+' '+fmtPct.format(Math.abs(m.pct_change||0))+'%</div>';
+      if(m.n!=null)h+='<div class="mover-n">'+fmtNum.format(m.n)+' listings</div>';
+      h+='</div>';
+    });
+    h+='</div>';
+    el.innerHTML=h;
 
-    try {
-      const results = await Promise.allSettled(cats.map(function(c){
-        return fetch('/api/floor?category=' + c).then(function(r){
-          if(!r.ok) throw new Error(r.status);
-          return r.json();
-        });
-      }));
-
-      let html = '<div class="floor-grid">';
-      let anyData = false;
-
-      results.forEach(function(res, i){
-        const cat = cats[i];
-        html += '<div class="floor-card">';
-        html += '<div class="floor-cat"><span class="cat-icon" style="background:' + (iconBg[cat]||'var(--surface)') + '">' + (icons[cat]||'') + '</span>' + cat + '</div>';
-
-        if(res.status === 'fulfilled' && res.value && !res.value.error){
-          anyData = true;
-          const d = res.value;
-          const total = d.total_listings ?? d.totalListings ?? d.total ?? null;
-          const totalVal = d.total_value ?? d.totalValue ?? null;
-          const avg = d.avg_price ?? d.avgPrice ?? d.average ?? null;
-          const med = d.median ?? d.median_price ?? null;
-
-          if(total != null) html += floorStat('Listings', fmtNum.format(total));
-          if(totalVal != null) html += floorStat('Total Value', fmtInt.format(totalVal));
-          if(avg != null) html += floorStat('Avg Price', fmt.format(avg));
-          if(med != null) html += floorStat('Median', fmt.format(med));
-          if(total == null && totalVal == null && avg == null && med == null){
-            html += '<div style="color:var(--text-muted);font-size:.8rem;padding:8px 0">No floor data</div>';
-          }
-        } else {
-          html += '<div style="color:var(--text-muted);font-size:.8rem;padding:8px 0">Unavailable</div>';
+    el.querySelectorAll('.mover-card').forEach(function(card){
+      card.addEventListener('click',function(){
+        const label=this.getAttribute('data-label');
+        if(label){
+          input.value=label;
+          currentQuery=label;
+          doSearch(label);
+          window.scrollTo({top:0,behavior:'smooth'});
         }
-        html += '</div>';
       });
-
-      html += '</div>';
-      el.innerHTML = html;
-    } catch(err){
-      el.innerHTML = '<div class="error-msg" style="font-size:.82rem">Could not load floor data: ' + esc(err.message) + '</div>';
-    }
-  })();
-
-  function floorStat(label, val){
-    return '<div class="floor-stat"><span class="fl-label">' + esc(label) + '</span><span class="fl-val">' + esc(val) + '</span></div>';
+    });
   }
 
-  function esc(s){
-    var d = document.createElement('div');
-    d.textContent = s;
-    return d.innerHTML;
-  }
+  /* ── Utils ── */
+  function esc(s){var d=document.createElement('div');d.textContent=String(s);return d.innerHTML}
+  function capitalize(s){if(!s)return '';return s.charAt(0).toUpperCase()+s.slice(1)}
+
+  /* ── Init ── */
+  loadCategories();
+  loadMovers();
 })();
 </script>
 </body>
