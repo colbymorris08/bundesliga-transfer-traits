@@ -193,6 +193,7 @@ async def cert_lookup(cert: str = Query(..., min_length=4)):
 
     # Step 1: Look up cert on PSA
     psa_data = None
+    psa_error = None
     async with httpx.AsyncClient(timeout=10) as client:
         try:
             resp = await client.get(
@@ -200,16 +201,24 @@ async def cert_lookup(cert: str = Query(..., min_length=4)):
                 headers={"Accept": "application/json"},
             )
             if resp.status_code == 200:
-                psa_data = resp.json()
-        except Exception:
-            pass
+                body = resp.json()
+                if isinstance(body, str) and "quota" in body.lower():
+                    psa_error = "PSA API daily limit reached (100/day). Try again tomorrow."
+                elif isinstance(body, dict) and body.get("PSACert"):
+                    psa_data = body
+                else:
+                    psa_error = "PSA returned unexpected data format"
+            else:
+                psa_error = f"PSA API returned status {resp.status_code}"
+        except Exception as e:
+            psa_error = f"Could not connect to PSA: {str(e)}"
 
-    if not psa_data or not psa_data.get("PSACert"):
+    if not psa_data:
         return JSONResponse({
-            "error": "Could not verify this cert number with PSA",
+            "error": psa_error or "Could not verify this cert number with PSA",
             "cert": cert,
-            "hint": "Check the number on the slab label and try again",
-        }, 404)
+            "hint": "Check the number on the slab label and try again. PSA allows 100 lookups per day.",
+        }, 503 if "limit" in (psa_error or "") else 404)
 
     psa = psa_data["PSACert"]
     card_info = {
