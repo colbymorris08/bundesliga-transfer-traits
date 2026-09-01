@@ -428,6 +428,12 @@ input{font-family:inherit}
         resultEl.innerHTML = '<div class="no-result"><div class="icon">&#128269;</div>No data found &mdash; this item may need manual appraisal</div>';
         return;
       }
+      var maxVal = d.fair_value || 0;
+      if (d.grade_ladder) d.grade_ladder.forEach(function(g) { if (g.value > maxVal) maxVal = g.value; });
+      if (maxVal < 4000) {
+        resultEl.innerHTML = '<div class="no-result"><div class="icon">&#128176;</div>This item is valued below our $4,000 minimum threshold.<br><span style="font-size:14px;color:#64748b">Card Vault focuses on high-value collectibles eligible for tax-advantaged donation. Items under $4,000 typically do not qualify for a qualified appraisal under IRS Section 170.</span></div>';
+        return;
+      }
       apiCache.set(cacheKey, d);
       if (d.grade_ladder && d.grade_ladder.length) {
         lastApiGradeLadder = d.grade_ladder;
@@ -646,6 +652,7 @@ input{font-family:inherit}
   function filterMovers() {
     var el = $('moversContainer');
     var filtered = activeCategory === 'all' ? allMovers : allMovers.filter(function(m) { return m.category === activeCategory });
+    filtered = filtered.filter(function(m) { return (m.current_avg || 0) >= 4000; });
     if (!filtered.length) {
       el.innerHTML = '<div class="movers-empty">No movers' + (activeCategory !== 'all' ? ' in ' + capitalize(activeCategory) : '') + '</div>';
       return;
