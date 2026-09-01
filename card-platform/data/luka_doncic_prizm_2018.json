@@ -1,0 +1,72 @@
+{
+  "query": "Luka Doncic Prizm 2018",
+  "grade": "PSA 10",
+  "fetched_at": "2026-08-26T21:42:21.710980",
+  "sources": {
+    "hoodcar": {
+      "avg": 702.48,
+      "low": 90.5,
+      "max": 9000,
+      "min": 1,
+      "high": 630,
+      "as_of": "2026-08-26T08:15:00.116486+00:00",
+      "grade": null,
+      "query": "Luka Doncic Prizm 2018 PSA 10",
+      "value": 210.5,
+      "filter": {
+        "max_price": null,
+        "min_price": null
+      },
+      "verdict": "Strong Buy",
+      "by_grade": [
+        {
+          "avg": 706.54,
+          "low": 88.25,
+          "max": 9000,
+          "min": 1,
+          "high": 630,
+          "grade": "PSA 10",
+          "value": 208,
+          "median": 208,
+          "sample_size": 80
+        },
+        {
+          "avg": 32,
+          "low": 32,
+          "max": 32,
+          "min": 32,
+          "high": 32,
+          "grade": "PSA 9",
+          "value": 32,
+          "median": 32,
+          "sample_size": 1
+        }
+      ],
+      "currency": "USD",
+      "watchers": null,
+      "buy_score": 83,
+      "last_sale": 280,
+      "liquidity": 100,
+      "sales_90d": 50,
+      "trend_30d": 25.3,
+      "confidence": 31,
+      "population": null,
+      "sample_size": 90,
+      "last_sale_date": "2026-08-15T20:00:42.755+00:00"
+    },
+    "hoodcar_sold": {
+      "avg": null,
+      "max": null,
+      "min": null,
+      "sales": 0,
+      "median": null,
+      "by_grade": [],
+      "window_days": 30
+    }
+  },
+  "fair_value": 210.5,
+  "buy_score": 83,
+  "verdict": "Strong Buy",
+  "confidence": 31,
+  "liquidity": 100
+}
