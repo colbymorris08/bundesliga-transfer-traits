@@ -181,3 +181,98 @@ async def index(category: str = Query("basketball")):
         return JSONResponse({"error": "Could not fetch index"}, 502)
 
     return data["data"]
+
+
+@app.get("/api/cert")
+async def cert_lookup(cert: str = Query(..., min_length=4)):
+    """PSA cert number lookup → card details → auto-valuation via HoodCar.
+
+    Flow: cert number → PSA API (card info + grade) → HoodCar (FMV + recommendation)
+    This is the Cause Collectibles donation intake: donor enters cert, system does the rest.
+    """
+    cert = cert.strip()
+
+    # Step 1: Look up cert on PSA
+    psa_data = None
+    async with httpx.AsyncClient(timeout=10) as client:
+        try:
+            resp = await client.get(
+                f"https://api.psacard.com/publicapi/cert/GetByCertNumber/{cert}",
+                headers={"Accept": "application/json"},
+            )
+            if resp.status_code == 200:
+                psa_data = resp.json()
+        except Exception:
+            pass
+
+    if not psa_data or not psa_data.get("PSACert"):
+        return JSONResponse({
+            "error": "Could not verify this cert number with PSA",
+            "cert": cert,
+            "hint": "Check the number on the slab label and try again",
+        }, 404)
+
+    psa = psa_data["PSACert"]
+    card_info = {
+        "cert_number": psa.get("CertNumber", cert),
+        "year": psa.get("Year", ""),
+        "brand": psa.get("Brand", ""),
+        "category": psa.get("Category", ""),
+        "card_number": psa.get("CardNumber", ""),
+        "player": psa.get("Subject", ""),
+        "grade": psa.get("CardGrade", ""),
+        "grade_description": psa.get("GradeDescription", ""),
+        "label_type": psa.get("LabelType", ""),
+        "spec_number": psa.get("SpecNumber", ""),
+    }
+
+    # Build search query from PSA data
+    search_parts = [card_info["player"], card_info["brand"], card_info["year"]]
+    search_query = " ".join(p for p in search_parts if p).strip()
+    grade_str = ""
+    if card_info["grade"]:
+        grade_str = f"PSA {card_info['grade']}"
+
+    # Step 2: Get valuation from HoodCar
+    valuation = None
+    if HOODCAR_KEY and search_query:
+        q = f"{search_query} {grade_str}".strip()
+        hc_data = _cached_get(f"{HOODCAR}/v3/value", {"q": q})
+        if hc_data and hc_data.get("data"):
+            d = hc_data["data"]
+            rec = _recommendation(d)
+
+            # Find the 3 most recent comp prices from grade ladder
+            grade_ladder = []
+            for g in d.get("by_grade", []):
+                grade_ladder.append({
+                    "grade": g.get("grade"),
+                    "value": g.get("value"),
+                    "low": g.get("low"),
+                    "high": g.get("high"),
+                    "sample_size": g.get("sample_size"),
+                })
+
+            valuation = {
+                "fair_value": d.get("value"),
+                "avg_price": d.get("avg"),
+                "buy_score": d.get("buy_score"),
+                "verdict": d.get("verdict"),
+                "confidence": d.get("confidence"),
+                "liquidity": d.get("liquidity"),
+                "sample_size": d.get("sample_size"),
+                "sales_90d": d.get("sales_90d"),
+                "trend_30d": d.get("trend_30d"),
+                "last_sale": d.get("last_sale"),
+                "last_sale_date": d.get("last_sale_date"),
+                "grade_ladder": grade_ladder,
+                "recommendation": rec,
+                "search_query": q,
+            }
+
+    return {
+        "cert": cert,
+        "psa": card_info,
+        "description": f"{card_info['year']} {card_info['brand']} {card_info['player']} #{card_info['card_number']} PSA {card_info['grade']}".strip(),
+        "valuation": valuation,
+    }

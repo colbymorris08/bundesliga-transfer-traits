@@ -37,6 +37,19 @@ input{font-family:inherit}
 .search-btn{padding:16px 32px;border-radius:14px;border:none;background:var(--green);color:#000;font-weight:700;font-size:1rem;transition:opacity .15s;width:100%;cursor:pointer}
 .search-btn:hover{opacity:.85}
 .search-btn:disabled{opacity:.5;cursor:not-allowed}
+.search-mode{padding:10px 24px;border:2px solid var(--border);background:var(--card);color:var(--text-muted);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .15s}
+.search-mode:first-child{border-radius:10px 0 0 10px}
+.search-mode:last-child{border-radius:0 10px 10px 0}
+.search-mode.active{background:var(--green);color:#000;border-color:var(--green)}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-top:16px;max-width:720px;margin-left:auto;margin-right:auto}
+.cert-header{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.cert-desc{font-size:.85rem;color:var(--text-muted);margin-bottom:16px}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.cert-field{background:#0f1117;border:1px solid var(--border);border-radius:8px;padding:10px}
+.cert-field-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:2px}
+.cert-field-value{font-size:.95rem;font-weight:600;color:var(--text)}
+.cert-valuation{border-top:1px solid var(--border);padding-top:16px;margin-top:8px}
+.cert-fv{font-size:2rem;font-weight:800;color:var(--green)}
 
 /* Breadcrumb */
 .breadcrumb-bar{max-width:720px;margin:14px auto 0;display:none;align-items:center;gap:8px;flex-wrap:wrap}
@@ -194,6 +207,13 @@ input{font-family:inherit}
 
   <!-- Hero Search -->
   <section class="hero">
+    <!-- Search Mode Tabs -->
+    <div style="display:flex;gap:0;justify-content:center;margin-bottom:16px">
+      <button id="modeSearch" class="search-mode active" onclick="setSearchMode('search')">Player Search</button>
+      <button id="modeCert" class="search-mode" onclick="setSearchMode('cert')">PSA Cert # Lookup</button>
+    </div>
+
+    <!-- Player Search Form -->
     <form class="search-form" id="searchForm">
       <div class="name-row">
         <input class="search-input-half" id="firstName" type="text" placeholder="First Name (e.g. Luka)" autocomplete="off">
@@ -202,7 +222,17 @@ input{font-family:inherit}
       <input class="search-input" id="searchExtra" type="text" placeholder="Set, year, or keywords (optional — e.g. Prizm 2018)" autocomplete="off">
       <button class="search-btn" type="submit" id="searchBtn">Search</button>
     </form>
-    <div style="text-align:center;font-size:12px;color:#4a5568;margin-top:6px">Enter player/artist name, then use filters below to narrow to your exact card.</div>
+
+    <!-- PSA Cert Lookup Form -->
+    <form class="search-form" id="certForm" style="display:none">
+      <input class="search-input" id="certInput" type="text" placeholder="Enter PSA Certification Number (e.g. 92208220)" autocomplete="off" required pattern="[0-9]+" inputmode="numeric">
+      <button class="search-btn" type="submit" id="certBtn" style="background:#3b82f6">Look Up Cert</button>
+    </form>
+    <div id="searchHint" style="text-align:center;font-size:12px;color:#4a5568;margin-top:6px">Enter player/artist name, then use filters below to narrow to your exact card.</div>
+    <div id="certHint" style="text-align:center;font-size:12px;color:#4a5568;margin-top:6px;display:none">Enter the cert number from the PSA slab label. Card details + valuation auto-populate.</div>
+
+    <!-- Cert Result (appears after cert lookup) -->
+    <div id="certResult" style="display:none"></div>
 
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar" id="breadcrumbBar">
@@ -700,6 +730,100 @@ input{font-family:inherit}
   /* ── Init ── */
   loadCategories();
   loadMovers();
+
+  /* ── Search Mode Toggle ── */
+  window.setSearchMode = function(mode) {
+    var isSearch = mode === 'search';
+    $('searchForm').style.display = isSearch ? '' : 'none';
+    $('certForm').style.display = isSearch ? 'none' : '';
+    $('searchHint').style.display = isSearch ? '' : 'none';
+    $('certHint').style.display = isSearch ? 'none' : '';
+    $('modeSearch').classList.toggle('active', isSearch);
+    $('modeCert').classList.toggle('active', !isSearch);
+    if (!isSearch) $('certInput').focus();
+  };
+
+  /* ── PSA Cert Lookup ── */
+  $('certForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var cert = $('certInput').value.trim();
+    if (!cert) return;
+
+    var resultEl = $('certResult');
+    resultEl.style.display = 'block';
+    resultEl.innerHTML = '<div class="loading-wrap"><div class="spinner"></div><div style="margin-top:10px;color:var(--text-muted);font-size:.85rem">Looking up PSA cert #' + esc(cert) + '...</div></div>';
+
+    try {
+      var resp = await fetch('/api/cert?cert=' + encodeURIComponent(cert));
+      var d = await resp.json();
+
+      if (d.error) {
+        resultEl.innerHTML = '<div class="cert-card"><div class="error-msg">' + esc(d.error) + '</div>' + (d.hint ? '<div style="font-size:.85rem;color:var(--text-muted);margin-top:6px">' + esc(d.hint) + '</div>' : '') + '</div>';
+        return;
+      }
+
+      var psa = d.psa || {};
+      var val = d.valuation;
+      var h = '<div class="cert-card">';
+      h += '<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px">PSA Verified</div>';
+      h += '<div class="cert-header">' + esc(d.description || 'Unknown Card') + '</div>';
+      h += '<div class="cert-desc">Cert #' + esc(cert) + ' &middot; ' + esc(psa.label_type || 'Standard') + ' Label</div>';
+
+      h += '<div class="cert-grid">';
+      var fields = [
+        ['Player', psa.player], ['Year', psa.year], ['Brand', psa.brand],
+        ['Card #', psa.card_number], ['Grade', 'PSA ' + (psa.grade || '—')],
+        ['Category', psa.category],
+      ];
+      fields.forEach(function(f) {
+        h += '<div class="cert-field"><div class="cert-field-label">' + f[0] + '</div><div class="cert-field-value">' + esc(f[1] || '—') + '</div></div>';
+      });
+      h += '</div>';
+
+      if (val) {
+        var rec = val.recommendation || {};
+        var badgeClass = (rec.rating === 'LIQUIDATE') ? 'badge-LIQUIDATE' : (rec.rating === 'HOLD') ? 'badge-HOLD' : 'badge-REVIEW';
+
+        h += '<div class="cert-valuation">';
+        h += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">';
+        h += '<div><div style="font-size:.7rem;text-transform:uppercase;color:var(--text-muted)">Estimated Fair Market Value</div><div class="cert-fv">' + (val.fair_value != null ? fmt.format(val.fair_value) : '—') + '</div></div>';
+        h += '<div class="result-badge ' + badgeClass + '" style="font-size:1rem;padding:8px 20px">' + (rec.rating || 'REVIEW') + '</div>';
+        h += '</div>';
+
+        if (val.confidence != null) {
+          var confColor = val.confidence > 60 ? 'var(--green)' : val.confidence > 30 ? 'var(--gold)' : 'var(--red)';
+          h += '<div style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">FMV Confidence: <strong style="color:' + confColor + '">' + val.confidence + '%</strong> &middot; ' + (val.sample_size || 0) + ' recent sales &middot; Buy Score: ' + (val.buy_score || '—') + '/100</div>';
+        }
+
+        if (rec.reason) {
+          h += '<div style="margin-top:12px;padding:12px;background:#0f1117;border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-muted)">' + esc(rec.reason) + '</div>';
+        }
+
+        if (rec.est_net_proceeds) {
+          h += '<div style="margin-top:10px;font-size:.9rem;color:var(--text-muted)">Est. net proceeds to nonprofit: <strong style="color:var(--green)">' + fmt.format(rec.est_net_proceeds) + '</strong> <span style="font-size:.75rem">(after marketplace fees)</span></div>';
+        }
+
+        if (val.grade_ladder && val.grade_ladder.length) {
+          h += '<div style="margin-top:16px"><div style="font-size:.75rem;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Grade Ladder — Recent Comp Averages</div>';
+          h += '<table style="width:100%;border-collapse:collapse;font-size:.85rem"><thead><tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem;text-transform:uppercase">Grade</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem">Fair Value</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem">Range</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem">Sales</th></tr></thead><tbody>';
+          val.grade_ladder.forEach(function(g) {
+            h += '<tr><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;font-weight:600">' + esc(g.grade) + '</td><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;text-align:right;font-weight:700;color:var(--text)">' + (g.value != null ? fmt.format(g.value) : '—') + '</td><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;text-align:right;color:var(--text-muted);font-size:.8rem">' + (g.low != null ? fmt.format(g.low) + ' – ' + fmt.format(g.high) : '—') + '</td><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;text-align:right;color:var(--text-muted)">' + (g.sample_size || '—') + '</td></tr>';
+          });
+          h += '</tbody></table></div>';
+        }
+
+        h += '</div>';
+      } else {
+        h += '<div class="cert-valuation"><div style="color:var(--text-muted);font-size:.9rem">Card verified by PSA but no market data available yet. <strong style="color:var(--blue)">REVIEW</strong> — manual appraisal recommended.</div></div>';
+      }
+
+      h += '</div>';
+      resultEl.innerHTML = h;
+
+    } catch(err) {
+      resultEl.innerHTML = '<div class="cert-card"><div class="error-msg">Error looking up cert: ' + esc(err.message) + '</div></div>';
+    }
+  });
 })();
 </script>
 </body>
