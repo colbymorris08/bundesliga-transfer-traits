@@ -1,13 +1,12 @@
-"""Card Vault API — Vercel serverless backend.
+"""Card Vault API — Vercel serverless backend with caching.
 
-Proxies HoodCar API calls so the frontend never exposes the API key.
-Also serves pre-fetched trending/movers data for the landing page.
+Proxies HoodCar API, caches responses to conserve the 1K req/month free tier.
 """
 from __future__ import annotations
 
 import os
+import time
 import json
-import re
 from pathlib import Path
 
 import httpx
@@ -15,7 +14,7 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-app = FastAPI(title="Card Vault API", version="1.0")
+app = FastAPI(title="Card Vault API", version="2.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,9 +26,61 @@ app.add_middleware(
 HOODCAR_KEY = os.environ.get("HOODCAR_API_KEY", "")
 HOODCAR = "https://api.hoodcar.com"
 
+# In-memory cache (persists within a single function invocation on Vercel,
+# but resets between cold starts — fine for our use case)
+_cache: dict[str, tuple[float, dict]] = {}
+CACHE_TTL = 3600  # 1 hour
 
-def hc_headers():
-    return {"x-api-key": HOODCAR_KEY}
+
+def _cached_get(url: str, params: dict) -> dict | None:
+    key = f"{url}?{json.dumps(params, sort_keys=True)}"
+    now = time.time()
+    if key in _cache and now - _cache[key][0] < CACHE_TTL:
+        return _cache[key][1]
+
+    try:
+        import httpx as hx
+        resp = hx.get(url, headers={"x-api-key": HOODCAR_KEY}, params=params, timeout=12)
+        if resp.status_code == 200:
+            data = resp.json()
+            _cache[key] = (now, data)
+            return data
+    except Exception:
+        pass
+    return None
+
+
+def _recommendation(data: dict) -> dict:
+    """Generate LIQUIDATE/HOLD/REVIEW from HoodCar response."""
+    verdict = data.get("verdict", "")
+    score = data.get("buy_score")
+    confidence = data.get("confidence")
+    value = data.get("value")
+    trend = data.get("trend_30d")
+
+    if verdict in ("Strong Buy", "Accumulate"):
+        rating, reason = "HOLD", "Uptrend detected — holding may increase proceeds"
+    elif verdict == "Hold":
+        rating, reason = "LIQUIDATE", "Stable pricing with liquidity — sell at current FMV"
+    elif verdict == "Reduce":
+        rating, reason = "LIQUIDATE", "Declining value — liquidate promptly"
+    elif score and score >= 70:
+        rating, reason = "HOLD", f"Buy score {score}/100 suggests appreciation potential"
+    elif score and score <= 40:
+        rating, reason = "LIQUIDATE", f"Low market interest (score {score}) — sell now"
+    elif confidence and confidence < 20:
+        rating, reason = "REVIEW", f"Low confidence ({confidence}%) — manual appraisal recommended"
+    else:
+        rating, reason = "REVIEW", "Limited market data — recommend human appraisal"
+
+    if trend and trend > 10:
+        reason += f" (30-day trend: +{trend:.1f}%)"
+    elif trend and trend < -10:
+        reason += f" (30-day trend: {trend:.1f}%)"
+
+    est = round(value * 0.87, 2) if value else None
+
+    return {"rating": rating, "reason": reason, "est_net_proceeds": est}
 
 
 @app.get("/api/health")
@@ -39,115 +90,94 @@ def health():
 
 @app.get("/api/search")
 async def search(q: str = Query(..., min_length=2), grade: str = Query("")):
-    """Search for any card/collectible via HoodCar."""
+    """Search cards — returns value + grade ladder for drilling down."""
     if not HOODCAR_KEY:
         return JSONResponse({"error": "API key not configured"}, 503)
 
     query = f"{q} {grade}".strip()
-    async with httpx.AsyncClient(timeout=12) as client:
-        resp = await client.get(f"{HOODCAR}/v3/value", headers=hc_headers(), params={"q": query})
+    data = _cached_get(f"{HOODCAR}/v3/value", {"q": query})
 
-    if resp.status_code != 200:
-        return JSONResponse({"error": "HoodCar API error", "status": resp.status_code}, 502)
+    if not data or not data.get("data"):
+        return JSONResponse({"error": "No results found", "query": query}, 404)
 
-    data = resp.json().get("data", {})
+    d = data["data"]
+    rec = _recommendation(d)
 
-    verdict = data.get("verdict", "")
-    if verdict in ("Strong Buy", "Accumulate"):
-        rating = "HOLD"
-        reason = "Uptrend detected — holding may increase proceeds"
-    elif verdict in ("Hold",):
-        rating = "LIQUIDATE"
-        reason = "Stable pricing with liquidity — sell at current FMV"
-    elif verdict in ("Reduce",):
-        rating = "LIQUIDATE"
-        reason = "Declining value — liquidate promptly"
-    else:
-        score = data.get("buy_score")
-        if score and score >= 70:
-            rating = "HOLD"
-            reason = f"Buy score {score}/100 suggests appreciation"
-        elif score and score <= 40:
-            rating = "LIQUIDATE"
-            reason = f"Low market interest (score {score}) — sell now"
-        else:
-            rating = "REVIEW"
-            reason = "Insufficient signal — manual appraisal recommended"
+    grade_ladder = []
+    for g in d.get("by_grade", []):
+        grade_ladder.append({
+            "grade": g.get("grade"),
+            "value": g.get("value"),
+            "low": g.get("low"),
+            "high": g.get("high"),
+            "sample_size": g.get("sample_size"),
+        })
 
-    fv = data.get("value")
     return {
-        "query": query,
-        "fair_value": fv,
-        "buy_score": data.get("buy_score"),
-        "verdict": verdict,
-        "confidence": data.get("confidence"),
-        "liquidity": data.get("liquidity"),
-        "last_sale": data.get("last_sale"),
-        "grade_ladder": data.get("grade_ladder", []),
-        "matched_cards": data.get("matched_cards", []),
-        "recommendation": {
-            "rating": rating,
-            "reason": reason,
-            "est_net_proceeds": round(fv * 0.87, 2) if fv else None,
-        },
+        "query": d.get("query", query),
+        "fair_value": d.get("value"),
+        "avg_price": d.get("avg"),
+        "buy_score": d.get("buy_score"),
+        "verdict": d.get("verdict"),
+        "confidence": d.get("confidence"),
+        "liquidity": d.get("liquidity"),
+        "sample_size": d.get("sample_size"),
+        "sales_90d": d.get("sales_90d"),
+        "trend_30d": d.get("trend_30d"),
+        "last_sale": d.get("last_sale"),
+        "last_sale_date": d.get("last_sale_date"),
+        "grade_ladder": grade_ladder,
+        "recommendation": rec,
     }
 
 
 @app.get("/api/movers")
 async def movers():
-    """Get top market movers from HoodCar."""
+    """Top market movers — cached aggressively."""
     if not HOODCAR_KEY:
         return JSONResponse({"error": "API key not configured"}, 503)
 
-    async with httpx.AsyncClient(timeout=12) as client:
-        resp = await client.get(f"{HOODCAR}/v1/movers", headers=hc_headers())
+    data = _cached_get(f"{HOODCAR}/v1/movers", {})
+    if not data or not data.get("data"):
+        return JSONResponse({"error": "Could not fetch movers"}, 502)
 
-    if resp.status_code != 200:
-        return JSONResponse({"error": "HoodCar API error"}, 502)
-
-    return resp.json().get("data", {})
+    return data["data"]
 
 
-@app.get("/api/index")
-async def index(category: str = Query("basketball")):
-    """Get market index time series."""
+@app.get("/api/categories")
+async def categories():
+    """All available categories with listing counts."""
     if not HOODCAR_KEY:
         return JSONResponse({"error": "API key not configured"}, 503)
 
-    async with httpx.AsyncClient(timeout=12) as client:
-        resp = await client.get(f"{HOODCAR}/v1/index", headers=hc_headers(), params={"category": category})
+    data = _cached_get(f"{HOODCAR}/v1/categories", {})
+    if not data or not data.get("data"):
+        return JSONResponse({"error": "Could not fetch categories"}, 502)
 
-    if resp.status_code != 200:
-        return JSONResponse({"error": "HoodCar API error"}, 502)
-
-    return resp.json().get("data", {})
+    return data["data"]
 
 
 @app.get("/api/floor")
 async def floor(category: str = Query("basketball")):
-    """Get market floor snapshot."""
+    """Market floor snapshot for a category."""
     if not HOODCAR_KEY:
         return JSONResponse({"error": "API key not configured"}, 503)
 
-    async with httpx.AsyncClient(timeout=12) as client:
-        resp = await client.get(f"{HOODCAR}/v1/floor", headers=hc_headers(), params={"category": category})
+    data = _cached_get(f"{HOODCAR}/v1/floor", {"category": category})
+    if not data or not data.get("data"):
+        return JSONResponse({"error": "Could not fetch floor"}, 502)
 
-    if resp.status_code != 200:
-        return JSONResponse({"error": "HoodCar API error"}, 502)
-
-    return resp.json().get("data", {})
+    return data["data"]
 
 
-@app.get("/api/sold")
-async def sold(q: str = Query(..., min_length=2)):
-    """Get sold comp stats."""
+@app.get("/api/index")
+async def index(category: str = Query("basketball")):
+    """Market index time series for a category."""
     if not HOODCAR_KEY:
         return JSONResponse({"error": "API key not configured"}, 503)
 
-    async with httpx.AsyncClient(timeout=12) as client:
-        resp = await client.get(f"{HOODCAR}/v1/sold", headers=hc_headers(), params={"q": q})
+    data = _cached_get(f"{HOODCAR}/v1/index", {"category": category})
+    if not data or not data.get("data"):
+        return JSONResponse({"error": "Could not fetch index"}, 502)
 
-    if resp.status_code != 200:
-        return JSONResponse({"error": "HoodCar API error"}, 502)
-
-    return resp.json().get("data", {})
+    return data["data"]
