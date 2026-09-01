@@ -39,8 +39,7 @@ def _cached_get(url: str, params: dict) -> dict | None:
         return _cache[key][1]
 
     try:
-        import httpx as hx
-        resp = hx.get(url, headers={"x-api-key": HOODCAR_KEY}, params=params, timeout=12)
+        resp = httpx.get(url, headers={"x-api-key": HOODCAR_KEY}, params=params, timeout=12)
         if resp.status_code == 200:
             data = resp.json()
             _cache[key] = (now, data)
