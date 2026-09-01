@@ -17,6 +17,7 @@ a{color:var(--blue);text-decoration:none}
 button{cursor:pointer;font-family:inherit}
 input{font-family:inherit}
 
+/* Header */
 .header{padding:28px 24px 18px;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0f1018 0%,var(--bg) 100%)}
 .header h1{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;background:linear-gradient(135deg,#fff 0%,var(--green) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .header .subtitle{color:var(--text-muted);font-size:.78rem;margin-top:4px;letter-spacing:.05em;text-transform:uppercase}
@@ -33,6 +34,29 @@ input{font-family:inherit}
 .search-btn:hover{opacity:.85}
 .search-btn:disabled{opacity:.5;cursor:not-allowed}
 
+/* Breadcrumb */
+.breadcrumb-bar{max-width:720px;margin:14px auto 0;display:none;align-items:center;gap:8px;flex-wrap:wrap}
+.breadcrumb-bar.visible{display:flex}
+.breadcrumb-trail{display:flex;align-items:center;gap:6px;flex-wrap:wrap;flex:1}
+.bc-segment{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;color:var(--text);font-weight:500}
+.bc-arrow{color:var(--text-muted);font-size:.72rem}
+.bc-base{color:var(--green)}
+.bc-filter{color:var(--blue)}
+.bc-grade{color:var(--gold)}
+.clear-filters-btn{padding:5px 14px;border-radius:8px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.08);color:var(--red);font-size:.74rem;font-weight:600;white-space:nowrap;transition:all .15s}
+.clear-filters-btn:hover{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.5)}
+
+/* Filter Chips */
+.filters-panel{max-width:720px;margin:16px auto 0;display:none}
+.filters-panel.visible{display:block}
+.filter-row{margin-bottom:10px}
+.filter-row-label{font-size:.66rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;font-weight:600}
+.filter-chips{display:flex;flex-wrap:wrap;gap:6px}
+.filter-chip{padding:5px 14px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text-muted);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
+.filter-chip:hover{border-color:#3a3d5e;color:var(--text)}
+.filter-chip.active{border-color:var(--green);color:var(--green);background:rgba(34,197,94,.08)}
+.filter-chip.grade-chip.active{border-color:var(--gold);color:var(--gold);background:rgba(245,158,11,.08)}
+
 /* Spinner */
 .spinner{display:inline-block;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.12);border-top-color:var(--green);border-radius:50%;animation:spin .65s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -43,6 +67,8 @@ input{font-family:inherit}
 /* Result Card */
 .result-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:24px;text-align:left;animation:fadeIn .3s ease}
 .result-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.result-count{font-size:.84rem;color:var(--text-muted);margin-bottom:4px}
+.result-count strong{color:var(--text);font-weight:600}
 .result-query{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
 .result-query span{color:var(--text);font-weight:600}
 .result-fv{font-size:2.6rem;font-weight:700;letter-spacing:-.02em;margin-top:2px}
@@ -77,6 +103,7 @@ input{font-family:inherit}
 .grade-row .grade-name{font-weight:600}
 .grade-row .grade-action{color:var(--blue);font-size:.78rem;font-weight:500}
 .grade-row .grade-range{color:var(--text-muted);font-size:.78rem}
+.grade-val-bar{height:4px;border-radius:2px;background:var(--green);opacity:.5;margin-top:3px;transition:width .4s ease}
 
 .grade-detail{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:12px;animation:fadeIn .25s ease}
 .grade-detail-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
@@ -108,8 +135,8 @@ input{font-family:inherit}
 .section-title{font-size:1rem;font-weight:600;margin-bottom:14px;color:var(--text);display:flex;align-items:center;gap:8px}
 .section-title .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
 .movers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
-.mover-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .15s;cursor:pointer}
-.mover-card:hover{border-color:#2a2d4e}
+.mover-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .15s,transform .1s;cursor:pointer}
+.mover-card:hover{border-color:#2a2d4e;transform:translateY(-2px)}
 .mover-label{font-size:.95rem;font-weight:600;text-transform:capitalize;margin-bottom:4px}
 .mover-cat{display:inline-block;padding:2px 8px;border-radius:5px;font-size:.64rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .cat-baseball{background:rgba(239,68,68,.12);color:var(--red)}
@@ -143,6 +170,8 @@ input{font-family:inherit}
   .movers-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
   .header h1{font-size:1.6rem}
   .grade-detail-grid{grid-template-columns:repeat(2,1fr)}
+  .filter-chips{gap:5px}
+  .filter-chip{padding:4px 10px;font-size:.72rem}
 }
 @media(max-width:400px){
   .stats-grid{grid-template-columns:1fr}
@@ -165,6 +194,32 @@ input{font-family:inherit}
       <input class="search-input" id="searchInput" type="text" placeholder="Search player, set, year... (e.g. Doncic Prizm 2018)" autocomplete="off" required>
       <button class="search-btn" type="submit" id="searchBtn">Search</button>
     </form>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar" id="breadcrumbBar">
+      <div class="breadcrumb-trail" id="breadcrumbTrail"></div>
+      <button class="clear-filters-btn" id="clearFiltersBtn">Clear all filters</button>
+    </div>
+
+    <!-- Filter Chips -->
+    <div class="filters-panel" id="filtersPanel">
+      <div class="filter-row">
+        <div class="filter-row-label">Brand / Set</div>
+        <div class="filter-chips" id="brandChips"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-row-label">Variant</div>
+        <div class="filter-chips" id="variantChips"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-row-label">Year</div>
+        <div class="filter-chips" id="yearChips"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-row-label">Grade</div>
+        <div class="filter-chips" id="gradeChips"></div>
+      </div>
+    </div>
   </section>
 
   <!-- Search Results -->
@@ -194,279 +249,429 @@ input{font-family:inherit}
 
 <script>
 (function(){
-  const fmt=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0});
-  const fmt2=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
-  const fmtNum=new Intl.NumberFormat('en-US');
-  const fmtPct=new Intl.NumberFormat('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0});
+  const fmtNum = new Intl.NumberFormat('en-US');
+  const fmtPct = new Intl.NumberFormat('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
 
-  function $(id){return document.getElementById(id)}
+  function $(id){ return document.getElementById(id) }
 
-  const cache={categories:null,floor:{}};
-  let allMovers=[];
-  let activeCategory='all';
-  let currentQuery='';
+  const BRANDS = ['Prizm','Optic','Select','Mosaic','Topps','Bowman Chrome','National Treasures','Fleer','Donruss'];
+  const VARIANTS = ['Base','Silver','Gold','Auto','Patch','Jersey','Numbered','1st Edition','Refractor','Holo'];
+  const YEARS = ['2024','2023','2022','2021','2020','2019','2018','Earlier'];
+  const STATIC_GRADES = ['PSA 10','PSA 9','PSA 8','BGS 10','BGS 9.5','SGC 10','CGC 9.8','Raw'];
 
-  /* ── Search ── */
-  const form=$('searchForm'),input=$('searchInput'),btn=$('searchBtn'),resultEl=$('searchResult');
+  const apiCache = new Map();
+  const cache = { categories: null, floor: {} };
+  let allMovers = [];
+  let activeCategory = 'all';
 
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    const q=input.value.trim();
-    if(!q)return;
-    currentQuery=q;
-    doSearch(q);
+  let baseQuery = '';
+  let activeFilters = { brands: new Set(), variants: new Set(), years: new Set() };
+  let activeGrade = '';
+  let lastApiGradeLadder = [];
+
+  const form = $('searchForm');
+  const input = $('searchInput');
+  const btn = $('searchBtn');
+  const resultEl = $('searchResult');
+  const filtersPanel = $('filtersPanel');
+  const breadcrumbBar = $('breadcrumbBar');
+  const breadcrumbTrail = $('breadcrumbTrail');
+  const clearBtn = $('clearFiltersBtn');
+
+  /* ── Filter chip rendering ── */
+  function renderChipRow(containerId, items, activeSet, type) {
+    const el = $(containerId);
+    el.innerHTML = '';
+    items.forEach(function(item) {
+      const chip = document.createElement('div');
+      chip.className = 'filter-chip' + (type === 'grade' ? ' grade-chip' : '');
+      if (type === 'grade') {
+        if (activeGrade === item) chip.classList.add('active');
+      } else {
+        if (activeSet && activeSet.has(item)) chip.classList.add('active');
+      }
+      chip.textContent = item;
+      chip.addEventListener('click', function() {
+        if (type === 'grade') {
+          activeGrade = activeGrade === item ? '' : item;
+        } else {
+          if (activeSet.has(item)) activeSet.delete(item);
+          else activeSet.add(item);
+        }
+        executeFilteredSearch();
+      });
+      el.appendChild(chip);
+    });
+  }
+
+  function renderAllChips() {
+    renderChipRow('brandChips', BRANDS, activeFilters.brands, 'brand');
+    renderChipRow('variantChips', VARIANTS, activeFilters.variants, 'variant');
+    renderChipRow('yearChips', YEARS, activeFilters.years, 'year');
+    const gradeItems = mergeGrades();
+    renderChipRow('gradeChips', gradeItems, null, 'grade');
+  }
+
+  function mergeGrades() {
+    const seen = new Set(STATIC_GRADES);
+    const result = STATIC_GRADES.slice();
+    lastApiGradeLadder.forEach(function(g) {
+      if (!seen.has(g.grade)) {
+        seen.add(g.grade);
+        result.push(g.grade);
+      }
+    });
+    return result;
+  }
+
+  function buildCompositeQuery() {
+    let parts = [baseQuery];
+    activeFilters.brands.forEach(function(b) { parts.push(b); });
+    activeFilters.variants.forEach(function(v) { parts.push(v); });
+    activeFilters.years.forEach(function(y) { parts.push(y); });
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function renderBreadcrumb() {
+    const hasFilters = activeFilters.brands.size || activeFilters.variants.size || activeFilters.years.size || activeGrade;
+    if (!baseQuery) {
+      breadcrumbBar.classList.remove('visible');
+      return;
+    }
+    breadcrumbBar.classList.add('visible');
+    let segments = [];
+    segments.push('<span class="bc-segment bc-base">' + esc(baseQuery) + '</span>');
+    activeFilters.brands.forEach(function(b) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-filter">' + esc(b) + '</span>');
+    });
+    activeFilters.variants.forEach(function(v) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-filter">' + esc(v) + '</span>');
+    });
+    activeFilters.years.forEach(function(y) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-filter">' + esc(y) + '</span>');
+    });
+    if (activeGrade) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-grade">' + esc(activeGrade) + '</span>');
+    }
+    breadcrumbTrail.innerHTML = segments.join('');
+    clearBtn.style.display = hasFilters ? '' : 'none';
+  }
+
+  clearBtn.addEventListener('click', function() {
+    activeFilters.brands.clear();
+    activeFilters.variants.clear();
+    activeFilters.years.clear();
+    activeGrade = '';
+    executeFilteredSearch();
   });
 
-  async function doSearch(q,grade){
-    btn.disabled=true;
-    resultEl.innerHTML='<div class="loading-wrap"><div class="spinner"></div></div>';
-    let url='/api/search?q='+encodeURIComponent(q);
-    if(grade)url+='&grade='+encodeURIComponent(grade);
-    try{
-      const resp=await fetch(url);
-      if(!resp.ok)throw new Error('API returned '+resp.status);
-      const d=await resp.json();
-      if(d.error){resultEl.innerHTML='<div class="error-msg">'+esc(d.error)+'</div>';return;}
-      if(d.fair_value==null&&!(d.grade_ladder&&d.grade_ladder.length)){
-        resultEl.innerHTML='<div class="no-result"><div class="icon">&#128269;</div>No data found &mdash; this item may need manual appraisal</div>';
+  /* ── Search ── */
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var q = input.value.trim();
+    if (!q) return;
+    baseQuery = q;
+    activeFilters.brands.clear();
+    activeFilters.variants.clear();
+    activeFilters.years.clear();
+    activeGrade = '';
+    executeFilteredSearch();
+  });
+
+  function executeFilteredSearch() {
+    var q = buildCompositeQuery();
+    if (!q) return;
+    renderBreadcrumb();
+    renderAllChips();
+    doSearch(q, activeGrade);
+  }
+
+  async function doSearch(q, grade) {
+    btn.disabled = true;
+    resultEl.innerHTML = '<div class="loading-wrap"><div class="spinner"></div></div>';
+    filtersPanel.classList.add('visible');
+
+    var cacheKey = q + '||' + (grade || '');
+    if (apiCache.has(cacheKey)) {
+      var cached = apiCache.get(cacheKey);
+      renderResult(cached, grade, q);
+      btn.disabled = false;
+      return;
+    }
+
+    var url = '/api/search?q=' + encodeURIComponent(q);
+    if (grade) url += '&grade=' + encodeURIComponent(grade);
+    try {
+      var resp = await fetch(url);
+      if (!resp.ok) throw new Error('API returned ' + resp.status);
+      var d = await resp.json();
+      if (d.error) {
+        resultEl.innerHTML = '<div class="error-msg">' + esc(d.error) + '</div>';
         return;
       }
-      renderResult(d,grade);
-    }catch(err){
-      resultEl.innerHTML='<div class="error-msg">Search failed: '+esc(err.message)+'</div>';
-    }finally{
-      btn.disabled=false;
+      if (d.fair_value == null && !(d.grade_ladder && d.grade_ladder.length)) {
+        resultEl.innerHTML = '<div class="no-result"><div class="icon">&#128269;</div>No data found &mdash; this item may need manual appraisal</div>';
+        return;
+      }
+      apiCache.set(cacheKey, d);
+      if (d.grade_ladder && d.grade_ladder.length) {
+        lastApiGradeLadder = d.grade_ladder;
+        renderAllChips();
+      }
+      renderResult(d, grade, q);
+    } catch(err) {
+      resultEl.innerHTML = '<div class="error-msg">Search failed: ' + esc(err.message) + '</div>';
+    } finally {
+      btn.disabled = false;
     }
   }
 
-  function renderResult(d,activeGrade){
-    const rec=d.recommendation||{};
-    const rating=rec.rating||'REVIEW';
-    const scoreColor=scoreClr(d.buy_score);
-    const trendColor=(d.trend_30d||0)>=0?'var(--green)':'var(--red)';
-    const trendArrow=(d.trend_30d||0)>=0?'&#9650;':'&#9660;';
+  function renderResult(d, selectedGrade, compositeQuery) {
+    var rec = d.recommendation || {};
+    var rating = rec.rating || 'REVIEW';
+    var scoreColor = scoreClr(d.buy_score);
+    var trendColor = (d.trend_30d || 0) >= 0 ? 'var(--green)' : 'var(--red)';
+    var trendArrow = (d.trend_30d || 0) >= 0 ? '&#9650;' : '&#9660;';
 
-    let h='<div class="result-card">';
+    var h = '<div class="result-card">';
 
-    h+='<div class="result-header"><div>';
-    h+='<div class="result-query">Results for <span>\''+esc(d.query||currentQuery)+'\'</span></div>';
-    h+='<div class="result-fv">'+(d.fair_value!=null?fmt.format(d.fair_value):'&mdash;')+'</div>';
-    h+='</div><div class="result-right">';
-    h+='<div class="result-badge badge-'+rating+'">'+rating+'</div>';
-    if(d.sample_size!=null)h+='<div class="result-sales-count">'+fmtNum.format(d.sample_size)+' recent sales</div>';
-    h+='</div></div>';
-
-    h+='<div class="stats-grid">';
-    h+=statBox('Fair Value',d.fair_value!=null?fmt.format(d.fair_value):'—');
-    h+=statBox('Avg Price',d.avg_price!=null?fmt.format(d.avg_price):'—');
-    h+=buyScoreBox(d.buy_score,scoreColor);
-    h+=statBox('90-Day Sales',d.sales_90d!=null?fmtNum.format(d.sales_90d):'—');
-    h+=statBox('30-Day Trend',d.trend_30d!=null?'<span style="color:'+trendColor+'">'+trendArrow+' '+fmtPct.format(Math.abs(d.trend_30d))+'%</span>':'—');
-    h+=statBox('Liquidity',d.liquidity!=null?d.liquidity+'%':'—');
-    h+='</div>';
-
-    if(rec.reason||rec.est_net_proceeds!=null){
-      const borderClr=rating==='LIQUIDATE'?'var(--green)':rating==='HOLD'?'var(--gold)':'var(--blue)';
-      h+='<div class="reason-box" style="border-left-color:'+borderClr+'">';
-      if(rec.reason)h+=esc(rec.reason);
-      if(rec.est_net_proceeds!=null)h+='<div class="proceeds">Est. Net Proceeds: '+fmt.format(rec.est_net_proceeds)+'</div>';
-      h+='</div>';
+    if (d.sample_size != null) {
+      h += '<div class="result-count">' + fmtNum.format(d.sample_size) + ' recent sales matching <strong>\'' + esc(compositeQuery || d.query || baseQuery) + '\'</strong></div>';
     }
 
-    if(d.grade_ladder&&d.grade_ladder.length){
-      h+='<div class="grade-section">';
-      h+='<div class="grade-section-title">Grade Ladder &mdash; click a grade to drill down</div>';
-      h+='<table class="grade-table"><thead><tr><th>Grade</th><th>Fair Value</th><th>Low</th><th>High</th><th>Sales</th><th></th></tr></thead><tbody>';
-      d.grade_ladder.forEach(function(g){
-        const isActive=activeGrade&&g.grade===activeGrade;
-        h+='<tr class="grade-row'+(isActive?' active':'')+'" data-grade="'+esc(g.grade)+'">';
-        h+='<td class="grade-name">'+esc(g.grade)+'</td>';
-        h+='<td>'+(g.value!=null?fmt.format(g.value):'—')+'</td>';
-        h+='<td class="grade-range">'+(g.low!=null?fmt.format(g.low):'—')+'</td>';
-        h+='<td class="grade-range">'+(g.high!=null?fmt.format(g.high):'—')+'</td>';
-        h+='<td>'+(g.sample_size!=null?fmtNum.format(g.sample_size):'—')+'</td>';
-        h+='<td class="grade-action">'+(isActive?'&#10003; Selected':'Select &rarr;')+'</td>';
-        h+='</tr>';
+    h += '<div class="result-header"><div>';
+    h += '<div class="result-fv">' + (d.fair_value != null ? fmt.format(d.fair_value) : '&mdash;') + '</div>';
+    h += '<div class="result-query">Fair Value' + (d.verdict ? ' &middot; <span style="color:' + verdictColor(d.verdict) + '">' + esc(d.verdict) + '</span>' : '') + '</div>';
+    h += '</div><div class="result-right">';
+    h += '<div class="result-badge badge-' + rating + '">' + rating + '</div>';
+    h += '</div></div>';
+
+    h += '<div class="stats-grid">';
+    h += statBox('Fair Value', d.fair_value != null ? fmt.format(d.fair_value) : '—');
+    h += statBox('Avg Price', d.avg_price != null ? fmt.format(d.avg_price) : '—');
+    h += buyScoreBox(d.buy_score, scoreColor);
+    h += statBox('90-Day Sales', d.sales_90d != null ? fmtNum.format(d.sales_90d) : '—');
+    h += statBox('30-Day Trend', d.trend_30d != null ? '<span style="color:' + trendColor + '">' + trendArrow + ' ' + fmtPct.format(Math.abs(d.trend_30d)) + '%</span>' : '—');
+    h += statBox('Liquidity', d.liquidity != null ? d.liquidity + '%' : '—');
+    h += '</div>';
+
+    if (rec.reason || rec.est_net_proceeds != null) {
+      var borderClr = rating === 'LIQUIDATE' ? 'var(--green)' : rating === 'HOLD' ? 'var(--gold)' : 'var(--blue)';
+      h += '<div class="reason-box" style="border-left-color:' + borderClr + '">';
+      if (rec.reason) h += esc(rec.reason);
+      if (rec.est_net_proceeds != null) h += '<div class="proceeds">Est. Net Proceeds: ' + fmt.format(rec.est_net_proceeds) + '</div>';
+      h += '</div>';
+    }
+
+    if (d.grade_ladder && d.grade_ladder.length && !selectedGrade) {
+      var maxVal = Math.max.apply(null, d.grade_ladder.map(function(g){ return g.value || 0 }));
+      h += '<div class="grade-section">';
+      h += '<div class="grade-section-title">Grade Ladder &mdash; click a grade to drill down</div>';
+      h += '<table class="grade-table"><thead><tr><th>Grade</th><th>Fair Value</th><th>Low</th><th>High</th><th>Sales</th><th></th></tr></thead><tbody>';
+      d.grade_ladder.forEach(function(g) {
+        var pct = maxVal > 0 ? Math.round(((g.value || 0) / maxVal) * 100) : 0;
+        h += '<tr class="grade-row" data-grade="' + esc(g.grade) + '">';
+        h += '<td class="grade-name">' + esc(g.grade) + '</td>';
+        h += '<td>' + (g.value != null ? fmt.format(g.value) : '—') + '<div class="grade-val-bar" style="width:' + pct + '%"></div></td>';
+        h += '<td class="grade-range">' + (g.low != null ? fmt.format(g.low) : '—') + '</td>';
+        h += '<td class="grade-range">' + (g.high != null ? fmt.format(g.high) : '—') + '</td>';
+        h += '<td>' + (g.sample_size != null ? fmtNum.format(g.sample_size) : '—') + '</td>';
+        h += '<td class="grade-action">Select &rarr;</td>';
+        h += '</tr>';
       });
-      h+='</tbody></table></div>';
+      h += '</tbody></table></div>';
     }
 
-    if(activeGrade&&d.recommendation){
-      h+='<div class="grade-detail">';
-      h+='<div class="grade-detail-header"><div class="grade-detail-title">'+esc(activeGrade)+' Detail</div>';
-      h+='<div class="result-badge badge-'+(rec.rating||'REVIEW')+'">'+(rec.rating||'REVIEW')+'</div></div>';
-      h+='<div class="grade-detail-grid">';
-      h+=statBox('Fair Value',d.fair_value!=null?fmt.format(d.fair_value):'—');
-      h+=statBox('Confidence',d.confidence!=null?d.confidence+'%':'—');
-      h+=statBox('Est. Proceeds',rec.est_net_proceeds!=null?fmt.format(rec.est_net_proceeds):'—','var(--green)');
-      h+=statBox('Last Sale',d.last_sale!=null?fmt.format(d.last_sale):'—');
-      h+='</div></div>';
+    if (selectedGrade && rec) {
+      h += '<div class="grade-detail">';
+      h += '<div class="grade-detail-header"><div class="grade-detail-title">' + esc(selectedGrade) + ' Detail</div>';
+      h += '<div class="result-badge badge-' + (rec.rating || 'REVIEW') + '">' + (rec.rating || 'REVIEW') + '</div></div>';
+      h += '<div class="grade-detail-grid">';
+      h += statBox('Fair Value', d.fair_value != null ? fmt.format(d.fair_value) : '—');
+      h += statBox('Confidence', d.confidence != null ? d.confidence + '%' : '—');
+      h += statBox('Est. Proceeds', rec.est_net_proceeds != null ? fmt.format(rec.est_net_proceeds) : '—', 'var(--green)');
+      h += statBox('Last Sale', d.last_sale != null ? fmt.format(d.last_sale) : '—');
+      h += '</div></div>';
     }
 
-    h+='</div>';
-    resultEl.innerHTML=h;
+    h += '</div>';
+    resultEl.innerHTML = h;
 
-    resultEl.querySelectorAll('.grade-row').forEach(function(row){
-      row.addEventListener('click',function(){
-        const grade=this.getAttribute('data-grade');
-        doSearch(currentQuery,grade);
+    resultEl.querySelectorAll('.grade-row').forEach(function(row) {
+      row.addEventListener('click', function() {
+        var grade = this.getAttribute('data-grade');
+        activeGrade = grade;
+        executeFilteredSearch();
       });
     });
   }
 
-  function statBox(label,val,color){
-    return '<div class="stat-box"><div class="stat-label">'+esc(label)+'</div><div class="stat-val"'+(color?' style="color:'+color+'"':'')+'>'+val+'</div></div>';
+  function verdictColor(v) {
+    if (!v) return 'var(--text-muted)';
+    var vl = v.toLowerCase();
+    if (vl.indexOf('buy') !== -1) return 'var(--green)';
+    if (vl.indexOf('sell') !== -1 || vl.indexOf('liquidate') !== -1) return 'var(--red)';
+    return 'var(--gold)';
   }
 
-  function buyScoreBox(score,color){
-    if(score==null)return statBox('Buy Score','—');
-    return '<div class="stat-box"><div class="stat-label">Buy Score</div><div class="stat-val" style="color:'+color+'">'+score+' / 100</div>'
-      +'<div class="score-bar-wrap"><div class="score-bar" style="width:'+Math.min(score,100)+'%;background:'+color+'"></div></div></div>';
+  function statBox(label, val, color) {
+    return '<div class="stat-box"><div class="stat-label">' + esc(label) + '</div><div class="stat-val"' + (color ? ' style="color:' + color + '"' : '') + '>' + val + '</div></div>';
   }
 
-  function scoreClr(s){return s>=70?'var(--green)':s>=40?'var(--gold)':'var(--red)'}
+  function buyScoreBox(score, color) {
+    if (score == null) return statBox('Buy Score', '—');
+    return '<div class="stat-box"><div class="stat-label">Buy Score</div><div class="stat-val" style="color:' + color + '">' + score + ' / 100</div>'
+      + '<div class="score-bar-wrap"><div class="score-bar" style="width:' + Math.min(score, 100) + '%;background:' + color + '"></div></div></div>';
+  }
+
+  function scoreClr(s) { return s >= 70 ? 'var(--green)' : s >= 40 ? 'var(--gold)' : 'var(--red)' }
 
   /* ── Categories ── */
-  async function loadCategories(){
-    try{
-      const resp=await fetch('/api/categories');
-      if(!resp.ok)throw new Error('Status '+resp.status);
-      const d=await resp.json();
-      cache.categories=d.categories||[];
+  async function loadCategories() {
+    try {
+      var resp = await fetch('/api/categories');
+      if (!resp.ok) throw new Error('Status ' + resp.status);
+      var d = await resp.json();
+      cache.categories = d.categories || [];
       renderCatTabs();
-    }catch(e){
-      $('catTabs').innerHTML='<div style="color:var(--text-muted);font-size:.82rem;padding:8px">Could not load categories</div>';
+    } catch(e) {
+      $('catTabs').innerHTML = '<div style="color:var(--text-muted);font-size:.82rem;padding:8px">Could not load categories</div>';
     }
   }
 
-  function renderCatTabs(){
-    const cats=cache.categories||[];
-    let h='<div class="cat-tab'+(activeCategory==='all'?' active':'')+'" data-cat="all">All</div>';
-    cats.forEach(function(c){
-      const name=capitalize(c.category);
-      const active=activeCategory===c.category?' active':'';
-      h+='<div class="cat-tab'+active+'" data-cat="'+esc(c.category)+'">';
-      h+=esc(name);
-      if(c.listings!=null)h+='<span class="cat-count">'+fmtNum.format(c.listings)+'</span>';
-      h+='</div>';
+  function renderCatTabs() {
+    var cats = cache.categories || [];
+    var h = '<div class="cat-tab' + (activeCategory === 'all' ? ' active' : '') + '" data-cat="all">All</div>';
+    cats.forEach(function(c) {
+      var name = capitalize(c.category);
+      var active = activeCategory === c.category ? ' active' : '';
+      h += '<div class="cat-tab' + active + '" data-cat="' + esc(c.category) + '">';
+      h += esc(name);
+      if (c.listings != null) h += '<span class="cat-count">' + fmtNum.format(c.listings) + '</span>';
+      h += '</div>';
     });
-    $('catTabs').innerHTML=h;
+    $('catTabs').innerHTML = h;
 
-    $('catTabs').querySelectorAll('.cat-tab').forEach(function(tab){
-      tab.addEventListener('click',function(){
-        const cat=this.getAttribute('data-cat');
+    $('catTabs').querySelectorAll('.cat-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var cat = this.getAttribute('data-cat');
         setActiveCategory(cat);
       });
     });
   }
 
-  function setActiveCategory(cat){
-    activeCategory=cat;
-    $('catTabs').querySelectorAll('.cat-tab').forEach(function(t){
-      t.classList.toggle('active',t.getAttribute('data-cat')===cat);
+  function setActiveCategory(cat) {
+    activeCategory = cat;
+    $('catTabs').querySelectorAll('.cat-tab').forEach(function(t) {
+      t.classList.toggle('active', t.getAttribute('data-cat') === cat);
     });
     filterMovers();
-    if(cat==='all'){
-      $('floorSection').style.display='none';
-    }else{
+    if (cat === 'all') {
+      $('floorSection').style.display = 'none';
+    } else {
       loadFloor(cat);
     }
   }
 
   /* ── Floor ── */
-  async function loadFloor(cat){
-    const section=$('floorSection');
-    section.style.display='block';
-    section.innerHTML='<div class="loading-wrap"><div class="spinner"></div></div>';
+  async function loadFloor(cat) {
+    var section = $('floorSection');
+    section.style.display = 'block';
+    section.innerHTML = '<div class="loading-wrap"><div class="spinner"></div></div>';
 
-    if(cache.floor[cat]){
-      renderFloor(cache.floor[cat],cat);
+    if (cache.floor[cat]) {
+      renderFloor(cache.floor[cat], cat);
       return;
     }
 
-    try{
-      const resp=await fetch('/api/floor?category='+encodeURIComponent(cat));
-      if(!resp.ok)throw new Error('Status '+resp.status);
-      const d=await resp.json();
-      const info=(d.categories&&d.categories.length)?d.categories[0]:d;
-      cache.floor[cat]=info;
-      renderFloor(info,cat);
-    }catch(e){
-      section.innerHTML='<div class="error-msg" style="font-size:.82rem">Could not load floor data</div>';
+    try {
+      var resp = await fetch('/api/floor?category=' + encodeURIComponent(cat));
+      if (!resp.ok) throw new Error('Status ' + resp.status);
+      var d = await resp.json();
+      var info = (d.categories && d.categories.length) ? d.categories[0] : d;
+      cache.floor[cat] = info;
+      renderFloor(info, cat);
+    } catch(e) {
+      section.innerHTML = '<div class="error-msg" style="font-size:.82rem">Could not load floor data</div>';
     }
   }
 
-  function renderFloor(d,cat){
-    const section=$('floorSection');
-    let h='<div style="margin-bottom:6px;font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">'+capitalize(cat)+' Floor Stats</div>';
-    h+='<div class="floor-stats">';
-    h+=floorCard('Total Listings',d.listings!=null?fmtNum.format(d.listings):'—');
-    h+=floorCard('Total Market Value',d.total_value!=null?fmt.format(d.total_value):'—','var(--green)');
-    h+=floorCard('Average Price',d.avg!=null?fmt.format(d.avg):'—');
-    h+=floorCard('Median Price',d.median!=null?fmt.format(d.median):'—');
-    h+='</div>';
-    section.innerHTML=h;
+  function renderFloor(d, cat) {
+    var section = $('floorSection');
+    var h = '<div style="margin-bottom:6px;font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">' + capitalize(cat) + ' Floor Stats</div>';
+    h += '<div class="floor-stats">';
+    h += floorCard('Total Listings', d.listings != null ? fmtNum.format(d.listings) : '—');
+    h += floorCard('Total Market Value', d.total_value != null ? fmt.format(d.total_value) : '—', 'var(--green)');
+    h += floorCard('Average Price', d.avg != null ? fmt.format(d.avg) : '—');
+    h += floorCard('Median Price', d.median != null ? fmt.format(d.median) : '—');
+    h += '</div>';
+    section.innerHTML = h;
   }
 
-  function floorCard(label,val,color){
-    return '<div class="floor-stat-card"><div class="fs-label">'+esc(label)+'</div><div class="fs-val"'+(color?' style="color:'+color+'"':'')+'>'+val+'</div></div>';
+  function floorCard(label, val, color) {
+    return '<div class="floor-stat-card"><div class="fs-label">' + esc(label) + '</div><div class="fs-val"' + (color ? ' style="color:' + color + '"' : '') + '>' + val + '</div></div>';
   }
 
   /* ── Market Movers ── */
-  async function loadMovers(){
-    const el=$('moversContainer');
-    try{
-      const resp=await fetch('/api/movers');
-      if(!resp.ok)throw new Error('Status '+resp.status);
-      const d=await resp.json();
-      allMovers=d.movers||d;
-      if(!Array.isArray(allMovers))allMovers=[];
+  async function loadMovers() {
+    var el = $('moversContainer');
+    try {
+      var resp = await fetch('/api/movers');
+      if (!resp.ok) throw new Error('Status ' + resp.status);
+      var d = await resp.json();
+      allMovers = d.movers || d;
+      if (!Array.isArray(allMovers)) allMovers = [];
       filterMovers();
-    }catch(err){
-      el.innerHTML='<div class="error-msg" style="font-size:.82rem">Could not load movers: '+esc(err.message)+'</div>';
+    } catch(err) {
+      el.innerHTML = '<div class="error-msg" style="font-size:.82rem">Could not load movers: ' + esc(err.message) + '</div>';
     }
   }
 
-  function filterMovers(){
-    const el=$('moversContainer');
-    const filtered=activeCategory==='all'?allMovers:allMovers.filter(function(m){return m.category===activeCategory});
-    if(!filtered.length){
-      el.innerHTML='<div class="movers-empty">No movers'+(activeCategory!=='all'?' in '+capitalize(activeCategory):'')+'</div>';
+  function filterMovers() {
+    var el = $('moversContainer');
+    var filtered = activeCategory === 'all' ? allMovers : allMovers.filter(function(m) { return m.category === activeCategory });
+    if (!filtered.length) {
+      el.innerHTML = '<div class="movers-empty">No movers' + (activeCategory !== 'all' ? ' in ' + capitalize(activeCategory) : '') + '</div>';
       return;
     }
-    let h='<div class="movers-grid">';
-    filtered.forEach(function(m){
-      const up=m.direction==='up'||(m.pct_change||0)>0;
-      const color=up?'var(--green)':'var(--red)';
-      const arrow=up?'&#9650;':'&#9660;';
-      const catClass='cat-'+(m.category||'default');
-      h+='<div class="mover-card" data-label="'+esc(m.label||'')+'">';
-      h+='<div class="mover-label">'+esc(m.label||'')+'</div>';
-      h+='<div class="mover-cat '+catClass+'">'+esc(m.category||'')+'</div>';
-      h+='<div class="mover-price">'+(m.current_avg!=null?fmt.format(m.current_avg):'—')+'</div>';
-      h+='<div class="mover-change" style="color:'+color+'">'+arrow+' '+fmtPct.format(Math.abs(m.pct_change||0))+'%</div>';
-      if(m.n!=null)h+='<div class="mover-n">'+fmtNum.format(m.n)+' listings</div>';
-      h+='</div>';
+    var h = '<div class="movers-grid">';
+    filtered.forEach(function(m) {
+      var up = m.direction === 'up' || (m.pct_change || 0) > 0;
+      var color = up ? 'var(--green)' : 'var(--red)';
+      var arrow = up ? '&#9650;' : '&#9660;';
+      var catClass = 'cat-' + (m.category || 'default');
+      h += '<div class="mover-card" data-label="' + esc(m.label || '') + '">';
+      h += '<div class="mover-label">' + esc(m.label || '') + '</div>';
+      h += '<div class="mover-cat ' + catClass + '">' + esc(m.category || '') + '</div>';
+      h += '<div class="mover-price">' + (m.current_avg != null ? fmt.format(m.current_avg) : '—') + '</div>';
+      h += '<div class="mover-change" style="color:' + color + '">' + arrow + ' ' + fmtPct.format(Math.abs(m.pct_change || 0)) + '%</div>';
+      if (m.n != null) h += '<div class="mover-n">' + fmtNum.format(m.n) + ' listings</div>';
+      h += '</div>';
     });
-    h+='</div>';
-    el.innerHTML=h;
+    h += '</div>';
+    el.innerHTML = h;
 
-    el.querySelectorAll('.mover-card').forEach(function(card){
-      card.addEventListener('click',function(){
-        const label=this.getAttribute('data-label');
-        if(label){
-          input.value=label;
-          currentQuery=label;
-          doSearch(label);
-          window.scrollTo({top:0,behavior:'smooth'});
+    el.querySelectorAll('.mover-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var label = this.getAttribute('data-label');
+        if (label) {
+          input.value = label;
+          baseQuery = label;
+          activeFilters.brands.clear();
+          activeFilters.variants.clear();
+          activeFilters.years.clear();
+          activeGrade = '';
+          executeFilteredSearch();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
     });
   }
 
   /* ── Utils ── */
-  function esc(s){var d=document.createElement('div');d.textContent=String(s);return d.innerHTML}
-  function capitalize(s){if(!s)return '';return s.charAt(0).toUpperCase()+s.slice(1)}
+  function esc(s) { var d = document.createElement('div'); d.textContent = String(s); return d.innerHTML }
+  function capitalize(s) { if (!s) return ''; return s.charAt(0).toUpperCase() + s.slice(1) }
 
   /* ── Init ── */
   loadCategories();
