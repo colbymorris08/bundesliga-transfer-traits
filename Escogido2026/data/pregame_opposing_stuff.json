@@ -1,0 +1,7651 @@
+[
+  {
+    "name": "Luis Mey",
+    "player_id": 682825,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2025-05-01",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 116.3,
+    "pitches": 656,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 117.7,
+        "velo": 99.0,
+        "usage": 75.8,
+        "whiff": 18.5,
+        "pitches": 497
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 114.1,
+        "velo": 87.0,
+        "usage": 22.0,
+        "whiff": 51.6,
+        "pitches": 144
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 93.6,
+        "velo": 98.4,
+        "usage": 2.1,
+        "whiff": 0.0,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 93.9,
+        "velo": 88.5,
+        "usage": 0.2,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Hunter Bigge",
+    "player_id": 685801,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2024-07-09",
+    "birth_country": "USA",
+    "stuff_plus": 113.4,
+    "pitches": 347,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 110.5,
+        "velo": 97.6,
+        "usage": 46.7,
+        "whiff": 30.3,
+        "pitches": 162
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 120.7,
+        "velo": 88.6,
+        "usage": 36.9,
+        "whiff": 53.1,
+        "pitches": 128
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 94.4,
+        "velo": 81.4,
+        "usage": 8.4,
+        "whiff": 0.0,
+        "pitches": 29
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 116.8,
+        "velo": 84.1,
+        "usage": 8.1,
+        "whiff": 45.5,
+        "pitches": 28
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Junior Fern\u00e1ndez",
+    "player_id": 658551,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2019-08-11",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 110.4,
+    "pitches": 793,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 110.1,
+        "velo": 98.4,
+        "usage": 27.9,
+        "whiff": 26.7,
+        "pitches": 223
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 106.3,
+        "velo": 88.9,
+        "usage": 25.3,
+        "whiff": 56.7,
+        "pitches": 202
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 121.2,
+        "velo": 98.5,
+        "usage": 24.6,
+        "whiff": 13.0,
+        "pitches": 197
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 103.2,
+        "velo": 86.9,
+        "usage": 21.4,
+        "whiff": 50.6,
+        "pitches": 171
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Yohan Ram\u00edrez",
+    "player_id": 670990,
+    "team": "Toros del Este",
+    "mlb_debut": "2020-07-24",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 109.6,
+    "pitches": 552,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 113.3,
+        "velo": 96.4,
+        "usage": 37.9,
+        "whiff": 25.5,
+        "pitches": 209
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 116.7,
+        "velo": 96.3,
+        "usage": 16.8,
+        "whiff": 27.0,
+        "pitches": 93
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 95.5,
+        "velo": 88.8,
+        "usage": 16.1,
+        "whiff": 27.7,
+        "pitches": 89
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 114.9,
+        "velo": 83.1,
+        "usage": 13.9,
+        "whiff": 45.7,
+        "pitches": 77
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 101.4,
+        "velo": 83.1,
+        "usage": 8.2,
+        "whiff": 42.9,
+        "pitches": 45
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 104.5,
+        "velo": 86.9,
+        "usage": 7.1,
+        "whiff": 39.1,
+        "pitches": 39
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Yunior Marte",
+    "player_id": 628708,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2022-04-12",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 109.1,
+    "pitches": 310,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 114.9,
+        "velo": 96.4,
+        "usage": 47.7,
+        "whiff": 9.8,
+        "pitches": 148
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 104.2,
+        "velo": 86.0,
+        "usage": 34.8,
+        "whiff": 41.8,
+        "pitches": 108
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 102.0,
+        "velo": 96.6,
+        "usage": 11.6,
+        "whiff": 35.7,
+        "pitches": 36
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 113.9,
+        "velo": 90.2,
+        "usage": 3.9,
+        "whiff": 0.0,
+        "pitches": 12
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 88.2,
+        "velo": 90.3,
+        "usage": 1.9,
+        "whiff": 33.3,
+        "pitches": 6
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jonathan Hern\u00e1ndez",
+    "player_id": 642546,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2019-08-21",
+    "birth_country": "USA",
+    "stuff_plus": 107.3,
+    "pitches": 210,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 105.1,
+        "velo": 87.0,
+        "usage": 59.5,
+        "whiff": 40.0,
+        "pitches": 125
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 111.5,
+        "velo": 95.3,
+        "usage": 37.6,
+        "whiff": 13.3,
+        "pitches": 79
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 99.3,
+        "velo": 90.2,
+        "usage": 2.9,
+        "whiff": null,
+        "pitches": 6
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jose Adames",
+    "player_id": 600853,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 105.5,
+    "pitches": 679,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 105.8,
+        "velo": 96.3,
+        "usage": 50.2,
+        "whiff": 18.4,
+        "pitches": 341
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 108.0,
+        "velo": 82.0,
+        "usage": 30.6,
+        "whiff": 39.8,
+        "pitches": 208
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 98.4,
+        "velo": 89.1,
+        "usage": 11.2,
+        "whiff": 38.2,
+        "pitches": 76
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 103.4,
+        "velo": 96.2,
+        "usage": 8.0,
+        "whiff": 13.0,
+        "pitches": 54
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Miguel Castro",
+    "player_id": 612434,
+    "team": "Toros del Este",
+    "mlb_debut": "2015-04-06",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 105.1,
+    "pitches": 302,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 106.3,
+        "velo": 95.6,
+        "usage": 46.4,
+        "whiff": 20.6,
+        "pitches": 140
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 105.0,
+        "velo": 82.9,
+        "usage": 32.1,
+        "whiff": 42.6,
+        "pitches": 97
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 104.1,
+        "velo": 89.4,
+        "usage": 19.5,
+        "whiff": 33.3,
+        "pitches": 59
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 89.1,
+        "velo": 96.1,
+        "usage": 2.0,
+        "whiff": 33.3,
+        "pitches": 6
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Enoli Paredes",
+    "player_id": 660600,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2020-07-24",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 105.1,
+    "pitches": 1035,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 104.0,
+        "velo": 94.3,
+        "usage": 44.4,
+        "whiff": 32.2,
+        "pitches": 460
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 112.1,
+        "velo": 87.0,
+        "usage": 37.7,
+        "whiff": 39.2,
+        "pitches": 390
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 94.5,
+        "velo": 94.4,
+        "usage": 14.6,
+        "whiff": 21.1,
+        "pitches": 151
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 88.4,
+        "velo": 88.9,
+        "usage": 3.3,
+        "whiff": 50.0,
+        "pitches": 34
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Gregory Santos",
+    "player_id": 666619,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2021-04-22",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 104.0,
+    "pitches": 120,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 109.6,
+        "velo": 88.6,
+        "usage": 60.8,
+        "whiff": 34.8,
+        "pitches": 73
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 99.5,
+        "velo": 96.3,
+        "usage": 20.8,
+        "whiff": 0.0,
+        "pitches": 25
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 90.4,
+        "velo": 96.4,
+        "usage": 17.5,
+        "whiff": 60.0,
+        "pitches": 21
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 89.1,
+        "velo": 94.9,
+        "usage": 0.8,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Yoniel Curet",
+    "player_id": 692414,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 103.9,
+    "pitches": 626,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 109.0,
+        "velo": 96.1,
+        "usage": 55.6,
+        "whiff": 28.1,
+        "pitches": 348
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 94.0,
+        "velo": 88.9,
+        "usage": 21.2,
+        "whiff": 27.6,
+        "pitches": 133
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 112.5,
+        "velo": 95.8,
+        "usage": 10.9,
+        "whiff": 35.7,
+        "pitches": 68
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 86.4,
+        "velo": 86.4,
+        "usage": 8.6,
+        "whiff": 35.0,
+        "pitches": 54
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 100.3,
+        "velo": 86.2,
+        "usage": 3.7,
+        "whiff": 12.5,
+        "pitches": 23
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "George Soriano",
+    "player_id": 666277,
+    "team": "Toros del Este",
+    "mlb_debut": "2023-04-16",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 103.7,
+    "pitches": 694,
+    "arsenal": [
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 114.5,
+        "velo": 88.4,
+        "usage": 34.3,
+        "whiff": 31.2,
+        "pitches": 238
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 95.0,
+        "velo": 85.3,
+        "usage": 28.5,
+        "whiff": 56.5,
+        "pitches": 198
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 92.8,
+        "velo": 96.1,
+        "usage": 23.3,
+        "whiff": 24.7,
+        "pitches": 162
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 113.1,
+        "velo": 95.9,
+        "usage": 13.8,
+        "whiff": 14.3,
+        "pitches": 96
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Helcris Oliv\u00e1rez",
+    "player_id": 672487,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 103.0,
+    "pitches": 602,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 98.6,
+        "velo": 97.3,
+        "usage": 47.8,
+        "whiff": 36.5,
+        "pitches": 288
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 110.7,
+        "velo": 97.9,
+        "usage": 35.2,
+        "whiff": 38.0,
+        "pitches": 212
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 100.0,
+        "velo": 81.1,
+        "usage": 12.8,
+        "whiff": 43.5,
+        "pitches": 77
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 98.1,
+        "velo": 90.6,
+        "usage": 4.2,
+        "whiff": 27.3,
+        "pitches": 25
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Ty Adcock",
+    "player_id": 686654,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2023-06-12",
+    "birth_country": "USA",
+    "stuff_plus": 102.9,
+    "pitches": 544,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 102.4,
+        "velo": 95.7,
+        "usage": 42.8,
+        "whiff": 31.7,
+        "pitches": 233
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 105.0,
+        "velo": 86.6,
+        "usage": 25.6,
+        "whiff": 25.6,
+        "pitches": 139
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 98.9,
+        "velo": 92.3,
+        "usage": 22.8,
+        "whiff": 16.4,
+        "pitches": 124
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 110.1,
+        "velo": 86.8,
+        "usage": 8.6,
+        "whiff": 33.3,
+        "pitches": 47
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 99.9,
+        "velo": 88.6,
+        "usage": 0.2,
+        "whiff": 0.0,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Rolddy Mu\u00f1oz",
+    "player_id": 691548,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2025-09-02",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 102.3,
+    "pitches": 372,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 101.8,
+        "velo": 89.9,
+        "usage": 51.3,
+        "whiff": 45.5,
+        "pitches": 191
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 113.8,
+        "velo": 97.4,
+        "usage": 28.8,
+        "whiff": 11.6,
+        "pitches": 107
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 87.5,
+        "velo": 98.2,
+        "usage": 18.8,
+        "whiff": 10.3,
+        "pitches": 70
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 79.3,
+        "velo": 91.3,
+        "usage": 1.1,
+        "whiff": 0.0,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Tyron Guerrero",
+    "player_id": 594027,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2016-05-17",
+    "birth_country": "Colombia",
+    "stuff_plus": 101.7,
+    "pitches": 578,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 99.9,
+        "velo": 98.9,
+        "usage": 63.7,
+        "whiff": 23.9,
+        "pitches": 368
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 108.9,
+        "velo": 91.4,
+        "usage": 26.8,
+        "whiff": 24.1,
+        "pitches": 155
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 91.4,
+        "velo": 97.8,
+        "usage": 6.4,
+        "whiff": 5.3,
+        "pitches": 37
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 97.6,
+        "velo": 92.0,
+        "usage": 3.1,
+        "whiff": 37.5,
+        "pitches": 18
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Triston McKenzie",
+    "player_id": 663474,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2020-08-22",
+    "birth_country": "USA",
+    "stuff_plus": 101.2,
+    "pitches": 191,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 101.8,
+        "velo": 94.6,
+        "usage": 70.7,
+        "whiff": 30.2,
+        "pitches": 135
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 94.6,
+        "velo": 80.4,
+        "usage": 16.8,
+        "whiff": 46.2,
+        "pitches": 32
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 106.5,
+        "velo": 89.2,
+        "usage": 12.6,
+        "whiff": 60.0,
+        "pitches": 24
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Conner Greene",
+    "player_id": 641632,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2021-07-27",
+    "birth_country": "USA",
+    "stuff_plus": 100.8,
+    "pitches": 1053,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 103.1,
+        "velo": 94.4,
+        "usage": 46.8,
+        "whiff": 19.1,
+        "pitches": 493
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 100.2,
+        "velo": 85.9,
+        "usage": 31.9,
+        "whiff": 31.0,
+        "pitches": 336
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 96.4,
+        "velo": 82.3,
+        "usage": 18.2,
+        "whiff": 52.0,
+        "pitches": 192
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 88.6,
+        "velo": 76.4,
+        "usage": 2.2,
+        "whiff": 22.2,
+        "pitches": 23
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 116.8,
+        "velo": 80.4,
+        "usage": 0.9,
+        "whiff": 25.0,
+        "pitches": 9
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Osvaldo Bido",
+    "player_id": 674370,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2023-06-14",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 100.5,
+    "pitches": 314,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 106.5,
+        "velo": 94.6,
+        "usage": 40.4,
+        "whiff": 25.0,
+        "pitches": 127
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 99.3,
+        "velo": 85.5,
+        "usage": 24.8,
+        "whiff": 26.7,
+        "pitches": 78
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 106.1,
+        "velo": 94.9,
+        "usage": 14.6,
+        "whiff": 23.5,
+        "pitches": 46
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 88.6,
+        "velo": 86.9,
+        "usage": 11.5,
+        "whiff": 39.1,
+        "pitches": 36
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 81.9,
+        "velo": 88.8,
+        "usage": 8.6,
+        "whiff": 16.7,
+        "pitches": 27
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Diego Castillo",
+    "player_id": 650895,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2018-06-06",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 100.3,
+    "pitches": 353,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 105.2,
+        "velo": 87.2,
+        "usage": 47.3,
+        "whiff": 42.3,
+        "pitches": 167
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 104.6,
+        "velo": 95.8,
+        "usage": 32.9,
+        "whiff": 35.6,
+        "pitches": 116
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 81.3,
+        "velo": 96.0,
+        "usage": 19.8,
+        "whiff": 25.7,
+        "pitches": 70
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Huascar Brazob\u00e1n",
+    "player_id": 623211,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2022-07-24",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 100.2,
+    "pitches": 222,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 112.6,
+        "velo": 96.7,
+        "usage": 36.0,
+        "whiff": 22.6,
+        "pitches": 80
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 98.5,
+        "velo": 90.7,
+        "usage": 34.2,
+        "whiff": 47.6,
+        "pitches": 76
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 79.5,
+        "velo": 90.7,
+        "usage": 15.8,
+        "whiff": 29.4,
+        "pitches": 35
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 95.8,
+        "velo": 97.0,
+        "usage": 14.0,
+        "whiff": 16.7,
+        "pitches": 31
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Julian Fern\u00e1ndez",
+    "player_id": 642759,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2021-09-05",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 99.8,
+    "pitches": 940,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 96.3,
+        "velo": 97.3,
+        "usage": 61.7,
+        "whiff": 20.7,
+        "pitches": 580
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 105.7,
+        "velo": 85.4,
+        "usage": 38.0,
+        "whiff": 43.1,
+        "pitches": 357
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 94.5,
+        "velo": 94.0,
+        "usage": 0.3,
+        "whiff": 0.0,
+        "pitches": 3
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jacob Barnes",
+    "player_id": 606930,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2016-06-03",
+    "birth_country": "USA",
+    "stuff_plus": 99.7,
+    "pitches": 486,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 101.8,
+        "velo": 88.8,
+        "usage": 45.5,
+        "whiff": 25.6,
+        "pitches": 221
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 103.6,
+        "velo": 94.0,
+        "usage": 38.9,
+        "whiff": 17.6,
+        "pitches": 189
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 94.7,
+        "velo": 85.1,
+        "usage": 8.2,
+        "whiff": 35.7,
+        "pitches": 40
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 72.1,
+        "velo": 86.5,
+        "usage": 7.4,
+        "whiff": 53.8,
+        "pitches": 36
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Wandisson Charles",
+    "player_id": 664301,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 99.6,
+    "pitches": 548,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 97.0,
+        "velo": 97.3,
+        "usage": 62.4,
+        "whiff": 20.1,
+        "pitches": 342
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 107.4,
+        "velo": 87.7,
+        "usage": 27.9,
+        "whiff": 57.8,
+        "pitches": 153
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 96.4,
+        "velo": 88.9,
+        "usage": 7.5,
+        "whiff": 58.3,
+        "pitches": 41
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 93.1,
+        "velo": 96.2,
+        "usage": 1.8,
+        "whiff": 0.0,
+        "pitches": 10
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 45.3,
+        "velo": 91.2,
+        "usage": 0.4,
+        "whiff": 0.0,
+        "pitches": 2
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Roddery Mu\u00f1oz",
+    "player_id": 682610,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2024-04-20",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 99.5,
+    "pitches": 963,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 105.1,
+        "velo": 87.9,
+        "usage": 43.2,
+        "whiff": 55.2,
+        "pitches": 416
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 94.7,
+        "velo": 96.2,
+        "usage": 20.5,
+        "whiff": 18.5,
+        "pitches": 197
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 83.9,
+        "velo": 92.3,
+        "usage": 20.4,
+        "whiff": 37.8,
+        "pitches": 196
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 113.3,
+        "velo": 95.7,
+        "usage": 14.6,
+        "whiff": 26.2,
+        "pitches": 141
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 79.0,
+        "velo": 89.6,
+        "usage": 1.3,
+        "whiff": 0.0,
+        "pitches": 13
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Eddy Yean",
+    "player_id": 678868,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2026-07-05",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 99.2,
+    "pitches": 1178,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 111.4,
+        "velo": 96.9,
+        "usage": 39.6,
+        "whiff": 15.7,
+        "pitches": 467
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 93.7,
+        "velo": 97.0,
+        "usage": 22.2,
+        "whiff": 15.7,
+        "pitches": 261
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.4,
+        "velo": 85.3,
+        "usage": 20.4,
+        "whiff": 33.3,
+        "pitches": 240
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 89.8,
+        "velo": 88.7,
+        "usage": 15.9,
+        "whiff": 30.4,
+        "pitches": 187
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 90.5,
+        "velo": 88.1,
+        "usage": 1.5,
+        "whiff": 28.6,
+        "pitches": 18
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 91.0,
+        "velo": 80.4,
+        "usage": 0.4,
+        "whiff": 100.0,
+        "pitches": 5
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Enmanuel Mejia",
+    "player_id": 684871,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 98.9,
+    "pitches": 969,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 94.9,
+        "velo": 95.6,
+        "usage": 38.7,
+        "whiff": 20.5,
+        "pitches": 375
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 99.6,
+        "velo": 86.2,
+        "usage": 36.9,
+        "whiff": 46.9,
+        "pitches": 358
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 104.2,
+        "velo": 95.1,
+        "usage": 24.3,
+        "whiff": 17.4,
+        "pitches": 235
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 93.7,
+        "velo": 90.9,
+        "usage": 0.1,
+        "whiff": 0.0,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Antonio Jimenez",
+    "player_id": 682607,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 98.7,
+    "pitches": 817,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 97.4,
+        "velo": 95.7,
+        "usage": 45.9,
+        "whiff": 23.1,
+        "pitches": 375
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 97.6,
+        "velo": 86.7,
+        "usage": 21.2,
+        "whiff": 50.7,
+        "pitches": 173
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 92.0,
+        "velo": 83.9,
+        "usage": 19.0,
+        "whiff": 43.3,
+        "pitches": 155
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 114.0,
+        "velo": 94.7,
+        "usage": 14.0,
+        "whiff": 26.2,
+        "pitches": 114
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Anderson Pilar",
+    "player_id": 666768,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 98.5,
+    "pitches": 1020,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 99.6,
+        "velo": 92.9,
+        "usage": 42.2,
+        "whiff": 25.4,
+        "pitches": 430
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 104.6,
+        "velo": 85.0,
+        "usage": 28.3,
+        "whiff": 30.7,
+        "pitches": 289
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 83.9,
+        "velo": 93.4,
+        "usage": 13.1,
+        "whiff": 21.7,
+        "pitches": 134
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 87.8,
+        "velo": 88.5,
+        "usage": 8.0,
+        "whiff": 13.3,
+        "pitches": 82
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 113.9,
+        "velo": 84.5,
+        "usage": 6.6,
+        "whiff": 40.6,
+        "pitches": 67
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 78.3,
+        "velo": 80.2,
+        "usage": 1.8,
+        "whiff": 25.0,
+        "pitches": 18
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Luis Fr\u00edas",
+    "player_id": 666818,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2021-09-19",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 98.3,
+    "pitches": 648,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 104.5,
+        "velo": 94.6,
+        "usage": 34.7,
+        "whiff": 12.5,
+        "pitches": 225
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 99.6,
+        "velo": 89.5,
+        "usage": 33.3,
+        "whiff": 36.5,
+        "pitches": 216
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 84.5,
+        "velo": 81.9,
+        "usage": 15.1,
+        "whiff": 44.7,
+        "pitches": 98
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 100.8,
+        "velo": 94.6,
+        "usage": 11.9,
+        "whiff": 22.2,
+        "pitches": 77
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 82.2,
+        "velo": 88.4,
+        "usage": 4.9,
+        "whiff": 37.5,
+        "pitches": 32
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Euri Montero",
+    "player_id": 693759,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 97.9,
+    "pitches": 371,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 99.5,
+        "velo": 94.6,
+        "usage": 74.9,
+        "whiff": 20.6,
+        "pitches": 278
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 86.8,
+        "velo": 83.8,
+        "usage": 10.5,
+        "whiff": 33.3,
+        "pitches": 39
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 95.2,
+        "velo": 86.1,
+        "usage": 6.2,
+        "whiff": 14.3,
+        "pitches": 23
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 104.4,
+        "velo": 94.7,
+        "usage": 5.4,
+        "whiff": 44.4,
+        "pitches": 20
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 92.4,
+        "velo": 86.5,
+        "usage": 3.0,
+        "whiff": 42.9,
+        "pitches": 11
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Patrick Weigel",
+    "player_id": 622256,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2020-09-04",
+    "birth_country": "USA",
+    "stuff_plus": 96.8,
+    "pitches": 608,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 99.3,
+        "velo": 85.2,
+        "usage": 39.6,
+        "whiff": 31.9,
+        "pitches": 241
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 87.2,
+        "velo": 93.7,
+        "usage": 22.9,
+        "whiff": 15.8,
+        "pitches": 139
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 105.2,
+        "velo": 81.2,
+        "usage": 20.2,
+        "whiff": 46.0,
+        "pitches": 123
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 99.2,
+        "velo": 90.0,
+        "usage": 11.3,
+        "whiff": 33.3,
+        "pitches": 69
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 83.5,
+        "velo": 86.3,
+        "usage": 5.9,
+        "whiff": 63.6,
+        "pitches": 36
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Reid Birlingmair",
+    "player_id": 679304,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 96.7,
+    "pitches": 402,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 114.7,
+        "velo": 90.5,
+        "usage": 44.5,
+        "whiff": 23.7,
+        "pitches": 179
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 84.3,
+        "velo": 95.0,
+        "usage": 42.8,
+        "whiff": 31.7,
+        "pitches": 172
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 69.2,
+        "velo": 81.1,
+        "usage": 5.0,
+        "whiff": 22.2,
+        "pitches": 20
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.1,
+        "velo": 83.8,
+        "usage": 3.5,
+        "whiff": 25.0,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 66.6,
+        "velo": 87.3,
+        "usage": 3.0,
+        "whiff": 40.0,
+        "pitches": 12
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 79.0,
+        "velo": 88.2,
+        "usage": 1.2,
+        "whiff": 50.0,
+        "pitches": 5
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Wilkin Ramos",
+    "player_id": 678576,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2026-06-01",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 96.6,
+    "pitches": 255,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 117.8,
+        "velo": 94.9,
+        "usage": 42.0,
+        "whiff": 9.3,
+        "pitches": 107
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 77.1,
+        "velo": 78.6,
+        "usage": 27.5,
+        "whiff": 34.5,
+        "pitches": 70
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 73.3,
+        "velo": 78.5,
+        "usage": 16.5,
+        "whiff": 29.4,
+        "pitches": 42
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 98.7,
+        "velo": 95.5,
+        "usage": 14.1,
+        "whiff": 5.6,
+        "pitches": 36
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jos\u00e9 Ure\u00f1a",
+    "player_id": 570632,
+    "team": "Toros del Este",
+    "mlb_debut": "2015-04-14",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 96.5,
+    "pitches": 400,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 94.6,
+        "velo": 86.3,
+        "usage": 34.3,
+        "whiff": 31.6,
+        "pitches": 137
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 96.8,
+        "velo": 96.1,
+        "usage": 30.0,
+        "whiff": 17.2,
+        "pitches": 120
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 104.2,
+        "velo": 96.3,
+        "usage": 18.8,
+        "whiff": 6.7,
+        "pitches": 75
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 91.3,
+        "velo": 87.8,
+        "usage": 12.8,
+        "whiff": 32.0,
+        "pitches": 51
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 90.8,
+        "velo": 82.7,
+        "usage": 4.3,
+        "whiff": 44.4,
+        "pitches": 17
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Francis Pe\u00f1a",
+    "player_id": 800212,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 95.7,
+    "pitches": 897,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 92.8,
+        "velo": 95.4,
+        "usage": 47.0,
+        "whiff": 21.4,
+        "pitches": 422
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 100.6,
+        "velo": 87.3,
+        "usage": 39.6,
+        "whiff": 34.2,
+        "pitches": 355
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 101.8,
+        "velo": 89.3,
+        "usage": 6.7,
+        "whiff": 30.0,
+        "pitches": 60
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 80.6,
+        "velo": 94.7,
+        "usage": 6.6,
+        "whiff": 28.6,
+        "pitches": 59
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 85.2,
+        "velo": 80.9,
+        "usage": 0.1,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Juan Arnaud",
+    "player_id": 699304,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 95.6,
+    "pitches": 557,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 91.6,
+        "velo": 95.8,
+        "usage": 39.0,
+        "whiff": 20.8,
+        "pitches": 217
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 89.8,
+        "velo": 88.9,
+        "usage": 39.0,
+        "whiff": 45.9,
+        "pitches": 217
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 114.9,
+        "velo": 96.2,
+        "usage": 20.6,
+        "whiff": 25.0,
+        "pitches": 115
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 85.5,
+        "velo": 86.3,
+        "usage": 1.1,
+        "whiff": 0.0,
+        "pitches": 6
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 75.2,
+        "velo": 89.3,
+        "usage": 0.4,
+        "whiff": null,
+        "pitches": 2
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Stephen Nogosek",
+    "player_id": 668665,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-06-19",
+    "birth_country": "USA",
+    "stuff_plus": 95.3,
+    "pitches": 1033,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 99.4,
+        "velo": 89.3,
+        "usage": 31.2,
+        "whiff": 25.0,
+        "pitches": 322
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 97.9,
+        "velo": 92.7,
+        "usage": 31.0,
+        "whiff": 13.0,
+        "pitches": 320
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 83.8,
+        "velo": 93.6,
+        "usage": 15.3,
+        "whiff": 35.2,
+        "pitches": 158
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 99.9,
+        "velo": 81.9,
+        "usage": 12.4,
+        "whiff": 25.0,
+        "pitches": 128
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 88.0,
+        "velo": 81.0,
+        "usage": 8.9,
+        "whiff": 46.3,
+        "pitches": 92
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 78.0,
+        "velo": 87.1,
+        "usage": 1.3,
+        "whiff": 50.0,
+        "pitches": 13
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Burch Smith",
+    "player_id": 572143,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2013-05-11",
+    "birth_country": "USA",
+    "stuff_plus": 94.3,
+    "pitches": 402,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 93.0,
+        "velo": 94.1,
+        "usage": 51.5,
+        "whiff": 27.8,
+        "pitches": 207
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 103.6,
+        "velo": 89.0,
+        "usage": 23.9,
+        "whiff": 23.3,
+        "pitches": 96
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 87.9,
+        "velo": 81.7,
+        "usage": 14.9,
+        "whiff": 19.2,
+        "pitches": 60
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 92.1,
+        "velo": 82.9,
+        "usage": 6.2,
+        "whiff": 21.1,
+        "pitches": 25
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 87.1,
+        "velo": 93.1,
+        "usage": 2.0,
+        "whiff": 0.0,
+        "pitches": 8
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 74.4,
+        "velo": 85.7,
+        "usage": 1.5,
+        "whiff": 25.0,
+        "pitches": 6
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Misael Tamarez",
+    "player_id": 685377,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 94.2,
+    "pitches": 1012,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 95.2,
+        "velo": 95.5,
+        "usage": 54.5,
+        "whiff": 20.2,
+        "pitches": 552
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 93.6,
+        "velo": 86.9,
+        "usage": 22.4,
+        "whiff": 30.7,
+        "pitches": 227
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 93.3,
+        "velo": 88.2,
+        "usage": 11.1,
+        "whiff": 24.0,
+        "pitches": 112
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 88.2,
+        "velo": 91.0,
+        "usage": 7.0,
+        "whiff": 12.0,
+        "pitches": 71
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 96.5,
+        "velo": 95.3,
+        "usage": 3.7,
+        "whiff": 39.1,
+        "pitches": 37
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 90.9,
+        "velo": 82.3,
+        "usage": 0.9,
+        "whiff": 0.0,
+        "pitches": 9
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 94.5,
+        "velo": 82.6,
+        "usage": 0.4,
+        "whiff": 0.0,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Gerson Moreno",
+    "player_id": 642575,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 94.1,
+    "pitches": 257,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 80.8,
+        "velo": 94.7,
+        "usage": 49.0,
+        "whiff": 34.5,
+        "pitches": 126
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 111.9,
+        "velo": 86.4,
+        "usage": 35.4,
+        "whiff": 42.6,
+        "pitches": 91
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 95.7,
+        "velo": 84.5,
+        "usage": 15.6,
+        "whiff": 23.5,
+        "pitches": 40
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jaime Barria",
+    "player_id": 642545,
+    "team": "Toros del Este",
+    "mlb_debut": "2018-04-11",
+    "birth_country": "Panama",
+    "stuff_plus": 94.0,
+    "pitches": 387,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 99.2,
+        "velo": 85.5,
+        "usage": 57.6,
+        "whiff": 35.1,
+        "pitches": 223
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 86.8,
+        "velo": 93.5,
+        "usage": 21.7,
+        "whiff": 14.3,
+        "pitches": 84
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 90.4,
+        "velo": 84.4,
+        "usage": 16.5,
+        "whiff": 37.1,
+        "pitches": 64
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 74.9,
+        "velo": 92.7,
+        "usage": 4.1,
+        "whiff": 18.2,
+        "pitches": 16
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Yaramil Hiraldo",
+    "player_id": 682274,
+    "team": "Toros del Este",
+    "mlb_debut": "2025-05-27",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 94.0,
+    "pitches": 634,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 87.8,
+        "velo": 94.9,
+        "usage": 48.1,
+        "whiff": 23.6,
+        "pitches": 305
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 111.0,
+        "velo": 85.8,
+        "usage": 24.9,
+        "whiff": 40.2,
+        "pitches": 158
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 91.7,
+        "velo": 86.3,
+        "usage": 24.8,
+        "whiff": 48.1,
+        "pitches": 157
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 64.4,
+        "velo": 94.7,
+        "usage": 2.2,
+        "whiff": 16.7,
+        "pitches": 14
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "G\u00e9nesis Cabrera",
+    "player_id": 650893,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-05-29",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 93.9,
+    "pitches": 160,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 92.9,
+        "velo": 87.9,
+        "usage": 44.4,
+        "whiff": 34.5,
+        "pitches": 71
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 95.9,
+        "velo": 95.2,
+        "usage": 20.0,
+        "whiff": 47.1,
+        "pitches": 32
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 111.7,
+        "velo": 95.2,
+        "usage": 19.4,
+        "whiff": 16.7,
+        "pitches": 31
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 74.2,
+        "velo": 77.9,
+        "usage": 10.6,
+        "whiff": 16.7,
+        "pitches": 17
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 70.0,
+        "velo": 86.0,
+        "usage": 5.0,
+        "whiff": 33.3,
+        "pitches": 8
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 74.1,
+        "velo": 82.5,
+        "usage": 0.6,
+        "whiff": 0.0,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Raffi Vizca\u00edno",
+    "player_id": 642563,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 93.6,
+    "pitches": 396,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 89.3,
+        "velo": 96.8,
+        "usage": 54.5,
+        "whiff": 18.6,
+        "pitches": 216
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 99.9,
+        "velo": 86.9,
+        "usage": 16.9,
+        "whiff": 54.8,
+        "pitches": 67
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 102.5,
+        "velo": 88.7,
+        "usage": 15.2,
+        "whiff": 44.0,
+        "pitches": 60
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 93.3,
+        "velo": 84.0,
+        "usage": 13.1,
+        "whiff": 53.3,
+        "pitches": 52
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 82.1,
+        "velo": 81.1,
+        "usage": 0.3,
+        "whiff": 0.0,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Raul Brito",
+    "player_id": 669993,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 93.5,
+    "pitches": 1243,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 86.8,
+        "velo": 95.3,
+        "usage": 57.4,
+        "whiff": 27.5,
+        "pitches": 714
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 103.1,
+        "velo": 77.8,
+        "usage": 34.4,
+        "whiff": 39.0,
+        "pitches": 428
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 101.6,
+        "velo": 91.3,
+        "usage": 7.7,
+        "whiff": 32.5,
+        "pitches": 96
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 89.1,
+        "velo": 88.5,
+        "usage": 0.4,
+        "whiff": 0.0,
+        "pitches": 5
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Shane Greene",
+    "player_id": 572888,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2014-04-24",
+    "birth_country": "USA",
+    "stuff_plus": 93.1,
+    "pitches": 198,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 105.0,
+        "velo": 86.5,
+        "usage": 30.8,
+        "whiff": 39.1,
+        "pitches": 61
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 104.5,
+        "velo": 80.0,
+        "usage": 24.2,
+        "whiff": 33.3,
+        "pitches": 48
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 76.7,
+        "velo": 91.3,
+        "usage": 22.2,
+        "whiff": 20.0,
+        "pitches": 44
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 84.1,
+        "velo": 90.8,
+        "usage": 17.2,
+        "whiff": 11.1,
+        "pitches": 34
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 70.6,
+        "velo": 85.9,
+        "usage": 5.6,
+        "whiff": 40.0,
+        "pitches": 11
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Yorlin Calderon",
+    "player_id": 683583,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 93.0,
+    "pitches": 96,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 97.6,
+        "velo": 91.6,
+        "usage": 50.0,
+        "whiff": 8.3,
+        "pitches": 48
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 80.8,
+        "velo": 80.6,
+        "usage": 24.0,
+        "whiff": 45.5,
+        "pitches": 23
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 89.9,
+        "velo": 79.3,
+        "usage": 14.6,
+        "whiff": 25.0,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 102.3,
+        "velo": 86.8,
+        "usage": 11.5,
+        "whiff": 66.7,
+        "pitches": 11
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Eduarniel N\u00fa\u00f1ez",
+    "player_id": 674384,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2025-07-02",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 92.8,
+    "pitches": 392,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 83.4,
+        "velo": 98.2,
+        "usage": 66.6,
+        "whiff": 31.5,
+        "pitches": 261
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 111.7,
+        "velo": 88.5,
+        "usage": 33.4,
+        "whiff": 52.3,
+        "pitches": 131
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Sam McWilliams",
+    "player_id": 656726,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 92.8,
+    "pitches": 412,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 88.3,
+        "velo": 94.7,
+        "usage": 58.3,
+        "whiff": 30.6,
+        "pitches": 240
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 102.3,
+        "velo": 85.6,
+        "usage": 28.6,
+        "whiff": 46.7,
+        "pitches": 118
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 91.6,
+        "velo": 82.4,
+        "usage": 13.1,
+        "whiff": 25.0,
+        "pitches": 54
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Peyton Gray",
+    "player_id": 682608,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2026-04-23",
+    "birth_country": "USA",
+    "stuff_plus": 92.7,
+    "pitches": 1055,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 93.0,
+        "velo": 92.9,
+        "usage": 34.4,
+        "whiff": 22.5,
+        "pitches": 363
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 92.6,
+        "velo": 83.2,
+        "usage": 28.8,
+        "whiff": 43.2,
+        "pitches": 304
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 86.7,
+        "velo": 93.2,
+        "usage": 18.6,
+        "whiff": 14.6,
+        "pitches": 196
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 98.1,
+        "velo": 85.3,
+        "usage": 15.4,
+        "whiff": 29.5,
+        "pitches": 162
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 99.2,
+        "velo": 87.5,
+        "usage": 2.6,
+        "whiff": 25.0,
+        "pitches": 27
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 91.2,
+        "velo": 82.4,
+        "usage": 0.3,
+        "whiff": null,
+        "pitches": 3
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Eric Cerantola",
+    "player_id": 672021,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2026-05-06",
+    "birth_country": "Canada",
+    "stuff_plus": 92.1,
+    "pitches": 830,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 99.9,
+        "velo": 85.7,
+        "usage": 53.0,
+        "whiff": 51.2,
+        "pitches": 440
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 83.2,
+        "velo": 94.7,
+        "usage": 46.0,
+        "whiff": 18.5,
+        "pitches": 382
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 86.9,
+        "velo": 85.5,
+        "usage": 1.0,
+        "whiff": 33.3,
+        "pitches": 8
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Robert Stock",
+    "player_id": 476594,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2018-06-24",
+    "birth_country": "USA",
+    "stuff_plus": 92.1,
+    "pitches": 1406,
+    "arsenal": [
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 87.5,
+        "velo": 88.9,
+        "usage": 30.1,
+        "whiff": 19.5,
+        "pitches": 424
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 105.2,
+        "velo": 93.4,
+        "usage": 22.5,
+        "whiff": 17.1,
+        "pitches": 316
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 108.1,
+        "velo": 80.9,
+        "usage": 20.3,
+        "whiff": 36.9,
+        "pitches": 286
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 72.6,
+        "velo": 94.9,
+        "usage": 19.0,
+        "whiff": 35.2,
+        "pitches": 267
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 74.6,
+        "velo": 77.2,
+        "usage": 7.0,
+        "whiff": 40.5,
+        "pitches": 99
+      },
+      {
+        "pitch_type": "KC",
+        "pitch_name": "K-Curve",
+        "ps_stuff": 102.1,
+        "velo": 81.0,
+        "usage": 1.0,
+        "whiff": 42.9,
+        "pitches": 14
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Luis Guerrero",
+    "player_id": 692285,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2024-09-08",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 91.6,
+    "pitches": 456,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 81.9,
+        "velo": 96.1,
+        "usage": 40.4,
+        "whiff": 16.7,
+        "pitches": 184
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 90.7,
+        "velo": 84.4,
+        "usage": 29.4,
+        "whiff": 33.3,
+        "pitches": 134
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 107.0,
+        "velo": 81.6,
+        "usage": 20.0,
+        "whiff": 42.1,
+        "pitches": 91
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 101.9,
+        "velo": 86.8,
+        "usage": 10.3,
+        "whiff": 47.6,
+        "pitches": 47
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jes\u00fas Liranzo",
+    "player_id": 622338,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 91.3,
+    "pitches": 101,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 87.4,
+        "velo": 96.8,
+        "usage": 64.4,
+        "whiff": 27.6,
+        "pitches": 65
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 107.4,
+        "velo": 87.2,
+        "usage": 28.7,
+        "whiff": 45.5,
+        "pitches": 29
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 61.5,
+        "velo": 91.2,
+        "usage": 6.9,
+        "whiff": 0.0,
+        "pitches": 7
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jose Espada",
+    "player_id": 664744,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2023-09-24",
+    "birth_country": "Puerto Rico",
+    "stuff_plus": 91.0,
+    "pitches": 553,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 82.4,
+        "velo": 94.3,
+        "usage": 44.5,
+        "whiff": 30.9,
+        "pitches": 246
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 105.2,
+        "velo": 84.0,
+        "usage": 38.0,
+        "whiff": 58.1,
+        "pitches": 210
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 82.0,
+        "velo": 89.5,
+        "usage": 17.5,
+        "whiff": 46.5,
+        "pitches": 97
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Angel Chivilli",
+    "player_id": 683409,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2024-06-03",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 90.8,
+    "pitches": 151,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 93.0,
+        "velo": 97.4,
+        "usage": 42.4,
+        "whiff": 10.8,
+        "pitches": 64
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 86.7,
+        "velo": 88.1,
+        "usage": 34.4,
+        "whiff": 48.3,
+        "pitches": 52
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 93.0,
+        "velo": 88.7,
+        "usage": 23.2,
+        "whiff": 60.0,
+        "pitches": 35
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jefry Yan",
+    "player_id": 642376,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 90.5,
+    "pitches": 626,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 85.2,
+        "velo": 95.4,
+        "usage": 52.7,
+        "whiff": 21.2,
+        "pitches": 330
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 94.4,
+        "velo": 83.0,
+        "usage": 38.8,
+        "whiff": 51.1,
+        "pitches": 243
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 107.5,
+        "velo": 86.3,
+        "usage": 8.3,
+        "whiff": 48.0,
+        "pitches": 52
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 0.0,
+        "velo": 93.5,
+        "usage": 0.2,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Domingo Gonzalez",
+    "player_id": 682445,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2026-05-12",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 90.3,
+    "pitches": 975,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 89.3,
+        "velo": 93.8,
+        "usage": 58.2,
+        "whiff": 19.3,
+        "pitches": 567
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 92.9,
+        "velo": 87.1,
+        "usage": 37.4,
+        "whiff": 28.8,
+        "pitches": 365
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 81.8,
+        "velo": 87.3,
+        "usage": 4.4,
+        "whiff": 22.2,
+        "pitches": 43
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jos\u00e9 Urquidy",
+    "player_id": 664353,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-07-02",
+    "birth_country": "Mexico",
+    "stuff_plus": 89.9,
+    "pitches": 315,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 101.7,
+        "velo": 92.2,
+        "usage": 43.5,
+        "whiff": 19.4,
+        "pitches": 137
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 78.6,
+        "velo": 84.3,
+        "usage": 20.0,
+        "whiff": 45.5,
+        "pitches": 63
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 74.0,
+        "velo": 78.1,
+        "usage": 14.0,
+        "whiff": 23.8,
+        "pitches": 44
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 88.2,
+        "velo": 86.9,
+        "usage": 12.4,
+        "whiff": 0.0,
+        "pitches": 39
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 84.4,
+        "velo": 93.1,
+        "usage": 8.9,
+        "whiff": 20.0,
+        "pitches": 28
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 94.2,
+        "velo": 84.5,
+        "usage": 1.3,
+        "whiff": 66.7,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Benjamin Arias",
+    "player_id": 684485,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 89.3,
+    "pitches": 625,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 84.3,
+        "velo": 81.3,
+        "usage": 41.0,
+        "whiff": 50.4,
+        "pitches": 256
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 99.9,
+        "velo": 92.8,
+        "usage": 22.4,
+        "whiff": 17.9,
+        "pitches": 140
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 91.9,
+        "velo": 92.9,
+        "usage": 20.3,
+        "whiff": 19.0,
+        "pitches": 127
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 84.1,
+        "velo": 88.0,
+        "usage": 16.3,
+        "whiff": 32.2,
+        "pitches": 102
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Felipe De La Cruz",
+    "player_id": 700370,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 89.1,
+    "pitches": 456,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 96.7,
+        "velo": 95.0,
+        "usage": 52.6,
+        "whiff": 17.6,
+        "pitches": 240
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 79.6,
+        "velo": 85.4,
+        "usage": 39.7,
+        "whiff": 44.0,
+        "pitches": 181
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 86.3,
+        "velo": 87.5,
+        "usage": 5.9,
+        "whiff": 40.0,
+        "pitches": 27
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 84.0,
+        "velo": 94.0,
+        "usage": 1.8,
+        "whiff": 33.3,
+        "pitches": 8
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Wilker Reyes",
+    "player_id": 683497,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 88.8,
+    "pitches": 683,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 101.5,
+        "velo": 91.5,
+        "usage": 42.9,
+        "whiff": 28.1,
+        "pitches": 293
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 81.5,
+        "velo": 85.3,
+        "usage": 22.8,
+        "whiff": 28.6,
+        "pitches": 156
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 75.7,
+        "velo": 85.9,
+        "usage": 19.2,
+        "whiff": 15.0,
+        "pitches": 131
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 88.1,
+        "velo": 79.9,
+        "usage": 10.2,
+        "whiff": 39.4,
+        "pitches": 70
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 64.7,
+        "velo": 76.2,
+        "usage": 4.8,
+        "whiff": 58.3,
+        "pitches": 33
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Abdiel Mendoza",
+    "player_id": 665959,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Panama",
+    "stuff_plus": 88.7,
+    "pitches": 105,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 93.5,
+        "velo": 92.5,
+        "usage": 43.8,
+        "whiff": 14.3,
+        "pitches": 46
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 80.7,
+        "velo": 79.6,
+        "usage": 17.1,
+        "whiff": 27.3,
+        "pitches": 18
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 87.0,
+        "velo": 82.7,
+        "usage": 16.2,
+        "whiff": 44.4,
+        "pitches": 17
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 82.7,
+        "velo": 86.6,
+        "usage": 12.4,
+        "whiff": 16.7,
+        "pitches": 13
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 91.2,
+        "velo": 86.7,
+        "usage": 10.5,
+        "whiff": 25.0,
+        "pitches": 11
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Adisyn Coffey",
+    "player_id": 676249,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 88.3,
+    "pitches": 750,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 93.3,
+        "velo": 95.3,
+        "usage": 42.8,
+        "whiff": 20.5,
+        "pitches": 321
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 66.5,
+        "velo": 84.3,
+        "usage": 31.5,
+        "whiff": 46.1,
+        "pitches": 236
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 106.7,
+        "velo": 87.1,
+        "usage": 22.7,
+        "whiff": 45.2,
+        "pitches": 170
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 103.9,
+        "velo": 86.7,
+        "usage": 3.1,
+        "whiff": 72.7,
+        "pitches": 23
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Angel Felipe",
+    "player_id": 665734,
+    "team": "Toros del Este",
+    "mlb_debut": "2023-07-07",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 87.8,
+    "pitches": 602,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 81.0,
+        "velo": 94.8,
+        "usage": 32.9,
+        "whiff": 16.7,
+        "pitches": 198
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 88.6,
+        "velo": 82.6,
+        "usage": 32.1,
+        "whiff": 60.6,
+        "pitches": 193
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 94.5,
+        "velo": 94.7,
+        "usage": 28.6,
+        "whiff": 10.9,
+        "pitches": 172
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 88.9,
+        "velo": 85.5,
+        "usage": 6.5,
+        "whiff": 55.6,
+        "pitches": 39
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jose Cuas",
+    "player_id": 621016,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2022-05-31",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 87.5,
+    "pitches": 133,
+    "arsenal": [
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 98.6,
+        "velo": 79.9,
+        "usage": 35.3,
+        "whiff": 10.0,
+        "pitches": 47
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 70.8,
+        "velo": 90.2,
+        "usage": 34.6,
+        "whiff": 9.1,
+        "pitches": 46
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 95.2,
+        "velo": 90.9,
+        "usage": 24.1,
+        "whiff": 5.3,
+        "pitches": 32
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 87.1,
+        "velo": 89.0,
+        "usage": 6.0,
+        "whiff": 0.0,
+        "pitches": 8
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Carlos Rodriguez",
+    "player_id": 692230,
+    "team": "Toros del Este",
+    "mlb_debut": "2024-06-11",
+    "birth_country": "Nicaragua",
+    "stuff_plus": 87.3,
+    "pitches": 1343,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 88.7,
+        "velo": 92.3,
+        "usage": 30.3,
+        "whiff": 23.0,
+        "pitches": 407
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 81.4,
+        "velo": 85.4,
+        "usage": 22.3,
+        "whiff": 40.8,
+        "pitches": 299
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 91.2,
+        "velo": 80.3,
+        "usage": 17.3,
+        "whiff": 37.8,
+        "pitches": 233
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 91.9,
+        "velo": 88.1,
+        "usage": 13.0,
+        "whiff": 24.7,
+        "pitches": 175
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 75.1,
+        "velo": 74.9,
+        "usage": 9.5,
+        "whiff": 32.6,
+        "pitches": 127
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 98.0,
+        "velo": 92.2,
+        "usage": 7.6,
+        "whiff": 18.8,
+        "pitches": 102
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Aaron Brooks",
+    "player_id": 605156,
+    "team": "Toros del Este",
+    "mlb_debut": "2014-05-03",
+    "birth_country": "USA",
+    "stuff_plus": 86.9,
+    "pitches": 1282,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 87.8,
+        "velo": 92.7,
+        "usage": 37.4,
+        "whiff": 3.3,
+        "pitches": 479
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 97.3,
+        "velo": 85.7,
+        "usage": 26.9,
+        "whiff": 29.3,
+        "pitches": 345
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 83.3,
+        "velo": 85.7,
+        "usage": 17.7,
+        "whiff": 31.3,
+        "pitches": 227
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 71.5,
+        "velo": 93.0,
+        "usage": 15.1,
+        "whiff": 23.1,
+        "pitches": 194
+      },
+      {
+        "pitch_type": "KC",
+        "pitch_name": "K-Curve",
+        "ps_stuff": 80.3,
+        "velo": 80.2,
+        "usage": 2.9,
+        "whiff": 10.0,
+        "pitches": 37
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Angel S\u00e1nchez",
+    "player_id": 605795,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2017-08-24",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 86.9,
+    "pitches": 363,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 90.5,
+        "velo": 92.7,
+        "usage": 45.5,
+        "whiff": 8.9,
+        "pitches": 165
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 89.7,
+        "velo": 87.4,
+        "usage": 23.1,
+        "whiff": 25.5,
+        "pitches": 84
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 84.1,
+        "velo": 80.5,
+        "usage": 18.2,
+        "whiff": 20.7,
+        "pitches": 66
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 73.4,
+        "velo": 86.8,
+        "usage": 13.2,
+        "whiff": 14.3,
+        "pitches": 48
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Trevor Kelley",
+    "player_id": 665001,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-07-02",
+    "birth_country": "USA",
+    "stuff_plus": 86.7,
+    "pitches": 1017,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 87.8,
+        "velo": 87.6,
+        "usage": 51.6,
+        "whiff": 25.6,
+        "pitches": 525
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 85.0,
+        "velo": 74.9,
+        "usage": 44.1,
+        "whiff": 30.3,
+        "pitches": 449
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 81.1,
+        "velo": 81.6,
+        "usage": 2.6,
+        "whiff": 27.3,
+        "pitches": 26
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 106.5,
+        "velo": 78.9,
+        "usage": 1.7,
+        "whiff": 16.7,
+        "pitches": 17
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Valentin Linarez",
+    "player_id": 679066,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 86.5,
+    "pitches": 81,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 77.6,
+        "velo": 92.8,
+        "usage": 51.9,
+        "whiff": 26.7,
+        "pitches": 42
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 102.8,
+        "velo": 82.9,
+        "usage": 37.0,
+        "whiff": 62.5,
+        "pitches": 30
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 73.7,
+        "velo": 88.9,
+        "usage": 11.1,
+        "whiff": 0.0,
+        "pitches": 9
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Rodolfo Martinez",
+    "player_id": 650869,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 86.0,
+    "pitches": 340,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 81.3,
+        "velo": 97.7,
+        "usage": 60.0,
+        "whiff": 19.8,
+        "pitches": 204
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 95.7,
+        "velo": 87.3,
+        "usage": 21.5,
+        "whiff": 45.5,
+        "pitches": 73
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 100.6,
+        "velo": 96.2,
+        "usage": 12.9,
+        "whiff": 29.4,
+        "pitches": 44
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 65.0,
+        "velo": 90.2,
+        "usage": 5.3,
+        "whiff": 42.9,
+        "pitches": 18
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 83.0,
+        "velo": 80.3,
+        "usage": 0.3,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Lael Lockhart",
+    "player_id": 679712,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 86.0,
+    "pitches": 1575,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 79.9,
+        "velo": 89.5,
+        "usage": 35.4,
+        "whiff": 15.1,
+        "pitches": 557
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.5,
+        "velo": 83.8,
+        "usage": 21.6,
+        "whiff": 25.4,
+        "pitches": 340
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 93.7,
+        "velo": 81.3,
+        "usage": 16.7,
+        "whiff": 45.4,
+        "pitches": 263
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 84.2,
+        "velo": 77.8,
+        "usage": 15.0,
+        "whiff": 54.1,
+        "pitches": 237
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 89.6,
+        "velo": 89.4,
+        "usage": 11.3,
+        "whiff": 9.4,
+        "pitches": 178
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Travis Lakins",
+    "player_id": 664042,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-04-23",
+    "birth_country": "USA",
+    "stuff_plus": 85.6,
+    "pitches": 289,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 68.0,
+        "velo": 92.8,
+        "usage": 43.8,
+        "whiff": 30.0,
+        "pitches": 127
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 108.3,
+        "velo": 81.4,
+        "usage": 21.7,
+        "whiff": 27.8,
+        "pitches": 63
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 94.4,
+        "velo": 85.8,
+        "usage": 14.8,
+        "whiff": 38.9,
+        "pitches": 43
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 94.2,
+        "velo": 89.5,
+        "usage": 14.5,
+        "whiff": 22.2,
+        "pitches": 42
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 90.2,
+        "velo": 78.9,
+        "usage": 4.5,
+        "whiff": 40.0,
+        "pitches": 13
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 84.9,
+        "velo": 92.3,
+        "usage": 0.3,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Grant Gavin",
+    "player_id": 667050,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 85.3,
+    "pitches": 464,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 75.7,
+        "velo": 91.1,
+        "usage": 48.7,
+        "whiff": 20.0,
+        "pitches": 226
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 94.9,
+        "velo": 82.2,
+        "usage": 39.4,
+        "whiff": 33.3,
+        "pitches": 183
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 103.9,
+        "velo": 83.8,
+        "usage": 6.7,
+        "whiff": 25.0,
+        "pitches": 31
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 78.0,
+        "velo": 80.0,
+        "usage": 5.2,
+        "whiff": 20.0,
+        "pitches": 24
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Sammy Peralta",
+    "player_id": 671111,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2023-05-04",
+    "birth_country": "USA",
+    "stuff_plus": 84.9,
+    "pitches": 1099,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 78.3,
+        "velo": 89.7,
+        "usage": 33.1,
+        "whiff": 16.4,
+        "pitches": 364
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 88.9,
+        "velo": 80.8,
+        "usage": 25.6,
+        "whiff": 32.4,
+        "pitches": 281
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 92.5,
+        "velo": 89.9,
+        "usage": 16.5,
+        "whiff": 5.4,
+        "pitches": 181
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 88.9,
+        "velo": 80.0,
+        "usage": 14.5,
+        "whiff": 43.1,
+        "pitches": 159
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 78.3,
+        "velo": 84.1,
+        "usage": 10.4,
+        "whiff": 13.5,
+        "pitches": 114
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Blake Weiman",
+    "player_id": 676620,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 84.9,
+    "pitches": 511,
+    "arsenal": [
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 87.3,
+        "velo": 78.2,
+        "usage": 52.8,
+        "whiff": 26.5,
+        "pitches": 270
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 82.1,
+        "velo": 90.0,
+        "usage": 27.2,
+        "whiff": 16.4,
+        "pitches": 139
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 77.2,
+        "velo": 84.6,
+        "usage": 9.8,
+        "whiff": 9.5,
+        "pitches": 50
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 87.3,
+        "velo": 90.2,
+        "usage": 7.2,
+        "whiff": 15.8,
+        "pitches": 37
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 88.2,
+        "velo": 82.2,
+        "usage": 2.9,
+        "whiff": 20.0,
+        "pitches": 15
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Luis F. Castillo",
+    "player_id": 622379,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2022-08-06",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 84.8,
+    "pitches": 220,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 68.9,
+        "velo": 92.6,
+        "usage": 35.9,
+        "whiff": 22.5,
+        "pitches": 79
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 96.3,
+        "velo": 92.0,
+        "usage": 23.2,
+        "whiff": 11.1,
+        "pitches": 51
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 95.4,
+        "velo": 80.9,
+        "usage": 20.9,
+        "whiff": 33.3,
+        "pitches": 46
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 89.0,
+        "velo": 86.5,
+        "usage": 20.0,
+        "whiff": 21.7,
+        "pitches": 44
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Joely Rodr\u00edguez",
+    "player_id": 570257,
+    "team": "Toros del Este",
+    "mlb_debut": "2016-09-11",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 84.7,
+    "pitches": 256,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 93.8,
+        "velo": 91.1,
+        "usage": 44.5,
+        "whiff": 19.6,
+        "pitches": 114
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 74.2,
+        "velo": 86.3,
+        "usage": 31.3,
+        "whiff": 47.5,
+        "pitches": 80
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 88.6,
+        "velo": 80.9,
+        "usage": 16.0,
+        "whiff": 40.9,
+        "pitches": 41
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 67.7,
+        "velo": 90.7,
+        "usage": 8.2,
+        "whiff": 33.3,
+        "pitches": 21
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Dinelson Lamet",
+    "player_id": 659275,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2017-05-25",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 83.8,
+    "pitches": 1429,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 77.4,
+        "velo": 94.1,
+        "usage": 43.5,
+        "whiff": 15.4,
+        "pitches": 621
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.1,
+        "velo": 84.3,
+        "usage": 41.8,
+        "whiff": 49.3,
+        "pitches": 598
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 100.7,
+        "velo": 94.5,
+        "usage": 8.5,
+        "whiff": 9.8,
+        "pitches": 122
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 69.3,
+        "velo": 89.9,
+        "usage": 6.2,
+        "whiff": 18.8,
+        "pitches": 88
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Clayton Andrews",
+    "player_id": 677076,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2023-07-01",
+    "birth_country": "USA",
+    "stuff_plus": 83.4,
+    "pitches": 456,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 81.5,
+        "velo": 92.1,
+        "usage": 40.1,
+        "whiff": 16.7,
+        "pitches": 183
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 91.3,
+        "velo": 79.8,
+        "usage": 33.8,
+        "whiff": 51.4,
+        "pitches": 154
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 72.7,
+        "velo": 80.2,
+        "usage": 13.2,
+        "whiff": 35.0,
+        "pitches": 60
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 86.7,
+        "velo": 88.7,
+        "usage": 7.0,
+        "whiff": 25.0,
+        "pitches": 32
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 71.0,
+        "velo": 92.1,
+        "usage": 5.9,
+        "whiff": 0.0,
+        "pitches": 27
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Aidan Anderson",
+    "player_id": 689379,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 83.3,
+    "pitches": 609,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 80.0,
+        "velo": 79.0,
+        "usage": 41.4,
+        "whiff": 26.4,
+        "pitches": 252
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 77.0,
+        "velo": 91.4,
+        "usage": 31.9,
+        "whiff": 25.3,
+        "pitches": 194
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 101.0,
+        "velo": 90.3,
+        "usage": 13.8,
+        "whiff": 0.0,
+        "pitches": 84
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 93.1,
+        "velo": 84.2,
+        "usage": 11.0,
+        "whiff": 15.2,
+        "pitches": 67
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 81.0,
+        "velo": 86.0,
+        "usage": 1.3,
+        "whiff": 100.0,
+        "pitches": 8
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 73.7,
+        "velo": 76.7,
+        "usage": 0.7,
+        "whiff": 0.0,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Aaron Sanchez",
+    "player_id": 592717,
+    "team": "Toros del Este",
+    "mlb_debut": "2014-07-23",
+    "birth_country": "USA",
+    "stuff_plus": 83.2,
+    "pitches": 1119,
+    "arsenal": [
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 85.2,
+        "velo": 76.5,
+        "usage": 20.3,
+        "whiff": 35.7,
+        "pitches": 227
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 72.2,
+        "velo": 86.6,
+        "usage": 19.4,
+        "whiff": 15.8,
+        "pitches": 217
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 68.4,
+        "velo": 90.3,
+        "usage": 18.5,
+        "whiff": 14.3,
+        "pitches": 207
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 94.0,
+        "velo": 87.3,
+        "usage": 16.6,
+        "whiff": 33.7,
+        "pitches": 186
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 92.4,
+        "velo": 90.2,
+        "usage": 15.8,
+        "whiff": 5.4,
+        "pitches": 177
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 96.2,
+        "velo": 81.3,
+        "usage": 9.4,
+        "whiff": 32.5,
+        "pitches": 105
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Ivan Armstrong",
+    "player_id": 678371,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 83.2,
+    "pitches": 198,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 80.0,
+        "velo": 94.8,
+        "usage": 37.7,
+        "whiff": 22.0,
+        "pitches": 75
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 82.6,
+        "velo": 92.0,
+        "usage": 35.2,
+        "whiff": 6.5,
+        "pitches": 70
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 91.8,
+        "velo": 82.2,
+        "usage": 19.1,
+        "whiff": 13.3,
+        "pitches": 38
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 79.9,
+        "velo": 83.7,
+        "usage": 7.0,
+        "whiff": 16.7,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 94.8,
+        "velo": 74.4,
+        "usage": 0.5,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Johnny Cueto",
+    "player_id": 456501,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2008-04-03",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 83.0,
+    "pitches": 975,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 83.8,
+        "velo": 84.1,
+        "usage": 31.7,
+        "whiff": 18.2,
+        "pitches": 310
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 90.9,
+        "velo": 90.4,
+        "usage": 30.0,
+        "whiff": 13.6,
+        "pitches": 293
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 78.8,
+        "velo": 90.3,
+        "usage": 19.5,
+        "whiff": 18.8,
+        "pitches": 191
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 72.7,
+        "velo": 81.2,
+        "usage": 17.5,
+        "whiff": 33.7,
+        "pitches": 171
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 83.2,
+        "velo": 76.5,
+        "usage": 1.0,
+        "whiff": 16.7,
+        "pitches": 10
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jorge Bautista",
+    "player_id": 682926,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 82.6,
+    "pitches": 619,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 84.2,
+        "velo": 92.0,
+        "usage": 38.1,
+        "whiff": 14.3,
+        "pitches": 236
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 87.7,
+        "velo": 83.4,
+        "usage": 26.0,
+        "whiff": 29.5,
+        "pitches": 161
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 73.6,
+        "velo": 91.9,
+        "usage": 16.0,
+        "whiff": 11.3,
+        "pitches": 99
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 87.4,
+        "velo": 86.8,
+        "usage": 13.6,
+        "whiff": 38.8,
+        "pitches": 84
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 61.9,
+        "velo": 86.4,
+        "usage": 5.5,
+        "whiff": 27.3,
+        "pitches": 34
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 74.5,
+        "velo": 79.3,
+        "usage": 0.8,
+        "whiff": 0.0,
+        "pitches": 5
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Ethan Routzahn",
+    "player_id": 701240,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 82.2,
+    "pitches": 460,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 87.9,
+        "velo": 90.5,
+        "usage": 53.9,
+        "whiff": 16.4,
+        "pitches": 248
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 80.8,
+        "velo": 76.9,
+        "usage": 25.2,
+        "whiff": 45.1,
+        "pitches": 116
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 65.9,
+        "velo": 87.4,
+        "usage": 15.2,
+        "whiff": 34.4,
+        "pitches": 70
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 79.5,
+        "velo": 86.6,
+        "usage": 5.2,
+        "whiff": 0.0,
+        "pitches": 24
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 55.2,
+        "velo": 80.2,
+        "usage": 0.4,
+        "whiff": 0.0,
+        "pitches": 2
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Josh Green",
+    "player_id": 681401,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 81.7,
+    "pitches": 287,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 75.8,
+        "velo": 93.4,
+        "usage": 59.6,
+        "whiff": 11.8,
+        "pitches": 171
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 89.9,
+        "velo": 83.9,
+        "usage": 29.3,
+        "whiff": 27.6,
+        "pitches": 84
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 91.5,
+        "velo": 90.8,
+        "usage": 11.1,
+        "whiff": 14.3,
+        "pitches": 32
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Luis Moreno",
+    "player_id": 691032,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 81.5,
+    "pitches": 467,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 65.4,
+        "velo": 92.2,
+        "usage": 33.4,
+        "whiff": 15.0,
+        "pitches": 156
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 89.9,
+        "velo": 84.2,
+        "usage": 25.3,
+        "whiff": 14.0,
+        "pitches": 118
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 95.8,
+        "velo": 80.0,
+        "usage": 24.6,
+        "whiff": 29.6,
+        "pitches": 115
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 73.1,
+        "velo": 78.3,
+        "usage": 10.1,
+        "whiff": 43.5,
+        "pitches": 47
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 90.5,
+        "velo": 86.4,
+        "usage": 6.0,
+        "whiff": 33.3,
+        "pitches": 28
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 89.1,
+        "velo": 91.6,
+        "usage": 0.6,
+        "whiff": null,
+        "pitches": 3
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Joel Valdez",
+    "player_id": 683638,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 81.5,
+    "pitches": 233,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 78.8,
+        "velo": 93.3,
+        "usage": 59.2,
+        "whiff": 17.6,
+        "pitches": 138
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 84.5,
+        "velo": 79.9,
+        "usage": 23.2,
+        "whiff": 38.9,
+        "pitches": 54
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 88.6,
+        "velo": 88.8,
+        "usage": 15.5,
+        "whiff": 30.0,
+        "pitches": 36
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 72.4,
+        "velo": 93.3,
+        "usage": 2.1,
+        "whiff": 0.0,
+        "pitches": 5
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Chris Ellis",
+    "player_id": 595939,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2019-03-31",
+    "birth_country": "USA",
+    "stuff_plus": 81.1,
+    "pitches": 1203,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 79.0,
+        "velo": 92.3,
+        "usage": 49.9,
+        "whiff": 15.9,
+        "pitches": 600
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 76.0,
+        "velo": 81.1,
+        "usage": 23.3,
+        "whiff": 26.7,
+        "pitches": 280
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 93.7,
+        "velo": 85.2,
+        "usage": 20.5,
+        "whiff": 17.2,
+        "pitches": 247
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 76.5,
+        "velo": 86.2,
+        "usage": 6.3,
+        "whiff": 21.2,
+        "pitches": 76
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Antonio Santos",
+    "player_id": 665733,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2020-09-01",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 80.7,
+    "pitches": 389,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 79.5,
+        "velo": 91.2,
+        "usage": 40.1,
+        "whiff": 31.7,
+        "pitches": 156
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 86.9,
+        "velo": 80.0,
+        "usage": 32.6,
+        "whiff": 36.4,
+        "pitches": 127
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 75.8,
+        "velo": 88.1,
+        "usage": 16.2,
+        "whiff": 8.0,
+        "pitches": 63
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 73.9,
+        "velo": 81.9,
+        "usage": 11.1,
+        "whiff": 40.0,
+        "pitches": 43
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Charlie Barnes",
+    "player_id": 656212,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2021-07-17",
+    "birth_country": "USA",
+    "stuff_plus": 80.5,
+    "pitches": 442,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 82.6,
+        "velo": 89.3,
+        "usage": 53.2,
+        "whiff": 9.5,
+        "pitches": 235
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 76.2,
+        "velo": 81.5,
+        "usage": 22.2,
+        "whiff": 29.6,
+        "pitches": 98
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 82.2,
+        "velo": 80.9,
+        "usage": 19.9,
+        "whiff": 41.0,
+        "pitches": 88
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 70.6,
+        "velo": 74.3,
+        "usage": 4.8,
+        "whiff": 71.4,
+        "pitches": 21
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Randy Wynne",
+    "player_id": 691094,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2023-06-25",
+    "birth_country": "USA",
+    "stuff_plus": 80.4,
+    "pitches": 848,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 82.0,
+        "velo": 89.3,
+        "usage": 46.2,
+        "whiff": 10.9,
+        "pitches": 392
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 83.7,
+        "velo": 85.1,
+        "usage": 22.3,
+        "whiff": 26.5,
+        "pitches": 189
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 83.7,
+        "velo": 79.3,
+        "usage": 14.6,
+        "whiff": 19.4,
+        "pitches": 124
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 78.5,
+        "velo": 79.5,
+        "usage": 10.6,
+        "whiff": 8.5,
+        "pitches": 90
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 51.4,
+        "velo": 75.5,
+        "usage": 6.0,
+        "whiff": 25.9,
+        "pitches": 51
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 74.4,
+        "velo": 85.0,
+        "usage": 0.2,
+        "whiff": 0.0,
+        "pitches": 2
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "H\u00e9ctor Neris",
+    "player_id": 593576,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2014-08-05",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 80.4,
+    "pitches": 71,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 76.3,
+        "velo": 91.9,
+        "usage": 60.6,
+        "whiff": 39.3,
+        "pitches": 43
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 85.2,
+        "velo": 82.6,
+        "usage": 25.4,
+        "whiff": 33.3,
+        "pitches": 18
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.5,
+        "velo": 84.7,
+        "usage": 8.5,
+        "whiff": 50.0,
+        "pitches": 6
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 88.2,
+        "velo": 91.1,
+        "usage": 5.6,
+        "whiff": 0.0,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "James Gonzalez",
+    "player_id": 686857,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Panama",
+    "stuff_plus": 80.3,
+    "pitches": 61,
+    "arsenal": [
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 94.5,
+        "velo": 80.0,
+        "usage": 44.3,
+        "whiff": 17.6,
+        "pitches": 27
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 60.5,
+        "velo": 90.0,
+        "usage": 23.0,
+        "whiff": 14.3,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 78.3,
+        "velo": 90.9,
+        "usage": 19.7,
+        "whiff": 25.0,
+        "pitches": 12
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 70.3,
+        "velo": 78.3,
+        "usage": 13.1,
+        "whiff": 0.0,
+        "pitches": 8
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Nabil Crismatt",
+    "player_id": 622503,
+    "team": "Toros del Este",
+    "mlb_debut": "2020-08-17",
+    "birth_country": "Colombia",
+    "stuff_plus": 79.8,
+    "pitches": 1537,
+    "arsenal": [
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 81.7,
+        "velo": 79.9,
+        "usage": 36.8,
+        "whiff": 33.5,
+        "pitches": 566
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 85.0,
+        "velo": 88.4,
+        "usage": 20.4,
+        "whiff": 8.0,
+        "pitches": 313
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 69.1,
+        "velo": 72.6,
+        "usage": 18.4,
+        "whiff": 18.6,
+        "pitches": 283
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 82.0,
+        "velo": 88.2,
+        "usage": 14.5,
+        "whiff": 8.9,
+        "pitches": 223
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 78.9,
+        "velo": 82.7,
+        "usage": 9.9,
+        "whiff": 9.1,
+        "pitches": 152
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Matt Foster",
+    "player_id": 641582,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2020-08-01",
+    "birth_country": "USA",
+    "stuff_plus": 79.7,
+    "pitches": 636,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 67.4,
+        "velo": 93.0,
+        "usage": 54.6,
+        "whiff": 23.5,
+        "pitches": 347
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 97.7,
+        "velo": 85.4,
+        "usage": 30.3,
+        "whiff": 33.7,
+        "pitches": 193
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 89.4,
+        "velo": 83.6,
+        "usage": 14.5,
+        "whiff": 34.0,
+        "pitches": 92
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 58.9,
+        "velo": 78.2,
+        "usage": 0.6,
+        "whiff": 0.0,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Brady Feigl",
+    "player_id": 621399,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2024-08-26",
+    "birth_country": "USA",
+    "stuff_plus": 79.4,
+    "pitches": 292,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 69.1,
+        "velo": 92.8,
+        "usage": 43.8,
+        "whiff": 19.4,
+        "pitches": 128
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 93.2,
+        "velo": 84.9,
+        "usage": 36.6,
+        "whiff": 34.5,
+        "pitches": 107
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 76.6,
+        "velo": 80.9,
+        "usage": 19.5,
+        "whiff": 18.2,
+        "pitches": 57
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jonathan Berm\u00fadez",
+    "player_id": 642834,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2024-08-27",
+    "birth_country": "Puerto Rico",
+    "stuff_plus": 76.5,
+    "pitches": 495,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 66.0,
+        "velo": 89.4,
+        "usage": 53.3,
+        "whiff": 19.8,
+        "pitches": 264
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 96.7,
+        "velo": 75.2,
+        "usage": 20.8,
+        "whiff": 42.2,
+        "pitches": 103
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 80.2,
+        "velo": 83.0,
+        "usage": 12.9,
+        "whiff": 30.8,
+        "pitches": 64
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 83.6,
+        "velo": 82.3,
+        "usage": 9.1,
+        "whiff": 41.2,
+        "pitches": 45
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 81.4,
+        "velo": 88.9,
+        "usage": 2.2,
+        "whiff": 0.0,
+        "pitches": 11
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 85.1,
+        "velo": 73.3,
+        "usage": 1.6,
+        "whiff": 50.0,
+        "pitches": 8
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Michael Mariot",
+    "player_id": 592527,
+    "team": "Toros del Este",
+    "mlb_debut": "2014-04-11",
+    "birth_country": "USA",
+    "stuff_plus": 76.1,
+    "pitches": 1234,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 73.7,
+        "velo": 79.9,
+        "usage": 46.9,
+        "whiff": 28.7,
+        "pitches": 579
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 76.2,
+        "velo": 89.6,
+        "usage": 21.6,
+        "whiff": 6.2,
+        "pitches": 266
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 90.6,
+        "velo": 90.1,
+        "usage": 20.5,
+        "whiff": 8.5,
+        "pitches": 253
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 71.7,
+        "velo": 83.5,
+        "usage": 6.1,
+        "whiff": 29.4,
+        "pitches": 75
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 43.4,
+        "velo": 73.7,
+        "usage": 4.9,
+        "whiff": 25.0,
+        "pitches": 60
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 72.6,
+        "velo": 82.1,
+        "usage": 0.1,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Domingo Robles",
+    "player_id": 660781,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 75.1,
+    "pitches": 44,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 67.4,
+        "velo": 90.3,
+        "usage": 45.5,
+        "whiff": 25.0,
+        "pitches": 20
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 73.6,
+        "velo": 76.7,
+        "usage": 27.3,
+        "whiff": 14.3,
+        "pitches": 12
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.1,
+        "velo": 85.6,
+        "usage": 18.2,
+        "whiff": 14.3,
+        "pitches": 8
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 90.7,
+        "velo": 82.2,
+        "usage": 9.1,
+        "whiff": 100.0,
+        "pitches": 4
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Wily Peralta",
+    "player_id": 503449,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2012-04-22",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 75.1,
+    "pitches": 575,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 62.8,
+        "velo": 91.2,
+        "usage": 44.2,
+        "whiff": 13.4,
+        "pitches": 254
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 87.2,
+        "velo": 78.9,
+        "usage": 25.9,
+        "whiff": 27.4,
+        "pitches": 149
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 83.2,
+        "velo": 79.6,
+        "usage": 24.5,
+        "whiff": 26.4,
+        "pitches": 141
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 80.1,
+        "velo": 92.6,
+        "usage": 5.4,
+        "whiff": 4.8,
+        "pitches": 31
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Zac Kristofak",
+    "player_id": 670219,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2024-04-28",
+    "birth_country": "USA",
+    "stuff_plus": 75.0,
+    "pitches": 281,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 64.3,
+        "velo": 92.7,
+        "usage": 57.4,
+        "whiff": 10.8,
+        "pitches": 162
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 89.5,
+        "velo": 84.5,
+        "usage": 26.6,
+        "whiff": 25.0,
+        "pitches": 75
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 97.1,
+        "velo": 87.8,
+        "usage": 10.6,
+        "whiff": 23.5,
+        "pitches": 30
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 73.3,
+        "velo": 78.1,
+        "usage": 5.0,
+        "whiff": 0.0,
+        "pitches": 14
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Luis Ledo",
+    "player_id": 644396,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 74.2,
+    "pitches": 755,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 70.2,
+        "velo": 95.5,
+        "usage": 47.0,
+        "whiff": 19.5,
+        "pitches": 355
+      },
+      {
+        "pitch_type": "FC",
+        "pitch_name": "Cutter",
+        "ps_stuff": 91.9,
+        "velo": 86.0,
+        "usage": 26.1,
+        "whiff": 43.6,
+        "pitches": 197
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 65.2,
+        "velo": 92.1,
+        "usage": 22.1,
+        "whiff": 14.5,
+        "pitches": 167
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 59.5,
+        "velo": 89.2,
+        "usage": 4.8,
+        "whiff": 38.1,
+        "pitches": 36
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Patrick Halligan",
+    "player_id": 701856,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 74.0,
+    "pitches": 110,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 64.6,
+        "velo": 93.3,
+        "usage": 51.8,
+        "whiff": 7.7,
+        "pitches": 57
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 97.4,
+        "velo": 86.2,
+        "usage": 26.4,
+        "whiff": 36.4,
+        "pitches": 29
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 68.2,
+        "velo": 80.4,
+        "usage": 21.8,
+        "whiff": 0.0,
+        "pitches": 24
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Huascar Ynoa",
+    "player_id": 660623,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2019-06-16",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 71.6,
+    "pitches": 108,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 65.4,
+        "velo": 93.0,
+        "usage": 50.9,
+        "whiff": 15.0,
+        "pitches": 55
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 76.0,
+        "velo": 82.3,
+        "usage": 38.0,
+        "whiff": 6.3,
+        "pitches": 41
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 84.6,
+        "velo": 86.4,
+        "usage": 11.1,
+        "whiff": 0.0,
+        "pitches": 12
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Anderson Bido",
+    "player_id": 675525,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 69.6,
+    "pitches": 31,
+    "arsenal": [
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 80.8,
+        "velo": 82.1,
+        "usage": 45.2,
+        "whiff": 28.6,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 73.9,
+        "velo": 80.7,
+        "usage": 19.4,
+        "whiff": 0.0,
+        "pitches": 6
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 48.1,
+        "velo": 90.1,
+        "usage": 19.4,
+        "whiff": 0.0,
+        "pitches": 6
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 58.5,
+        "velo": 90.4,
+        "usage": 16.1,
+        "whiff": 0.0,
+        "pitches": 5
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Emailin Montilla",
+    "player_id": 692983,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 68.3,
+    "pitches": 42,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 60.4,
+        "velo": 93.1,
+        "usage": 35.7,
+        "whiff": 14.3,
+        "pitches": 15
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 89.8,
+        "velo": 84.5,
+        "usage": 33.3,
+        "whiff": 33.3,
+        "pitches": 14
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 51.4,
+        "velo": 92.4,
+        "usage": 28.6,
+        "whiff": 0.0,
+        "pitches": 12
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 88.9,
+        "velo": 85.2,
+        "usage": 2.4,
+        "whiff": null,
+        "pitches": 1
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Devin Smeltzer",
+    "player_id": 656970,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2019-05-28",
+    "birth_country": "USA",
+    "stuff_plus": 67.6,
+    "pitches": 194,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 62.4,
+        "velo": 88.8,
+        "usage": 48.5,
+        "whiff": 24.4,
+        "pitches": 94
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 68.7,
+        "velo": 81.6,
+        "usage": 19.6,
+        "whiff": 11.8,
+        "pitches": 38
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 86.5,
+        "velo": 81.7,
+        "usage": 13.4,
+        "whiff": 20.0,
+        "pitches": 26
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 61.3,
+        "velo": 76.3,
+        "usage": 13.4,
+        "whiff": 38.5,
+        "pitches": 26
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 79.6,
+        "velo": 88.5,
+        "usage": 5.2,
+        "whiff": 0.0,
+        "pitches": 10
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Tyler Danish",
+    "player_id": 641501,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2016-06-11",
+    "birth_country": "USA",
+    "stuff_plus": 66.9,
+    "pitches": 743,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 72.9,
+        "velo": 88.5,
+        "usage": 42.7,
+        "whiff": 10.0,
+        "pitches": 317
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 77.7,
+        "velo": 78.7,
+        "usage": 25.3,
+        "whiff": 26.3,
+        "pitches": 188
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 59.1,
+        "velo": 89.3,
+        "usage": 14.8,
+        "whiff": 28.6,
+        "pitches": 110
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 48.3,
+        "velo": 81.7,
+        "usage": 8.6,
+        "whiff": 20.0,
+        "pitches": 64
+      },
+      {
+        "pitch_type": "FS",
+        "pitch_name": "Splitter",
+        "ps_stuff": 24.0,
+        "velo": 78.1,
+        "usage": 6.3,
+        "whiff": 29.4,
+        "pitches": 47
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 76.3,
+        "velo": 85.7,
+        "usage": 2.3,
+        "whiff": 16.7,
+        "pitches": 17
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Nick Ramirez",
+    "player_id": 598286,
+    "team": "Toros del Este",
+    "mlb_debut": "2019-05-11",
+    "birth_country": "USA",
+    "stuff_plus": 65.0,
+    "pitches": 535,
+    "arsenal": [
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 83.8,
+        "velo": 86.6,
+        "usage": 48.6,
+        "whiff": 14.7,
+        "pitches": 260
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 30.8,
+        "velo": 77.0,
+        "usage": 29.9,
+        "whiff": 39.6,
+        "pitches": 160
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 73.8,
+        "velo": 78.1,
+        "usage": 19.3,
+        "whiff": 32.6,
+        "pitches": 103
+      },
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 36.9,
+        "velo": 84.9,
+        "usage": 2.2,
+        "whiff": 0.0,
+        "pitches": 12
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Drew Parrish",
+    "player_id": 669283,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": 64.2,
+    "pitches": 493,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 56.4,
+        "velo": 90.8,
+        "usage": 54.8,
+        "whiff": 10.1,
+        "pitches": 270
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 85.8,
+        "velo": 80.6,
+        "usage": 20.3,
+        "whiff": 46.2,
+        "pitches": 100
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 66.9,
+        "velo": 78.3,
+        "usage": 13.6,
+        "whiff": 21.2,
+        "pitches": 67
+      },
+      {
+        "pitch_type": "CU",
+        "pitch_name": "Curveball",
+        "ps_stuff": 56.8,
+        "velo": 66.0,
+        "usage": 6.9,
+        "whiff": 30.8,
+        "pitches": 34
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 64.0,
+        "velo": 84.4,
+        "usage": 4.5,
+        "whiff": 63.6,
+        "pitches": 22
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Geronimo Franzua",
+    "player_id": 601980,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": 56.3,
+    "pitches": 1098,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 55.6,
+        "velo": 93.1,
+        "usage": 50.3,
+        "whiff": 28.3,
+        "pitches": 552
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": 38.6,
+        "velo": 85.5,
+        "usage": 25.0,
+        "whiff": 51.0,
+        "pitches": 275
+      },
+      {
+        "pitch_type": "SL",
+        "pitch_name": "Slider",
+        "ps_stuff": 92.8,
+        "velo": 82.9,
+        "usage": 17.7,
+        "whiff": 41.0,
+        "pitches": 194
+      },
+      {
+        "pitch_type": "SI",
+        "pitch_name": "Sinker",
+        "ps_stuff": 32.5,
+        "velo": 92.5,
+        "usage": 7.0,
+        "whiff": 32.6,
+        "pitches": 77
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Brian Moran",
+    "player_id": 572383,
+    "team": "Toros del Este",
+    "mlb_debut": "2019-09-05",
+    "birth_country": "USA",
+    "stuff_plus": 52.9,
+    "pitches": 221,
+    "arsenal": [
+      {
+        "pitch_type": "FF",
+        "pitch_name": "4-Seam",
+        "ps_stuff": 70.7,
+        "velo": 83.4,
+        "usage": 58.8,
+        "whiff": 28.1,
+        "pitches": 130
+      },
+      {
+        "pitch_type": "ST",
+        "pitch_name": "Sweeper",
+        "ps_stuff": 89.7,
+        "velo": 69.4,
+        "usage": 27.1,
+        "whiff": 35.3,
+        "pitches": 60
+      },
+      {
+        "pitch_type": "CH",
+        "pitch_name": "Changeup",
+        "ps_stuff": -93.1,
+        "velo": 80.5,
+        "usage": 14.0,
+        "whiff": 15.4,
+        "pitches": 31
+      }
+    ],
+    "source": "Prospect Savant",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Carlos Belen",
+    "player_id": 627893,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Rodrigo Benoit",
+    "player_id": 646081,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Lisalverto Bonilla",
+    "player_id": 570810,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2014-09-04",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Deury Carrasco",
+    "player_id": 672767,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Lupe Chavez",
+    "player_id": 660826,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Mexico",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Luis Leroy Cruz",
+    "player_id": 543071,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Puerto Rico",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Oscar De La Cruz",
+    "player_id": 642601,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Odrisamer Despaigne",
+    "player_id": 628333,
+    "team": "Toros del Este",
+    "mlb_debut": "2014-06-23",
+    "birth_country": "Cuba",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Carlos Espinal",
+    "player_id": 664284,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jeurys Familia",
+    "player_id": 544727,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2012-09-04",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jean Henriquez",
+    "player_id": 656120,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Nathanael Heredia",
+    "player_id": 678975,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Yoan L\u00f3pez",
+    "player_id": 661255,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2018-09-09",
+    "birth_country": "Cuba",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jhordany Mezquita",
+    "player_id": 674245,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Luis Miranda",
+    "player_id": 642532,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Mexico",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Vidal Nu\u00f1o",
+    "player_id": 573064,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2013-04-29",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Inohan Paniagua",
+    "player_id": 681644,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Luis Pati\u00f1o",
+    "player_id": 672715,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2020-08-05",
+    "birth_country": "Colombia",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Pedro Payano",
+    "player_id": 622797,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2019-07-06",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Carlos Pe\u00f1a",
+    "player_id": 685329,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Andrew P\u00e9rez",
+    "player_id": 680970,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "A.J. Puckett",
+    "player_id": 643494,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Felix Ramires",
+    "player_id": 678498,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Oscar Rayo",
+    "player_id": 699325,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Nicaragua",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Bryan Rodriguez",
+    "player_id": 594029,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Richard Rodr\u00edguez",
+    "player_id": 593144,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2017-09-02",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Ram\u00f3n Rosso",
+    "player_id": 665759,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": "2020-07-24",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jorge Tavarez",
+    "player_id": 664590,
+    "team": "\u00c1guilas Cibae\u00f1as",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "R.J. Alaniz",
+    "player_id": 595798,
+    "team": "Toros del Este",
+    "mlb_debut": "2019-04-12",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Wilian Bormie",
+    "player_id": 693781,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Kelvin C\u00e1ceres",
+    "player_id": 680983,
+    "team": "Toros del Este",
+    "mlb_debut": "2023-09-27",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Faustino Carrera",
+    "player_id": 666627,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Mexico",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Raul Carrillo",
+    "player_id": 585132,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Mexico",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Joe Corbett",
+    "player_id": 663782,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Justin Courtney",
+    "player_id": 688896,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Enyel De Los Santos",
+    "player_id": 660853,
+    "team": "Toros del Este",
+    "mlb_debut": "2018-07-10",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Matt Dermody",
+    "player_id": 571616,
+    "team": "Toros del Este",
+    "mlb_debut": "2016-09-03",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Tyler Eppler",
+    "player_id": 621169,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jos\u00e9 Manuel Fern\u00e1ndez",
+    "player_id": 622774,
+    "team": "Toros del Este",
+    "mlb_debut": "2018-09-01",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jarl\u00edn Garc\u00eda",
+    "player_id": 606424,
+    "team": "Toros del Este",
+    "mlb_debut": "2017-04-14",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Miller Hogan",
+    "player_id": 676949,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Tanner Kiest",
+    "player_id": 641750,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Franklyn Kilome",
+    "player_id": 642584,
+    "team": "Toros del Este",
+    "mlb_debut": "2020-08-01",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Janser Lara",
+    "player_id": 665878,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Aaron Leasher",
+    "player_id": 669468,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jhan Mari\u00f1ez",
+    "player_id": 501697,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2010-07-16",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "J.C. Mej\u00eda",
+    "player_id": 650496,
+    "team": "Toros del Este",
+    "mlb_debut": "2021-05-21",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Manuel Mercedes",
+    "player_id": 692352,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Greg Minier",
+    "player_id": 676951,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Richelson Pe\u00f1a",
+    "player_id": 606467,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Chester Pimentel",
+    "player_id": 660435,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Yerlin Rodriguez",
+    "player_id": 693750,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Enny Romero",
+    "player_id": 544836,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2013-09-22",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Ramon Santos",
+    "player_id": 622353,
+    "team": "Toros del Este",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Anderson Severino",
+    "player_id": 644429,
+    "team": "Toros del Este",
+    "mlb_debut": "2022-04-14",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Jimmy Yacabonis",
+    "player_id": 642231,
+    "team": "Toros del Este",
+    "mlb_debut": "2017-06-11",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Michael Ynoa",
+    "player_id": 573589,
+    "team": "Toros del Este",
+    "mlb_debut": "2016-06-14",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Tomohiro Anraku",
+    "player_id": 823701,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Japan",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Nate Antone",
+    "player_id": 802591,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Aldrin Batista",
+    "player_id": 702881,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Marcos Dipl\u00e1n",
+    "player_id": 650959,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2021-08-06",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Neftal\u00ed Feliz",
+    "player_id": 491703,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2009-08-03",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Javy Guerra",
+    "player_id": 642770,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2018-05-04",
+    "birth_country": "Panama",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Roman Mendez",
+    "player_id": 542669,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2014-07-08",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Zach Mort",
+    "player_id": 681817,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Sean Nolin",
+    "player_id": 543594,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2013-05-24",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Oddy Nunez",
+    "player_id": 664573,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Andy Otero",
+    "player_id": 554241,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Panama",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Esmil Rogers",
+    "player_id": 469134,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2009-09-12",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Junior Santos",
+    "player_id": 681744,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Pedro Strop",
+    "player_id": 467008,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2009-08-28",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Domingo Tapia",
+    "player_id": 593619,
+    "team": "Estrellas Orientales",
+    "mlb_debut": "2020-09-11",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "J.P. Woodward",
+    "player_id": 694756,
+    "team": "Estrellas Orientales",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Fernando Abad",
+    "player_id": 472551,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2010-07-28",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Christian Allegretti",
+    "player_id": 809880,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": null,
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Joel Cesar",
+    "player_id": 666802,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jimmy Cordero",
+    "player_id": 622772,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2018-08-02",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Yovanny Cruz",
+    "player_id": 672442,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2026-05-20",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Miguel Del Pozo",
+    "player_id": 600887,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2019-08-20",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Wellington Diaz",
+    "player_id": 670905,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Scott Engler",
+    "player_id": 670081,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Jake Faria",
+    "player_id": 607188,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2017-06-07",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Frank Garces",
+    "player_id": 571057,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2014-08-19",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Ryley Gilliam",
+    "player_id": 663894,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Ofreidy G\u00f3mez",
+    "player_id": 628709,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Reymin Guduan",
+    "player_id": 594056,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2017-05-31",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Victor Lopez",
+    "player_id": 685734,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Daniel Mengden",
+    "player_id": 596043,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2016-06-11",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Cristopher Molina",
+    "player_id": 650654,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Steven Moyers",
+    "player_id": 670625,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Alberto Pacheco",
+    "player_id": 691436,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Wandy Peralta",
+    "player_id": 593974,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2016-09-04",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Gleyvin Pineda",
+    "player_id": 660513,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Yaqui Rivera",
+    "player_id": 700072,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Benony Robles",
+    "player_id": 678840,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Hansel Robles",
+    "player_id": 570663,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2015-04-24",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Caleb Smith",
+    "player_id": 592761,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2017-07-17",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Emilio Vargas",
+    "player_id": 642496,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Elih Villanueva",
+    "player_id": 534631,
+    "team": "Gigantes del Cibao",
+    "mlb_debut": "2011-06-15",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Domingo Acevedo",
+    "player_id": 642758,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2021-06-21",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Dario Agrazal",
+    "player_id": 642607,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-06-15",
+    "birth_country": "Panama",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Diogenes Almengo",
+    "player_id": 658742,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Alex Colom\u00e9",
+    "player_id": 517008,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2013-05-30",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Efrain Contreras",
+    "player_id": 678713,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Mexico",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Indigo Diaz",
+    "player_id": 666301,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Canada",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Kenny Hernandez",
+    "player_id": 665789,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Panama",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Elian Leyva",
+    "player_id": 673140,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Cuba",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Radhames Liz",
+    "player_id": 467785,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2007-08-25",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Hansel Marcelino",
+    "player_id": 691322,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Alex Martinez",
+    "player_id": 692624,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Robinson Mart\u00ednez",
+    "player_id": 660822,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Keury Mella",
+    "player_id": 622492,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2017-09-20",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Darien N\u00fa\u00f1ez",
+    "player_id": 628345,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2021-07-09",
+    "birth_country": "Cuba",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Wirfin Obispo",
+    "player_id": 467031,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Hector Perez",
+    "player_id": 660431,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2020-09-16",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Roel Ram\u00edrez",
+    "player_id": 641995,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2020-08-16",
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Samuel Reyes",
+    "player_id": 672795,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Norge Ruiz",
+    "player_id": 650204,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2022-08-19",
+    "birth_country": "Cuba",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Luis Santos",
+    "player_id": 608601,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2017-09-02",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Henry Sosa",
+    "player_id": 464400,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2011-08-10",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Carlos Teller",
+    "player_id": 469191,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "Nicaragua",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Phillips Valdez",
+    "player_id": 570488,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2019-06-08",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  },
+  {
+    "name": "Derek West",
+    "player_id": 663723,
+    "team": "Leones del Escogido",
+    "mlb_debut": null,
+    "birth_country": "USA",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "unavailable",
+    "level_hint": "MiLB/AAA"
+  },
+  {
+    "name": "Aneurys Zabala",
+    "player_id": 656008,
+    "team": "Leones del Escogido",
+    "mlb_debut": "2022-06-12",
+    "birth_country": "Dominican Republic",
+    "stuff_plus": null,
+    "pitches": null,
+    "arsenal": [],
+    "source": "MLB Statcast (KNCT index) \u2014 pending",
+    "level_hint": "MLB"
+  }
+]
