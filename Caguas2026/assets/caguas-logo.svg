@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="56" fill="#8B0000" stroke="#C41E3A" stroke-width="4"/>
+  <text x="60" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#FFD700">C</text>
+  <text x="60" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" letter-spacing="2">CAGUAS</text>
+</svg>
