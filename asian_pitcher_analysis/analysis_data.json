@@ -1894,194 +1894,194 @@
   "stability": {
     "NPB": {
       "era": {
-        "r": 0.188,
-        "p": 0.3899,
+        "r": 0.082,
+        "p": 0.7102,
         "n": 23,
         "stable": false
       },
       "k9": {
-        "r": 0.387,
-        "p": 0.068,
+        "r": 0.265,
+        "p": 0.221,
         "n": 23,
         "stable": false
       },
       "bb9": {
-        "r": 0.517,
-        "p": 0.0115,
+        "r": 0.452,
+        "p": 0.0302,
         "n": 23,
         "stable": true
       },
       "hr9": {
-        "r": -0.258,
-        "p": 0.2342,
+        "r": -0.139,
+        "p": 0.5274,
         "n": 23,
         "stable": false
       },
       "whip": {
-        "r": 0.525,
-        "p": 0.0102,
+        "r": 0.53,
+        "p": 0.0092,
         "n": 23,
         "stable": true
       },
       "k_bb": {
-        "r": 0.749,
+        "r": 0.826,
         "p": 0.0,
         "n": 23,
         "stable": true
       },
       "w_pct": {
-        "r": 0.515,
-        "p": 0.0118,
+        "r": 0.542,
+        "p": 0.0075,
         "n": 23,
         "stable": true
       },
       "gb_pct": {
-        "r": 0.715,
-        "p": 0.006,
+        "r": 0.793,
+        "p": 0.0012,
         "n": 13,
         "stable": true
       }
     },
     "KBO": {
       "era": {
-        "r": 0.083,
-        "p": 0.8312,
+        "r": 0.221,
+        "p": 0.5676,
         "n": 9,
         "stable": false
       },
       "k9": {
-        "r": 0.7,
-        "p": 0.0358,
+        "r": 0.676,
+        "p": 0.0456,
         "n": 9,
         "stable": true
       },
       "bb9": {
-        "r": 0.233,
-        "p": 0.5462,
+        "r": 0.392,
+        "p": 0.2969,
         "n": 9,
         "stable": false
       },
       "hr9": {
-        "r": -0.162,
-        "p": 0.6765,
+        "r": -0.305,
+        "p": 0.4248,
         "n": 9,
         "stable": false
       },
       "whip": {
-        "r": 0.2,
-        "p": 0.6059,
+        "r": 0.156,
+        "p": 0.688,
         "n": 9,
         "stable": false
       },
       "k_bb": {
-        "r": 0.183,
-        "p": 0.6368,
+        "r": 0.517,
+        "p": 0.1542,
         "n": 9,
         "stable": false
       },
       "w_pct": {
-        "r": 0.276,
-        "p": 0.472,
+        "r": -0.124,
+        "p": 0.7504,
         "n": 9,
         "stable": false
       },
       "gb_pct": {
-        "r": 0.667,
-        "p": 0.2189,
+        "r": 0.733,
+        "p": 0.1587,
         "n": 5,
         "stable": false
       }
     },
     "CPBL": {
       "era": {
-        "r": -0.143,
-        "p": 0.7872,
+        "r": -0.215,
+        "p": 0.6818,
         "n": 6,
         "stable": false
       },
       "k9": {
-        "r": 0.986,
-        "p": 0.0003,
+        "r": 0.877,
+        "p": 0.0216,
         "n": 6,
         "stable": true
       },
       "bb9": {
-        "r": 0.119,
-        "p": 0.8217,
+        "r": 0.197,
+        "p": 0.7084,
         "n": 6,
         "stable": false
       },
       "hr9": {
-        "r": 0.119,
-        "p": 0.8217,
+        "r": -0.097,
+        "p": 0.8547,
         "n": 6,
         "stable": false
       },
       "whip": {
-        "r": 0.086,
-        "p": 0.8717,
+        "r": -0.144,
+        "p": 0.7851,
         "n": 6,
         "stable": false
       },
       "k_bb": {
-        "r": 0.543,
-        "p": 0.2657,
+        "r": 0.428,
+        "p": 0.3967,
         "n": 6,
         "stable": false
       },
       "w_pct": {
-        "r": 0.406,
-        "p": 0.4247,
+        "r": 0.352,
+        "p": 0.4943,
         "n": 6,
         "stable": false
       }
     },
     "ALL": {
       "era": {
-        "r": 0.308,
-        "p": 0.0599,
+        "r": 0.186,
+        "p": 0.2644,
         "n": 38,
         "stable": false
       },
       "k9": {
-        "r": 0.54,
-        "p": 0.0005,
+        "r": 0.427,
+        "p": 0.0075,
         "n": 38,
         "stable": true
       },
       "bb9": {
-        "r": 0.507,
-        "p": 0.0012,
+        "r": 0.423,
+        "p": 0.0082,
         "n": 38,
         "stable": true
       },
       "hr9": {
-        "r": -0.22,
-        "p": 0.1842,
+        "r": -0.156,
+        "p": 0.3487,
         "n": 38,
         "stable": false
       },
       "whip": {
-        "r": 0.462,
-        "p": 0.0035,
+        "r": 0.419,
+        "p": 0.0088,
         "n": 38,
         "stable": true
       },
       "k_bb": {
-        "r": 0.68,
+        "r": 0.739,
         "p": 0.0,
         "n": 38,
         "stable": true
       },
       "w_pct": {
-        "r": 0.326,
-        "p": 0.0455,
+        "r": 0.131,
+        "p": 0.4335,
         "n": 38,
         "stable": false
       },
       "gb_pct": {
-        "r": 0.672,
-        "p": 0.0009,
+        "r": 0.787,
+        "p": 0.0,
         "n": 21,
         "stable": true
       }
@@ -2090,44 +2090,49 @@
   "redundancy": {
     "pairs": [
       {
-        "a": "a_era",
-        "b": "a_whip",
-        "r": 0.908
-      },
-      {
         "a": "m_era",
         "b": "m_whip",
-        "r": 0.894
+        "r": 0.91
+      },
+      {
+        "a": "a_era",
+        "b": "a_whip",
+        "r": 0.896
       },
       {
         "a": "a_whip",
         "b": "a_k_bb",
-        "r": -0.853
+        "r": -0.797
+      },
+      {
+        "a": "m_bb9",
+        "b": "m_whip",
+        "r": 0.771
       }
     ],
     "clusters": [
       {
         "id": 0,
         "metrics": [
+          "a_bb9",
+          "a_k_bb",
+          "m_k_bb"
+        ]
+      },
+      {
+        "id": 2,
+        "metrics": [
           "a_era",
           "a_whip",
-          "a_k_bb",
           "a_w_pct"
         ]
       },
       {
-        "id": 1,
+        "id": 5,
         "metrics": [
           "m_era",
           "m_bb9",
           "m_whip"
-        ]
-      },
-      {
-        "id": 3,
-        "metrics": [
-          "m_k9",
-          "m_k_bb"
         ]
       }
     ]
@@ -2138,58 +2143,58 @@
         "label": "ERA+",
         "drivers": [
           {
+            "metric": "k_bb",
+            "label": "K/BB",
+            "r": 0.537,
+            "p": 0.0082,
+            "n": 23,
+            "significant": true
+          },
+          {
             "metric": "bb9",
             "label": "BB/9",
-            "r": -0.303,
-            "p": 0.1602,
+            "r": -0.418,
+            "p": 0.0471,
+            "n": 23,
+            "significant": true
+          },
+          {
+            "metric": "whip",
+            "label": "WHIP",
+            "r": -0.324,
+            "p": 0.1318,
             "n": 23,
             "significant": false
           },
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": 0.257,
-            "p": 0.2366,
-            "n": 23,
-            "significant": false
-          },
-          {
-            "metric": "whip",
-            "label": "WHIP",
-            "r": -0.251,
-            "p": 0.248,
-            "n": 23,
-            "significant": false
-          },
-          {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": 0.25,
-            "p": 0.2499,
+            "r": 0.317,
+            "p": 0.141,
             "n": 23,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": -0.212,
-            "p": 0.3324,
-            "n": 23,
-            "significant": false
-          },
-          {
-            "metric": "k9",
-            "label": "K/9",
-            "r": -0.066,
-            "p": 0.764,
+            "r": -0.105,
+            "p": 0.6344,
             "n": 23,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": -0.065,
-            "p": 0.7688,
+            "r": 0.091,
+            "p": 0.68,
+            "n": 23,
+            "significant": false
+          },
+          {
+            "metric": "k9",
+            "label": "K/9",
+            "r": -0.078,
+            "p": 0.7248,
             "n": 23,
             "significant": false
           }
@@ -2199,58 +2204,58 @@
         "label": "Career WAR",
         "drivers": [
           {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": -0.297,
-            "p": 0.169,
-            "n": 23,
-            "significant": false
-          },
-          {
             "metric": "w_pct",
             "label": "Win%",
-            "r": 0.266,
-            "p": 0.2202,
+            "r": 0.402,
+            "p": 0.0575,
+            "n": 23,
+            "significant": true
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": -0.305,
+            "p": 0.1575,
             "n": 23,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": -0.24,
-            "p": 0.2698,
-            "n": 23,
-            "significant": false
-          },
-          {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": 0.21,
-            "p": 0.3351,
+            "r": -0.305,
+            "p": 0.1565,
             "n": 23,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": -0.194,
-            "p": 0.3743,
+            "r": -0.268,
+            "p": 0.2168,
             "n": 23,
             "significant": false
           },
           {
-            "metric": "k9",
-            "label": "K/9",
-            "r": -0.182,
-            "p": 0.4061,
+            "metric": "k_bb",
+            "label": "K/BB",
+            "r": 0.256,
+            "p": 0.2389,
             "n": 23,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": -0.069,
-            "p": 0.7549,
+            "r": -0.229,
+            "p": 0.2922,
+            "n": 23,
+            "significant": false
+          },
+          {
+            "metric": "k9",
+            "label": "K/9",
+            "r": -0.11,
+            "p": 0.6185,
             "n": 23,
             "significant": false
           }
@@ -2262,56 +2267,56 @@
           {
             "metric": "k9",
             "label": "K/9",
-            "r": -0.239,
-            "p": 0.2977,
+            "r": -0.168,
+            "p": 0.4672,
             "n": 21,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": 0.085,
-            "p": 0.7152,
-            "n": 21,
-            "significant": false
-          },
-          {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": -0.08,
-            "p": 0.729,
+            "r": 0.126,
+            "p": 0.5855,
             "n": 21,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": 0.078,
-            "p": 0.7377,
+            "r": 0.107,
+            "p": 0.6453,
             "n": 21,
             "significant": false
           },
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": 0.074,
-            "p": 0.7505,
-            "n": 21,
-            "significant": false
-          },
-          {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": -0.056,
-            "p": 0.8089,
+            "r": 0.101,
+            "p": 0.6623,
             "n": 21,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": 0.04,
-            "p": 0.8641,
+            "r": 0.017,
+            "p": 0.9402,
+            "n": 21,
+            "significant": false
+          },
+          {
+            "metric": "k_bb",
+            "label": "K/BB",
+            "r": -0.013,
+            "p": 0.9547,
+            "n": 21,
+            "significant": false
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": 0.002,
+            "p": 0.9916,
             "n": 21,
             "significant": false
           }
@@ -2325,56 +2330,56 @@
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": 0.337,
-            "p": 0.3753,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "k9",
-            "label": "K/9",
-            "r": 0.167,
-            "p": 0.6682,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": 0.118,
-            "p": 0.7621,
+            "r": 0.35,
+            "p": 0.3551,
             "n": 9,
             "significant": false
           },
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": 0.075,
-            "p": 0.8473,
+            "r": 0.223,
+            "p": 0.5648,
             "n": 9,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": -0.05,
-            "p": 0.8984,
+            "r": -0.219,
+            "p": 0.5712,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "k9",
+            "label": "K/9",
+            "r": 0.157,
+            "p": 0.6863,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": 0.13,
+            "p": 0.7397,
             "n": 9,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": -0.05,
-            "p": 0.8984,
+            "r": -0.074,
+            "p": 0.85,
             "n": 9,
             "significant": false
           },
           {
             "metric": "k_bb",
             "label": "K/BB",
-            "r": 0.017,
-            "p": 0.9661,
+            "r": 0.023,
+            "p": 0.9527,
             "n": 9,
             "significant": false
           }
@@ -2384,58 +2389,58 @@
         "label": "Career WAR",
         "drivers": [
           {
-            "metric": "hr9",
-            "label": "HR/9",
-            "r": -0.124,
-            "p": 0.7503,
-            "n": 9,
-            "significant": false
-          },
-          {
             "metric": "k9",
             "label": "K/9",
-            "r": 0.067,
-            "p": 0.8647,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "era",
-            "label": "ERA",
-            "r": 0.05,
-            "p": 0.8984,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "whip",
-            "label": "WHIP",
-            "r": 0.05,
-            "p": 0.8984,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "w_pct",
-            "label": "Win%",
-            "r": -0.025,
-            "p": 0.9489,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": -0.017,
-            "p": 0.9656,
+            "r": 0.148,
+            "p": 0.7034,
             "n": 9,
             "significant": false
           },
           {
             "metric": "k_bb",
             "label": "K/BB",
-            "r": 0.0,
-            "p": 1.0,
+            "r": 0.127,
+            "p": 0.7451,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "w_pct",
+            "label": "Win%",
+            "r": 0.113,
+            "p": 0.7714,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": -0.089,
+            "p": 0.8207,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "hr9",
+            "label": "HR/9",
+            "r": 0.079,
+            "p": 0.8397,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "whip",
+            "label": "WHIP",
+            "r": -0.067,
+            "p": 0.8634,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "era",
+            "label": "ERA",
+            "r": -0.046,
+            "p": 0.907,
             "n": 9,
             "significant": false
           }
@@ -2445,58 +2450,58 @@
         "label": "MLB Seasons",
         "drivers": [
           {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": -0.698,
-            "p": 0.0367,
+            "metric": "w_pct",
+            "label": "Win%",
+            "r": -0.761,
+            "p": 0.0172,
             "n": 9,
             "significant": true
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": 0.681,
-            "p": 0.0436,
-            "n": 9,
-            "significant": true
-          },
-          {
-            "metric": "whip",
-            "label": "WHIP",
-            "r": 0.681,
-            "p": 0.0436,
-            "n": 9,
-            "significant": true
-          },
-          {
-            "metric": "w_pct",
-            "label": "Win%",
-            "r": -0.557,
-            "p": 0.1193,
-            "n": 9,
-            "significant": false
-          },
-          {
-            "metric": "k9",
-            "label": "K/9",
-            "r": -0.496,
-            "p": 0.1747,
+            "r": 0.563,
+            "p": 0.1149,
             "n": 9,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": 0.393,
-            "p": 0.2948,
+            "r": 0.528,
+            "p": 0.1439,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "k9",
+            "label": "K/9",
+            "r": -0.493,
+            "p": 0.1776,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "whip",
+            "label": "WHIP",
+            "r": 0.49,
+            "p": 0.1802,
+            "n": 9,
+            "significant": false
+          },
+          {
+            "metric": "k_bb",
+            "label": "K/BB",
+            "r": -0.447,
+            "p": 0.2273,
             "n": 9,
             "significant": false
           },
           {
             "metric": "bb9",
             "label": "BB/9",
-            "r": 0.243,
-            "p": 0.5295,
+            "r": 0.295,
+            "p": 0.4414,
             "n": 9,
             "significant": false
           }
@@ -2508,58 +2513,58 @@
         "label": "ERA+",
         "drivers": [
           {
-            "metric": "hr9",
-            "label": "HR/9",
-            "r": -0.441,
-            "p": 0.3809,
-            "n": 6,
-            "significant": false
-          },
-          {
             "metric": "bb9",
             "label": "BB/9",
-            "r": 0.324,
-            "p": 0.5314,
-            "n": 6,
-            "significant": false
-          },
-          {
-            "metric": "era",
-            "label": "ERA",
-            "r": 0.314,
-            "p": 0.5441,
-            "n": 6,
-            "significant": false
-          },
-          {
-            "metric": "k9",
-            "label": "K/9",
-            "r": 0.203,
-            "p": 0.6998,
+            "r": 0.527,
+            "p": 0.2829,
             "n": 6,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": 0.2,
-            "p": 0.704,
+            "r": 0.465,
+            "p": 0.3528,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "hr9",
+            "label": "HR/9",
+            "r": -0.428,
+            "p": 0.397,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "k9",
+            "label": "K/9",
+            "r": 0.412,
+            "p": 0.4167,
             "n": 6,
             "significant": false
           },
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": -0.174,
-            "p": 0.7417,
+            "r": -0.38,
+            "p": 0.4579,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "era",
+            "label": "ERA",
+            "r": 0.358,
+            "p": 0.4857,
             "n": 6,
             "significant": false
           },
           {
             "metric": "k_bb",
             "label": "K/BB",
-            "r": -0.029,
-            "p": 0.9572,
+            "r": -0.127,
+            "p": 0.8099,
             "n": 6,
             "significant": false
           }
@@ -2569,58 +2574,58 @@
         "label": "Career WAR",
         "drivers": [
           {
-            "metric": "k9",
-            "label": "K/9",
-            "r": -0.377,
-            "p": 0.4615,
+            "metric": "k_bb",
+            "label": "K/BB",
+            "r": -0.492,
+            "p": 0.3216,
             "n": 6,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": -0.265,
-            "p": 0.6121,
-            "n": 6,
-            "significant": false
-          },
-          {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": -0.257,
-            "p": 0.6228,
+            "r": -0.322,
+            "p": 0.5333,
             "n": 6,
             "significant": false
           },
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": 0.232,
-            "p": 0.6584,
+            "r": 0.301,
+            "p": 0.5628,
             "n": 6,
             "significant": false
           },
           {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": 0.147,
-            "p": 0.7809,
+            "metric": "k9",
+            "label": "K/9",
+            "r": -0.261,
+            "p": 0.6167,
             "n": 6,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": -0.143,
-            "p": 0.7872,
+            "r": -0.226,
+            "p": 0.6669,
             "n": 6,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": 0.086,
-            "p": 0.8717,
+            "r": -0.214,
+            "p": 0.6832,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": 0.078,
+            "p": 0.8835,
             "n": 6,
             "significant": false
           }
@@ -2632,56 +2637,56 @@
           {
             "metric": "k_bb",
             "label": "K/BB",
-            "r": -0.6,
-            "p": 0.208,
+            "r": -0.573,
+            "p": 0.2349,
             "n": 6,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": -0.559,
-            "p": 0.2488,
-            "n": 6,
-            "significant": false
-          },
-          {
-            "metric": "k9",
-            "label": "K/9",
-            "r": -0.522,
-            "p": 0.2883,
-            "n": 6,
-            "significant": false
-          },
-          {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": 0.441,
-            "p": 0.3809,
-            "n": 6,
-            "significant": false
-          },
-          {
-            "metric": "w_pct",
-            "label": "Win%",
-            "r": 0.435,
-            "p": 0.3889,
+            "r": -0.55,
+            "p": 0.258,
             "n": 6,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": -0.314,
-            "p": 0.5441,
+            "r": -0.296,
+            "p": 0.5686,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "w_pct",
+            "label": "Win%",
+            "r": 0.263,
+            "p": 0.614,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": 0.207,
+            "p": 0.694,
+            "n": 6,
+            "significant": false
+          },
+          {
+            "metric": "k9",
+            "label": "K/9",
+            "r": -0.171,
+            "p": 0.7466,
             "n": 6,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": -0.2,
-            "p": 0.704,
+            "r": -0.104,
+            "p": 0.8438,
             "n": 6,
             "significant": false
           }
@@ -2693,58 +2698,58 @@
         "label": "ERA+",
         "drivers": [
           {
-            "metric": "w_pct",
-            "label": "Win%",
+            "metric": "k_bb",
+            "label": "K/BB",
             "r": 0.351,
-            "p": 0.0305,
+            "p": 0.0309,
             "n": 38,
             "significant": true
           },
           {
-            "metric": "era",
-            "label": "ERA",
-            "r": -0.229,
-            "p": 0.166,
+            "metric": "w_pct",
+            "label": "Win%",
+            "r": 0.29,
+            "p": 0.0777,
+            "n": 38,
+            "significant": true
+          },
+          {
+            "metric": "bb9",
+            "label": "BB/9",
+            "r": -0.224,
+            "p": 0.1767,
             "n": 38,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": -0.198,
-            "p": 0.2334,
+            "r": -0.215,
+            "p": 0.1952,
             "n": 38,
             "significant": false
           },
           {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": 0.198,
-            "p": 0.2335,
-            "n": 38,
-            "significant": false
-          },
-          {
-            "metric": "bb9",
-            "label": "BB/9",
-            "r": -0.193,
-            "p": 0.2449,
+            "metric": "era",
+            "label": "ERA",
+            "r": -0.159,
+            "p": 0.3418,
             "n": 38,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": 0.087,
-            "p": 0.6034,
+            "r": 0.155,
+            "p": 0.3539,
             "n": 38,
             "significant": false
           },
           {
             "metric": "k9",
             "label": "K/9",
-            "r": 0.081,
-            "p": 0.6288,
+            "r": 0.045,
+            "p": 0.7886,
             "n": 38,
             "significant": false
           }
@@ -2756,56 +2761,56 @@
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": 0.322,
-            "p": 0.0485,
+            "r": 0.352,
+            "p": 0.03,
             "n": 38,
             "significant": true
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": -0.285,
-            "p": 0.0826,
+            "r": -0.297,
+            "p": 0.0702,
             "n": 38,
             "significant": true
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": -0.254,
-            "p": 0.1232,
+            "r": -0.266,
+            "p": 0.106,
             "n": 38,
             "significant": false
           },
           {
             "metric": "bb9",
             "label": "BB/9",
-            "r": -0.236,
-            "p": 0.1541,
+            "r": -0.248,
+            "p": 0.1327,
             "n": 38,
             "significant": false
           },
           {
             "metric": "k_bb",
             "label": "K/BB",
-            "r": 0.18,
-            "p": 0.2791,
+            "r": 0.233,
+            "p": 0.1595,
             "n": 38,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": -0.037,
-            "p": 0.8244,
+            "r": -0.146,
+            "p": 0.3813,
             "n": 38,
             "significant": false
           },
           {
             "metric": "k9",
             "label": "K/9",
-            "r": -0.032,
-            "p": 0.8473,
+            "r": -0.021,
+            "p": 0.9001,
             "n": 38,
             "significant": false
           }
@@ -2817,56 +2822,56 @@
           {
             "metric": "k9",
             "label": "K/9",
-            "r": -0.281,
-            "p": 0.097,
-            "n": 36,
-            "significant": true
-          },
-          {
-            "metric": "k_bb",
-            "label": "K/BB",
-            "r": -0.212,
-            "p": 0.2142,
+            "r": -0.278,
+            "p": 0.1002,
             "n": 36,
             "significant": false
           },
           {
             "metric": "era",
             "label": "ERA",
-            "r": 0.138,
-            "p": 0.4207,
+            "r": 0.27,
+            "p": 0.1116,
             "n": 36,
             "significant": false
           },
           {
             "metric": "whip",
             "label": "WHIP",
-            "r": 0.13,
-            "p": 0.4501,
+            "r": 0.208,
+            "p": 0.2237,
+            "n": 36,
+            "significant": false
+          },
+          {
+            "metric": "k_bb",
+            "label": "K/BB",
+            "r": -0.186,
+            "p": 0.278,
             "n": 36,
             "significant": false
           },
           {
             "metric": "w_pct",
             "label": "Win%",
-            "r": -0.065,
-            "p": 0.7071,
+            "r": -0.175,
+            "p": 0.308,
             "n": 36,
             "significant": false
           },
           {
             "metric": "hr9",
             "label": "HR/9",
-            "r": 0.056,
-            "p": 0.745,
+            "r": 0.103,
+            "p": 0.5482,
             "n": 36,
             "significant": false
           },
           {
             "metric": "bb9",
             "label": "BB/9",
-            "r": 0.001,
-            "p": 0.9934,
+            "r": 0.086,
+            "p": 0.6195,
             "n": 36,
             "significant": false
           }

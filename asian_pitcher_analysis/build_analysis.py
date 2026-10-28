@@ -17,7 +17,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy import stats
+from scipy import stats as sp_stats
 from sklearn.cluster import AgglomerativeClustering
 
 OUT = Path(__file__).resolve().parent
@@ -51,7 +51,7 @@ def load_data() -> pd.DataFrame:
 # ── Stability Analysis ──────────────────────────────────────────────────────
 
 def stability_analysis(df: pd.DataFrame) -> dict:
-    """Correlate Asian-league metric → same MLB metric for each league."""
+    """Correlate Asian-league metric → same MLB metric for each league (Pearson r)."""
     results = {}
     for league in ["NPB", "KBO", "CPBL", "ALL"]:
         sub = df if league == "ALL" else df[df["league"] == league]
@@ -66,13 +66,13 @@ def stability_analysis(df: pd.DataFrame) -> dict:
             valid = sub[[a_col, m_col]].dropna()
             if len(valid) < 4:
                 continue
-            r, p = stats.spearmanr(valid[a_col], valid[m_col])
+            r, p = sp_stats.pearsonr(valid[a_col], valid[m_col])
             league_res[m] = {"r": round(r, 3), "p": round(p, 4), "n": len(valid),
                              "stable": bool(abs(r) >= 0.40 and p < 0.10)}
         if "a_gb_pct" in sub.columns and "m_gb_pct" in sub.columns:
             v = sub[["a_gb_pct", "m_gb_pct"]].dropna()
             if len(v) >= 4:
-                r, p = stats.spearmanr(v["a_gb_pct"], v["m_gb_pct"])
+                r, p = sp_stats.pearsonr(v["a_gb_pct"], v["m_gb_pct"])
                 league_res["gb_pct"] = {"r": round(r, 3), "p": round(p, 4), "n": len(v),
                                         "stable": bool(abs(r) >= 0.40 and p < 0.10)}
         results[league] = league_res
@@ -89,7 +89,7 @@ def redundancy_analysis(df: pd.DataFrame) -> dict:
     if len(clean) < 5:
         return {"pairs": [], "clusters": []}
 
-    corr = clean[available].corr(method="spearman")
+    corr = clean[available].corr(method="pearson")
 
     pairs = []
     for i, c1 in enumerate(available):
@@ -142,7 +142,7 @@ def significance_analysis(df: pd.DataFrame) -> dict:
                 valid = sub[[ac, out_col]].dropna()
                 if len(valid) < 5:
                     continue
-                r, p = stats.spearmanr(valid[ac], valid[out_col])
+                r, p = sp_stats.pearsonr(valid[ac], valid[out_col])
                 metric_results.append({
                     "metric": ac.replace("a_", ""),
                     "label": METRIC_LABELS.get(ac.replace("a_", ""), ac),

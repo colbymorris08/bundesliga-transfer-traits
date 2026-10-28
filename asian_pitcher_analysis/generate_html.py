@@ -243,13 +243,13 @@ function stabBar(r) {{
 function renderStab(containerId, leagueKey) {{
   const stab = D.stability[leagueKey];
   if (!stab) {{ document.getElementById(containerId).innerHTML = '<p>Insufficient data for this league.</p>'; return; }}
-  let html = '<table><thead><tr><th>Metric</th><th>\u03C1 (Spearman)</th><th>p-value</th><th>N</th><th>Status</th><th></th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th>Metric</th><th>r (Pearson)</th><th>p-value</th><th>N</th><th>Status</th><th></th></tr></thead><tbody>';
   for (const [m, v] of Object.entries(stab)) {{
     const label = ML[m] || m;
     html += `<tr><td>${{label}}</td><td>${{fmtR(v.r)}}</td><td>${{v.p.toFixed(4)}}</td><td>${{v.n}}</td><td>${{stabPill(v.stable)}}</td><td style="width:120px">${{stabBar(v.r)}}</td></tr>`;
   }}
   html += '</tbody></table>';
-  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |\u03C1| \u2265 0.40 and p &lt; 0.10. Spearman rank correlation, Asian league career \u2192 MLB career.</p>';
+  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |\u03C1| \u2265 0.40 and p &lt; 0.10. Pearson r, Asian league career \u2192 MLB career.</p>';
   document.getElementById(containerId).innerHTML = html;
 }}
 
@@ -321,7 +321,7 @@ document.getElementById('homeKpis').innerHTML = `
   <div class="kpi"><div class="v">${{D.meta.translation_factor}}</div><div class="l">xFIP\u2212 Translation Factor</div></div>`;
 
 document.getElementById('homeNote').innerHTML =
-  '<strong>Methodology:</strong> Spearman rank correlations between Asian-league career stats and MLB career stats across {data["meta"]["n_with_both"]} pitchers. ' +
+  '<strong>Methodology:</strong> Pearson correlations between Asian-league career stats and MLB career stats across {data["meta"]["n_with_both"]} pitchers. ' +
   'Stability = \u03C1 \u2265 0.40, p &lt; 0.10. Redundancy = |\u03C1| \u2265 0.75 between metrics. ' +
   'Significance = Asian metric predicting MLB ERA+, WAR, or longevity. ' +
   'Data from MLB Stats API (statsapi.mlb.com), Baseball-Reference Register, and bWAR (pybaseball). ' +
