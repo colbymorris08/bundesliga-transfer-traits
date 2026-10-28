@@ -74,7 +74,6 @@ tr:hover td {{ background:#f0f4fa; }}
 .source-list li {{ padding:2px 0; }}
 .source-list li::before {{ content:"[" attr(data-n) "] "; font-weight:700; }}
 footer {{ margin-top:24px; font-size:11px; color:#888; text-align:center; }}
-.bar {{ height:6px; border-radius:3px; margin-top:3px; }}
 .bar-wrap {{ display:flex; align-items:center; gap:8px; }}
 .bar-bg {{ flex:1; height:6px; background:#e8eaee; border-radius:3px; overflow:hidden; }}
 .bar-fill {{ height:100%; border-radius:3px; }}
@@ -83,7 +82,7 @@ footer {{ margin-top:24px; font-size:11px; color:#888; text-align:center; }}
 <body>
 <div class="wrap">
 <h1>Asian League → MLB Pitcher Transition Analysis</h1>
-<p class="sub">Stability, redundancy, and significance analysis of CPBL / KBO / NPB pitchers who transitioned to Major League Baseball. Includes Hiromi Itoh scouting assessment.</p>
+<p class="sub">Stability, redundancy, and significance analysis of {data['meta']['n_pitchers']} CPBL / KBO / NPB pitchers who transitioned to Major League Baseball. Data from MLB Stats API, Baseball-Reference Register, and bWAR. Includes Hiromi Itoh scouting assessment.</p>
 
 <nav class="tabs">
   <button class="tab active" data-panel="home">Home &amp; Rankings</button>
@@ -212,7 +211,7 @@ footer {{ margin-top:24px; font-size:11px; color:#888; text-align:center; }}
   </div>
 </section>
 
-<footer>Asian League → MLB Pitcher Transition Analysis · Data: Baseball-Reference, FanGraphs, NPB Official, KBO, CPBL · Cross-league factor: Cho (2026)</footer>
+<footer>Asian League → MLB Pitcher Transition Analysis · Data: MLB Stats API, Baseball-Reference Register, bWAR · Cross-league factor: Cho (2026) · {data['meta']['n_with_both']} pitchers with both Asian &amp; MLB data</footer>
 </div>
 
 <script>
@@ -228,6 +227,7 @@ document.querySelectorAll('.tab').forEach(btn => {{
   }};
 }});
 
+function fmt(v, d) {{ return v != null && !isNaN(v) ? Number(v).toFixed(d) : '\u2014'; }}
 function fmtR(r) {{ return `<span class="rnum">${{Number(r).toFixed(3)}}</span>`; }}
 function stabPill(s) {{ return s ? '<span class="pill y">STABLE</span>' : '<span class="pill n">below</span>'; }}
 function sigPill(s) {{ return s ? '<span class="pill y">SIG</span>' : '<span class="pill n">n.s.</span>'; }}
@@ -243,13 +243,13 @@ function stabBar(r) {{
 function renderStab(containerId, leagueKey) {{
   const stab = D.stability[leagueKey];
   if (!stab) {{ document.getElementById(containerId).innerHTML = '<p>Insufficient data for this league.</p>'; return; }}
-  let html = '<table><thead><tr><th>Metric</th><th>ρ (Spearman)</th><th>p-value</th><th>N</th><th>Status</th><th></th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th>Metric</th><th>\u03C1 (Spearman)</th><th>p-value</th><th>N</th><th>Status</th><th></th></tr></thead><tbody>';
   for (const [m, v] of Object.entries(stab)) {{
     const label = ML[m] || m;
     html += `<tr><td>${{label}}</td><td>${{fmtR(v.r)}}</td><td>${{v.p.toFixed(4)}}</td><td>${{v.n}}</td><td>${{stabPill(v.stable)}}</td><td style="width:120px">${{stabBar(v.r)}}</td></tr>`;
   }}
   html += '</tbody></table>';
-  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |ρ| ≥ 0.40 and p &lt; 0.10. Spearman rank correlation, Asian league avg → MLB career.</p>';
+  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |\u03C1| \u2265 0.40 and p &lt; 0.10. Spearman rank correlation, Asian league career \u2192 MLB career.</p>';
   document.getElementById(containerId).innerHTML = html;
 }}
 
@@ -259,7 +259,7 @@ function renderSig(containerId, leagueKey) {{
   let html = '';
   for (const [outKey, outData] of Object.entries(sig)) {{
     html += `<h3>Predicting ${{outData.label}}</h3>`;
-    html += '<table><thead><tr><th>Asian Metric</th><th>ρ</th><th>p</th><th>N</th><th></th></tr></thead><tbody>';
+    html += '<table><thead><tr><th>Asian Metric</th><th>\u03C1</th><th>p</th><th>N</th><th></th></tr></thead><tbody>';
     for (const d of outData.drivers.slice(0, 7)) {{
       html += `<tr><td>${{d.label}}</td><td>${{fmtR(d.r)}}</td><td>${{d.p.toFixed(4)}}</td><td>${{d.n}}</td><td>${{sigPill(d.significant)}}</td></tr>`;
     }}
@@ -270,24 +270,25 @@ function renderSig(containerId, leagueKey) {{
 
 function renderPitcherTable(containerId, league) {{
   const pitchers = D.pitchers.filter(p => p.league === league);
-  let html = '<table><thead><tr><th>Name</th><th>Pos</th><th>Asian Yrs</th><th>MLB Yrs</th>';
-  html += '<th>A-ERA</th><th>A-K/9</th><th>A-BB/9</th><th>A-WHIP</th><th>A-K/BB</th>';
-  html += '<th>M-ERA</th><th>M-K/9</th><th>M-BB/9</th><th>M-WHIP</th><th>M-K/BB</th>';
-  html += '<th>ERA+</th><th>WAR</th><th>Seasons</th></tr></thead><tbody>';
-  const sorted = [...pitchers].sort((a, b) => b.m_war - a.m_war);
+  let html = '<table><thead><tr><th>Name</th><th>Pos</th><th>Year</th>';
+  html += '<th>A-ERA</th><th>A-IP</th><th>A-K/9</th><th>A-BB/9</th><th>A-WHIP</th><th>A-K/BB</th>';
+  html += '<th>M-ERA</th><th>M-IP</th><th>M-K/9</th><th>M-BB/9</th><th>M-WHIP</th><th>M-K/BB</th>';
+  html += '<th>ERA+</th><th>WAR</th></tr></thead><tbody>';
+  const sorted = [...pitchers].sort((a, b) => (b.m_war||0) - (a.m_war||0));
   for (const p of sorted) {{
-    const eraClass = p.m_era_plus >= 110 ? 'color:var(--pass)' : p.m_era_plus < 90 ? 'color:var(--cut)' : '';
+    const ep = p.m_era_plus;
+    const eraClass = ep != null ? (ep >= 110 ? 'color:var(--pass)' : ep < 90 ? 'color:var(--cut)' : '') : '';
     html += `<tr>
-      <td><strong>${{p.name}}</strong></td><td>${{p.pos}}</td>
-      <td>${{p.asian_years}}</td><td>${{p.mlb_years}}</td>
-      <td class="rnum">${{p.a_era.toFixed(2)}}</td><td class="rnum">${{p.a_k9.toFixed(1)}}</td>
-      <td class="rnum">${{p.a_bb9.toFixed(1)}}</td><td class="rnum">${{p.a_whip.toFixed(2)}}</td>
-      <td class="rnum">${{p.a_k_bb.toFixed(2)}}</td>
-      <td class="rnum">${{p.m_era.toFixed(2)}}</td><td class="rnum">${{p.m_k9.toFixed(1)}}</td>
-      <td class="rnum">${{p.m_bb9.toFixed(1)}}</td><td class="rnum">${{p.m_whip.toFixed(2)}}</td>
-      <td class="rnum">${{p.m_k_bb.toFixed(2)}}</td>
-      <td class="rnum" style="${{eraClass}}">${{p.m_era_plus}}</td>
-      <td class="rnum">${{p.m_war.toFixed(1)}}</td><td>${{p.m_seasons}}</td>
+      <td><strong>${{p.name}}</strong></td><td>${{p.pos||''}}</td>
+      <td>${{p.transition_year||'\u2014'}}</td>
+      <td class="rnum">${{fmt(p.a_era,2)}}</td><td class="rnum">${{fmt(p.a_ip,0)}}</td>
+      <td class="rnum">${{fmt(p.a_k9,1)}}</td><td class="rnum">${{fmt(p.a_bb9,1)}}</td>
+      <td class="rnum">${{fmt(p.a_whip,2)}}</td><td class="rnum">${{fmt(p.a_k_bb,2)}}</td>
+      <td class="rnum">${{fmt(p.m_era,2)}}</td><td class="rnum">${{fmt(p.m_ip,0)}}</td>
+      <td class="rnum">${{fmt(p.m_k9,1)}}</td><td class="rnum">${{fmt(p.m_bb9,1)}}</td>
+      <td class="rnum">${{fmt(p.m_whip,2)}}</td><td class="rnum">${{fmt(p.m_k_bb,2)}}</td>
+      <td class="rnum" style="${{eraClass}}">${{fmt(ep,0)}}</td>
+      <td class="rnum">${{fmt(p.m_war,1)}}</td>
     </tr>`;
   }}
   html += '</tbody></table>';
@@ -295,44 +296,47 @@ function renderPitcherTable(containerId, league) {{
 }}
 
 function renderLeagueKpis(containerId, league) {{
-  const pitchers = D.pitchers.filter(p => p.league === league);
-  const n = pitchers.length;
-  const avgWar = (pitchers.reduce((s, p) => s + p.m_war, 0) / n).toFixed(1);
-  const avgEra = (pitchers.reduce((s, p) => s + p.m_era, 0) / n).toFixed(2);
-  const avgSzn = (pitchers.reduce((s, p) => s + p.m_seasons, 0) / n).toFixed(1);
-  const avgEraPlus = Math.round(pitchers.reduce((s, p) => s + p.m_era_plus, 0) / n);
+  const all = D.pitchers.filter(p => p.league === league);
+  const withMlb = all.filter(p => p.m_war != null);
+  const n = all.length;
+  const nm = withMlb.length;
+  const avgWar = nm ? (withMlb.reduce((s, p) => s + (p.m_war||0), 0) / nm).toFixed(1) : '\u2014';
+  const avgEra = nm ? (withMlb.reduce((s, p) => s + (p.m_era||0), 0) / nm).toFixed(2) : '\u2014';
+  const avgEraPlus = nm ? Math.round(withMlb.reduce((s, p) => s + (p.m_era_plus||100), 0) / nm) : '\u2014';
   document.getElementById(containerId).innerHTML = `
     <div class="kpi"><div class="v">${{n}}</div><div class="l">Pitchers</div></div>
+    <div class="kpi"><div class="v">${{nm}}</div><div class="l">With MLB Data</div></div>
     <div class="kpi"><div class="v">${{avgWar}}</div><div class="l">Avg Career WAR</div></div>
     <div class="kpi"><div class="v">${{avgEra}}</div><div class="l">Avg MLB ERA</div></div>
-    <div class="kpi"><div class="v">${{avgEraPlus}}</div><div class="l">Avg ERA+</div></div>
-    <div class="kpi"><div class="v">${{avgSzn}}</div><div class="l">Avg MLB Seasons</div></div>`;
+    <div class="kpi"><div class="v">${{avgEraPlus}}</div><div class="l">Avg ERA+</div></div>`;
 }}
 
 // HOME
 document.getElementById('homeKpis').innerHTML = `
   <div class="kpi"><div class="v">${{D.meta.n_pitchers}}</div><div class="l">Total Pitchers</div></div>
+  <div class="kpi"><div class="v">${{D.meta.n_with_both}}</div><div class="l">With Both Asian + MLB Stats</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_npb}}</div><div class="l">NPB (Japan)</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_kbo}}</div><div class="l">KBO (Korea)</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_cpbl}}</div><div class="l">CPBL (Taiwan)</div></div>
-  <div class="kpi"><div class="v">${{D.meta.translation_factor}}</div><div class="l">xFIP− Translation Factor</div></div>`;
+  <div class="kpi"><div class="v">${{D.meta.translation_factor}}</div><div class="l">xFIP\u2212 Translation Factor</div></div>`;
 
 document.getElementById('homeNote').innerHTML =
-  '<strong>Methodology:</strong> Spearman rank correlations between Asian-league career/peak stats and MLB career stats. ' +
-  'Stability = ρ ≥ 0.40, p &lt; 0.10. Redundancy = |ρ| ≥ 0.75 between metrics. ' +
+  '<strong>Methodology:</strong> Spearman rank correlations between Asian-league career stats and MLB career stats across {data["meta"]["n_with_both"]} pitchers. ' +
+  'Stability = \u03C1 \u2265 0.40, p &lt; 0.10. Redundancy = |\u03C1| \u2265 0.75 between metrics. ' +
   'Significance = Asian metric predicting MLB ERA+, WAR, or longevity. ' +
-  'Translation factor from Cho (2026): NPB xFIP− worsens ~9.6% in MLB. ' +
+  'Data from MLB Stats API (statsapi.mlb.com), Baseball-Reference Register, and bWAR (pybaseball). ' +
+  'Translation factor from Cho (2026): NPB xFIP\u2212 worsens ~9.6% in MLB. ' +
   'Composite ranking = 35% WAR + 25% ERA+ + 20% IP + 10% Seasons + 10% K/BB.';
 
 // Rankings
-let rankHtml = '<table><thead><tr><th>#</th><th>Name</th><th>League</th><th>Pos</th><th>Composite</th><th>WAR</th><th>ERA+</th><th>IP</th><th>Seasons</th><th>MLB Years</th></tr></thead><tbody>';
+let rankHtml = '<table><thead><tr><th>#</th><th>Name</th><th>League</th><th>Pos</th><th>Composite</th><th>WAR</th><th>ERA+</th><th>IP</th><th>Seasons</th><th>Transition</th></tr></thead><tbody>';
 for (const r of D.rankings.slice(0, 10)) {{
   rankHtml += `<tr>
     <td class="rnum">${{r.rank}}</td><td><strong>${{r.name}}</strong></td>
     <td>${{leagueBadge(r.league)}}</td><td>${{r.pos}}</td>
     <td class="rnum">${{r.composite}}</td><td class="rnum">${{r.war.toFixed(1)}}</td>
     <td class="rnum">${{r.era_plus}}</td><td class="rnum">${{r.ip.toFixed(0)}}</td>
-    <td>${{r.seasons}}</td><td>${{r.mlb_years}}</td>
+    <td>${{r.seasons}}</td><td>${{r.transition_year||'\u2014'}}</td>
   </tr>`;
 }}
 rankHtml += '</tbody></table>';
@@ -344,17 +348,16 @@ renderStab('homeStab', 'ALL');
 let cHtml = '';
 for (const c of D.redundancy.clusters) {{
   const labels = c.metrics.map(m => {{
-    const clean = m.replace('a_','Asian ').replace('m_','MLB ');
     const base = m.replace(/^[am]_/, '');
-    return ML[base] ? `${{m.startsWith('a_') ? 'Asian' : 'MLB'}} ${{ML[base]}}` : clean;
+    return ML[base] ? `${{m.startsWith('a_') ? 'Asian' : 'MLB'}} ${{ML[base]}}` : m;
   }});
-  cHtml += `<div class="cluster-box"><div class="cid">Cluster ${{c.id}}</div><div class="metrics">${{labels.join(' · ')}}</div></div>`;
+  cHtml += `<div class="cluster-box"><div class="cid">Cluster ${{c.id}}</div><div class="metrics">${{labels.join(' \u00B7 ')}}</div></div>`;
 }}
 if (!cHtml) cHtml = '<p>No multi-metric clusters found at threshold.</p>';
 document.getElementById('homeClusters').innerHTML = cHtml;
 
 // Pairs
-let pHtml = '<table><thead><tr><th>Metric A</th><th>Metric B</th><th>ρ</th></tr></thead><tbody>';
+let pHtml = '<table><thead><tr><th>Metric A</th><th>Metric B</th><th>\u03C1</th></tr></thead><tbody>';
 for (const p of D.redundancy.pairs.slice(0, 15)) {{
   const la = (ML[p.a.replace(/^[am]_/,'')] || p.a);
   const lb = (ML[p.b.replace(/^[am]_/,'')] || p.b);
@@ -381,9 +384,9 @@ const itoh = D.itoh;
 const c = itoh.npb_career;
 const b = itoh.best_season_2025;
 document.getElementById('itohKpis').innerHTML = `
-  <div class="kpi"><div class="v">${{itoh.name}}</div><div class="l">${{itoh.team}} · Age ${{itoh.age}} · ${{itoh.throws}} / ${{itoh.bats}} · ${{itoh.height}}</div></div>
+  <div class="kpi"><div class="v">${{itoh.name}}</div><div class="l">${{itoh.team}} \u00B7 Age ${{itoh.age}} \u00B7 ${{itoh.throws}} / ${{itoh.bats}} \u00B7 ${{itoh.height}}</div></div>
   <div class="kpi"><div class="v">${{c.era}} ERA</div><div class="l">NPB Career (${{c.seasons}} seasons, ${{c.record}})</div></div>
-  <div class="kpi"><div class="v">${{c.k}} K / ${{c.bb}} BB</div><div class="l">${{c.ip}} IP · ${{c.cg}} CG · ${{c.sho}} SHO</div></div>
+  <div class="kpi"><div class="v">${{c.k}} K / ${{c.bb}} BB</div><div class="l">${{c.ip}} IP \u00B7 ${{c.cg}} CG \u00B7 ${{c.sho}} SHO</div></div>
   <div class="kpi"><div class="v">${{b.era}} ERA</div><div class="l">2025 Best (${{b.record}}, ${{b.award}})</div></div>
   <div class="kpi"><div class="v">${{b.k}}:${{b.bb}} K:BB</div><div class="l">2025: ${{b.ip}} IP, ${{b.gb_pct}}% GB, ${{b.siera}} SIERA</div></div>`;
 
