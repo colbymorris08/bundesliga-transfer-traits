@@ -260,6 +260,10 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
       <h3>Data Sources</h3>
       <p>
         <strong>MLB Stats API</strong> (statsapi.mlb.com) for career and year-by-year MLB pitching stats.
+        <strong>Baseball Savant</strong> for MLB ground-ball rate (ground balls divided by batted balls, 2015 on).
+        The Stats API pitching line has ground outs and air outs only, which is a different rate, so it is not used for GB%.
+        <strong>NPB Data Store</strong> for NPB ground-ball rate in the seasons that site still publishes (2025 and 2026).
+        Official npb.jp, KBO, and CPBL lines do not publish it, so a blank GB% is a missing season.
         <strong>Baseball-Reference Register</strong> for Asian-league career and yearly data.
         <strong>bWAR dataset</strong> (via pybaseball) for WAR and ERA+.
         Cross-league translation factor of {data['meta']['translation_factor']} xFIP\u2212 from Cho (2026).
@@ -305,9 +309,10 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
       <p>
         We compute Pearson r between every pair of Asian-league career metrics
         (ERA, K/9, BB/9, HR/9, WHIP, K/BB).
-        Ground-ball rate is not included. Official NPB, KBO, and CPBL lines do not
-        publish it, and the Baseball-Reference register has no ground-out or air-out
-        columns for those leagues.
+        Ground-ball rate is left out of this matrix. Most Asian careers do not have
+        a published GB%, and requiring it would shrink the clusters to the few
+        pitchers who do. GB% is in the stability table instead, on the pitchers
+        who have it on both sides.
         This uses the same Pearson formula as stability, but both variables come
         from the Asian side \u2014 we\u2019re measuring how metrics relate to <em>each other</em>,
         not how they transfer to MLB.
@@ -368,7 +373,7 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
   <div class="section">
     <div class="section-h"><h2>Last season in Asia vs first season in MLB</h2></div>
     <div class="section-body">
-      <p>Moves from {data['meta'].get('year_min', 2006)} on, the last 20 years. Two rows per pitcher: the last Asian-league season before the move, and the first MLB season after it, including pitchers who arrived this year. Pitchers stay in the table when the Asian season is missing or the MLB sample is under 10 innings. Those rows are marked omitted and are left out of the stability and redundancy calculations.</p>
+      <p>Moves from {data['meta'].get('year_min', 2006)} on, the last 20 years. Two rows per pitcher: the last Asian-league season before the move, and the first MLB season after it, including pitchers who arrived this year. Hiromi Itoh is pinned at the top on his latest NPB season only. He has not pitched in MLB, so there is no MLB row and he is omitted from the correlations. Pitchers stay in the table when the Asian season is missing or the MLB sample is under 10 innings. Those rows are marked omitted and are left out of the stability and redundancy calculations. GB% is the published ground-ball rate when we have it: NPB Data Store on the Asian side, Baseball Savant on the MLB side.</p>
       <div class="roster-wrap" id="rosterTable"></div>
     </div>
   </div>
@@ -376,7 +381,7 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
 
 <footer>
   Asian League \u2192 MLB Pitcher Transition Analysis \u00B7
-  Data: MLB Stats API, Baseball-Reference Register, bWAR \u00B7
+  Data: MLB Stats API, Baseball Savant, NPB Data Store, Baseball-Reference Register, bWAR \u00B7
   Cross-league factor: Cho (2026) \u00B7
   {data['meta']['n_with_both']} pitchers with both Asian &amp; MLB data
 </footer>
@@ -642,10 +647,13 @@ function corrColor(r){{
   function num(v){{ const n = Number(v); return Number.isFinite(n) ? n : 0; }}
   function cell(v, d){{ return v==null || !Number.isFinite(v) ? '\\u2014' : Number(v).toFixed(d); }}
   function agg(rows){{
-    let ip=0, so=0, bb=0, hr=0, h=0, er=0;
+    let ip=0, so=0, bb=0, hr=0, h=0, er=0, gbW=0, gbIp=0;
+    let gbComplete = rows.length > 0;
     for (const r of rows) {{
       ip += num(r.ip); so += num(r.so); bb += num(r.bb);
       hr += num(r.hr); h += num(r.h); er += num(r.er);
+      if (r.gb_pct == null || !Number.isFinite(Number(r.gb_pct))) gbComplete = false;
+      else {{ gbW += Number(r.gb_pct) * num(r.ip); gbIp += num(r.ip); }}
     }}
     if (ip <= 0) return null;
     return {{
@@ -655,7 +663,8 @@ function corrColor(r){{
       bb9: bb / ip * 9,
       hr9: hr / ip * 9,
       whip: (h + bb) / ip,
-      k_bb: bb > 0 ? so / bb : null
+      k_bb: bb > 0 ? so / bb : null,
+      gb_pct: gbComplete && gbIp > 0 ? gbW / gbIp : null
     }};
   }}
   function pick(rows, which){{
@@ -672,11 +681,11 @@ function corrColor(r){{
     const leagues = [...new Set(by[y].map(r => r.league).filter(Boolean))];
     return stats ? Object.assign({{season: y, league: leagues.join('/')}}, stats) : null;
   }}
-  function line(p, side, s, cls){{
-    const label = side === 'asia' ? 'Last Asia' : 'First MLB';
+  function line(p, side, s, cls, labelOverride){{
+    const label = labelOverride || (side === 'asia' ? 'Last Asia' : 'First MLB');
     const league = (side === 'asia' && s && s.league) ? s.league : p.league;
     if (!s) {{
-      return `<tr class="${{cls}}"><td><strong>${{p.name}}</strong></td><td>${{p.league}}</td><td><span class="side-tag ${{side}}">${{label}}</span></td><td colspan="8">\\u2014</td></tr>`;
+      return `<tr class="${{cls}}"><td><strong>${{p.name}}</strong></td><td>${{p.league}}</td><td><span class="side-tag ${{side}}">${{label}}</span></td><td colspan="9">\\u2014</td></tr>`;
     }}
     return `<tr class="${{cls}}">
       <td><strong>${{p.name}}</strong></td><td>${{league}}</td>
@@ -689,16 +698,29 @@ function corrColor(r){{
       <td class="rnum">${{cell(s.hr9,2)}}</td>
       <td class="rnum">${{cell(s.whip,2)}}</td>
       <td class="rnum">${{cell(s.k_bb,2)}}</td>
+      <td class="rnum">${{cell(s.gb_pct,1)}}</td>
     </tr>`;
   }}
 
+  const featured = D.pitchers.filter(p => !p.transition_year && (p.asian_yearly || []).length);
   const pitchers = D.pitchers
     .filter(p => p.transition_year)
     .slice()
     .sort((a,b) => (a.transition_year - b.transition_year) || a.name.localeCompare(b.name));
 
-  let html = '<table><thead><tr><th>Pitcher</th><th>League</th><th>Analysis</th><th>Side</th><th>Season</th><th>IP</th><th>ERA</th><th>K/9</th><th>BB/9</th><th>HR/9</th><th>WHIP</th><th>K/BB</th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th>Pitcher</th><th>League</th><th>Analysis</th><th>Side</th><th>Season</th><th>IP</th><th>ERA</th><th>K/9</th><th>BB/9</th><th>HR/9</th><th>WHIP</th><th>K/BB</th><th>GB%</th></tr></thead><tbody>';
   let n = 0, omitted = 0;
+  function withTag(rowHtml, tag) {{
+    return rowHtml.replace('</td><td><span class="side-tag', `</td><td>${{tag}}</td><td><span class="side-tag`);
+  }}
+  for (const p of featured) {{
+    const asia = pick(p.asian_yearly || [], 'last');
+    if (!asia) continue;
+    n += 1;
+    omitted += 1;
+    const tag = '<span class="pill n">Omitted</span>';
+    html += withTag(line(p, 'asia', asia, 'row-asia', 'NPB'), tag);
+  }}
   for (const p of pitchers) {{
     const ty = Number(p.transition_year);
     const asia = pick((p.asian_yearly||[]).filter(r => Number(r.season) <= ty), 'last');
@@ -708,14 +730,11 @@ function corrColor(r){{
     const included = p.in_analysis === true || p.in_analysis === 'true';
     if (!included) omitted += 1;
     const tag = included ? '<span class="pill y">Included</span>' : '<span class="pill n">Omitted</span>';
-    function withTag(rowHtml) {{
-      return rowHtml.replace('</td><td><span class="side-tag', `</td><td>${{tag}}</td><td><span class="side-tag`);
-    }}
-    html += withTag(line(p, 'asia', asia, 'row-asia'));
-    html += withTag(line(p, 'mlb', mlb, 'row-mlb'));
+    html += withTag(line(p, 'asia', asia, 'row-asia'), tag);
+    html += withTag(line(p, 'mlb', mlb, 'row-mlb'), tag);
   }}
   html += '</tbody></table>';
-  html += `<p style="font-size:11.5px;color:var(--muted);margin-top:10px">${{n}} pitchers in the roster. ${{omitted}} are omitted from the stability and redundancy math because a pre-move Asian season is not on Baseball Reference, or the MLB sample is under 10 innings. A dash means that side has no season in the source data. Split seasons are combined before the rates are calculated.</p>`;
+  html += `<p style="font-size:11.5px;color:var(--muted);margin-top:10px">${{n}} pitchers in the roster, including Hiromi Itoh on his latest NPB season. ${{omitted}} are omitted from the stability and redundancy math because a pre-move Asian season is not on Baseball Reference, the MLB sample is under 10 innings, or the pitcher has not moved. A dash means that side has no season in the source data. GB% is blank when Savant or NPB Data Store does not publish that season. Split seasons are combined before the rates are calculated.</p>`;
   document.getElementById('rosterTable').innerHTML = html;
 }})();
 

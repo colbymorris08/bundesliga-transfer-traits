@@ -24,13 +24,14 @@ from sklearn.cluster import AgglomerativeClustering
 OUT = Path(__file__).resolve().parent
 
 RATE_METRICS = ["era", "k9", "bb9", "hr9", "whip", "k_bb"]
-# Ground-ball rate is not on official NPB, KBO, or CPBL lines, and the
-# Baseball-Reference register has no ground-out or air-out columns for those
-# leagues. A partial hand-compiled GB% is not part of the comparison.
+# GB% is measured where a source publishes it (Savant for MLB, NPB Data Store
+# for recent NPB seasons). It is not on the official league lines, so most
+# Asian careers are blank. Redundancy stays on the six rates everyone has.
 ALL_METRICS = RATE_METRICS
+STABILITY_METRICS = RATE_METRICS + ["gb_pct"]
 METRIC_LABELS = {
     "era": "ERA", "k9": "K/9", "bb9": "BB/9", "hr9": "HR/9",
-    "whip": "WHIP", "k_bb": "K/BB",
+    "whip": "WHIP", "k_bb": "K/BB", "gb_pct": "GB%",
 }
 INVERTED_METRICS = {"era", "bb9", "hr9", "whip"}
 
@@ -85,12 +86,14 @@ def stability_analysis(df: pd.DataFrame) -> dict:
         league_res = {}
         for wtag, wlabel in WINDOWS:
             win_res = {}
-            for m in ALL_METRICS:
+            for m in STABILITY_METRICS:
                 a_col, m_col = _col_pair(m, wtag)
                 if a_col not in sub.columns or m_col not in sub.columns:
                     continue
                 valid = sub[[a_col, m_col]].dropna()
-                if len(valid) < 4:
+                # GB% is missing for most Asian seasons, so the paired sample is smaller.
+                min_n = 3 if m == "gb_pct" else 4
+                if len(valid) < min_n:
                     continue
                 r, p = sp_stats.pearsonr(valid[a_col], valid[m_col])
                 win_res[m] = {
@@ -246,7 +249,7 @@ ITOH_ASSESSMENT = {
         "whip": 1.06,
         "k_bb": 6.72,
         "cg": 6,
-        "gb_pct": 45.7,
+        "gb_pct": 47.5,
         "siera": 2.26,
         "award": "Sawamura Award (NPB Cy Young equivalent)",
     },
@@ -350,27 +353,21 @@ def _nan_to_none(obj):
     return obj
 
 
-def _strip_gb(obj):
-    """Drop ground-ball rate fields, including nested season rows."""
-    if isinstance(obj, dict):
-        return {
-            k: _strip_gb(v)
-            for k, v in obj.items()
-            if "gb_pct" not in str(k)
-        }
-    if isinstance(obj, list):
-        return [_strip_gb(v) for v in obj]
-    return obj
-
-
 def main():
+    from gb_rates import apply_measured_gb
+
     df = load_data()
     loaded = len(df)
-    df = df[df["transition_year"].notna() & (df["transition_year"] >= YEAR_MIN)].copy()
-    print(f"Window: move year >= {YEAR_MIN} ({len(df)} of {loaded} scraped pitchers)")
-    n_asian = sum(df.get("origin", pd.Series()).isin(["JP", "KR", "TW"]))
-    n_cross = sum(df.get("origin", pd.Series()).isin(["US"]))
-    print(f"Loaded {len(df)} pitchers: NPB={sum(df.league=='NPB')}, KBO={sum(df.league=='KBO')}, CPBL={sum(df.league=='CPBL')}")
+    apply_measured_gb(df)
+    moved_mask = df["transition_year"].notna() & (df["transition_year"] >= YEAR_MIN)
+    # Itoh has no MLB move. He stays on the roster as an NPB-only row.
+    itoh_mask = df["name"].eq("Hiromi Itoh")
+    moved = df[moved_mask]
+    df = df[moved_mask | itoh_mask].copy()
+    print(f"Window: move year >= {YEAR_MIN} ({len(moved)} of {loaded} scraped pitchers)")
+    n_asian = sum(moved.get("origin", pd.Series()).isin(["JP", "KR", "TW"]))
+    n_cross = sum(moved.get("origin", pd.Series()).isin(["US"]))
+    print(f"Loaded {len(moved)} pitchers: NPB={sum(moved.league=='NPB')}, KBO={sum(moved.league=='KBO')}, CPBL={sum(moved.league=='CPBL')}")
     print(f"  Asian-born: {n_asian}, Crossover (US/other): {n_cross}")
 
     if "in_analysis" in df.columns:
@@ -393,7 +390,7 @@ def main():
 
     pitchers_out = []
     for _, row in df.iterrows():
-        p = _strip_gb(_nan_to_none(row.to_dict()))
+        p = _nan_to_none(row.to_dict())
         pitchers_out.append(p)
 
     data = {
@@ -404,16 +401,16 @@ def main():
         "itoh": ITOH_ASSESSMENT,
         "windows": [{"tag": t, "label": l} for t, l in WINDOWS],
         "meta": {
-            "n_pitchers": len(df),
+            "n_pitchers": int(len(moved)),
             "year_min": YEAR_MIN,
             "n_scraped": loaded,
-            "n_npb": int(sum(df.league == "NPB")),
-            "n_kbo": int(sum(df.league == "KBO")),
-            "n_cpbl": int(sum(df.league == "CPBL")),
+            "n_npb": int(sum(moved.league == "NPB")),
+            "n_kbo": int(sum(moved.league == "KBO")),
+            "n_cpbl": int(sum(moved.league == "CPBL")),
             "n_asian_born": int(n_asian),
             "n_crossover": int(n_cross),
             "n_with_both": int(len(both)),
-            "n_omitted": int((~df["in_analysis"]).sum()) if "in_analysis" in df.columns else 0,
+            "n_omitted": int((~moved["in_analysis"]).sum()) if "in_analysis" in moved.columns else 0,
             "metrics": list(METRIC_LABELS.keys()),
             "metric_labels": METRIC_LABELS,
             "translation_factor": 1.096,
@@ -429,10 +426,12 @@ def main():
                 "Baseball-Reference Register (standard_pitching tables)",
                 "bWAR dataset via pybaseball",
                 "Hand-compiled fallback for pitchers without API coverage",
+                "Baseball Savant batted-ball leaderboard for MLB GB%",
+                "NPB Data Store for NPB GB% in seasons the site still publishes",
             ],
         },
     }
-    data = _strip_gb(_nan_to_none(data))
+    data = _nan_to_none(data)
 
     class NpEncoder(json.JSONEncoder):
         def default(self, obj):
