@@ -37,6 +37,9 @@ WINDOWS = [
     ("3y", "Last 3yr Asia vs First 3yr MLB"),
     ("career", "Career Asia vs Career MLB"),
 ]
+# Last 20 seasons through 2026. The move year is the season the pitcher
+# arrived in MLB from NPB, KBO, or CPBL, including a later return.
+YEAR_MIN = 2006
 
 
 def load_data() -> pd.DataFrame:
@@ -328,6 +331,9 @@ ITOH_ASSESSMENT = {
 
 def main():
     df = load_data()
+    loaded = len(df)
+    df = df[df["transition_year"].notna() & (df["transition_year"] >= YEAR_MIN)].copy()
+    print(f"Window: move year >= {YEAR_MIN} ({len(df)} of {loaded} scraped pitchers)")
     n_asian = sum(df.get("origin", pd.Series()).isin(["JP", "KR", "TW"]))
     n_cross = sum(df.get("origin", pd.Series()).isin(["US"]))
     print(f"Loaded {len(df)} pitchers: NPB={sum(df.league=='NPB')}, KBO={sum(df.league=='KBO')}, CPBL={sum(df.league=='CPBL')}")
@@ -368,6 +374,8 @@ def main():
         "windows": [{"tag": t, "label": l} for t, l in WINDOWS],
         "meta": {
             "n_pitchers": len(df),
+            "year_min": YEAR_MIN,
+            "n_scraped": loaded,
             "n_npb": int(sum(df.league == "NPB")),
             "n_kbo": int(sum(df.league == "KBO")),
             "n_cpbl": int(sum(df.league == "CPBL")),

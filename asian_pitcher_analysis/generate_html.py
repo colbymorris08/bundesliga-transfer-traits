@@ -171,8 +171,8 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
 
 <h1>Asian League \u2192 MLB Pitcher Transition Analysis</h1>
 <p class="sub">
-  {data['meta']['n_pitchers']} pitchers who crossed between Asian professional leagues
-  (NPB\u2009/\u2009KBO\u2009/\u2009CPBL) and Major League Baseball \u2014
+  {data['meta']['n_pitchers']} pitchers who moved from NPB, KBO, or CPBL to MLB
+  in {data['meta'].get('year_min', 2006)} or later \u2014
   {data['meta'].get('n_asian_born','')} Asian-born,
   {data['meta'].get('n_crossover','')} American crossover.
 </p>
@@ -365,7 +365,7 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
   <div class="section">
     <div class="section-h"><h2>Last season in Asia vs first season in MLB</h2></div>
     <div class="section-body">
-      <p>Two rows per pitcher who pitched in NPB, KBO, or CPBL and in MLB. The first row is the last Asian-league season before the move. The second row is the first MLB season after it, including pitchers who arrived this year. Pitchers stay in the table when the Asian season is missing or the MLB sample is under 10 innings. Those rows are marked omitted and are left out of the stability and redundancy calculations.</p>
+      <p>Moves from {data['meta'].get('year_min', 2006)} on, the last 20 years. Two rows per pitcher: the last Asian-league season before the move, and the first MLB season after it, including pitchers who arrived this year. Pitchers stay in the table when the Asian season is missing or the MLB sample is under 10 innings. Those rows are marked omitted and are left out of the stability and redundancy calculations.</p>
       <div class="roster-wrap" id="rosterTable"></div>
     </div>
   </div>
