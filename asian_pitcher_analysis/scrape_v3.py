@@ -132,6 +132,24 @@ PITCHERS = [
     {"name": "Cody Ponce",          "league": "KBO", "mlb_id": 664074, "bref_reg": "ponce-000cod", "pos": "SP", "tyear": 2026, "origin": "US"},
     {"name": "Drew Anderson",       "league": "KBO", "mlb_id": 623454, "bref_reg": "anders012and", "pos": "SP", "tyear": 2026, "origin": "US"},
     {"name": "Ryan Weiss",          "league": "KBO", "mlb_id": 680802, "bref_reg": "weiss-000rya", "pos": "SP", "tyear": 2026, "origin": "US"},
+    # Pre-MLB NPB/KBO careers that were missing from the earlier roster.
+    # Register ids come from each player's Baseball-Reference major-league page.
+    # Masanori Murakami's only pre-1964 NPB line is 2.0 IP in 1963, under the
+    # 5-inning season floor, so he stays off the table.
+    {"name": "Takashi Kashiwada",   "league": "NPB", "mlb_id": 116855, "bref_reg": "kashiw001tak", "pos": "RP", "tyear": 1997, "origin": "JP"},
+    {"name": "Masao Kida",          "league": "NPB", "mlb_id": 150196, "bref_reg": "kida--001mas", "pos": "RP", "tyear": 1999, "origin": "JP"},
+    {"name": "Tomo Ohka",           "league": "NPB", "mlb_id": 219594, "bref_reg": "ohka--001tom", "pos": "SP", "tyear": 1999, "origin": "JP"},
+    {"name": "Takahito Nomura",     "league": "NPB", "mlb_id": 408110, "bref_reg": "nomura001tak", "pos": "RP", "tyear": 2002, "origin": "JP"},
+    {"name": "Kazuo Fukumori",      "league": "NPB", "mlb_id": 506429, "bref_reg": "fukumo001kaz", "pos": "RP", "tyear": 2008, "origin": "JP"},
+    {"name": "Yasuhiko Yabuta",     "league": "NPB", "mlb_id": 493161, "bref_reg": "yabuta001yas", "pos": "RP", "tyear": 2008, "origin": "JP"},
+    {"name": "Ken Takahashi",       "league": "NPB", "mlb_id": 548092, "bref_reg": "takaha001ken", "pos": "SP", "tyear": 2009, "origin": "JP"},
+    {"name": "Yoshinori Tateyama",  "league": "NPB", "mlb_id": 599899, "bref_reg": "tateya001yos", "pos": "RP", "tyear": 2011, "origin": "JP"},
+    {"name": "Shohei Ohtani",       "league": "NPB", "mlb_id": 660271, "bref_reg": "otani-000sho", "pos": "SP", "tyear": 2018, "origin": "JP"},
+    {"name": "Sang-Hoon Lee",       "league": "NPB", "mlb_id": 275931, "bref_reg": "lee---001san", "pos": "SP", "tyear": 2000, "origin": "KR"},
+    {"name": "Dae-Sung Koo",        "league": "NPB", "mlb_id": 435082, "bref_reg": "koo---001dae", "pos": "RP", "tyear": 2005, "origin": "KR"},
+    {"name": "Chang-Yong Lim",      "league": "NPB", "mlb_id": 547939, "bref_reg": "lim---001cha", "pos": "RP", "tyear": 2013, "origin": "KR"},
+    {"name": "Yariel Rodriguez",    "league": "NPB", "mlb_id": 684320, "bref_reg": "rodrig000yar", "pos": "SP", "tyear": 2024, "origin": "CU"},
+    {"name": "Reed Garrett",        "league": "NPB", "mlb_id": 657585, "bref_reg": "garret000ree", "pos": "RP", "tyear": 2022, "origin": "US"},
 ]
 
 HAND_COMPILED = {
