@@ -105,7 +105,7 @@ PITCHERS = [
     {"name": "Hideki Okajima",      "league": "NPB", "mlb_id": 506606, "bref_reg": "okajim001hid", "pos": "RP", "tyear": 2007, "origin": "JP"},
     {"name": "Masumi Kuwata",       "league": "NPB", "mlb_id": 506555, "bref_reg": "kuwata001mas", "pos": "SP", "tyear": 2007, "origin": "JP"},
     # kobaya001mas is Masato Kobayashi (born 1980), a different pitcher.
-    {"name": "Masahide Kobayashi",  "league": "NPB", "mlb_id": 493131, "bref_reg": None,          "pos": "RP", "tyear": 2008, "origin": "JP"},
+    {"name": "Masahide Kobayashi",  "league": "NPB", "mlb_id": 493131, "bref_reg": "kobaya002mas", "pos": "RP", "tyear": 2008, "origin": "JP"},
     {"name": "Hisanori Takahashi",  "league": "NPB", "mlb_id": 538227, "bref_reg": "takaha001his", "pos": "RP", "tyear": 2010, "origin": "JP"},
     {"name": "Ryota Igarashi",      "league": "NPB", "mlb_id": 579799, "bref_reg": "igaras001ryo", "pos": "RP", "tyear": 2010, "origin": "JP"},
     {"name": "C.C. Lee",            "league": "NPB", "mlb_id": 547348, "bref_reg": "lee---001che", "pos": "RP", "tyear": 2013, "origin": "TW"},
@@ -113,7 +113,7 @@ PITCHERS = [
     {"name": "Yoshihisa Hirano",    "league": "NPB", "mlb_id": 673633, "bref_reg": "hirano001yos", "pos": "RP", "tyear": 2018, "origin": "JP"},
     {"name": "Kazuhisa Makita",     "league": "NPB", "mlb_id": 628318, "bref_reg": "makita000kaz", "pos": "RP", "tyear": 2018, "origin": "JP"},
     {"name": "Shun Yamaguchi",      "league": "NPB", "mlb_id": 685493, "bref_reg": "yamagu001shu", "pos": "SP", "tyear": 2020, "origin": "JP"},
-    {"name": "Kohei Arihara",       "league": "NPB", "mlb_id": 685503, "bref_reg": None,          "pos": "SP", "tyear": 2021, "origin": "JP"},
+    {"name": "Kohei Arihara",       "league": "NPB", "mlb_id": 685503, "bref_reg": "arihar000koh", "pos": "SP", "tyear": 2021, "origin": "JP"},
     {"name": "Robert Suarez",       "league": "NPB", "mlb_id": 663158, "bref_reg": "suarez002rob", "pos": "RP", "tyear": 2022, "origin": "VE"},
     {"name": "Naoyuki Uwasawa",     "league": "NPB", "mlb_id": 683822, "bref_reg": "uwasaw000nao", "pos": "SP", "tyear": 2024, "origin": "JP"},
     {"name": "Roki Sasaki",         "league": "NPB", "mlb_id": 808963, "bref_reg": "sasaki000rok", "pos": "SP", "tyear": 2025, "origin": "JP"},
