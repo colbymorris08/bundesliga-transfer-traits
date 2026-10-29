@@ -58,12 +58,8 @@ PITCHERS = [
     {"name": "Hyeon-Jong Yang",     "league": "KBO", "mlb_id": 660365, "bref_reg": "yang--000hye", "pos": "SP", "tyear": 2021, "origin": "KR"},
     {"name": "Woo-Suk Go",          "league": "KBO", "mlb_id": None,   "bref_reg": None,           "pos": "RP", "tyear": 2026, "origin": "KR"},
     # ── Asian-born: CPBL → MLB ───────────────────────────────────────────
-    {"name": "Chin-Hui Tsao",       "league": "CPBL", "mlb_id": 425835, "bref_reg": "tsao--001chi", "pos": "RP", "tyear": 2003, "origin": "TW"},
-    {"name": "Chien-Ming Wang",     "league": "CPBL", "mlb_id": 425426, "bref_reg": "wang--001chi", "pos": "SP", "tyear": 2005, "origin": "TW"},
-    {"name": "Hong-Chih Kuo",       "league": "CPBL", "mlb_id": 425539, "bref_reg": "kuo---001hon", "pos": "RP", "tyear": 2005, "origin": "TW"},
     {"name": "Fu-Te Ni",            "league": "CPBL", "mlb_id": 547820, "bref_reg": "ni----001fut", "pos": "RP", "tyear": 2009, "origin": "TW"},
-    {"name": "Wei-Yin Chen",        "league": "CPBL", "mlb_id": 612672, "bref_reg": "chen--002wei", "pos": "SP", "tyear": 2012, "origin": "TW"},
-    {"name": "Kai-Wei Teng",        "league": "CPBL", "mlb_id": 678906, "bref_reg": "teng--000kai", "pos": "SP", "tyear": 2024, "origin": "TW"},
+    {"name": "Wei-Yin Chen",        "league": "NPB",  "mlb_id": 612672, "bref_reg": "chen--001wei", "pos": "SP", "tyear": 2012, "origin": "TW"},
     # ── Crossover: Americans who pitched in NPB then (returned to) MLB ──
     {"name": "Colby Lewis",         "league": "NPB", "mlb_id": 407890, "bref_reg": "lewis-001col", "pos": "SP", "tyear": 2010, "origin": "US"},
     {"name": "Ryan Vogelsong",      "league": "NPB", "mlb_id": 285064, "bref_reg": "vogels001rya", "pos": "SP", "tyear": 2011, "origin": "US"},
@@ -113,12 +109,8 @@ HAND_COMPILED = {
     "Kwang-Hyun Kim":      {"a_era":3.27,"a_ip":160.0,"a_k9":8.2,"a_bb9":2.5,"a_hr9":0.6,"a_whip":1.15,"a_k_bb":3.28,"a_gb_pct":48.0,"a_w_pct":.590,"m_era":2.97,"m_ip":148.2,"m_k9":5.8,"m_bb9":3.0,"m_hr9":0.8,"m_whip":1.24,"m_k_bb":1.93,"m_gb_pct":52.0,"m_w_pct":.500,"m_era_plus":142,"m_war":3.6,"m_seasons":2},
     "Hyeon-Jong Yang":     {"a_era":3.72,"a_ip":165.0,"a_k9":7.5,"a_bb9":2.0,"a_hr9":0.9,"a_whip":1.18,"a_k_bb":3.75,"a_gb_pct":40.0,"a_w_pct":.550,"m_era":4.70,"m_ip":63.0,"m_k9":6.0,"m_bb9":2.6,"m_hr9":1.7,"m_whip":1.40,"m_k_bb":2.31,"m_gb_pct":35.0,"m_w_pct":.500,"m_era_plus":85,"m_war":0.2,"m_seasons":1},
     "Woo-Suk Go":          {"a_era":2.10,"a_ip":70.0,"a_k9":11.5,"a_bb9":2.2,"a_hr9":0.3,"a_whip":0.90,"a_k_bb":5.23,"a_gb_pct":42.0,"a_w_pct":.600,"m_era":5.40,"m_ip":15.0,"m_k9":8.4,"m_bb9":4.2,"m_hr9":1.8,"m_whip":1.60,"m_k_bb":2.00,"m_gb_pct":35.0,"m_w_pct":.000,"m_era_plus":75,"m_war":-0.2,"m_seasons":1},
-    "Chien-Ming Wang":     {"a_era":3.50,"a_ip":50.0,"a_k9":5.5,"a_bb9":3.0,"a_hr9":0.5,"a_whip":1.25,"a_k_bb":1.83,"a_gb_pct":60.0,"a_w_pct":.500,"m_era":4.36,"m_ip":828.1,"m_k9":4.3,"m_bb9":3.1,"m_hr9":0.6,"m_whip":1.36,"m_k_bb":1.39,"m_gb_pct":59.0,"m_w_pct":.667,"m_era_plus":100,"m_war":14.2,"m_seasons":9},
-    "Hong-Chih Kuo":       {"a_era":3.20,"a_ip":45.0,"a_k9":9.5,"a_bb9":4.0,"a_hr9":0.6,"a_whip":1.25,"a_k_bb":2.38,"a_gb_pct":None,"a_w_pct":.500,"m_era":3.73,"m_ip":303.1,"m_k9":10.2,"m_bb9":4.2,"m_hr9":0.8,"m_whip":1.27,"m_k_bb":2.43,"m_gb_pct":38.0,"m_w_pct":.433,"m_era_plus":103,"m_war":3.8,"m_seasons":6},
-    "Wei-Yin Chen":        {"a_era":3.40,"a_ip":50.0,"a_k9":7.5,"a_bb9":2.5,"a_hr9":0.7,"a_whip":1.18,"a_k_bb":3.00,"a_gb_pct":42.0,"a_w_pct":.550,"m_era":4.34,"m_ip":1065.0,"m_k9":6.5,"m_bb9":2.4,"m_hr9":1.3,"m_whip":1.30,"m_k_bb":2.71,"m_gb_pct":41.0,"m_w_pct":.479,"m_era_plus":96,"m_war":9.6,"m_seasons":8},
-    "Chin-Hui Tsao":       {"a_era":2.85,"a_ip":55.0,"a_k9":8.5,"a_bb9":3.5,"a_hr9":0.7,"a_whip":1.20,"a_k_bb":2.43,"a_gb_pct":None,"a_w_pct":.500,"m_era":5.75,"m_ip":97.0,"m_k9":6.2,"m_bb9":4.5,"m_hr9":1.6,"m_whip":1.67,"m_k_bb":1.38,"m_gb_pct":36.0,"m_w_pct":.455,"m_era_plus":76,"m_war":-0.5,"m_seasons":4},
+    "Wei-Yin Chen":        {"a_era":2.59,"a_ip":650.1,"a_k9":7.20,"a_bb9":2.20,"a_hr9":0.55,"a_whip":1.086,"a_k_bb":3.27,"a_gb_pct":None,"a_w_pct":.600,"m_era":4.34,"m_ip":1065.0,"m_k9":6.5,"m_bb9":2.4,"m_hr9":1.3,"m_whip":1.30,"m_k_bb":2.71,"m_gb_pct":41.0,"m_w_pct":.479,"m_era_plus":96,"m_war":9.6,"m_seasons":8},
     "Fu-Te Ni":            {"a_era":3.60,"a_ip":40.0,"a_k9":7.0,"a_bb9":3.5,"a_hr9":0.8,"a_whip":1.30,"a_k_bb":2.00,"a_gb_pct":None,"a_w_pct":.500,"m_era":5.31,"m_ip":47.1,"m_k9":7.4,"m_bb9":4.2,"m_hr9":0.8,"m_whip":1.52,"m_k_bb":1.76,"m_gb_pct":44.0,"m_w_pct":.500,"m_era_plus":79,"m_war":0.0,"m_seasons":2},
-    "Kai-Wei Teng":        {"a_era":3.30,"a_ip":40.0,"a_k9":8.0,"a_bb9":3.0,"a_hr9":0.7,"a_whip":1.20,"a_k_bb":2.67,"a_gb_pct":50.0,"a_w_pct":.500,"m_era":3.85,"m_ip":160.0,"m_k9":8.5,"m_bb9":3.2,"m_hr9":1.0,"m_whip":1.25,"m_k_bb":2.66,"m_gb_pct":48.0,"m_w_pct":.520,"m_era_plus":105,"m_war":3.2,"m_seasons":3},
     # Crossover: Americans NPB → MLB
     "Colby Lewis":         {"a_era":2.82,"a_ip":354.1,"a_k9":9.37,"a_bb9":1.17,"a_hr9":0.64,"a_whip":0.997,"a_k_bb":8.02,"a_gb_pct":None,"a_w_pct":.605},
     "Ryan Vogelsong":      {"a_era":4.17,"a_ip":213.2,"a_k9":8.30,"a_bb9":3.20,"a_hr9":1.01,"a_whip":1.373,"a_k_bb":2.59,"a_gb_pct":None,"a_w_pct":.440},
@@ -548,6 +540,7 @@ def main():
 
         row = {"name": name, "league": p["league"], "pos": p["pos"],
                "transition_year": p["tyear"], "origin": p.get("origin", "")}
+        tyear = p["tyear"]
         sources = {"mlb": None, "bref": None, "bwar": None, "fallback": False}
 
         # 1) MLB Stats API — career + yearly
@@ -590,6 +583,22 @@ def main():
                 if asian_yearly_rows:
                     print(f"  + Asian yearly: {len(asian_yearly_rows)} seasons")
 
+        # 2b) Filter career Asian stats to pre-transition years only
+        if tyear and asian_yearly_rows:
+            pre_trans = [r for r in asian_yearly_rows if r["season"] < tyear]
+            if pre_trans and len(pre_trans) < len(asian_yearly_rows):
+                career_agg = aggregate_counting(pre_trans)
+                if career_agg:
+                    row["a_ip"] = career_agg["ip"]
+                    row["a_era"] = career_agg["era"]
+                    row["a_k9"] = career_agg["k9"]
+                    row["a_bb9"] = career_agg["bb9"]
+                    row["a_hr9"] = career_agg["hr9"]
+                    row["a_whip"] = career_agg["whip"]
+                    row["a_k_bb"] = career_agg["k_bb"]
+                    row["a_gb_pct"] = career_agg.get("gb_pct")
+                    print(f"  ! Filtered to {len(pre_trans)} pre-transition seasons ({career_agg['ip']} IP)")
+
         # 3) Hand-compiled fallback for any missing fields
         fallback = HAND_COMPILED.get(name, {})
         filled = []
@@ -602,7 +611,6 @@ def main():
             print(f"  + Fallback: filled {len(filled)} fields ({', '.join(filled[:5])}...)")
 
         # 4) Compute windowed aggregates (last Ny Asia vs first Ny MLB)
-        tyear = p["tyear"]
         for n in [1, 2, 3]:
             if tyear and asian_yearly_rows:
                 last_n = [r for r in asian_yearly_rows if r["season"] >= tyear - n and r["season"] < tyear]
