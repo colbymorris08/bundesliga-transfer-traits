@@ -91,7 +91,7 @@ def stability_analysis(df: pd.DataFrame) -> dict:
                     "r": round(float(r), 3),
                     "p": round(float(p), 4),
                     "n": int(len(valid)),
-                    "stable": bool(abs(r) >= 0.40 and p < 0.10),
+                    "stable": bool(abs(r) >= 0.50 and p < 0.10),
                 }
             if win_res:
                 league_res[wtag] = {"label": wlabel, "metrics": win_res}

@@ -238,7 +238,7 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
         A metric is marked <strong>STABLE</strong> in a given window when both conditions are met:
       </p>
       <div class="formula">
-        |r| \u2265 0.40 &nbsp;&nbsp;(at least moderate correlation strength)<br>
+        |r| \u2265 0.50 &nbsp;&nbsp;(at least moderate-to-strong correlation)<br>
         p &lt; 0.10 &nbsp;&nbsp;(less than 10% probability the result is due to chance)
       </div>
       <p>
@@ -377,7 +377,7 @@ function fmtR(r){{ return `<span class="rnum">${{Number(r).toFixed(3)}}</span>`;
 function stabPill(s){{ return s ? '<span class="pill y">STABLE</span>' : '<span class="pill n">below</span>'; }}
 function stabBar(r){{
   const a=Math.abs(r), pct=Math.min(a*100,100);
-  const c = a>=0.7?'var(--pass)':a>=0.4?'var(--navy)':'#ccc';
+  const c = a>=0.7?'var(--pass)':a>=0.5?'var(--navy)':'#ccc';
   return `<div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${{pct}}%;background:${{c}}"></div></div></div>`;
 }}
 function corrColor(r){{

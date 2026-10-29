@@ -92,7 +92,7 @@ def main():
 
     # ── Sheet 2: Stability (Multi-Window) ──
     ws2 = wb.create_sheet("Stability")
-    stab_cols = ["League", "Window", "Metric", "r (Pearson)", "p-value", "N", "Stable (|r|>=0.40, p<0.10)"]
+    stab_cols = ["League", "Window", "Metric", "r (Pearson)", "p-value", "N", "Stable (|r|>=0.50, p<0.10)"]
     for c, label in enumerate(stab_cols, 1):
         ws2.cell(row=1, column=c, value=label)
     style_header(ws2, len(stab_cols))
@@ -206,7 +206,7 @@ def main():
     methods = [
         "Stability: Pearson r between Asian-league stat and MLB stat (same metric) across time windows",
         "Windows: Last 1yr Asia vs First 1yr MLB, 2yr/2yr, 3yr/3yr, Career/Career",
-        "Threshold: |r| >= 0.40 and p < 0.10 to qualify as 'stable'",
+        "Threshold: |r| >= 0.50 and p < 0.10 to qualify as 'stable'",
         "p < 0.10 means < 10% probability the correlation arose by chance (null = no relationship)",
         "Redundancy: Pairwise Pearson r on Asian-league metrics only; pairs at |r| >= 0.75; agglomerative clustering at distance 0.40",
         "Significance: Pearson r between Asian-league metric (each window) and MLB outcome (ERA+, WAR, seasons); p < 0.10",
