@@ -20,15 +20,15 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleW
 
 PITCHERS = [
     # ── Asian-born: NPB → MLB ────────────────────────────────────────────
-    {"name": "Hideo Nomo",          "league": "NPB", "mlb_id": 118601, "bref_reg": "nomo--001hid", "pos": "SP", "tyear": 1995, "origin": "JP"},
+    {"name": "Hideo Nomo",          "league": "NPB", "mlb_id": 119827, "bref_reg": "nomo--001hid", "pos": "SP", "tyear": 1995, "origin": "JP"},
     {"name": "Kazuhiro Sasaki",     "league": "NPB", "mlb_id": 277408, "bref_reg": "sasaki001kaz", "pos": "RP", "tyear": 2000, "origin": "JP"},
     {"name": "Shigetoshi Hasegawa", "league": "NPB", "mlb_id": 115586, "bref_reg": "hasega001shi", "pos": "RP", "tyear": 1997, "origin": "JP"},
-    {"name": "Hideki Irabu",        "league": "NPB", "mlb_id": 115584, "bref_reg": "irabu-001hid", "pos": "SP", "tyear": 1997, "origin": "JP"},
+    {"name": "Hideki Irabu",        "league": "NPB", "mlb_id": 116400, "bref_reg": "irabu-001hid", "pos": "SP", "tyear": 1997, "origin": "JP"},
     {"name": "Masato Yoshii",       "league": "NPB", "mlb_id": 134180, "bref_reg": "yoshii001mas", "pos": "SP", "tyear": 1998, "origin": "JP"},
     {"name": "Kazuhisa Ishii",      "league": "NPB", "mlb_id": 408193, "bref_reg": "ishii-001kaz", "pos": "SP", "tyear": 2002, "origin": "JP"},
     {"name": "Daisuke Matsuzaka",   "league": "NPB", "mlb_id": 493137, "bref_reg": "matsuz001dai", "pos": "SP", "tyear": 2007, "origin": "JP"},
     {"name": "Hiroki Kuroda",       "league": "NPB", "mlb_id": 493133, "bref_reg": "kuroda001hir", "pos": "SP", "tyear": 2008, "origin": "JP"},
-    {"name": "Takashi Saito",       "league": "NPB", "mlb_id": 477003, "bref_reg": "saito-001tak", "pos": "RP", "tyear": 2006, "origin": "JP"},
+    {"name": "Takashi Saito",       "league": "NPB", "mlb_id": 493416, "bref_reg": "saito-001tak", "pos": "RP", "tyear": 2006, "origin": "JP"},
     {"name": "Koji Uehara",         "league": "NPB", "mlb_id": 493157, "bref_reg": "uehara001koj", "pos": "SP", "tyear": 2009, "origin": "JP"},
     {"name": "Junichi Tazawa",      "league": "NPB", "mlb_id": 547749, "bref_reg": "tazawa001jun", "pos": "RP", "tyear": 2009, "origin": "JP"},
     {"name": "Kenshin Kawakami",    "league": "NPB", "mlb_id": 499877, "bref_reg": "kawaka001ken", "pos": "SP", "tyear": 2009, "origin": "JP"},
@@ -48,7 +48,7 @@ PITCHERS = [
     {"name": "Tomoyuki Sugano",     "league": "NPB", "mlb_id": None,   "bref_reg": "sugano001tom", "pos": "SP", "tyear": 2025, "origin": "JP"},
     {"name": "Hiromi Itoh",         "league": "NPB", "mlb_id": None,   "bref_reg": "itoh--002hir", "pos": "SP", "tyear": None, "origin": "JP"},
     # ── Asian-born: KBO → MLB ────────────────────────────────────────────
-    {"name": "Chan Ho Park",        "league": "KBO", "mlb_id": 119116, "bref_reg": "park--001cha", "pos": "SP", "tyear": 1994, "origin": "KR"},
+    {"name": "Chan Ho Park",        "league": "KBO", "mlb_id": 120221, "bref_reg": "park--001cha", "pos": "SP", "tyear": 1994, "origin": "KR"},
     {"name": "Byung-Hyun Kim",      "league": "KBO", "mlb_id": 218294, "bref_reg": "kim---001byu", "pos": "RP", "tyear": 1999, "origin": "KR"},
     {"name": "Sun-Woo Kim",         "league": "KBO", "mlb_id": 279615, "bref_reg": "kim---001sun", "pos": "SP", "tyear": 2001, "origin": "KR"},
     {"name": "Jae-Weong Seo",       "league": "KBO", "mlb_id": 150242, "bref_reg": "seo---002jae", "pos": "SP", "tyear": 2002, "origin": "KR"},

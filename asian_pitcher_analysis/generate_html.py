@@ -30,23 +30,33 @@ body {{
   background:radial-gradient(ellipse 80% 50% at 8% -10%,#dbe4f0,transparent 55%),var(--bg);
   color:var(--ink); line-height:1.5;
 }}
-.wrap {{ max-width:1080px; margin:0 auto; padding:32px 24px 72px; }}
+.wrap {{ max-width:1180px; margin:0 auto; padding:32px 24px 72px; }}
 h1 {{
   font-family:"IBM Plex Serif",Georgia,serif;
   font-size:clamp(22px,3.5vw,30px); letter-spacing:-.02em;
 }}
 .sub {{ color:var(--muted); font-size:14px; margin-top:8px; max-width:880px; line-height:1.6; }}
 
-/* ── tabs ── */
-.tabs {{ display:flex; gap:0; border-bottom:2px solid var(--ink); margin:28px 0 0; flex-wrap:wrap; }}
+/* ── tabs: real buttons, not underline links ── */
+.tabs {{ display:flex; gap:10px; margin:22px 0 0; flex-wrap:wrap; }}
 .tab {{
-  font:600 13px/1 inherit; padding:11px 18px; border:none; background:transparent;
-  cursor:pointer; color:#888; border-bottom:3px solid transparent; margin-bottom:-2px;
-  transition:color .15s, border-color .15s;
+  appearance:none; font:700 14px/1 inherit; padding:12px 18px;
+  border:2px solid var(--ink); border-radius:8px; background:#fff;
+  cursor:pointer; color:var(--ink);
 }}
-.tab:hover {{ color:var(--ink); }}
-.tab.active {{ color:var(--ink); border-bottom-color:var(--navy); }}
+.tab:hover {{ background:#e8eef6; }}
+.tab.active {{ background:var(--navy); color:#fff; border-color:var(--navy); }}
 .panel {{ display:none; padding-top:24px; }} .panel.active {{ display:block; }}
+.roster-wrap {{ overflow-x:auto; }}
+tr.row-asia td {{ background:#f7f8fb; }}
+tr.row-mlb td {{ border-bottom:2px solid #c5cad3; }}
+.side-tag {{
+  display:inline-block; min-width:78px; text-align:center;
+  font-size:10px; font-weight:700; letter-spacing:.03em;
+  padding:2px 6px; border-radius:4px;
+}}
+.side-tag.asia {{ background:#e8eef6; color:var(--navy); }}
+.side-tag.mlb {{ background:#d8f3e4; color:var(--pass); }}
 
 /* ── cards & sections ── */
 .section {{
@@ -167,9 +177,10 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
   {data['meta'].get('n_crossover','')} American crossover.
 </p>
 
-<nav class="tabs">
-  <button class="tab active" data-panel="stability">Stability &amp; Metrics</button>
-  <button class="tab" data-panel="redundancy">Redundancy Clusters</button>
+<nav class="tabs" aria-label="Sections">
+  <button class="tab active" type="button" data-panel="stability">Stability</button>
+  <button class="tab" type="button" data-panel="redundancy">Redundancy</button>
+  <button class="tab" type="button" data-panel="pitchers">All pitchers</button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════════════
@@ -345,6 +356,19 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
     <div class="section-body" id="corrMatrix"></div>
   </div>
 
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TAB 3 — ALL PITCHERS, LAST ASIA SEASON VS FIRST MLB SEASON
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel" id="panel-pitchers">
+  <div class="section">
+    <div class="section-h"><h2>Last season in Asia vs first season in MLB</h2></div>
+    <div class="section-body">
+      <p>Two rows per pitcher. The first row is his final professional season in NPB, KBO, or CPBL before the move. The second row is his first MLB season. Rate stats are computed from that season's innings, strikeouts, walks, hits, home runs, and earned runs.</p>
+      <div class="roster-wrap" id="rosterTable"></div>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -606,6 +630,82 @@ function corrColor(r){{
   html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Red shades = positive correlation, blue shades = negative. Bold-outlined cells exceed the |r| \u2265 0.75 redundancy threshold.</p>';
 
   document.getElementById('corrMatrix').innerHTML = html;
+}})();
+
+/* ═══════════════════════════════════════════════════
+   TAB 3: LAST ASIA SEASON VS FIRST MLB SEASON
+   ═══════════════════════════════════════════════════ */
+(function(){{
+  function num(v){{ const n = Number(v); return Number.isFinite(n) ? n : 0; }}
+  function cell(v, d){{ return v==null || !Number.isFinite(v) ? '\\u2014' : Number(v).toFixed(d); }}
+  function agg(rows){{
+    let ip=0, so=0, bb=0, hr=0, h=0, er=0;
+    for (const r of rows) {{
+      ip += num(r.ip); so += num(r.so); bb += num(r.bb);
+      hr += num(r.hr); h += num(r.h); er += num(r.er);
+    }}
+    if (ip < 1) return null;
+    return {{
+      ip: ip,
+      era: er / ip * 9,
+      k9: so / ip * 9,
+      bb9: bb / ip * 9,
+      hr9: hr / ip * 9,
+      whip: (h + bb) / ip,
+      k_bb: bb > 0 ? so / bb : null
+    }};
+  }}
+  function pick(rows, which){{
+    const by = {{}};
+    for (const r of rows) {{
+      const y = Number(r.season);
+      if (!y) continue;
+      (by[y] = by[y] || []).push(r);
+    }}
+    const years = Object.keys(by).map(Number);
+    if (!years.length) return null;
+    const y = which === 'last' ? Math.max(...years) : Math.min(...years);
+    const stats = agg(by[y]);
+    return stats ? Object.assign({{season: y}}, stats) : null;
+  }}
+  function line(p, side, s, cls){{
+    const label = side === 'asia' ? 'Last Asia' : 'First MLB';
+    if (!s) {{
+      return `<tr class="${{cls}}"><td><strong>${{p.name}}</strong></td><td>${{p.league}}</td><td><span class="side-tag ${{side}}">${{label}}</span></td><td colspan="8">\\u2014</td></tr>`;
+    }}
+    return `<tr class="${{cls}}">
+      <td><strong>${{p.name}}</strong></td><td>${{p.league}}</td>
+      <td><span class="side-tag ${{side}}">${{label}}</span></td>
+      <td>${{s.season}}</td>
+      <td class="rnum">${{cell(s.ip,1)}}</td>
+      <td class="rnum">${{cell(s.era,2)}}</td>
+      <td class="rnum">${{cell(s.k9,2)}}</td>
+      <td class="rnum">${{cell(s.bb9,2)}}</td>
+      <td class="rnum">${{cell(s.hr9,2)}}</td>
+      <td class="rnum">${{cell(s.whip,2)}}</td>
+      <td class="rnum">${{cell(s.k_bb,2)}}</td>
+    </tr>`;
+  }}
+
+  const pitchers = D.pitchers
+    .filter(p => p.transition_year)
+    .slice()
+    .sort((a,b) => (a.transition_year - b.transition_year) || a.name.localeCompare(b.name));
+
+  let html = '<table><thead><tr><th>Pitcher</th><th>League</th><th>Side</th><th>Season</th><th>IP</th><th>ERA</th><th>K/9</th><th>BB/9</th><th>HR/9</th><th>WHIP</th><th>K/BB</th></tr></thead><tbody>';
+  let n = 0;
+  for (const p of pitchers) {{
+    const ty = Number(p.transition_year);
+    const asia = pick((p.asian_yearly||[]).filter(r => Number(r.season) < ty), 'last');
+    const mlb = pick((p.mlb_yearly||[]).filter(r => Number(r.season) >= ty), 'first');
+    if (!asia && !mlb) continue;
+    n += 1;
+    html += line(p, 'asia', asia, 'row-asia');
+    html += line(p, 'mlb', mlb, 'row-mlb');
+  }}
+  html += '</tbody></table>';
+  html += `<p style="font-size:11.5px;color:var(--muted);margin-top:10px">${{n}} pitchers with a recorded move. A dash means that season is not in Baseball Reference or the MLB Stats API. Split seasons are combined before the rates are calculated.</p>`;
+  document.getElementById('rosterTable').innerHTML = html;
 }})();
 
 </script>
