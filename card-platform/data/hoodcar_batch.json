@@ -1,0 +1,456 @@
+[
+  {
+    "query": "Jordan Fleer 57 PSA 9",
+    "grade": null,
+    "avg": 11524.71,
+    "low": 5602.5,
+    "max": 112500,
+    "min": 18,
+    "high": 16018,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 8100,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Hold",
+    "by_grade": [
+      {
+        "avg": 22976.5,
+        "low": 16762.5,
+        "max": 35101,
+        "min": 11059,
+        "high": 31767.25,
+        "grade": "PSA 9",
+        "value": 20244.5,
+        "median": 20244.5,
+        "sample_size": 6
+      },
+      {
+        "avg": 16919.38,
+        "low": 16285.25,
+        "max": 22950,
+        "min": 9180,
+        "high": 17996.75,
+        "grade": "PSA 8",
+        "value": 17100,
+        "median": 17100,
+        "sample_size": 16
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 59,
+    "last_sale": 14499.99,
+    "liquidity": 100,
+    "sales_90d": 26,
+    "trend_30d": -21.6,
+    "confidence": 63,
+    "population": null,
+    "sample_size": 75,
+    "last_sale_date": "2026-08-14T02:41:13.045+00:00"
+  },
+  {
+    "query": "LeBron Topps 221 2003 PSA 10",
+    "grade": null,
+    "avg": 6470,
+    "low": 5830,
+    "max": 7750,
+    "min": 5000,
+    "high": 7205,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 6660,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Accumulate",
+    "by_grade": [
+      {
+        "avg": 6470,
+        "low": 5830,
+        "max": 7750,
+        "min": 5000,
+        "high": 7205,
+        "grade": "PSA 10",
+        "value": 6660,
+        "median": 6660,
+        "sample_size": 3
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 61,
+    "last_sale": 8999.99,
+    "liquidity": 85,
+    "sales_90d": 17,
+    "trend_30d": -11.8,
+    "confidence": 90,
+    "population": null,
+    "sample_size": 3,
+    "last_sale_date": "2026-08-12T22:11:17.449+00:00"
+  },
+  {
+    "query": "Wembanyama Prizm 2023 PSA 10",
+    "grade": null,
+    "avg": 380.82,
+    "low": 126,
+    "max": 3959,
+    "min": 1,
+    "high": 359,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 237,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Accumulate",
+    "by_grade": [
+      {
+        "avg": 403.5,
+        "low": 135,
+        "max": 3959,
+        "min": 1,
+        "high": 360,
+        "grade": "PSA 10",
+        "value": 251,
+        "median": 251,
+        "sample_size": 172
+      },
+      {
+        "avg": 126,
+        "low": 80.5,
+        "max": 425,
+        "min": 9,
+        "high": 115.25,
+        "grade": "PSA 9",
+        "value": 89.5,
+        "median": 89.5,
+        "sample_size": 8
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 66,
+    "last_sale": 375,
+    "liquidity": 100,
+    "sales_90d": 1101,
+    "trend_30d": -7,
+    "confidence": 70,
+    "population": null,
+    "sample_size": 189,
+    "last_sale_date": "2026-08-16T01:00:53.762+00:00"
+  },
+  {
+    "query": "Charizard Base Set 4 PSA 9",
+    "grade": null,
+    "avg": 858,
+    "low": 293,
+    "max": 5512,
+    "min": 43,
+    "high": 911.5,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 437,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Strong Buy",
+    "by_grade": [
+      {
+        "avg": 918.71,
+        "low": 697.5,
+        "max": 1552,
+        "min": 86,
+        "high": 1237.5,
+        "grade": "PSA 8",
+        "value": 923,
+        "median": 923,
+        "sample_size": 7
+      },
+      {
+        "avg": 1537.57,
+        "low": 225,
+        "max": 3329,
+        "min": 194,
+        "high": 3235,
+        "grade": "PSA 9",
+        "value": 320,
+        "median": 320,
+        "sample_size": 7
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 90,
+    "last_sale": 903.21,
+    "liquidity": 100,
+    "sales_90d": 207,
+    "trend_30d": 76.6,
+    "confidence": 60,
+    "population": null,
+    "sample_size": 47,
+    "last_sale_date": "2026-08-17T04:30:29.427+00:00"
+  },
+  {
+    "query": "Ohtani Bowman Chrome 2018 PSA 10",
+    "grade": null,
+    "avg": 228895.4,
+    "low": 18000,
+    "max": 900000,
+    "min": 1481,
+    "high": 157496,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 67500,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Strong Buy",
+    "by_grade": [
+      {
+        "avg": 269244.25,
+        "low": 13870.25,
+        "max": 900000,
+        "min": 1481,
+        "high": 343122,
+        "grade": "PSA 10",
+        "value": 87748,
+        "median": 87748,
+        "sample_size": 4
+      },
+      {
+        "avg": 67500,
+        "low": 67500,
+        "max": 67500,
+        "min": 67500,
+        "high": 67500,
+        "grade": "PSA 8",
+        "value": 67500,
+        "median": 67500,
+        "sample_size": 1
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 85,
+    "last_sale": 7300,
+    "liquidity": 100,
+    "sales_90d": 30,
+    "trend_30d": 30,
+    "confidence": 43,
+    "population": null,
+    "sample_size": 5,
+    "last_sale_date": "2026-08-15T01:00:55.353+00:00"
+  },
+  {
+    "query": "Mahomes Prizm 269 2017 PSA 10",
+    "grade": null,
+    "avg": 14239.4,
+    "low": 1254.75,
+    "max": 112500,
+    "min": 187,
+    "high": 6030,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 3824.5,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Accumulate",
+    "by_grade": [
+      {
+        "avg": 39165,
+        "low": 2497.5,
+        "max": 112500,
+        "min": 495,
+        "high": 58500,
+        "grade": "PSA 9",
+        "value": 4500,
+        "median": 4500,
+        "sample_size": 3
+      },
+      {
+        "avg": 3539.8,
+        "low": 923,
+        "max": 7050,
+        "min": 187,
+        "high": 6390,
+        "grade": "PSA 10",
+        "value": 3149,
+        "median": 3149,
+        "sample_size": 5
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 60,
+    "last_sale": 7400,
+    "liquidity": 40,
+    "sales_90d": 8,
+    "trend_30d": 3.5,
+    "confidence": 64,
+    "population": null,
+    "sample_size": 10,
+    "last_sale_date": "2026-08-05T00:01:08.275+00:00"
+  },
+  {
+    "query": "Jokic Prizm 335 2015 PSA 10",
+    "grade": null,
+    "avg": 1372,
+    "low": 727.5,
+    "max": 2661,
+    "min": 711,
+    "high": 1702.5,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 744,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Accumulate",
+    "by_grade": [
+      {
+        "avg": 1372,
+        "low": 727.5,
+        "max": 2661,
+        "min": 711,
+        "high": 1702.5,
+        "grade": "PSA 10",
+        "value": 744,
+        "median": 744,
+        "sample_size": 3
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 63,
+    "last_sale": 933,
+    "liquidity": 65,
+    "sales_90d": 13,
+    "trend_30d": null,
+    "confidence": 62,
+    "population": null,
+    "sample_size": 3,
+    "last_sale_date": "2026-08-05T23:01:07.666+00:00"
+  },
+  {
+    "query": "Trout Topps Update US175 2011 PSA 10",
+    "grade": null,
+    "avg": 1385.71,
+    "low": 837.5,
+    "max": 3330,
+    "min": 9,
+    "high": 1870.5,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 945,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": "Accumulate",
+    "by_grade": [
+      {
+        "avg": 1486.83,
+        "low": 908.25,
+        "max": 3330,
+        "min": 9,
+        "high": 2333.25,
+        "grade": "PSA 10",
+        "value": 945,
+        "median": 945,
+        "sample_size": 6
+      },
+      {
+        "avg": 779,
+        "low": 779,
+        "max": 779,
+        "min": 779,
+        "high": 779,
+        "grade": "PSA 9",
+        "value": 779,
+        "median": 779,
+        "sample_size": 1
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": 64,
+    "last_sale": 959,
+    "liquidity": 80,
+    "sales_90d": 16,
+    "trend_30d": -3.1,
+    "confidence": 68,
+    "population": null,
+    "sample_size": 7,
+    "last_sale_date": "2026-08-14T01:12:04.614+00:00"
+  },
+  {
+    "query": "Bellingham Topps Chrome UCL 2020 PSA 10",
+    "grade": null,
+    "avg": 132.94,
+    "low": 73.5,
+    "max": 374,
+    "min": 1,
+    "high": 186.25,
+    "as_of": "2026-08-26T08:15:00.116486+00:00",
+    "value": 127.5,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": null,
+    "by_grade": [
+      {
+        "avg": 140.53,
+        "low": 90,
+        "max": 374,
+        "min": 1,
+        "high": 189,
+        "grade": "PSA 10",
+        "value": 129,
+        "median": 129,
+        "sample_size": 17
+      }
+    ],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": null,
+    "last_sale": null,
+    "liquidity": 0,
+    "sales_90d": 0,
+    "trend_30d": null,
+    "confidence": 73,
+    "population": null,
+    "sample_size": 18,
+    "last_sale_date": null
+  },
+  {
+    "query": "Messi Panini Mega Cracks 2004 PSA 10",
+    "grade": null,
+    "avg": null,
+    "low": null,
+    "max": null,
+    "min": null,
+    "high": null,
+    "as_of": null,
+    "value": null,
+    "filter": {
+      "max_price": null,
+      "min_price": null
+    },
+    "verdict": null,
+    "by_grade": [],
+    "currency": "USD",
+    "watchers": null,
+    "buy_score": null,
+    "last_sale": null,
+    "liquidity": 0,
+    "sales_90d": 0,
+    "trend_30d": null,
+    "confidence": 0,
+    "population": null,
+    "sample_size": 0,
+    "last_sale_date": null
+  }
+]

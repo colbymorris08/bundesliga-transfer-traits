@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Vault — Valuation Intelligence & Liquidation Analytics</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0b0f;--card:#12141d;--border:#1a1d2e;--text:#e2e8f0;--text-muted:#94a3b8;
+  --green:#22c55e;--red:#ef4444;--blue:#3b82f6;--gold:#f59e0b;--purple:#a855f7;
+  --surface:#161926;
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;min-height:100vh}
+a{color:var(--blue);text-decoration:none}
+button{cursor:pointer;font-family:inherit}
+input{font-family:inherit}
+
+/* Header */
+.header{padding:28px 24px 18px;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0f1018 0%,var(--bg) 100%)}
+.header h1{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;background:linear-gradient(135deg,#fff 0%,var(--green) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .subtitle{color:var(--text-muted);font-size:.78rem;margin-top:4px;letter-spacing:.05em;text-transform:uppercase}
+
+.container{max-width:980px;margin:0 auto;padding:0 20px}
+
+/* Hero Search */
+.hero{padding:44px 0 12px;text-align:center}
+.search-form{display:flex;flex-direction:column;gap:10px;max-width:720px;margin:0 auto}
+.name-row{display:flex;gap:10px;width:100%}
+.search-input{flex:1;padding:14px 18px;border-radius:12px;border:2px solid var(--border);background:var(--card);color:var(--text);font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.search-input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.1)}
+.search-input::placeholder{color:#4a5568}
+.search-input-half{flex:1;padding:14px 18px;border-radius:12px;border:2px solid var(--border);background:var(--card);color:var(--text);font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.search-input-half:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.1)}
+.search-input-half::placeholder{color:#4a5568}
+.search-btn{padding:16px 32px;border-radius:14px;border:none;background:var(--green);color:#000;font-weight:700;font-size:1rem;transition:opacity .15s;width:100%;cursor:pointer}
+.search-btn:hover{opacity:.85}
+.search-btn:disabled{opacity:.5;cursor:not-allowed}
+.search-mode{padding:10px 24px;border:2px solid var(--border);background:var(--card);color:var(--text-muted);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .15s}
+.search-mode:first-child{border-radius:10px 0 0 10px}
+.search-mode:last-child{border-radius:0 10px 10px 0}
+.search-mode.active{background:var(--green);color:#000;border-color:var(--green)}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-top:16px;max-width:720px;margin-left:auto;margin-right:auto}
+.cert-header{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.cert-desc{font-size:.85rem;color:var(--text-muted);margin-bottom:16px}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.cert-field{background:#0f1117;border:1px solid var(--border);border-radius:8px;padding:10px}
+.cert-field-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:2px}
+.cert-field-value{font-size:.95rem;font-weight:600;color:var(--text)}
+.cert-valuation{border-top:1px solid var(--border);padding-top:16px;margin-top:8px}
+.cert-fv{font-size:2rem;font-weight:800;color:var(--green)}
+
+/* Breadcrumb */
+.breadcrumb-bar{max-width:720px;margin:14px auto 0;display:none;align-items:center;gap:8px;flex-wrap:wrap}
+.breadcrumb-bar.visible{display:flex}
+.breadcrumb-trail{display:flex;align-items:center;gap:6px;flex-wrap:wrap;flex:1}
+.bc-segment{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;color:var(--text);font-weight:500}
+.bc-arrow{color:var(--text-muted);font-size:.72rem}
+.bc-base{color:var(--green)}
+.bc-filter{color:var(--blue)}
+.bc-grade{color:var(--gold)}
+.clear-filters-btn{padding:5px 14px;border-radius:8px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.08);color:var(--red);font-size:.74rem;font-weight:600;white-space:nowrap;transition:all .15s}
+.clear-filters-btn:hover{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.5)}
+
+/* Filter Chips */
+.filters-panel{max-width:720px;margin:16px auto 0;display:none}
+.filters-panel.visible{display:block}
+.filter-row{margin-bottom:10px}
+.filter-row-label{font-size:.66rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;font-weight:600}
+.filter-chips{display:flex;flex-wrap:wrap;gap:6px}
+.filter-chip{padding:5px 14px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text-muted);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
+.filter-chip:hover{border-color:#3a3d5e;color:var(--text)}
+.filter-chip.active{border-color:var(--green);color:var(--green);background:rgba(34,197,94,.08)}
+.filter-chip.grade-chip.active{border-color:var(--gold);color:var(--gold);background:rgba(245,158,11,.08)}
+
+/* Spinner */
+.spinner{display:inline-block;width:20px;height:20px;border:2.5px solid rgba(255,255,255,.12);border-top-color:var(--green);border-radius:50%;animation:spin .65s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-wrap{text-align:center;padding:40px 0}
+.loading-wrap .spinner{width:32px;height:32px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Result Card */
+.result-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:24px;text-align:left;animation:fadeIn .3s ease}
+.result-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.result-count{font-size:.84rem;color:var(--text-muted);margin-bottom:4px}
+.result-count strong{color:var(--text);font-weight:600}
+.result-query{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+.result-query span{color:var(--text);font-weight:600}
+.result-fv{font-size:2.6rem;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+.result-right{text-align:right}
+.result-badge{display:inline-block;padding:6px 18px;border-radius:8px;font-weight:700;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase}
+.badge-LIQUIDATE{background:rgba(34,197,94,.14);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.badge-HOLD{background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.25)}
+.badge-REVIEW{background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.25)}
+.result-sales-count{font-size:.72rem;color:var(--text-muted);margin-top:6px}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:18px 0}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.stat-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.stat-val{font-size:1.1rem;font-weight:600}
+
+.score-bar-wrap{height:6px;background:#1e2030;border-radius:3px;overflow:hidden;margin-top:4px}
+.score-bar{height:100%;border-radius:3px;transition:width .5s ease}
+
+.reason-box{color:var(--text-muted);font-size:.86rem;line-height:1.5;padding:12px 16px;background:var(--surface);border-radius:10px;border-left:3px solid var(--gold);margin:16px 0}
+.reason-box .proceeds{color:var(--green);font-weight:600;margin-top:4px}
+
+/* Grade Ladder */
+.grade-section{margin:20px 0 0}
+.grade-section-title{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.grade-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.grade-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text-muted);font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em}
+.grade-table td{padding:10px 10px;border-bottom:1px solid rgba(26,29,46,.5)}
+.grade-table tr:last-child td{border-bottom:none}
+.grade-row{cursor:pointer;transition:background .15s}
+.grade-row:hover{background:rgba(59,130,246,.06)}
+.grade-row.active{background:rgba(34,197,94,.08);border-left:2px solid var(--green)}
+.grade-row .grade-name{font-weight:600}
+.grade-row .grade-action{color:var(--blue);font-size:.78rem;font-weight:500}
+.grade-row .grade-range{color:var(--text-muted);font-size:.78rem}
+.grade-val-bar{height:4px;border-radius:2px;background:var(--green);opacity:.5;margin-top:3px;transition:width .4s ease}
+
+.grade-detail{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-top:12px;animation:fadeIn .25s ease}
+.grade-detail-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.grade-detail-title{font-size:1rem;font-weight:600}
+.grade-detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+
+/* Category Tabs */
+.categories-section{padding:28px 0 0;border-top:1px solid var(--border);margin-top:32px}
+.cat-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+.cat-tabs::-webkit-scrollbar{height:3px}
+.cat-tabs::-webkit-scrollbar-track{background:transparent}
+.cat-tabs::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.cat-tab{flex-shrink:0;padding:8px 18px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text-muted);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.cat-tab:hover{border-color:#2a2d4e;color:var(--text)}
+.cat-tab.active{border-color:var(--green);color:var(--green);background:rgba(34,197,94,.06)}
+.cat-tab .cat-count{font-size:.68rem;background:rgba(255,255,255,.06);padding:2px 7px;border-radius:5px;font-weight:600}
+.cat-tab.active .cat-count{background:rgba(34,197,94,.15)}
+
+/* Floor Stats */
+.floor-section{padding:20px 0 0}
+.floor-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.floor-stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;transition:border-color .15s}
+.floor-stat-card:hover{border-color:#2a2d4e}
+.floor-stat-card .fs-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.floor-stat-card .fs-val{font-size:1.35rem;font-weight:700}
+
+/* Market Movers */
+.movers-section{padding:28px 0 32px;border-top:1px solid var(--border);margin-top:24px}
+.section-title{font-size:1rem;font-weight:600;margin-bottom:14px;color:var(--text);display:flex;align-items:center;gap:8px}
+.section-title .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.movers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.mover-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .15s,transform .1s;cursor:pointer}
+.mover-card:hover{border-color:#2a2d4e;transform:translateY(-2px)}
+.mover-label{font-size:.95rem;font-weight:600;text-transform:capitalize;margin-bottom:4px}
+.mover-cat{display:inline-block;padding:2px 8px;border-radius:5px;font-size:.64rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.cat-baseball{background:rgba(239,68,68,.12);color:var(--red)}
+.cat-basketball{background:rgba(59,130,246,.12);color:var(--blue)}
+.cat-football{background:rgba(34,197,94,.12);color:var(--green)}
+.cat-soccer{background:rgba(168,85,247,.12);color:var(--purple)}
+.cat-pokemon{background:rgba(245,158,11,.12);color:var(--gold)}
+.cat-hockey{background:rgba(96,165,250,.12);color:#60a5fa}
+.cat-wnba{background:rgba(244,114,182,.12);color:#f472b6}
+.cat-default{background:rgba(148,163,184,.1);color:var(--text-muted)}
+.mover-price{font-size:1.15rem;font-weight:700;margin-bottom:2px}
+.mover-change{font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:4px}
+.mover-n{font-size:.7rem;color:var(--text-muted);margin-top:6px}
+.movers-empty{text-align:center;padding:32px;color:var(--text-muted);font-size:.88rem}
+
+.error-msg{text-align:center;padding:20px;color:var(--red);background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);border-radius:12px;margin-top:16px;font-size:.88rem}
+.no-result{text-align:center;padding:40px 20px;color:var(--text-muted);font-size:.95rem}
+.no-result .icon{font-size:2rem;margin-bottom:12px;opacity:.5}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);padding:36px 24px;text-align:center;color:var(--text-muted);font-size:.76rem;line-height:2;margin-top:40px}
+.footer .coming-soon{color:var(--purple);font-weight:500}
+
+@media(max-width:640px){
+  .hero{padding:28px 0 8px}
+  .name-row{flex-direction:column}
+  .search-btn{width:100%}
+  .result-fv{font-size:1.9rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .floor-stats{grid-template-columns:repeat(2,1fr)}
+  .movers-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}
+  .header h1{font-size:1.6rem}
+  .grade-detail-grid{grid-template-columns:repeat(2,1fr)}
+  .filter-chips{gap:5px}
+  .filter-chip{padding:4px 10px;font-size:.72rem}
+}
+@media(max-width:400px){
+  .stats-grid{grid-template-columns:1fr}
+  .floor-stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Card Vault</h1>
+  <p class="subtitle">Valuation Intelligence &amp; Liquidation Analytics</p>
+</header>
+
+<div class="container">
+
+  <!-- Hero Search -->
+  <section class="hero">
+    <!-- Search Mode Tabs -->
+    <div style="display:flex;gap:0;justify-content:center;margin-bottom:16px">
+      <button id="modeSearch" class="search-mode active" onclick="setSearchMode('search')">Player Search</button>
+      <button id="modeCert" class="search-mode" onclick="setSearchMode('cert')">PSA Cert # Lookup</button>
+    </div>
+
+    <!-- Player Search Form -->
+    <form class="search-form" id="searchForm">
+      <div class="name-row">
+        <input class="search-input-half" id="firstName" type="text" placeholder="First Name (e.g. Luka)" autocomplete="off">
+        <input class="search-input-half" id="lastName" type="text" placeholder="Last Name (e.g. Doncic)" autocomplete="off" required>
+      </div>
+      <input class="search-input" id="searchExtra" type="text" placeholder="Set, year, or keywords (optional — e.g. Prizm 2018)" autocomplete="off">
+      <button class="search-btn" type="submit" id="searchBtn">Search</button>
+    </form>
+
+    <!-- PSA Cert Lookup Form -->
+    <form class="search-form" id="certForm" style="display:none">
+      <input class="search-input" id="certInput" type="text" placeholder="Enter PSA Certification Number (e.g. 92208220)" autocomplete="off" required pattern="[0-9]+" inputmode="numeric">
+      <button class="search-btn" type="submit" id="certBtn" style="background:#3b82f6">Look Up Cert</button>
+    </form>
+    <div id="searchHint" style="text-align:center;font-size:12px;color:#4a5568;margin-top:6px">Enter player/artist name, then use filters below to narrow to your exact card.</div>
+    <div id="certHint" style="text-align:center;font-size:12px;color:#4a5568;margin-top:6px;display:none">Enter the cert number from the PSA slab label. Card details + valuation auto-populate.</div>
+
+    <!-- Cert Result (appears after cert lookup) -->
+    <div id="certResult" style="display:none"></div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar" id="breadcrumbBar">
+      <div class="breadcrumb-trail" id="breadcrumbTrail"></div>
+      <button class="clear-filters-btn" id="clearFiltersBtn">Clear all filters</button>
+    </div>
+
+    <!-- Filter Chips -->
+    <div class="filters-panel" id="filtersPanel">
+      <div class="filter-row">
+        <div class="filter-row-label">Brand / Set</div>
+        <div class="filter-chips" id="brandChips"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-row-label">Variant</div>
+        <div class="filter-chips" id="variantChips"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-row-label">Year</div>
+        <div class="filter-chips" id="yearChips"></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-row-label">Grade</div>
+        <div class="filter-chips" id="gradeChips"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Results -->
+  <div id="searchResult"></div>
+
+  <!-- Category Tabs -->
+  <section class="categories-section" id="categoriesSection">
+    <div class="cat-tabs" id="catTabs">
+      <div class="cat-tab active" data-cat="all">All</div>
+    </div>
+    <div class="floor-section" id="floorSection" style="display:none"></div>
+  </section>
+
+  <!-- Market Movers -->
+  <section class="movers-section">
+    <div class="section-title"><span class="dot" style="background:var(--green)"></span> Market Movers</div>
+    <div id="moversContainer"><div class="loading-wrap"><div class="spinner"></div></div></div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <p class="coming-soon">Coming soon: Art (LiveArt API) &middot; Watches (WatchCharts) &middot; Comics (GPAnalysis)</p>
+  <p>Every transaction improves future valuations</p>
+  <p>Powered by HoodCar Market Data API</p>
+</footer>
+
+<script>
+(function(){
+  const fmt = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:0,maximumFractionDigits:0});
+  const fmtNum = new Intl.NumberFormat('en-US');
+  const fmtPct = new Intl.NumberFormat('en-US',{minimumFractionDigits:1,maximumFractionDigits:1});
+
+  function $(id){ return document.getElementById(id) }
+
+  const BRANDS = ['Prizm','Optic','Select','Mosaic','Topps','Bowman Chrome','National Treasures','Fleer','Donruss'];
+  const VARIANTS = ['Base','Silver','Gold','Auto','Patch','Jersey','Numbered','1st Edition','Refractor','Holo'];
+  const YEARS = ['2024','2023','2022','2021','2020','2019','2018','Earlier'];
+  const STATIC_GRADES = ['PSA 10','PSA 9','PSA 8','BGS 10','BGS 9.5','SGC 10','CGC 9.8','Raw'];
+
+  const apiCache = new Map();
+  const cache = { categories: null, floor: {} };
+  let allMovers = [];
+  let activeCategory = 'all';
+
+  let baseQuery = '';
+  let activeFilters = { brands: new Set(), variants: new Set(), years: new Set() };
+  let activeGrade = '';
+  let lastApiGradeLadder = [];
+
+  const form = $('searchForm');
+  const firstNameInput = $('firstName');
+  const lastNameInput = $('lastName');
+  const extraInput = $('searchExtra');
+  const btn = $('searchBtn');
+  const resultEl = $('searchResult');
+  const filtersPanel = $('filtersPanel');
+  const breadcrumbBar = $('breadcrumbBar');
+  const breadcrumbTrail = $('breadcrumbTrail');
+  const clearBtn = $('clearFiltersBtn');
+
+  /* ── Filter chip rendering ── */
+  function renderChipRow(containerId, items, activeSet, type) {
+    const el = $(containerId);
+    el.innerHTML = '';
+    items.forEach(function(item) {
+      const chip = document.createElement('div');
+      chip.className = 'filter-chip' + (type === 'grade' ? ' grade-chip' : '');
+      if (type === 'grade') {
+        if (activeGrade === item) chip.classList.add('active');
+      } else {
+        if (activeSet && activeSet.has(item)) chip.classList.add('active');
+      }
+      chip.textContent = item;
+      chip.addEventListener('click', function() {
+        if (type === 'grade') {
+          activeGrade = activeGrade === item ? '' : item;
+        } else {
+          if (activeSet.has(item)) activeSet.delete(item);
+          else activeSet.add(item);
+        }
+        executeFilteredSearch();
+      });
+      el.appendChild(chip);
+    });
+  }
+
+  function renderAllChips() {
+    renderChipRow('brandChips', BRANDS, activeFilters.brands, 'brand');
+    renderChipRow('variantChips', VARIANTS, activeFilters.variants, 'variant');
+    renderChipRow('yearChips', YEARS, activeFilters.years, 'year');
+    const gradeItems = mergeGrades();
+    renderChipRow('gradeChips', gradeItems, null, 'grade');
+  }
+
+  function mergeGrades() {
+    const seen = new Set(STATIC_GRADES);
+    const result = STATIC_GRADES.slice();
+    lastApiGradeLadder.forEach(function(g) {
+      if (!seen.has(g.grade)) {
+        seen.add(g.grade);
+        result.push(g.grade);
+      }
+    });
+    return result;
+  }
+
+  function buildCompositeQuery() {
+    let parts = [baseQuery];
+    activeFilters.brands.forEach(function(b) { parts.push(b); });
+    activeFilters.variants.forEach(function(v) { parts.push(v); });
+    activeFilters.years.forEach(function(y) { parts.push(y); });
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function renderBreadcrumb() {
+    const hasFilters = activeFilters.brands.size || activeFilters.variants.size || activeFilters.years.size || activeGrade;
+    if (!baseQuery) {
+      breadcrumbBar.classList.remove('visible');
+      return;
+    }
+    breadcrumbBar.classList.add('visible');
+    let segments = [];
+    segments.push('<span class="bc-segment bc-base">' + esc(baseQuery) + '</span>');
+    activeFilters.brands.forEach(function(b) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-filter">' + esc(b) + '</span>');
+    });
+    activeFilters.variants.forEach(function(v) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-filter">' + esc(v) + '</span>');
+    });
+    activeFilters.years.forEach(function(y) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-filter">' + esc(y) + '</span>');
+    });
+    if (activeGrade) {
+      segments.push('<span class="bc-arrow">&rarr;</span><span class="bc-segment bc-grade">' + esc(activeGrade) + '</span>');
+    }
+    breadcrumbTrail.innerHTML = segments.join('');
+    clearBtn.style.display = hasFilters ? '' : 'none';
+  }
+
+  clearBtn.addEventListener('click', function() {
+    activeFilters.brands.clear();
+    activeFilters.variants.clear();
+    activeFilters.years.clear();
+    activeGrade = '';
+    executeFilteredSearch();
+  });
+
+  /* ── Search ── */
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var first = firstNameInput.value.trim();
+    var last = lastNameInput.value.trim();
+    var extra = extraInput.value.trim();
+    if (!last) return;
+    var q = [first, last, extra].filter(Boolean).join(' ');
+    baseQuery = q;
+    activeFilters.brands.clear();
+    activeFilters.variants.clear();
+    activeFilters.years.clear();
+    activeGrade = '';
+    executeFilteredSearch();
+  });
+
+  function executeFilteredSearch() {
+    var q = buildCompositeQuery();
+    if (!q) return;
+    renderBreadcrumb();
+    renderAllChips();
+    doSearch(q, activeGrade);
+  }
+
+  async function doSearch(q, grade) {
+    btn.disabled = true;
+    resultEl.innerHTML = '<div class="loading-wrap"><div class="spinner"></div></div>';
+    filtersPanel.classList.add('visible');
+
+    var cacheKey = q + '||' + (grade || '');
+    if (apiCache.has(cacheKey)) {
+      var cached = apiCache.get(cacheKey);
+      renderResult(cached, grade, q);
+      btn.disabled = false;
+      return;
+    }
+
+    var url = '/api/search?q=' + encodeURIComponent(q);
+    if (grade) url += '&grade=' + encodeURIComponent(grade);
+    try {
+      var resp = await fetch(url);
+      if (!resp.ok) throw new Error('API returned ' + resp.status);
+      var d = await resp.json();
+      if (d.error) {
+        resultEl.innerHTML = '<div class="error-msg">' + esc(d.error) + '</div>';
+        return;
+      }
+      if (d.fair_value == null && !(d.grade_ladder && d.grade_ladder.length)) {
+        resultEl.innerHTML = '<div class="no-result"><div class="icon">&#128269;</div>No data found &mdash; this item may need manual appraisal</div>';
+        return;
+      }
+      var maxVal = d.fair_value || 0;
+      if (d.grade_ladder) d.grade_ladder.forEach(function(g) { if (g.value > maxVal) maxVal = g.value; });
+      if (maxVal < 4000) {
+        resultEl.innerHTML = '<div class="no-result"><div class="icon">&#128176;</div>This item is valued below our $4,000 minimum threshold.<br><span style="font-size:14px;color:#64748b">Card Vault focuses on high-value collectibles eligible for tax-advantaged donation. Items under $4,000 typically do not qualify for a qualified appraisal under IRS Section 170.</span></div>';
+        return;
+      }
+      apiCache.set(cacheKey, d);
+      if (d.grade_ladder && d.grade_ladder.length) {
+        lastApiGradeLadder = d.grade_ladder;
+        renderAllChips();
+      }
+      renderResult(d, grade, q);
+    } catch(err) {
+      resultEl.innerHTML = '<div class="error-msg">Search failed: ' + esc(err.message) + '</div>';
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  function renderResult(d, selectedGrade, compositeQuery) {
+    var rec = d.recommendation || {};
+    var rating = rec.rating || 'REVIEW';
+    var scoreColor = scoreClr(d.buy_score);
+    var trendColor = (d.trend_30d || 0) >= 0 ? 'var(--green)' : 'var(--red)';
+    var trendArrow = (d.trend_30d || 0) >= 0 ? '&#9650;' : '&#9660;';
+
+    var h = '<div class="result-card">';
+
+    if (d.sample_size != null) {
+      h += '<div class="result-count">' + fmtNum.format(d.sample_size) + ' recent sales matching <strong>\'' + esc(compositeQuery || d.query || baseQuery) + '\'</strong></div>';
+    }
+
+    h += '<div class="result-header"><div>';
+    h += '<div class="result-fv">' + (d.fair_value != null ? fmt.format(d.fair_value) : '&mdash;') + '</div>';
+    h += '<div class="result-query">Fair Value' + (d.verdict ? ' &middot; <span style="color:' + verdictColor(d.verdict) + '">' + esc(d.verdict) + '</span>' : '') + '</div>';
+    h += '</div><div class="result-right">';
+    h += '<div class="result-badge badge-' + rating + '">' + rating + '</div>';
+    h += '</div></div>';
+
+    h += '<div class="stats-grid">';
+    h += statBox('Fair Value', d.fair_value != null ? fmt.format(d.fair_value) : '—');
+    h += statBox('FMV Confidence', d.confidence != null ? d.confidence + '%' : '—', d.confidence > 60 ? 'var(--green)' : d.confidence > 30 ? 'var(--gold)' : 'var(--red)');
+    h += statBox('Avg Price', d.avg_price != null ? fmt.format(d.avg_price) : '—');
+    h += buyScoreBox(d.buy_score, scoreColor);
+    h += statBox('90-Day Sales', d.sales_90d != null ? fmtNum.format(d.sales_90d) : '—');
+    h += statBox('30-Day Trend', d.trend_30d != null ? '<span style="color:' + trendColor + '">' + trendArrow + ' ' + fmtPct.format(Math.abs(d.trend_30d)) + '%</span>' : '—');
+    h += statBox('Liquidity', d.liquidity != null ? d.liquidity + '%' : '—');
+    h += '</div>';
+
+    if (rec.reason || rec.est_net_proceeds != null) {
+      var borderClr = rating === 'LIQUIDATE' ? 'var(--green)' : rating === 'HOLD' ? 'var(--gold)' : 'var(--blue)';
+      h += '<div class="reason-box" style="border-left-color:' + borderClr + '">';
+      if (rec.reason) h += esc(rec.reason);
+      if (rec.est_net_proceeds != null) h += '<div class="proceeds">Est. Net Proceeds: ' + fmt.format(rec.est_net_proceeds) + '</div>';
+      h += '</div>';
+    }
+
+    if (d.grade_ladder && d.grade_ladder.length && !selectedGrade) {
+      var maxVal = Math.max.apply(null, d.grade_ladder.map(function(g){ return g.value || 0 }));
+      h += '<div class="grade-section">';
+      h += '<div class="grade-section-title">Grade Ladder &mdash; click a grade to drill down</div>';
+      h += '<table class="grade-table"><thead><tr><th>Grade</th><th>Fair Value</th><th>Low</th><th>High</th><th>Sales</th><th></th></tr></thead><tbody>';
+      d.grade_ladder.forEach(function(g) {
+        var pct = maxVal > 0 ? Math.round(((g.value || 0) / maxVal) * 100) : 0;
+        h += '<tr class="grade-row" data-grade="' + esc(g.grade) + '">';
+        h += '<td class="grade-name">' + esc(g.grade) + '</td>';
+        h += '<td>' + (g.value != null ? fmt.format(g.value) : '—') + '<div class="grade-val-bar" style="width:' + pct + '%"></div></td>';
+        h += '<td class="grade-range">' + (g.low != null ? fmt.format(g.low) : '—') + '</td>';
+        h += '<td class="grade-range">' + (g.high != null ? fmt.format(g.high) : '—') + '</td>';
+        h += '<td>' + (g.sample_size != null ? fmtNum.format(g.sample_size) : '—') + '</td>';
+        h += '<td class="grade-action">Select &rarr;</td>';
+        h += '</tr>';
+      });
+      h += '</tbody></table></div>';
+    }
+
+    if (selectedGrade && rec) {
+      h += '<div class="grade-detail">';
+      h += '<div class="grade-detail-header"><div class="grade-detail-title">' + esc(selectedGrade) + ' Detail</div>';
+      h += '<div class="result-badge badge-' + (rec.rating || 'REVIEW') + '">' + (rec.rating || 'REVIEW') + '</div></div>';
+      h += '<div class="grade-detail-grid">';
+      h += statBox('Fair Value', d.fair_value != null ? fmt.format(d.fair_value) : '—');
+      h += statBox('Confidence', d.confidence != null ? d.confidence + '%' : '—');
+      h += statBox('Est. Proceeds', rec.est_net_proceeds != null ? fmt.format(rec.est_net_proceeds) : '—', 'var(--green)');
+      h += statBox('Last Sale', d.last_sale != null ? fmt.format(d.last_sale) : '—');
+      h += '</div></div>';
+    }
+
+    h += '</div>';
+    resultEl.innerHTML = h;
+
+    resultEl.querySelectorAll('.grade-row').forEach(function(row) {
+      row.addEventListener('click', function() {
+        var grade = this.getAttribute('data-grade');
+        activeGrade = grade;
+        executeFilteredSearch();
+      });
+    });
+  }
+
+  function verdictColor(v) {
+    if (!v) return 'var(--text-muted)';
+    var vl = v.toLowerCase();
+    if (vl.indexOf('buy') !== -1) return 'var(--green)';
+    if (vl.indexOf('sell') !== -1 || vl.indexOf('liquidate') !== -1) return 'var(--red)';
+    return 'var(--gold)';
+  }
+
+  function statBox(label, val, color) {
+    return '<div class="stat-box"><div class="stat-label">' + esc(label) + '</div><div class="stat-val"' + (color ? ' style="color:' + color + '"' : '') + '>' + val + '</div></div>';
+  }
+
+  function buyScoreBox(score, color) {
+    if (score == null) return statBox('Buy Score', '—');
+    return '<div class="stat-box"><div class="stat-label">Buy Score</div><div class="stat-val" style="color:' + color + '">' + score + ' / 100</div>'
+      + '<div class="score-bar-wrap"><div class="score-bar" style="width:' + Math.min(score, 100) + '%;background:' + color + '"></div></div></div>';
+  }
+
+  function scoreClr(s) { return s >= 70 ? 'var(--green)' : s >= 40 ? 'var(--gold)' : 'var(--red)' }
+
+  /* ── Categories ── */
+  async function loadCategories() {
+    try {
+      var resp = await fetch('/api/categories');
+      if (!resp.ok) throw new Error('Status ' + resp.status);
+      var d = await resp.json();
+      cache.categories = d.categories || [];
+      renderCatTabs();
+    } catch(e) {
+      $('catTabs').innerHTML = '<div style="color:var(--text-muted);font-size:.82rem;padding:8px">Could not load categories</div>';
+    }
+  }
+
+  function renderCatTabs() {
+    var cats = cache.categories || [];
+    var h = '<div class="cat-tab' + (activeCategory === 'all' ? ' active' : '') + '" data-cat="all">All</div>';
+    cats.forEach(function(c) {
+      var name = capitalize(c.category);
+      var active = activeCategory === c.category ? ' active' : '';
+      h += '<div class="cat-tab' + active + '" data-cat="' + esc(c.category) + '">';
+      h += esc(name);
+      if (c.listings != null) h += '<span class="cat-count">' + fmtNum.format(c.listings) + '</span>';
+      h += '</div>';
+    });
+    $('catTabs').innerHTML = h;
+
+    $('catTabs').querySelectorAll('.cat-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var cat = this.getAttribute('data-cat');
+        setActiveCategory(cat);
+      });
+    });
+  }
+
+  function setActiveCategory(cat) {
+    activeCategory = cat;
+    $('catTabs').querySelectorAll('.cat-tab').forEach(function(t) {
+      t.classList.toggle('active', t.getAttribute('data-cat') === cat);
+    });
+    filterMovers();
+    if (cat === 'all') {
+      $('floorSection').style.display = 'none';
+    } else {
+      loadFloor(cat);
+    }
+  }
+
+  /* ── Floor ── */
+  async function loadFloor(cat) {
+    var section = $('floorSection');
+    section.style.display = 'block';
+    section.innerHTML = '<div class="loading-wrap"><div class="spinner"></div></div>';
+
+    if (cache.floor[cat]) {
+      renderFloor(cache.floor[cat], cat);
+      return;
+    }
+
+    try {
+      var resp = await fetch('/api/floor?category=' + encodeURIComponent(cat));
+      if (!resp.ok) throw new Error('Status ' + resp.status);
+      var d = await resp.json();
+      var info = (d.categories && d.categories.length) ? d.categories[0] : d;
+      cache.floor[cat] = info;
+      renderFloor(info, cat);
+    } catch(e) {
+      section.innerHTML = '<div class="error-msg" style="font-size:.82rem">Could not load floor data</div>';
+    }
+  }
+
+  function renderFloor(d, cat) {
+    var section = $('floorSection');
+    var h = '<div style="margin-bottom:6px;font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em">' + capitalize(cat) + ' Floor Stats</div>';
+    h += '<div class="floor-stats">';
+    h += floorCard('Total Listings', d.listings != null ? fmtNum.format(d.listings) : '—');
+    h += floorCard('Total Market Value', d.total_value != null ? fmt.format(d.total_value) : '—', 'var(--green)');
+    h += floorCard('Average Price', d.avg != null ? fmt.format(d.avg) : '—');
+    h += floorCard('Median Price', d.median != null ? fmt.format(d.median) : '—');
+    h += '</div>';
+    section.innerHTML = h;
+  }
+
+  function floorCard(label, val, color) {
+    return '<div class="floor-stat-card"><div class="fs-label">' + esc(label) + '</div><div class="fs-val"' + (color ? ' style="color:' + color + '"' : '') + '>' + val + '</div></div>';
+  }
+
+  /* ── Market Movers ── */
+  async function loadMovers() {
+    var el = $('moversContainer');
+    try {
+      var resp = await fetch('/api/movers');
+      if (!resp.ok) throw new Error('Status ' + resp.status);
+      var d = await resp.json();
+      allMovers = d.movers || d;
+      if (!Array.isArray(allMovers)) allMovers = [];
+      filterMovers();
+    } catch(err) {
+      el.innerHTML = '<div class="error-msg" style="font-size:.82rem">Could not load movers: ' + esc(err.message) + '</div>';
+    }
+  }
+
+  function filterMovers() {
+    var el = $('moversContainer');
+    var filtered = activeCategory === 'all' ? allMovers : allMovers.filter(function(m) { return m.category === activeCategory });
+    filtered = filtered.filter(function(m) { return (m.current_avg || 0) >= 4000; });
+    if (!filtered.length) {
+      el.innerHTML = '<div class="movers-empty">No movers' + (activeCategory !== 'all' ? ' in ' + capitalize(activeCategory) : '') + '</div>';
+      return;
+    }
+    var h = '<div class="movers-grid">';
+    filtered.forEach(function(m) {
+      var up = m.direction === 'up' || (m.pct_change || 0) > 0;
+      var color = up ? 'var(--green)' : 'var(--red)';
+      var arrow = up ? '&#9650;' : '&#9660;';
+      var catClass = 'cat-' + (m.category || 'default');
+      h += '<div class="mover-card" data-label="' + esc(m.label || '') + '">';
+      h += '<div class="mover-label">' + esc(m.label || '') + '</div>';
+      h += '<div class="mover-cat ' + catClass + '">' + esc(m.category || '') + '</div>';
+      h += '<div class="mover-price">' + (m.current_avg != null ? fmt.format(m.current_avg) : '—') + '</div>';
+      h += '<div class="mover-change" style="color:' + color + '">' + arrow + ' ' + fmtPct.format(Math.abs(m.pct_change || 0)) + '%</div>';
+      if (m.n != null) h += '<div class="mover-n">' + fmtNum.format(m.n) + ' listings</div>';
+      h += '</div>';
+    });
+    h += '</div>';
+    el.innerHTML = h;
+
+    el.querySelectorAll('.mover-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var label = this.getAttribute('data-label');
+        if (label) {
+          firstNameInput.value = '';
+          lastNameInput.value = label;
+          extraInput.value = '';
+          baseQuery = label;
+          activeFilters.brands.clear();
+          activeFilters.variants.clear();
+          activeFilters.years.clear();
+          activeGrade = '';
+          executeFilteredSearch();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  /* ── Utils ── */
+  function esc(s) { var d = document.createElement('div'); d.textContent = String(s); return d.innerHTML }
+  function capitalize(s) { if (!s) return ''; return s.charAt(0).toUpperCase() + s.slice(1) }
+
+  /* ── Init ── */
+  loadCategories();
+  loadMovers();
+
+  /* ── Search Mode Toggle ── */
+  window.setSearchMode = function(mode) {
+    var isSearch = mode === 'search';
+    $('searchForm').style.display = isSearch ? '' : 'none';
+    $('certForm').style.display = isSearch ? 'none' : '';
+    $('searchHint').style.display = isSearch ? '' : 'none';
+    $('certHint').style.display = isSearch ? 'none' : '';
+    $('modeSearch').classList.toggle('active', isSearch);
+    $('modeCert').classList.toggle('active', !isSearch);
+    if (!isSearch) $('certInput').focus();
+  };
+
+  /* ── PSA Cert Lookup ── */
+  $('certForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var cert = $('certInput').value.trim();
+    if (!cert) return;
+
+    var resultEl = $('certResult');
+    resultEl.style.display = 'block';
+    resultEl.innerHTML = '<div class="loading-wrap"><div class="spinner"></div><div style="margin-top:10px;color:var(--text-muted);font-size:.85rem">Looking up PSA cert #' + esc(cert) + '...</div></div>';
+
+    try {
+      var resp = await fetch('/api/cert?cert=' + encodeURIComponent(cert));
+      var d = await resp.json();
+
+      if (d.error) {
+        resultEl.innerHTML = '<div class="cert-card"><div class="error-msg">' + esc(d.error) + '</div>' + (d.hint ? '<div style="font-size:.85rem;color:var(--text-muted);margin-top:6px">' + esc(d.hint) + '</div>' : '') + '</div>';
+        return;
+      }
+
+      var psa = d.psa || {};
+      var val = d.valuation;
+      var h = '<div class="cert-card">';
+      h += '<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px">PSA Verified</div>';
+      h += '<div class="cert-header">' + esc(d.description || 'Unknown Card') + '</div>';
+      h += '<div class="cert-desc">Cert #' + esc(cert) + ' &middot; ' + esc(psa.label_type || 'Standard') + ' Label</div>';
+
+      h += '<div class="cert-grid">';
+      var fields = [
+        ['Player', psa.player], ['Year', psa.year], ['Brand', psa.brand],
+        ['Card #', psa.card_number], ['Grade', 'PSA ' + (psa.grade || '—')],
+        ['Category', psa.category],
+      ];
+      fields.forEach(function(f) {
+        h += '<div class="cert-field"><div class="cert-field-label">' + f[0] + '</div><div class="cert-field-value">' + esc(f[1] || '—') + '</div></div>';
+      });
+      h += '</div>';
+
+      if (val) {
+        var rec = val.recommendation || {};
+        var badgeClass = (rec.rating === 'LIQUIDATE') ? 'badge-LIQUIDATE' : (rec.rating === 'HOLD') ? 'badge-HOLD' : 'badge-REVIEW';
+
+        h += '<div class="cert-valuation">';
+        h += '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">';
+        h += '<div><div style="font-size:.7rem;text-transform:uppercase;color:var(--text-muted)">Estimated Fair Market Value</div><div class="cert-fv">' + (val.fair_value != null ? fmt.format(val.fair_value) : '—') + '</div></div>';
+        h += '<div class="result-badge ' + badgeClass + '" style="font-size:1rem;padding:8px 20px">' + (rec.rating || 'REVIEW') + '</div>';
+        h += '</div>';
+
+        if (val.confidence != null) {
+          var confColor = val.confidence > 60 ? 'var(--green)' : val.confidence > 30 ? 'var(--gold)' : 'var(--red)';
+          h += '<div style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">FMV Confidence: <strong style="color:' + confColor + '">' + val.confidence + '%</strong> &middot; ' + (val.sample_size || 0) + ' recent sales &middot; Buy Score: ' + (val.buy_score || '—') + '/100</div>';
+        }
+
+        if (rec.reason) {
+          h += '<div style="margin-top:12px;padding:12px;background:#0f1117;border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text-muted)">' + esc(rec.reason) + '</div>';
+        }
+
+        if (rec.est_net_proceeds) {
+          h += '<div style="margin-top:10px;font-size:.9rem;color:var(--text-muted)">Est. net proceeds to nonprofit: <strong style="color:var(--green)">' + fmt.format(rec.est_net_proceeds) + '</strong> <span style="font-size:.75rem">(after marketplace fees)</span></div>';
+        }
+
+        if (val.grade_ladder && val.grade_ladder.length) {
+          h += '<div style="margin-top:16px"><div style="font-size:.75rem;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">Grade Ladder — Recent Comp Averages</div>';
+          h += '<table style="width:100%;border-collapse:collapse;font-size:.85rem"><thead><tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem;text-transform:uppercase">Grade</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem">Fair Value</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem">Range</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.7rem">Sales</th></tr></thead><tbody>';
+          val.grade_ladder.forEach(function(g) {
+            h += '<tr><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;font-weight:600">' + esc(g.grade) + '</td><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;text-align:right;font-weight:700;color:var(--text)">' + (g.value != null ? fmt.format(g.value) : '—') + '</td><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;text-align:right;color:var(--text-muted);font-size:.8rem">' + (g.low != null ? fmt.format(g.low) + ' – ' + fmt.format(g.high) : '—') + '</td><td style="padding:6px 8px;border-bottom:1px solid #1a1d2e;text-align:right;color:var(--text-muted)">' + (g.sample_size || '—') + '</td></tr>';
+          });
+          h += '</tbody></table></div>';
+        }
+
+        h += '</div>';
+      } else {
+        h += '<div class="cert-valuation"><div style="color:var(--text-muted);font-size:.9rem">Card verified by PSA but no market data available yet. <strong style="color:var(--blue)">REVIEW</strong> — manual appraisal recommended.</div></div>';
+      }
+
+      h += '</div>';
+      resultEl.innerHTML = h;
+
+    } catch(err) {
+      resultEl.innerHTML = '<div class="cert-card"><div class="error-msg">Error looking up cert: ' + esc(err.message) + '</div></div>';
+    }
+  });
+})();
+</script>
+</body>
+</html>
