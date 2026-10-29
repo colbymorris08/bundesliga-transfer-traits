@@ -23,12 +23,20 @@ from sklearn.cluster import AgglomerativeClustering
 
 OUT = Path(__file__).resolve().parent
 
-METRICS = ["era", "k9", "bb9", "hr9", "whip", "k_bb", "w_pct"]
+RATE_METRICS = ["era", "k9", "bb9", "hr9", "whip", "k_bb"]
+ALL_METRICS = RATE_METRICS + ["gb_pct"]
 METRIC_LABELS = {
     "era": "ERA", "k9": "K/9", "bb9": "BB/9", "hr9": "HR/9",
-    "whip": "WHIP", "k_bb": "K/BB", "w_pct": "Win%",
+    "whip": "WHIP", "k_bb": "K/BB", "gb_pct": "GB%",
 }
 INVERTED_METRICS = {"era", "bb9", "hr9", "whip"}
+
+WINDOWS = [
+    ("1y", "Last 1yr Asia vs First 1yr MLB"),
+    ("2y", "Last 2yr Asia vs First 2yr MLB"),
+    ("3y", "Last 3yr Asia vs First 3yr MLB"),
+    ("career", "Career Asia vs Career MLB"),
+]
 
 
 def load_data() -> pd.DataFrame:
@@ -38,7 +46,7 @@ def load_data() -> pd.DataFrame:
     df = pd.DataFrame(records)
 
     for col in df.columns:
-        if col.startswith("a_") or col.startswith("m_"):
+        if col.startswith("a_") or col.startswith("m_") or col.startswith("a1y") or col.startswith("a2y") or col.startswith("a3y") or col.startswith("m1y") or col.startswith("m2y") or col.startswith("m3y"):
             df[col] = pd.to_numeric(df[col], errors="coerce")
 
     if "m_seasons_bwar" in df.columns and "m_seasons" not in df.columns:
@@ -51,31 +59,42 @@ def load_data() -> pd.DataFrame:
 
 # ── Stability Analysis ──────────────────────────────────────────────────────
 
+def _col_pair(metric: str, window: str) -> tuple[str, str]:
+    """Return (asian_col, mlb_col) for a metric and window tag."""
+    if window == "career":
+        return f"a_{metric}", f"m_{metric}"
+    return f"a{window}_{metric}", f"m{window}_{metric}"
+
+
 def stability_analysis(df: pd.DataFrame) -> dict:
-    """Correlate Asian-league metric → same MLB metric for each league (Pearson r)."""
+    """Correlate Asian-league metric -> same MLB metric across time windows and leagues.
+
+    Returns {league: {window_tag: {metric: {r, p, n, stable}}}}.
+    """
     results = {}
     for league in ["NPB", "KBO", "CPBL", "ALL"]:
         sub = df if league == "ALL" else df[df["league"] == league]
         if len(sub) < 4:
             continue
         league_res = {}
-        for m in METRICS:
-            a_col = f"a_{m}"
-            m_col = f"m_{m}"
-            if a_col not in sub.columns or m_col not in sub.columns:
-                continue
-            valid = sub[[a_col, m_col]].dropna()
-            if len(valid) < 4:
-                continue
-            r, p = sp_stats.pearsonr(valid[a_col], valid[m_col])
-            league_res[m] = {"r": round(r, 3), "p": round(p, 4), "n": len(valid),
-                             "stable": bool(abs(r) >= 0.40 and p < 0.10)}
-        if "a_gb_pct" in sub.columns and "m_gb_pct" in sub.columns:
-            v = sub[["a_gb_pct", "m_gb_pct"]].dropna()
-            if len(v) >= 4:
-                r, p = sp_stats.pearsonr(v["a_gb_pct"], v["m_gb_pct"])
-                league_res["gb_pct"] = {"r": round(r, 3), "p": round(p, 4), "n": len(v),
-                                        "stable": bool(abs(r) >= 0.40 and p < 0.10)}
+        for wtag, wlabel in WINDOWS:
+            win_res = {}
+            for m in ALL_METRICS:
+                a_col, m_col = _col_pair(m, wtag)
+                if a_col not in sub.columns or m_col not in sub.columns:
+                    continue
+                valid = sub[[a_col, m_col]].dropna()
+                if len(valid) < 4:
+                    continue
+                r, p = sp_stats.pearsonr(valid[a_col], valid[m_col])
+                win_res[m] = {
+                    "r": round(float(r), 3),
+                    "p": round(float(p), 4),
+                    "n": int(len(valid)),
+                    "stable": bool(abs(r) >= 0.40 and p < 0.10),
+                }
+            if win_res:
+                league_res[wtag] = {"label": wlabel, "metrics": win_res}
         results[league] = league_res
     return results
 
@@ -83,23 +102,34 @@ def stability_analysis(df: pd.DataFrame) -> dict:
 # ── Redundancy Analysis ─────────────────────────────────────────────────────
 
 def redundancy_analysis(df: pd.DataFrame) -> dict:
-    """Find near-duplicate metrics via pairwise correlation and clustering."""
-    all_metrics = [f"a_{m}" for m in METRICS] + [f"m_{m}" for m in METRICS]
-    available = [c for c in all_metrics if c in df.columns]
-    clean = df[available].dropna()
+    """Find near-duplicate metrics via pairwise correlation and clustering.
+
+    Uses Asian-league career metrics only (a_*), since the user correctly
+    noted that if Asian ERA correlates with MLB ERA, then ERA is simply
+    "ERA" — the redundancy is in the metric itself, not league-specific.
+    """
+    asian_cols = [f"a_{m}" for m in ALL_METRICS if f"a_{m}" in df.columns]
+    clean = df[asian_cols].dropna()
     if len(clean) < 5:
         return {"pairs": [], "clusters": []}
 
-    corr = clean[available].corr(method="pearson")
+    corr = clean.corr(method="pearson")
 
     pairs = []
-    for i, c1 in enumerate(available):
-        for j, c2 in enumerate(available):
+    for i, c1 in enumerate(asian_cols):
+        for j, c2 in enumerate(asian_cols):
             if j <= i:
                 continue
             r = corr.loc[c1, c2]
             if abs(r) >= 0.75:
-                pairs.append({"a": c1, "b": c2, "r": round(float(r), 3)})
+                m1 = c1.replace("a_", "")
+                m2 = c2.replace("a_", "")
+                pairs.append({
+                    "a": m1, "b": m2,
+                    "a_label": METRIC_LABELS.get(m1, m1),
+                    "b_label": METRIC_LABELS.get(m2, m2),
+                    "r": round(float(r), 3),
+                })
     pairs.sort(key=lambda x: -abs(x["r"]))
 
     dist = 1 - corr.abs().values
@@ -109,10 +139,14 @@ def redundancy_analysis(df: pd.DataFrame) -> dict:
         n_clusters=None, distance_threshold=0.40, metric="precomputed", linkage="average"
     )
     labels = clustering.fit_predict(dist)
-    clusters = {}
-    for col, lab in zip(available, labels):
-        clusters.setdefault(int(lab), []).append(col)
-    cluster_list = [{"id": k, "metrics": v} for k, v in sorted(clusters.items()) if len(v) > 1]
+    clusters: dict[int, list[str]] = {}
+    for col, lab in zip(asian_cols, labels):
+        m = col.replace("a_", "")
+        clusters.setdefault(int(lab), []).append(m)
+    cluster_list = [
+        {"id": k, "metrics": v, "labels": [METRIC_LABELS.get(m, m) for m in v]}
+        for k, v in sorted(clusters.items()) if len(v) > 1
+    ]
 
     return {"pairs": pairs, "clusters": cluster_list}
 
@@ -120,8 +154,13 @@ def redundancy_analysis(df: pd.DataFrame) -> dict:
 # ── Significance Analysis ───────────────────────────────────────────────────
 
 def significance_analysis(df: pd.DataFrame) -> dict:
-    """Which Asian-league metrics predict MLB success (ERA+, WAR, longevity)?"""
-    outcomes = {}
+    """Which Asian-league metrics predict MLB success?
+
+    Primary outcome: ERA+ (what predicts MLB performance).
+    Secondary: Career WAR, MLB Seasons (longevity).
+    Tests each window's Asian metrics against career MLB outcomes.
+    """
+    outcomes: dict[str, str] = {}
     if "m_era_plus" in df.columns:
         outcomes["m_era_plus"] = "ERA+"
     if "m_war" in df.columns:
@@ -129,29 +168,37 @@ def significance_analysis(df: pd.DataFrame) -> dict:
     if "m_seasons" in df.columns:
         outcomes["m_seasons"] = "MLB Seasons"
 
-    asian_cols = [f"a_{m}" for m in METRICS if f"a_{m}" in df.columns]
-
     results = {}
     for league in ["NPB", "KBO", "CPBL", "ALL"]:
         sub = df if league == "ALL" else df[df["league"] == league]
         if len(sub) < 5:
             continue
         league_res = {}
-        for out_col, out_label in outcomes.items():
-            metric_results = []
-            for ac in asian_cols:
-                valid = sub[[ac, out_col]].dropna()
-                if len(valid) < 5:
-                    continue
-                r, p = sp_stats.pearsonr(valid[ac], valid[out_col])
-                metric_results.append({
-                    "metric": ac.replace("a_", ""),
-                    "label": METRIC_LABELS.get(ac.replace("a_", ""), ac),
-                    "r": round(float(r), 3), "p": round(float(p), 4), "n": int(len(valid)),
-                    "significant": bool(p < 0.10)
-                })
-            metric_results.sort(key=lambda x: -abs(x["r"]))
-            league_res[out_col] = {"label": out_label, "drivers": metric_results}
+
+        for wtag, wlabel in WINDOWS:
+            win_res = {}
+            for out_col, out_label in outcomes.items():
+                metric_results = []
+                for m in ALL_METRICS:
+                    a_col = f"a_{m}" if wtag == "career" else f"a{wtag}_{m}"
+                    if a_col not in sub.columns or out_col not in sub.columns:
+                        continue
+                    valid = sub[[a_col, out_col]].dropna()
+                    if len(valid) < 5:
+                        continue
+                    r, p = sp_stats.pearsonr(valid[a_col], valid[out_col])
+                    metric_results.append({
+                        "metric": m,
+                        "label": METRIC_LABELS.get(m, m),
+                        "r": round(float(r), 3),
+                        "p": round(float(p), 4),
+                        "n": int(len(valid)),
+                        "significant": bool(p < 0.10),
+                    })
+                metric_results.sort(key=lambda x: -abs(x["r"]))
+                win_res[out_col] = {"label": out_label, "drivers": metric_results}
+            league_res[wtag] = {"label": wlabel, "outcomes": win_res}
+
         results[league] = league_res
     return results
 
@@ -289,6 +336,12 @@ def main():
     both = df[df["a_era"].notna() & df["m_era"].notna()]
     print(f"Pitchers with both Asian + MLB data: {len(both)}")
 
+    for wtag, wlabel in WINDOWS:
+        a_col, m_col = _col_pair("era", wtag)
+        if a_col in df.columns and m_col in df.columns:
+            n = df[[a_col, m_col]].dropna().shape[0]
+            print(f"  {wlabel}: {n} pitchers")
+
     stab = stability_analysis(df)
     red = redundancy_analysis(df)
     sig = significance_analysis(df)
@@ -307,6 +360,7 @@ def main():
         "redundancy": red,
         "significance": sig,
         "itoh": ITOH_ASSESSMENT,
+        "windows": [{"tag": t, "label": l} for t, l in WINDOWS],
         "meta": {
             "n_pitchers": len(df),
             "n_npb": int(sum(df.league == "NPB")),
@@ -319,7 +373,12 @@ def main():
             "metric_labels": METRIC_LABELS,
             "translation_factor": 1.096,
             "translation_source": "Cho (2026), Cross-League Equivalencies",
-            "p_value_note": "p < 0.10 means less than 10% probability the observed correlation arose by chance under the null hypothesis of no linear relationship. A lower p-value provides stronger evidence that the metric genuinely transfers across leagues.",
+            "p_value_note": (
+                "p < 0.10 means less than 10% probability the observed correlation "
+                "arose by chance under the null hypothesis of no linear relationship. "
+                "A lower p-value provides stronger evidence that the metric genuinely "
+                "transfers across leagues."
+            ),
             "data_sources": [
                 "MLB Stats API (statsapi.mlb.com)",
                 "Baseball-Reference Register (standard_pitching tables)",
@@ -345,29 +404,34 @@ def main():
         json.dump(data, f, indent=2, cls=NpEncoder)
     print(f"Wrote analysis_data.json ({OUT / 'analysis_data.json'})")
 
-    print("\n── STABILITY (ALL leagues combined) ──")
-    for m, v in stab.get("ALL", {}).items():
-        tag = "STABLE" if v["stable"] else "below"
-        print(f"  {METRIC_LABELS.get(m, m):>8s}: r={v['r']:+.3f}  p={v['p']:.4f}  n={v['n']}  {tag}")
+    print("\n── STABILITY (ALL, by window) ──")
+    for wtag, wlabel in WINDOWS:
+        win_data = stab.get("ALL", {}).get(wtag, {}).get("metrics", {})
+        if not win_data:
+            continue
+        print(f"\n  {wlabel}:")
+        for m, v in win_data.items():
+            tag = "STABLE" if v["stable"] else "below"
+            print(f"    {METRIC_LABELS.get(m, m):>8s}: r={v['r']:+.3f}  p={v['p']:.4f}  n={v['n']}  {tag}")
 
-    print("\n── STABILITY (NPB) ──")
-    for m, v in stab.get("NPB", {}).items():
-        tag = "STABLE" if v["stable"] else "below"
-        print(f"  {METRIC_LABELS.get(m, m):>8s}: r={v['r']:+.3f}  p={v['p']:.4f}  n={v['n']}  {tag}")
-
-    print("\n── REDUNDANCY CLUSTERS ──")
+    print("\n── REDUNDANCY CLUSTERS (Asian-only metrics) ──")
     for c in red["clusters"]:
-        print(f"  Cluster {c['id']}: {', '.join(c['metrics'])}")
+        print(f"  Cluster {c['id']}: {', '.join(c['labels'])}")
 
-    print("\n── SIGNIFICANCE: Asian metrics → ERA+ (ALL) ──")
-    sig_all = sig.get("ALL", {}).get("m_era_plus", {})
-    for d in sig_all.get("drivers", []):
+    print("\n── REDUNDANT PAIRS (|r| >= 0.75) ──")
+    for p in red["pairs"][:10]:
+        print(f"  {p['a_label']:>8s} ~ {p['b_label']:<8s}: r={p['r']:+.3f}")
+
+    print("\n── SIGNIFICANCE: Career Asian metrics → ERA+ (ALL) ──")
+    sig_career = sig.get("ALL", {}).get("career", {}).get("outcomes", {})
+    era_plus_data = sig_career.get("m_era_plus", {})
+    for d in era_plus_data.get("drivers", []):
         tag = "SIG" if d["significant"] else "   "
         print(f"  {d['label']:>8s}: r={d['r']:+.3f}  p={d['p']:.4f}  n={d['n']}  {tag}")
 
-    print("\n── SIGNIFICANCE: Asian metrics → Career WAR (ALL) ──")
-    sig_war = sig.get("ALL", {}).get("m_war", {})
-    for d in sig_war.get("drivers", []):
+    print("\n── SIGNIFICANCE: Career Asian metrics → Career WAR (ALL) ──")
+    war_data = sig_career.get("m_war", {})
+    for d in war_data.get("drivers", []):
         tag = "SIG" if d["significant"] else "   "
         print(f"  {d['label']:>8s}: r={d['r']:+.3f}  p={d['p']:.4f}  n={d['n']}  {tag}")
 

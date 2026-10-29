@@ -212,6 +212,89 @@ def parse_mlb_api(stats: dict) -> dict:
     }
 
 
+def fetch_mlb_yearly(mlb_id: int) -> list[dict] | None:
+    """Fetch year-by-year MLB pitching stats from the Stats API."""
+    cache_path = CACHE / f"mlb_yearly_{mlb_id}.json"
+    if cache_path.exists():
+        return json.loads(cache_path.read_text())
+    url = f"https://statsapi.mlb.com/api/v1/people/{mlb_id}/stats?stats=yearByYear&group=pitching"
+    try:
+        time.sleep(0.3)
+        resp = requests.get(url, timeout=10)
+        data = resp.json()
+        splits = data.get("stats", [{}])[0].get("splits", [])
+        seasons = []
+        for s in splits:
+            stat = s.get("stat", {})
+            season = s.get("season")
+            sport = s.get("sport", {})
+            sport_id = sport.get("id", 0) if isinstance(sport, dict) else 0
+            if sport_id == 1:
+                yr = int(season)
+                if yr < 1960:
+                    continue
+                stat["season"] = yr
+                stat["team"] = s.get("team", {}).get("name", "")
+                seasons.append(stat)
+        cache_path.write_text(json.dumps(seasons))
+        return seasons
+    except Exception as e:
+        print(f"    MLB yearly error for {mlb_id}: {e}")
+    return None
+
+
+def parse_mlb_season(stats: dict) -> dict:
+    """Parse a single MLB season's stats into rate metrics."""
+    ip = float(stats.get("inningsPitched", "0").replace(",", ""))
+    if ip < 5:
+        return {}
+    so = int(stats.get("strikeOuts", 0))
+    bb = int(stats.get("baseOnBalls", 0))
+    hr = int(stats.get("homeRuns", 0))
+    h = int(stats.get("hits", 0))
+    er = int(stats.get("earnedRuns", 0))
+    go = int(stats.get("groundOuts", 0))
+    ao = int(stats.get("airOuts", 0))
+    return {
+        "season": stats.get("season"),
+        "ip": ip, "so": so, "bb": bb, "hr": hr, "h": h, "er": er,
+        "go": go, "ao": ao,
+        "era": round(er / ip * 9, 2),
+        "k9": round(so / ip * 9, 2),
+        "bb9": round(bb / ip * 9, 2),
+        "hr9": round(hr / ip * 9, 2),
+        "whip": round((h + bb) / ip, 3),
+        "k_bb": round(so / bb, 2) if bb > 0 else None,
+        "gb_pct": round(go / (go + ao) * 100, 1) if (go + ao) > 0 else None,
+    }
+
+
+def aggregate_counting(rows: list[dict]) -> dict | None:
+    """Aggregate counting stats across multiple yearly rows into rate stats."""
+    ip = so = bb = hr = h = er = go = ao = 0
+    for r in rows:
+        ip += r.get("ip", 0)
+        so += r.get("so", 0)
+        bb += r.get("bb", 0)
+        hr += r.get("hr", 0)
+        h += r.get("h", 0)
+        er += r.get("er", 0)
+        go += r.get("go", 0)
+        ao += r.get("ao", 0)
+    if ip < 10:
+        return None
+    return {
+        "ip": round(ip, 1),
+        "era": round(er / ip * 9, 2),
+        "k9": round(so / ip * 9, 2),
+        "bb9": round(bb / ip * 9, 2),
+        "hr9": round(hr / ip * 9, 2),
+        "whip": round((h + bb) / ip, 3),
+        "k_bb": round(so / bb, 2) if bb > 0 else None,
+        "gb_pct": round(go / (go + ao) * 100, 1) if (go + ao) > 0 else None,
+    }
+
+
 # ── BRef Register ──────────────────────────────────────────────────────────
 
 def fetch_bref_register(reg_id: str) -> dict | None:
@@ -301,6 +384,70 @@ def extract_asian_stats(bref_data: dict, league: str) -> dict | None:
     if not asian_rows:
         return None
     return _aggregate_yearly(asian_rows)
+
+
+def extract_asian_yearly(bref_data: dict, league: str) -> list[dict]:
+    """Extract individual yearly rows from BRef register data for the Asian league."""
+    if not bref_data:
+        return []
+
+    yearly = bref_data.get("yearly", [])
+    league_codes = {
+        "NPB": ["JPPL", "JPCL", "JPCe", "JPPa"],
+        "KBO": ["KBO"],
+        "CPBL": ["CPBL", "TML"],
+    }
+    target_leagues = league_codes.get(league, [])
+    asian_rows = []
+
+    for row in yearly:
+        lg = row.get("lg_ID", "")
+        level = row.get("level", "")
+        team = row.get("team_ID", "")
+        year_str = row.get("year_ID", "")
+
+        if "Team" in team:
+            continue
+
+        is_asian = (
+            any(x in lg for x in target_leagues)
+            or (league == "NPB" and "Jpn" in level)
+            or (league == "KBO" and "Kor" in level)
+            or (league == "CPBL" and ("Twn" in level or "TML" in level))
+        )
+        if not is_asian:
+            continue
+
+        try:
+            ip = float(row.get("IP", 0) or 0)
+        except (ValueError, TypeError):
+            continue
+        if ip < 5:
+            continue
+
+        try:
+            so = int(float(row.get("SO", 0) or 0))
+            bb = int(float(row.get("BB", 0) or 0))
+            hr_val = int(float(row.get("HR", 0) or 0))
+            h_val = int(float(row.get("H", 0) or 0))
+            er_val = int(float(row.get("ER", 0) or 0))
+            year_int = int(year_str) if year_str.isdigit() else 0
+        except (ValueError, TypeError):
+            continue
+
+        asian_rows.append({
+            "season": year_int,
+            "ip": ip, "so": so, "bb": bb, "hr": hr_val, "h": h_val, "er": er_val,
+            "go": 0, "ao": 0,
+            "era": round(er_val / ip * 9, 2) if ip > 0 else None,
+            "k9": round(so / ip * 9, 2) if ip > 0 else None,
+            "bb9": round(bb / ip * 9, 2) if ip > 0 else None,
+            "hr9": round(hr_val / ip * 9, 2) if ip > 0 else None,
+            "whip": round((h_val + bb) / ip, 3) if ip > 0 else None,
+            "k_bb": round(so / bb, 2) if bb > 0 else None,
+        })
+
+    return sorted(asian_rows, key=lambda x: x["season"])
 
 
 def _parse_summary(cells: dict) -> dict:
@@ -403,7 +550,8 @@ def main():
                "transition_year": p["tyear"], "origin": p.get("origin", "")}
         sources = {"mlb": None, "bref": None, "bwar": None, "fallback": False}
 
-        # 1) MLB Stats API
+        # 1) MLB Stats API — career + yearly
+        mlb_yearly_rows = []
         if p["mlb_id"]:
             mlb_raw = fetch_mlb_api(p["mlb_id"])
             if mlb_raw:
@@ -412,13 +560,23 @@ def main():
                 sources["mlb"] = "api"
                 print(f"  + MLB API: {mlb['m_ip']:.0f} IP, {mlb['m_era']:.2f} ERA")
 
+            yearly_raw = fetch_mlb_yearly(p["mlb_id"])
+            if yearly_raw:
+                for yr in yearly_raw:
+                    parsed = parse_mlb_season(yr)
+                    if parsed:
+                        mlb_yearly_rows.append(parsed)
+                if mlb_yearly_rows:
+                    print(f"  + MLB yearly: {len(mlb_yearly_rows)} seasons")
+
             bwar = get_war_eraplus(war_df, p["mlb_id"])
             if bwar:
                 row.update(bwar)
                 sources["bwar"] = "bwar"
                 print(f"  + bWAR: {bwar.get('m_war')} WAR, {bwar.get('m_era_plus')} ERA+")
 
-        # 2) BRef Register for Asian stats
+        # 2) BRef Register for Asian stats — career + yearly
+        asian_yearly_rows = []
         if p["bref_reg"]:
             bref = fetch_bref_register(p["bref_reg"])
             if bref:
@@ -427,6 +585,10 @@ def main():
                     row.update(asian)
                     sources["bref"] = "register"
                     print(f"  + BRef Reg: {asian.get('a_ip')} IP, {asian.get('a_era')} ERA, {asian.get('a_k9')} K/9")
+
+                asian_yearly_rows = extract_asian_yearly(bref, p["league"])
+                if asian_yearly_rows:
+                    print(f"  + Asian yearly: {len(asian_yearly_rows)} seasons")
 
         # 3) Hand-compiled fallback for any missing fields
         fallback = HAND_COMPILED.get(name, {})
@@ -438,6 +600,32 @@ def main():
         if filled:
             sources["fallback"] = True
             print(f"  + Fallback: filled {len(filled)} fields ({', '.join(filled[:5])}...)")
+
+        # 4) Compute windowed aggregates (last Ny Asia vs first Ny MLB)
+        tyear = p["tyear"]
+        for n in [1, 2, 3]:
+            if tyear and asian_yearly_rows:
+                last_n = [r for r in asian_yearly_rows if r["season"] >= tyear - n and r["season"] < tyear]
+                agg = aggregate_counting(last_n)
+                if agg:
+                    for k, v in agg.items():
+                        row[f"a{n}y_{k}"] = v
+
+            if mlb_yearly_rows:
+                if tyear:
+                    first_n = sorted(mlb_yearly_rows, key=lambda x: x["season"])
+                    mlb_start = min(r["season"] for r in first_n if r["season"] >= tyear) if any(r["season"] >= tyear for r in first_n) else None
+                    if mlb_start:
+                        first_n = [r for r in first_n if r["season"] >= mlb_start and r["season"] < mlb_start + n]
+                else:
+                    first_n = sorted(mlb_yearly_rows, key=lambda x: x["season"])[:n]
+                agg = aggregate_counting(first_n)
+                if agg:
+                    for k, v in agg.items():
+                        row[f"m{n}y_{k}"] = v
+
+        row["asian_yearly"] = asian_yearly_rows
+        row["mlb_yearly"] = mlb_yearly_rows
 
         results.append(row)
         source_log.append({"name": name, **sources})
