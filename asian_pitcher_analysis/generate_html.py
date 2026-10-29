@@ -304,7 +304,10 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
       <h3>Pairwise Pearson r on Asian Metrics</h3>
       <p>
         We compute Pearson r between every pair of Asian-league career metrics
-        (ERA, K/9, BB/9, HR/9, WHIP, K/BB, GB%).
+        (ERA, K/9, BB/9, HR/9, WHIP, K/BB).
+        Ground-ball rate is not included. Official NPB, KBO, and CPBL lines do not
+        publish it, and the Baseball-Reference register has no ground-out or air-out
+        columns for those leagues.
         This uses the same Pearson formula as stability, but both variables come
         from the Asian side \u2014 we\u2019re measuring how metrics relate to <em>each other</em>,
         not how they transfer to MLB.

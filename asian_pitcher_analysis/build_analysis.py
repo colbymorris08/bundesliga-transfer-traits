@@ -24,10 +24,13 @@ from sklearn.cluster import AgglomerativeClustering
 OUT = Path(__file__).resolve().parent
 
 RATE_METRICS = ["era", "k9", "bb9", "hr9", "whip", "k_bb"]
-ALL_METRICS = RATE_METRICS + ["gb_pct"]
+# Ground-ball rate is not on official NPB, KBO, or CPBL lines, and the
+# Baseball-Reference register has no ground-out or air-out columns for those
+# leagues. A partial hand-compiled GB% is not part of the comparison.
+ALL_METRICS = RATE_METRICS
 METRIC_LABELS = {
     "era": "ERA", "k9": "K/9", "bb9": "BB/9", "hr9": "HR/9",
-    "whip": "WHIP", "k_bb": "K/BB", "gb_pct": "GB%",
+    "whip": "WHIP", "k_bb": "K/BB",
 }
 INVERTED_METRICS = {"era", "bb9", "hr9", "whip"}
 
@@ -329,6 +332,37 @@ ITOH_ASSESSMENT = {
 }
 
 
+def _nan_to_none(obj):
+    """Replace NaN and Inf with None so the published JSON is valid."""
+    if isinstance(obj, dict):
+        return {k: _nan_to_none(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_nan_to_none(v) for v in obj]
+    if isinstance(obj, (np.floating, float)):
+        value = float(obj)
+        if np.isnan(value) or np.isinf(value):
+            return None
+        return value
+    if isinstance(obj, np.integer):
+        return int(obj)
+    if isinstance(obj, np.bool_):
+        return bool(obj)
+    return obj
+
+
+def _strip_gb(obj):
+    """Drop ground-ball rate fields, including nested season rows."""
+    if isinstance(obj, dict):
+        return {
+            k: _strip_gb(v)
+            for k, v in obj.items()
+            if "gb_pct" not in str(k)
+        }
+    if isinstance(obj, list):
+        return [_strip_gb(v) for v in obj]
+    return obj
+
+
 def main():
     df = load_data()
     loaded = len(df)
@@ -359,10 +393,7 @@ def main():
 
     pitchers_out = []
     for _, row in df.iterrows():
-        p = row.to_dict()
-        for k, v in p.items():
-            if isinstance(v, float) and (np.isnan(v) or np.isinf(v)):
-                p[k] = None
+        p = _strip_gb(_nan_to_none(row.to_dict()))
         pitchers_out.append(p)
 
     data = {
@@ -401,6 +432,7 @@ def main():
             ],
         },
     }
+    data = _strip_gb(_nan_to_none(data))
 
     class NpEncoder(json.JSONEncoder):
         def default(self, obj):
