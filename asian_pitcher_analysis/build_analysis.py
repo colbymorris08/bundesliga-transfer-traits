@@ -5,7 +5,8 @@ Stability: How well do Asian-league pitching metrics predict the same metric in 
 Redundancy: Which metrics cluster together (near-duplicate detection)?
 Significance: Which Asian-league metrics predict MLB success (ERA+, WAR, longevity)?
 
-Covers CPBL (Taiwan), KBO (South Korea), NPB (Japan).
+Covers CPBL (Taiwan), KBO (South Korea), NPB (Japan), plus American/crossover
+pitchers who played in those leagues before (returning to) MLB.
 
 Data sourced from: MLB Stats API, Baseball Reference Register, bWAR dataset,
 with hand-compiled fallback for gaps.
@@ -155,43 +156,6 @@ def significance_analysis(df: pd.DataFrame) -> dict:
     return results
 
 
-# ── Rankings ────────────────────────────────────────────────────────────────
-
-def compute_rankings(df: pd.DataFrame) -> list[dict]:
-    """Composite score for overall ranking of successfully-transitioned pitchers."""
-    required = ["m_war", "m_era_plus", "m_ip"]
-    sub = df.dropna(subset=required)
-
-    scores = []
-    for _, row in sub.iterrows():
-        war = float(row["m_war"])
-        era_plus = float(row["m_era_plus"])
-        ip = float(row["m_ip"])
-        s_raw = row.get("m_seasons") if pd.notna(row.get("m_seasons")) else row.get("m_seasons_bwar")
-        seasons = float(s_raw) if pd.notna(s_raw) else 1.0
-        k_bb = float(row.get("m_k_bb") or 2.0)
-
-        war_score = min(war / 40.0, 1.0) * 35
-        era_plus_score = min(max(era_plus - 70, 0) / 100, 1.0) * 25
-        ip_score = min(ip / 2000.0, 1.0) * 20
-        seasons_score = min(seasons / 15, 1.0) * 10
-        k_bb_score = min(k_bb / 6.0, 1.0) * 10
-        total = war_score + era_plus_score + ip_score + seasons_score + k_bb_score
-
-        scores.append({
-            "name": row["name"], "league": row["league"],
-            "pos": row.get("pos", "P"),
-            "composite": round(total, 1),
-            "war": war, "era_plus": era_plus,
-            "ip": ip, "seasons": int(seasons),
-            "transition_year": row.get("transition_year"),
-        })
-    scores.sort(key=lambda x: -x["composite"])
-    for i, s in enumerate(scores):
-        s["rank"] = i + 1
-    return scores
-
-
 # ── Hiromi Itoh Assessment ──────────────────────────────────────────────────
 
 ITOH_ASSESSMENT = {
@@ -317,7 +281,10 @@ ITOH_ASSESSMENT = {
 
 def main():
     df = load_data()
+    n_asian = sum(df.get("origin", pd.Series()).isin(["JP", "KR", "TW"]))
+    n_cross = sum(df.get("origin", pd.Series()).isin(["US"]))
     print(f"Loaded {len(df)} pitchers: NPB={sum(df.league=='NPB')}, KBO={sum(df.league=='KBO')}, CPBL={sum(df.league=='CPBL')}")
+    print(f"  Asian-born: {n_asian}, Crossover (US/other): {n_cross}")
 
     both = df[df["a_era"].notna() & df["m_era"].notna()]
     print(f"Pitchers with both Asian + MLB data: {len(both)}")
@@ -325,7 +292,6 @@ def main():
     stab = stability_analysis(df)
     red = redundancy_analysis(df)
     sig = significance_analysis(df)
-    rankings = compute_rankings(df)
 
     pitchers_out = []
     for _, row in df.iterrows():
@@ -340,18 +306,20 @@ def main():
         "stability": stab,
         "redundancy": red,
         "significance": sig,
-        "rankings": rankings,
         "itoh": ITOH_ASSESSMENT,
         "meta": {
             "n_pitchers": len(df),
             "n_npb": int(sum(df.league == "NPB")),
             "n_kbo": int(sum(df.league == "KBO")),
             "n_cpbl": int(sum(df.league == "CPBL")),
+            "n_asian_born": int(n_asian),
+            "n_crossover": int(n_cross),
             "n_with_both": int(len(both)),
             "metrics": list(METRIC_LABELS.keys()),
             "metric_labels": METRIC_LABELS,
             "translation_factor": 1.096,
             "translation_source": "Cho (2026), Cross-League Equivalencies",
+            "p_value_note": "p < 0.10 means less than 10% probability the observed correlation arose by chance under the null hypothesis of no linear relationship. A lower p-value provides stronger evidence that the metric genuinely transfers across leagues.",
             "data_sources": [
                 "MLB Stats API (statsapi.mlb.com)",
                 "Baseball-Reference Register (standard_pitching tables)",
@@ -387,17 +355,19 @@ def main():
         tag = "STABLE" if v["stable"] else "below"
         print(f"  {METRIC_LABELS.get(m, m):>8s}: r={v['r']:+.3f}  p={v['p']:.4f}  n={v['n']}  {tag}")
 
-    print("\n── TOP 10 RANKINGS ──")
-    for r in rankings[:10]:
-        print(f"  {r['rank']:>2d}. {r['name']:<24s} ({r['league']}) Composite={r['composite']:.1f}  WAR={r['war']:.1f}  ERA+={r['era_plus']}")
-
     print("\n── REDUNDANCY CLUSTERS ──")
     for c in red["clusters"]:
         print(f"  Cluster {c['id']}: {', '.join(c['metrics'])}")
 
-    print("\n── SIGNIFICANCE: Asian metrics → Career WAR (ALL) ──")
-    sig_all = sig.get("ALL", {}).get("m_war", {})
+    print("\n── SIGNIFICANCE: Asian metrics → ERA+ (ALL) ──")
+    sig_all = sig.get("ALL", {}).get("m_era_plus", {})
     for d in sig_all.get("drivers", []):
+        tag = "SIG" if d["significant"] else "   "
+        print(f"  {d['label']:>8s}: r={d['r']:+.3f}  p={d['p']:.4f}  n={d['n']}  {tag}")
+
+    print("\n── SIGNIFICANCE: Asian metrics → Career WAR (ALL) ──")
+    sig_war = sig.get("ALL", {}).get("m_war", {})
+    for d in sig_war.get("drivers", []):
         tag = "SIG" if d["significant"] else "   "
         print(f"  {d['label']:>8s}: r={d['r']:+.3f}  p={d['p']:.4f}  n={d['n']}  {tag}")
 

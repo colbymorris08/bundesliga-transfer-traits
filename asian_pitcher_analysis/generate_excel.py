@@ -17,7 +17,6 @@ def main():
     stability = data["stability"]
     redundancy = data["redundancy"]
     significance = data["significance"]
-    rankings = data["rankings"]
     meta = data["meta"]
 
     wb = Workbook()
@@ -57,7 +56,7 @@ def main():
     ws.title = "Pitcher Data"
 
     cols = [
-        ("Name", "name"), ("League", "league"), ("Pos", "pos"), ("Trans. Year", "transition_year"),
+        ("Name", "name"), ("League", "league"), ("Origin", "origin"), ("Pos", "pos"), ("Trans. Year", "transition_year"),
         ("A-ERA", "a_era"), ("A-IP", "a_ip"), ("A-K/9", "a_k9"), ("A-BB/9", "a_bb9"),
         ("A-HR/9", "a_hr9"), ("A-WHIP", "a_whip"), ("A-K/BB", "a_k_bb"), ("A-W%", "a_w_pct"),
         ("A-GB%", "a_gb_pct"),
@@ -85,150 +84,126 @@ def main():
             ws.cell(row=r, column=c).border = thin_border
     auto_width(ws)
 
-    # ── Sheet 2: Rankings ──
-    ws2 = wb.create_sheet("Rankings")
-    rank_cols = ["Rank", "Name", "League", "Pos", "Composite", "WAR", "ERA+", "IP", "Seasons", "Trans. Year"]
-    for c, label in enumerate(rank_cols, 1):
-        ws2.cell(row=1, column=c, value=label)
-    style_header(ws2, len(rank_cols))
-
-    for r, rk in enumerate(rankings, 2):
-        ws2.cell(row=r, column=1, value=rk["rank"])
-        ws2.cell(row=r, column=2, value=rk["name"])
-        ws2.cell(row=r, column=3, value=rk["league"])
-        ws2.cell(row=r, column=4, value=rk["pos"])
-        ws2.cell(row=r, column=5, value=rk["composite"])
-        ws2.cell(row=r, column=6, value=rk["war"])
-        ws2.cell(row=r, column=7, value=rk["era_plus"])
-        ws2.cell(row=r, column=8, value=rk["ip"])
-        ws2.cell(row=r, column=9, value=rk["seasons"])
-        ws2.cell(row=r, column=10, value=rk.get("transition_year"))
-        league = rk.get("league", "")
-        if league in league_fills:
-            ws2.cell(row=r, column=3).fill = league_fills[league]
-        for c in range(1, len(rank_cols) + 1):
-            ws2.cell(row=r, column=c).border = thin_border
-    auto_width(ws2)
-
-    # ── Sheet 3: Stability ──
-    ws3 = wb.create_sheet("Stability")
+    # ── Sheet 2: Stability ──
+    ws2 = wb.create_sheet("Stability")
     stab_cols = ["League", "Metric", "r (Pearson)", "p-value", "N", "Stable (|r|>=0.40, p<0.10)"]
     for c, label in enumerate(stab_cols, 1):
-        ws3.cell(row=1, column=c, value=label)
-    style_header(ws3, len(stab_cols))
+        ws2.cell(row=1, column=c, value=label)
+    style_header(ws2, len(stab_cols))
 
     ml = meta["metric_labels"]
     row = 2
     for league in ["ALL", "NPB", "KBO", "CPBL"]:
         stab = stability.get(league, {})
         for m, v in stab.items():
-            ws3.cell(row=row, column=1, value=league)
-            ws3.cell(row=row, column=2, value=ml.get(m, m))
-            ws3.cell(row=row, column=3, value=v["r"])
-            ws3.cell(row=row, column=4, value=v["p"])
-            ws3.cell(row=row, column=5, value=v["n"])
-            ws3.cell(row=row, column=6, value="YES" if v["stable"] else "no")
+            ws2.cell(row=row, column=1, value=league)
+            ws2.cell(row=row, column=2, value=ml.get(m, m))
+            ws2.cell(row=row, column=3, value=v["r"])
+            ws2.cell(row=row, column=4, value=v["p"])
+            ws2.cell(row=row, column=5, value=v["n"])
+            ws2.cell(row=row, column=6, value="YES" if v["stable"] else "no")
             if v["stable"]:
-                ws3.cell(row=row, column=6).fill = stable_fill
+                ws2.cell(row=row, column=6).fill = stable_fill
             if league in league_fills:
-                ws3.cell(row=row, column=1).fill = league_fills[league]
+                ws2.cell(row=row, column=1).fill = league_fills[league]
             for c in range(1, len(stab_cols) + 1):
-                ws3.cell(row=row, column=c).border = thin_border
+                ws2.cell(row=row, column=c).border = thin_border
             row += 1
-    auto_width(ws3)
+    auto_width(ws2)
 
-    # ── Sheet 4: Significance ──
-    ws4 = wb.create_sheet("Significance")
+    # ── Sheet 3: Significance ──
+    ws3 = wb.create_sheet("Significance")
     sig_cols = ["League", "Outcome", "Asian Metric", "r (Pearson)", "p-value", "N", "Significant (p<0.10)"]
     for c, label in enumerate(sig_cols, 1):
-        ws4.cell(row=1, column=c, value=label)
-    style_header(ws4, len(sig_cols))
+        ws3.cell(row=1, column=c, value=label)
+    style_header(ws3, len(sig_cols))
 
     row = 2
     for league in ["ALL", "NPB", "KBO", "CPBL"]:
         sig_data = significance.get(league, {})
         for out_key, out_data in sig_data.items():
             for d in out_data["drivers"]:
-                ws4.cell(row=row, column=1, value=league)
-                ws4.cell(row=row, column=2, value=out_data["label"])
-                ws4.cell(row=row, column=3, value=d["label"])
-                ws4.cell(row=row, column=4, value=d["r"])
-                ws4.cell(row=row, column=5, value=d["p"])
-                ws4.cell(row=row, column=6, value=d["n"])
-                ws4.cell(row=row, column=7, value="YES" if d["significant"] else "no")
+                ws3.cell(row=row, column=1, value=league)
+                ws3.cell(row=row, column=2, value=out_data["label"])
+                ws3.cell(row=row, column=3, value=d["label"])
+                ws3.cell(row=row, column=4, value=d["r"])
+                ws3.cell(row=row, column=5, value=d["p"])
+                ws3.cell(row=row, column=6, value=d["n"])
+                ws3.cell(row=row, column=7, value="YES" if d["significant"] else "no")
                 if d["significant"]:
-                    ws4.cell(row=row, column=7).fill = sig_fill
+                    ws3.cell(row=row, column=7).fill = sig_fill
                 if league in league_fills:
-                    ws4.cell(row=row, column=1).fill = league_fills[league]
+                    ws3.cell(row=row, column=1).fill = league_fills[league]
                 for c in range(1, len(sig_cols) + 1):
-                    ws4.cell(row=row, column=c).border = thin_border
+                    ws3.cell(row=row, column=c).border = thin_border
                 row += 1
-    auto_width(ws4)
+    auto_width(ws3)
 
-    # ── Sheet 5: Redundancy ──
-    ws5 = wb.create_sheet("Redundancy")
-    ws5.cell(row=1, column=1, value="REDUNDANT PAIRS (|r| >= 0.75)")
-    ws5.cell(row=1, column=1).font = Font(bold=True, size=12)
-    ws5.cell(row=2, column=1, value="Metric A")
-    ws5.cell(row=2, column=2, value="Metric B")
-    ws5.cell(row=2, column=3, value="r (Pearson)")
-    style_header(ws5, 3)
-    ws5.cell(row=1, column=1).font = Font(bold=True, size=12)
+    # ── Sheet 4: Redundancy ──
+    ws4 = wb.create_sheet("Redundancy")
+    ws4.cell(row=1, column=1, value="REDUNDANT PAIRS (|r| >= 0.75)")
+    ws4.cell(row=1, column=1).font = Font(bold=True, size=12)
+    ws4.cell(row=2, column=1, value="Metric A")
+    ws4.cell(row=2, column=2, value="Metric B")
+    ws4.cell(row=2, column=3, value="r (Pearson)")
+    style_header(ws4, 3)
+    ws4.cell(row=1, column=1).font = Font(bold=True, size=12)
 
     for r, pair in enumerate(redundancy["pairs"], 3):
         a_base = pair["a"].replace("a_", "Asian ").replace("m_", "MLB ")
         b_base = pair["b"].replace("a_", "Asian ").replace("m_", "MLB ")
-        ws5.cell(row=r, column=1, value=a_base)
-        ws5.cell(row=r, column=2, value=b_base)
-        ws5.cell(row=r, column=3, value=pair["r"])
+        ws4.cell(row=r, column=1, value=a_base)
+        ws4.cell(row=r, column=2, value=b_base)
+        ws4.cell(row=r, column=3, value=pair["r"])
 
     row = len(redundancy["pairs"]) + 5
-    ws5.cell(row=row, column=1, value="CLUSTERS (distance threshold 0.40)")
-    ws5.cell(row=row, column=1).font = Font(bold=True, size=12)
+    ws4.cell(row=row, column=1, value="CLUSTERS (distance threshold 0.40)")
+    ws4.cell(row=row, column=1).font = Font(bold=True, size=12)
     for cl in redundancy["clusters"]:
         row += 1
         labels = [m.replace("a_", "Asian ").replace("m_", "MLB ") for m in cl["metrics"]]
-        ws5.cell(row=row, column=1, value=f"Cluster {cl['id']}")
-        ws5.cell(row=row, column=1).font = Font(bold=True)
-        ws5.cell(row=row, column=2, value=" | ".join(labels))
-    auto_width(ws5)
+        ws4.cell(row=row, column=1, value=f"Cluster {cl['id']}")
+        ws4.cell(row=row, column=1).font = Font(bold=True)
+        ws4.cell(row=row, column=2, value=" | ".join(labels))
+    auto_width(ws4)
 
-    # ── Sheet 6: Data Sources ──
-    ws6 = wb.create_sheet("Sources")
-    ws6.cell(row=1, column=1, value="Data Source")
-    ws6.cell(row=1, column=2, value="Description")
-    ws6.cell(row=1, column=3, value="Coverage")
-    style_header(ws6, 3)
+    # ── Sheet 5: Data Sources ──
+    ws5 = wb.create_sheet("Sources")
+    ws5.cell(row=1, column=1, value="Data Source")
+    ws5.cell(row=1, column=2, value="Description")
+    ws5.cell(row=1, column=3, value="Coverage")
+    style_header(ws5, 3)
 
     sources = [
-        ("MLB Stats API", "statsapi.mlb.com — career pitching stats (IP, ERA, K, BB, HR, GO/AO, saves)", "39 pitchers (all with MLB IDs)"),
-        ("Baseball-Reference Register", "standard_pitching tfoot summary rows — Asian league career stats", "38 pitchers"),
-        ("bWAR dataset (pybaseball)", "bwar_pitch() — career WAR and ERA+ for MLB seasons", "39 pitchers"),
+        ("MLB Stats API", "statsapi.mlb.com — career pitching stats (IP, ERA, K, BB, HR, GO/AO, saves)", f"{meta['n_pitchers'] - 1} pitchers"),
+        ("Baseball-Reference Register", "standard_pitching tfoot summary rows — Asian league career stats", f"{meta['n_pitchers'] - 2} pitchers"),
+        ("bWAR dataset (pybaseball)", "bwar_pitch() — career WAR and ERA+ for MLB seasons", f"{meta['n_pitchers'] - 1} pitchers"),
         ("Hand-compiled fallback", "Research-verified stats for pitchers without API coverage", "Fills remaining gaps"),
         ("Cho (2026)", "Cross-League Equivalencies: xFIP− translation factor = 1.096", "NPB → MLB"),
     ]
     for r, (src, desc, cov) in enumerate(sources, 2):
-        ws6.cell(row=r, column=1, value=src)
-        ws6.cell(row=r, column=2, value=desc)
-        ws6.cell(row=r, column=3, value=cov)
+        ws5.cell(row=r, column=1, value=src)
+        ws5.cell(row=r, column=2, value=desc)
+        ws5.cell(row=r, column=3, value=cov)
         for c in range(1, 4):
-            ws6.cell(row=r, column=c).border = thin_border
+            ws5.cell(row=r, column=c).border = thin_border
 
     row = len(sources) + 3
-    ws6.cell(row=row, column=1, value="METHODOLOGY")
-    ws6.cell(row=row, column=1).font = Font(bold=True, size=12)
+    ws5.cell(row=row, column=1, value="METHODOLOGY")
+    ws5.cell(row=row, column=1).font = Font(bold=True, size=12)
     methods = [
         "Stability: Pearson r between Asian-league career stat and MLB career stat (same metric)",
         "Threshold: |r| >= 0.40 and p < 0.10 to qualify as 'stable'",
+        "p < 0.10 means < 10% probability the correlation arose by chance (null = no relationship)",
         "Redundancy: Pairwise Pearson correlation matrix; pairs at |r| >= 0.75; agglomerative clustering at distance 0.40",
         "Significance: Pearson r between Asian-league metric and MLB outcome (ERA+, WAR, seasons); p < 0.10",
-        f"Composite ranking: 35% WAR + 25% ERA+ + 20% IP + 10% Seasons + 10% K/BB",
         f"Total pitchers: {meta['n_pitchers']} (NPB={meta['n_npb']}, KBO={meta['n_kbo']}, CPBL={meta['n_cpbl']})",
+        f"Asian-born: {meta.get('n_asian_born', 'N/A')}, American crossover: {meta.get('n_crossover', 'N/A')}",
         f"Pitchers with both Asian + MLB data: {meta['n_with_both']}",
     ]
     for i, m in enumerate(methods):
-        ws6.cell(row=row + 1 + i, column=1, value=m)
-    auto_width(ws6)
+        ws5.cell(row=row + 1 + i, column=1, value=m)
+    auto_width(ws5)
 
     outpath = OUT.parent / "asian_pitcher_mlb_analysis.xlsx"
     wb.save(outpath)

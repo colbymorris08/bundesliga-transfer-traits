@@ -19,51 +19,61 @@ OUT = Path(__file__).resolve().parent
 HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
 
 PITCHERS = [
-    # NPB → MLB
-    {"name": "Hideo Nomo",          "league": "NPB", "mlb_id": 118601, "bref_reg": "nomo--001hid", "pos": "SP", "tyear": 1995},
-    {"name": "Kazuhiro Sasaki",     "league": "NPB", "mlb_id": 277408, "bref_reg": "sasaki001kaz", "pos": "RP", "tyear": 2000},
-    {"name": "Shigetoshi Hasegawa", "league": "NPB", "mlb_id": 115586, "bref_reg": "hasega001shi", "pos": "RP", "tyear": 1997},
-    {"name": "Hideki Irabu",        "league": "NPB", "mlb_id": 115584, "bref_reg": "irabu-001hid", "pos": "SP", "tyear": 1997},
-    {"name": "Masato Yoshii",       "league": "NPB", "mlb_id": 134180, "bref_reg": "yoshii001mas", "pos": "SP", "tyear": 1998},
-    {"name": "Kazuhisa Ishii",      "league": "NPB", "mlb_id": 408193, "bref_reg": "ishii-001kaz", "pos": "SP", "tyear": 2002},
-    {"name": "Daisuke Matsuzaka",   "league": "NPB", "mlb_id": 493137, "bref_reg": "matsuz001dai", "pos": "SP", "tyear": 2007},
-    {"name": "Hiroki Kuroda",       "league": "NPB", "mlb_id": 493133, "bref_reg": "kuroda001hir", "pos": "SP", "tyear": 2008},
-    {"name": "Takashi Saito",       "league": "NPB", "mlb_id": 477003, "bref_reg": "saito-001tak", "pos": "RP", "tyear": 2006},
-    {"name": "Koji Uehara",         "league": "NPB", "mlb_id": 493157, "bref_reg": "uehara001koj", "pos": "SP", "tyear": 2009},
-    {"name": "Junichi Tazawa",      "league": "NPB", "mlb_id": 547749, "bref_reg": "tazawa001jun", "pos": "RP", "tyear": 2009},
-    {"name": "Kenshin Kawakami",    "league": "NPB", "mlb_id": 499877, "bref_reg": "kawaka001ken", "pos": "SP", "tyear": 2009},
-    {"name": "Hisashi Iwakuma",     "league": "NPB", "mlb_id": 547874, "bref_reg": "iwakum001his", "pos": "SP", "tyear": 2012},
-    {"name": "Yu Darvish",          "league": "NPB", "mlb_id": 506433, "bref_reg": "darvis001yu-", "pos": "SP", "tyear": 2012},
-    {"name": "Kyuji Fujikawa",      "league": "NPB", "mlb_id": 493117, "bref_reg": "fujika001kyu", "pos": "RP", "tyear": 2013},
-    {"name": "Masahiro Tanaka",     "league": "NPB", "mlb_id": 547888, "bref_reg": "tanaka003mas", "pos": "SP", "tyear": 2014},
-    {"name": "Tsuyoshi Wada",       "league": "NPB", "mlb_id": 493159, "bref_reg": "wada--001tsu", "pos": "SP", "tyear": 2014},
-    {"name": "Kenta Maeda",         "league": "NPB", "mlb_id": 628317, "bref_reg": "maeda-001ken", "pos": "SP", "tyear": 2016},
-    {"name": "Yusei Kikuchi",       "league": "NPB", "mlb_id": 579328, "bref_reg": "kikuch000yus", "pos": "SP", "tyear": 2019},
-    {"name": "Hirokazu Sawamura",   "league": "NPB", "mlb_id": 617228, "bref_reg": "sawamu000hir", "pos": "RP", "tyear": 2021},
-    {"name": "Kodai Senga",         "league": "NPB", "mlb_id": 673540, "bref_reg": "senga-000kod", "pos": "SP", "tyear": 2023},
-    {"name": "Shintaro Fujinami",   "league": "NPB", "mlb_id": 660261, "bref_reg": "fujina000shi", "pos": "SP", "tyear": 2023},
-    {"name": "Shota Imanaga",       "league": "NPB", "mlb_id": 684007, "bref_reg": "imanag000sho", "pos": "SP", "tyear": 2024},
-    {"name": "Yuki Matsui",         "league": "NPB", "mlb_id": 673513, "bref_reg": "matsui000yuk", "pos": "RP", "tyear": 2024},
-    {"name": "Yoshinobu Yamamoto",  "league": "NPB", "mlb_id": 808967, "bref_reg": "yamamo004yos", "pos": "SP", "tyear": 2024},
-    {"name": "Tomoyuki Sugano",     "league": "NPB", "mlb_id": None,   "bref_reg": "sugano001tom", "pos": "SP", "tyear": 2025},
-    {"name": "Hiromi Itoh",         "league": "NPB", "mlb_id": None,   "bref_reg": "itoh--002hir", "pos": "SP", "tyear": None},
-    # KBO → MLB
-    {"name": "Chan Ho Park",        "league": "KBO", "mlb_id": 119116, "bref_reg": "park--001cha", "pos": "SP", "tyear": 1994},
-    {"name": "Byung-Hyun Kim",      "league": "KBO", "mlb_id": 218294, "bref_reg": "kim---001byu", "pos": "RP", "tyear": 1999},
-    {"name": "Sun-Woo Kim",         "league": "KBO", "mlb_id": 279615, "bref_reg": "kim---001sun", "pos": "SP", "tyear": 2001},
-    {"name": "Jae-Weong Seo",       "league": "KBO", "mlb_id": 150242, "bref_reg": "seo---002jae", "pos": "SP", "tyear": 2002},
-    {"name": "Hyun-Jin Ryu",        "league": "KBO", "mlb_id": 547943, "bref_reg": "ryu---000hye", "pos": "SP", "tyear": 2013},
-    {"name": "Seung-Hwan Oh",       "league": "KBO", "mlb_id": 493200, "bref_reg": "oh----000seu", "pos": "RP", "tyear": 2016},
-    {"name": "Kwang-Hyun Kim",      "league": "KBO", "mlb_id": 547942, "bref_reg": "kim---002gwa", "pos": "SP", "tyear": 2020},
-    {"name": "Hyeon-Jong Yang",     "league": "KBO", "mlb_id": 660365, "bref_reg": "yang--000hye", "pos": "SP", "tyear": 2021},
-    {"name": "Woo-Suk Go",          "league": "KBO", "mlb_id": None,   "bref_reg": None,           "pos": "RP", "tyear": 2026},
-    # CPBL → MLB
-    {"name": "Chin-Hui Tsao",       "league": "CPBL", "mlb_id": 425835, "bref_reg": "tsao--001chi", "pos": "RP", "tyear": 2003},
-    {"name": "Chien-Ming Wang",     "league": "CPBL", "mlb_id": 425426, "bref_reg": "wang--001chi", "pos": "SP", "tyear": 2005},
-    {"name": "Hong-Chih Kuo",       "league": "CPBL", "mlb_id": 425539, "bref_reg": "kuo---001hon", "pos": "RP", "tyear": 2005},
-    {"name": "Fu-Te Ni",            "league": "CPBL", "mlb_id": 547820, "bref_reg": "ni----001fut", "pos": "RP", "tyear": 2009},
-    {"name": "Wei-Yin Chen",        "league": "CPBL", "mlb_id": 612672, "bref_reg": "chen--002wei", "pos": "SP", "tyear": 2012},
-    {"name": "Kai-Wei Teng",        "league": "CPBL", "mlb_id": 678906, "bref_reg": "teng--000kai", "pos": "SP", "tyear": 2024},
+    # ── Asian-born: NPB → MLB ────────────────────────────────────────────
+    {"name": "Hideo Nomo",          "league": "NPB", "mlb_id": 118601, "bref_reg": "nomo--001hid", "pos": "SP", "tyear": 1995, "origin": "JP"},
+    {"name": "Kazuhiro Sasaki",     "league": "NPB", "mlb_id": 277408, "bref_reg": "sasaki001kaz", "pos": "RP", "tyear": 2000, "origin": "JP"},
+    {"name": "Shigetoshi Hasegawa", "league": "NPB", "mlb_id": 115586, "bref_reg": "hasega001shi", "pos": "RP", "tyear": 1997, "origin": "JP"},
+    {"name": "Hideki Irabu",        "league": "NPB", "mlb_id": 115584, "bref_reg": "irabu-001hid", "pos": "SP", "tyear": 1997, "origin": "JP"},
+    {"name": "Masato Yoshii",       "league": "NPB", "mlb_id": 134180, "bref_reg": "yoshii001mas", "pos": "SP", "tyear": 1998, "origin": "JP"},
+    {"name": "Kazuhisa Ishii",      "league": "NPB", "mlb_id": 408193, "bref_reg": "ishii-001kaz", "pos": "SP", "tyear": 2002, "origin": "JP"},
+    {"name": "Daisuke Matsuzaka",   "league": "NPB", "mlb_id": 493137, "bref_reg": "matsuz001dai", "pos": "SP", "tyear": 2007, "origin": "JP"},
+    {"name": "Hiroki Kuroda",       "league": "NPB", "mlb_id": 493133, "bref_reg": "kuroda001hir", "pos": "SP", "tyear": 2008, "origin": "JP"},
+    {"name": "Takashi Saito",       "league": "NPB", "mlb_id": 477003, "bref_reg": "saito-001tak", "pos": "RP", "tyear": 2006, "origin": "JP"},
+    {"name": "Koji Uehara",         "league": "NPB", "mlb_id": 493157, "bref_reg": "uehara001koj", "pos": "SP", "tyear": 2009, "origin": "JP"},
+    {"name": "Junichi Tazawa",      "league": "NPB", "mlb_id": 547749, "bref_reg": "tazawa001jun", "pos": "RP", "tyear": 2009, "origin": "JP"},
+    {"name": "Kenshin Kawakami",    "league": "NPB", "mlb_id": 499877, "bref_reg": "kawaka001ken", "pos": "SP", "tyear": 2009, "origin": "JP"},
+    {"name": "Hisashi Iwakuma",     "league": "NPB", "mlb_id": 547874, "bref_reg": "iwakum001his", "pos": "SP", "tyear": 2012, "origin": "JP"},
+    {"name": "Yu Darvish",          "league": "NPB", "mlb_id": 506433, "bref_reg": "darvis001yu-", "pos": "SP", "tyear": 2012, "origin": "JP"},
+    {"name": "Kyuji Fujikawa",      "league": "NPB", "mlb_id": 493117, "bref_reg": "fujika001kyu", "pos": "RP", "tyear": 2013, "origin": "JP"},
+    {"name": "Masahiro Tanaka",     "league": "NPB", "mlb_id": 547888, "bref_reg": "tanaka003mas", "pos": "SP", "tyear": 2014, "origin": "JP"},
+    {"name": "Tsuyoshi Wada",       "league": "NPB", "mlb_id": 493159, "bref_reg": "wada--001tsu", "pos": "SP", "tyear": 2014, "origin": "JP"},
+    {"name": "Kenta Maeda",         "league": "NPB", "mlb_id": 628317, "bref_reg": "maeda-001ken", "pos": "SP", "tyear": 2016, "origin": "JP"},
+    {"name": "Yusei Kikuchi",       "league": "NPB", "mlb_id": 579328, "bref_reg": "kikuch000yus", "pos": "SP", "tyear": 2019, "origin": "JP"},
+    {"name": "Hirokazu Sawamura",   "league": "NPB", "mlb_id": 617228, "bref_reg": "sawamu000hir", "pos": "RP", "tyear": 2021, "origin": "JP"},
+    {"name": "Kodai Senga",         "league": "NPB", "mlb_id": 673540, "bref_reg": "senga-000kod", "pos": "SP", "tyear": 2023, "origin": "JP"},
+    {"name": "Shintaro Fujinami",   "league": "NPB", "mlb_id": 660261, "bref_reg": "fujina000shi", "pos": "SP", "tyear": 2023, "origin": "JP"},
+    {"name": "Shota Imanaga",       "league": "NPB", "mlb_id": 684007, "bref_reg": "imanag000sho", "pos": "SP", "tyear": 2024, "origin": "JP"},
+    {"name": "Yuki Matsui",         "league": "NPB", "mlb_id": 673513, "bref_reg": "matsui000yuk", "pos": "RP", "tyear": 2024, "origin": "JP"},
+    {"name": "Yoshinobu Yamamoto",  "league": "NPB", "mlb_id": 808967, "bref_reg": "yamamo004yos", "pos": "SP", "tyear": 2024, "origin": "JP"},
+    {"name": "Tomoyuki Sugano",     "league": "NPB", "mlb_id": None,   "bref_reg": "sugano001tom", "pos": "SP", "tyear": 2025, "origin": "JP"},
+    {"name": "Hiromi Itoh",         "league": "NPB", "mlb_id": None,   "bref_reg": "itoh--002hir", "pos": "SP", "tyear": None, "origin": "JP"},
+    # ── Asian-born: KBO → MLB ────────────────────────────────────────────
+    {"name": "Chan Ho Park",        "league": "KBO", "mlb_id": 119116, "bref_reg": "park--001cha", "pos": "SP", "tyear": 1994, "origin": "KR"},
+    {"name": "Byung-Hyun Kim",      "league": "KBO", "mlb_id": 218294, "bref_reg": "kim---001byu", "pos": "RP", "tyear": 1999, "origin": "KR"},
+    {"name": "Sun-Woo Kim",         "league": "KBO", "mlb_id": 279615, "bref_reg": "kim---001sun", "pos": "SP", "tyear": 2001, "origin": "KR"},
+    {"name": "Jae-Weong Seo",       "league": "KBO", "mlb_id": 150242, "bref_reg": "seo---002jae", "pos": "SP", "tyear": 2002, "origin": "KR"},
+    {"name": "Hyun-Jin Ryu",        "league": "KBO", "mlb_id": 547943, "bref_reg": "ryu---000hye", "pos": "SP", "tyear": 2013, "origin": "KR"},
+    {"name": "Seung-Hwan Oh",       "league": "KBO", "mlb_id": 493200, "bref_reg": "oh----000seu", "pos": "RP", "tyear": 2016, "origin": "KR"},
+    {"name": "Kwang-Hyun Kim",      "league": "KBO", "mlb_id": 547942, "bref_reg": "kim---002gwa", "pos": "SP", "tyear": 2020, "origin": "KR"},
+    {"name": "Hyeon-Jong Yang",     "league": "KBO", "mlb_id": 660365, "bref_reg": "yang--000hye", "pos": "SP", "tyear": 2021, "origin": "KR"},
+    {"name": "Woo-Suk Go",          "league": "KBO", "mlb_id": None,   "bref_reg": None,           "pos": "RP", "tyear": 2026, "origin": "KR"},
+    # ── Asian-born: CPBL → MLB ───────────────────────────────────────────
+    {"name": "Chin-Hui Tsao",       "league": "CPBL", "mlb_id": 425835, "bref_reg": "tsao--001chi", "pos": "RP", "tyear": 2003, "origin": "TW"},
+    {"name": "Chien-Ming Wang",     "league": "CPBL", "mlb_id": 425426, "bref_reg": "wang--001chi", "pos": "SP", "tyear": 2005, "origin": "TW"},
+    {"name": "Hong-Chih Kuo",       "league": "CPBL", "mlb_id": 425539, "bref_reg": "kuo---001hon", "pos": "RP", "tyear": 2005, "origin": "TW"},
+    {"name": "Fu-Te Ni",            "league": "CPBL", "mlb_id": 547820, "bref_reg": "ni----001fut", "pos": "RP", "tyear": 2009, "origin": "TW"},
+    {"name": "Wei-Yin Chen",        "league": "CPBL", "mlb_id": 612672, "bref_reg": "chen--002wei", "pos": "SP", "tyear": 2012, "origin": "TW"},
+    {"name": "Kai-Wei Teng",        "league": "CPBL", "mlb_id": 678906, "bref_reg": "teng--000kai", "pos": "SP", "tyear": 2024, "origin": "TW"},
+    # ── Crossover: Americans who pitched in NPB then (returned to) MLB ──
+    {"name": "Colby Lewis",         "league": "NPB", "mlb_id": 407890, "bref_reg": "lewis-001col", "pos": "SP", "tyear": 2010, "origin": "US"},
+    {"name": "Ryan Vogelsong",      "league": "NPB", "mlb_id": 285064, "bref_reg": "vogels001rya", "pos": "SP", "tyear": 2011, "origin": "US"},
+    {"name": "Miles Mikolas",       "league": "NPB", "mlb_id": 571945, "bref_reg": "mikola001mil", "pos": "SP", "tyear": 2018, "origin": "US"},
+    {"name": "Tony Barnette",       "league": "NPB", "mlb_id": 501817, "bref_reg": "barnet002ant", "pos": "RP", "tyear": 2016, "origin": "US"},
+    # ── Crossover: Americans who pitched in KBO then (returned to) MLB ──
+    {"name": "Chris Flexen",        "league": "KBO", "mlb_id": 623167, "bref_reg": "flexen000chr", "pos": "SP", "tyear": 2021, "origin": "US"},
+    {"name": "Merrill Kelly",       "league": "KBO", "mlb_id": 518876, "bref_reg": "kelly-003ken", "pos": "SP", "tyear": 2019, "origin": "US"},
+    {"name": "Josh Lindblom",       "league": "KBO", "mlb_id": 458676, "bref_reg": "lindbl001jos", "pos": "SP", "tyear": 2020, "origin": "US"},
+    {"name": "Erick Fedde",         "league": "KBO", "mlb_id": 607200, "bref_reg": "fedde-000eri", "pos": "SP", "tyear": 2024, "origin": "US"},
 ]
 
 HAND_COMPILED = {
@@ -109,6 +119,16 @@ HAND_COMPILED = {
     "Chin-Hui Tsao":       {"a_era":2.85,"a_ip":55.0,"a_k9":8.5,"a_bb9":3.5,"a_hr9":0.7,"a_whip":1.20,"a_k_bb":2.43,"a_gb_pct":None,"a_w_pct":.500,"m_era":5.75,"m_ip":97.0,"m_k9":6.2,"m_bb9":4.5,"m_hr9":1.6,"m_whip":1.67,"m_k_bb":1.38,"m_gb_pct":36.0,"m_w_pct":.455,"m_era_plus":76,"m_war":-0.5,"m_seasons":4},
     "Fu-Te Ni":            {"a_era":3.60,"a_ip":40.0,"a_k9":7.0,"a_bb9":3.5,"a_hr9":0.8,"a_whip":1.30,"a_k_bb":2.00,"a_gb_pct":None,"a_w_pct":.500,"m_era":5.31,"m_ip":47.1,"m_k9":7.4,"m_bb9":4.2,"m_hr9":0.8,"m_whip":1.52,"m_k_bb":1.76,"m_gb_pct":44.0,"m_w_pct":.500,"m_era_plus":79,"m_war":0.0,"m_seasons":2},
     "Kai-Wei Teng":        {"a_era":3.30,"a_ip":40.0,"a_k9":8.0,"a_bb9":3.0,"a_hr9":0.7,"a_whip":1.20,"a_k_bb":2.67,"a_gb_pct":50.0,"a_w_pct":.500,"m_era":3.85,"m_ip":160.0,"m_k9":8.5,"m_bb9":3.2,"m_hr9":1.0,"m_whip":1.25,"m_k_bb":2.66,"m_gb_pct":48.0,"m_w_pct":.520,"m_era_plus":105,"m_war":3.2,"m_seasons":3},
+    # Crossover: Americans NPB → MLB
+    "Colby Lewis":         {"a_era":2.82,"a_ip":354.1,"a_k9":9.37,"a_bb9":1.17,"a_hr9":0.64,"a_whip":0.997,"a_k_bb":8.02,"a_gb_pct":None,"a_w_pct":.605},
+    "Ryan Vogelsong":      {"a_era":4.17,"a_ip":213.2,"a_k9":8.30,"a_bb9":3.20,"a_hr9":1.01,"a_whip":1.373,"a_k_bb":2.59,"a_gb_pct":None,"a_w_pct":.440},
+    "Miles Mikolas":       {"a_era":2.18,"a_ip":424.2,"a_k9":8.01,"a_bb9":1.46,"a_hr9":0.59,"a_whip":0.993,"a_k_bb":5.48,"a_gb_pct":None,"a_w_pct":.705},
+    "Tony Barnette":       {"a_era":3.58,"a_ip":316.1,"a_k9":9.56,"a_bb9":3.07,"a_hr9":0.65,"a_whip":1.230,"a_k_bb":3.11,"a_gb_pct":None,"a_w_pct":.367},
+    # Crossover: Americans KBO → MLB
+    "Chris Flexen":        {"a_era":3.01,"a_ip":116.2,"a_k9":10.18,"a_bb9":2.31,"a_hr9":0.46,"a_whip":1.089,"a_k_bb":4.40,"a_gb_pct":None,"a_w_pct":.667},
+    "Merrill Kelly":       {"a_era":3.86,"a_ip":729.2,"a_k9":7.90,"a_bb9":2.54,"a_hr9":0.80,"a_whip":1.309,"a_k_bb":3.11,"a_gb_pct":None,"a_w_pct":.600},
+    "Josh Lindblom":       {"a_era":3.55,"a_ip":823.1,"a_k9":8.20,"a_bb9":2.34,"a_hr9":1.04,"a_whip":1.190,"a_k_bb":3.50,"a_gb_pct":None,"a_w_pct":.649},
+    "Erick Fedde":         {"a_era":2.00,"a_ip":180.1,"a_k9":10.43,"a_bb9":1.75,"a_hr9":0.45,"a_whip":0.954,"a_k_bb":5.97,"a_gb_pct":None,"a_w_pct":.769},
 }
 
 
@@ -380,7 +400,7 @@ def main():
         print(f"\n[{i+1}/{len(PITCHERS)}] {name} ({p['league']})")
 
         row = {"name": name, "league": p["league"], "pos": p["pos"],
-               "transition_year": p["tyear"]}
+               "transition_year": p["tyear"], "origin": p.get("origin", "")}
         sources = {"mlb": None, "bref": None, "bwar": None, "fallback": False}
 
         # 1) MLB Stats API

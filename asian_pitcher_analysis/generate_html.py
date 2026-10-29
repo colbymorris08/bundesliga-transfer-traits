@@ -77,15 +77,18 @@ footer {{ margin-top:24px; font-size:11px; color:#888; text-align:center; }}
 .bar-wrap {{ display:flex; align-items:center; gap:8px; }}
 .bar-bg {{ flex:1; height:6px; background:#e8eaee; border-radius:3px; overflow:hidden; }}
 .bar-fill {{ height:100%; border-radius:3px; }}
+.origin-tag {{ display:inline-block; font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:4px; }}
+.origin-tag.us {{ background:#e3f2fd; color:#1565c0; }}
+.origin-tag.asian {{ background:#fff3e0; color:#e65100; }}
 </style>
 </head>
 <body>
 <div class="wrap">
 <h1>Asian League → MLB Pitcher Transition Analysis</h1>
-<p class="sub">Stability, redundancy, and significance analysis of {data['meta']['n_pitchers']} CPBL / KBO / NPB pitchers who transitioned to Major League Baseball. Data from MLB Stats API, Baseball-Reference Register, and bWAR. Includes Hiromi Itoh scouting assessment.</p>
+<p class="sub">Stability and redundancy analysis of {data['meta']['n_pitchers']} pitchers who crossed between Asian professional leagues (CPBL / KBO / NPB) and Major League Baseball. Includes {data['meta'].get('n_asian_born', '')} Asian-born and {data['meta'].get('n_crossover', '')} American crossover pitchers. Data from MLB Stats API, Baseball-Reference Register, and bWAR.</p>
 
 <nav class="tabs">
-  <button class="tab active" data-panel="home">Home &amp; Rankings</button>
+  <button class="tab active" data-panel="home">Home — Stability &amp; Redundancy</button>
   <button class="tab" data-panel="npb">NPB (Japan)</button>
   <button class="tab" data-panel="kbo">KBO (Korea)</button>
   <button class="tab" data-panel="cpbl">CPBL (Taiwan)</button>
@@ -98,8 +101,8 @@ footer {{ margin-top:24px; font-size:11px; color:#888; text-align:center; }}
   <div class="note" id="homeNote"></div>
 
   <div class="section">
-    <div class="section-h"><h2>Top 10 Overall Rankings — Composite Score</h2></div>
-    <div class="section-body" id="rankTable"></div>
+    <div class="section-h"><h2>Metric Evaluation List — Stable Metrics for Cross-League Scouting</h2></div>
+    <div class="section-body" id="metricList"></div>
   </div>
 
   <div class="cols">
@@ -114,13 +117,18 @@ footer {{ margin-top:24px; font-size:11px; color:#888; text-align:center; }}
   </div>
 
   <div class="section">
-    <div class="section-h"><h2>Top Redundant Pairs (|r| ≥ 0.75)</h2></div>
+    <div class="section-h"><h2>Top Redundant Pairs (|r| &ge; 0.75)</h2></div>
     <div class="section-body" id="homePairs"></div>
   </div>
 
   <div class="section">
     <div class="section-h"><h2>Significance — What Predicts MLB Success?</h2></div>
     <div class="section-body" id="homeSig"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-h"><h2>All Pitchers — Complete Dataset</h2></div>
+    <div class="section-body" style="overflow-x:auto" id="allTable"></div>
   </div>
 </section>
 
@@ -232,6 +240,10 @@ function fmtR(r) {{ return `<span class="rnum">${{Number(r).toFixed(3)}}</span>`
 function stabPill(s) {{ return s ? '<span class="pill y">STABLE</span>' : '<span class="pill n">below</span>'; }}
 function sigPill(s) {{ return s ? '<span class="pill y">SIG</span>' : '<span class="pill n">n.s.</span>'; }}
 function leagueBadge(l) {{ return `<span class="badge ${{l.toLowerCase()}}">${{l}}</span>`; }}
+function originTag(o) {{
+  if (o === 'US') return '<span class="origin-tag us">US</span>';
+  return '';
+}}
 
 function stabBar(r) {{
   const abs_r = Math.abs(r);
@@ -249,7 +261,7 @@ function renderStab(containerId, leagueKey) {{
     html += `<tr><td>${{label}}</td><td>${{fmtR(v.r)}}</td><td>${{v.p.toFixed(4)}}</td><td>${{v.n}}</td><td>${{stabPill(v.stable)}}</td><td style="width:120px">${{stabBar(v.r)}}</td></tr>`;
   }}
   html += '</tbody></table>';
-  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |\u03C1| \u2265 0.40 and p &lt; 0.10. Pearson r, Asian league career \u2192 MLB career.</p>';
+  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |r| \u2265 0.40 and p &lt; 0.10. Pearson r between Asian-league career stat and MLB career stat.</p>';
   document.getElementById(containerId).innerHTML = html;
 }}
 
@@ -259,7 +271,7 @@ function renderSig(containerId, leagueKey) {{
   let html = '';
   for (const [outKey, outData] of Object.entries(sig)) {{
     html += `<h3>Predicting ${{outData.label}}</h3>`;
-    html += '<table><thead><tr><th>Asian Metric</th><th>\u03C1</th><th>p</th><th>N</th><th></th></tr></thead><tbody>';
+    html += '<table><thead><tr><th>Asian Metric</th><th>r</th><th>p</th><th>N</th><th></th></tr></thead><tbody>';
     for (const d of outData.drivers.slice(0, 7)) {{
       html += `<tr><td>${{d.label}}</td><td>${{fmtR(d.r)}}</td><td>${{d.p.toFixed(4)}}</td><td>${{d.n}}</td><td>${{sigPill(d.significant)}}</td></tr>`;
     }}
@@ -269,8 +281,8 @@ function renderSig(containerId, leagueKey) {{
 }}
 
 function renderPitcherTable(containerId, league) {{
-  const pitchers = D.pitchers.filter(p => p.league === league);
-  let html = '<table><thead><tr><th>Name</th><th>Pos</th><th>Year</th>';
+  const pitchers = league === 'ALL' ? D.pitchers : D.pitchers.filter(p => p.league === league);
+  let html = '<table><thead><tr><th>Name</th><th>League</th><th>Pos</th><th>Year</th>';
   html += '<th>A-ERA</th><th>A-IP</th><th>A-K/9</th><th>A-BB/9</th><th>A-WHIP</th><th>A-K/BB</th>';
   html += '<th>M-ERA</th><th>M-IP</th><th>M-K/9</th><th>M-BB/9</th><th>M-WHIP</th><th>M-K/BB</th>';
   html += '<th>ERA+</th><th>WAR</th></tr></thead><tbody>';
@@ -278,8 +290,9 @@ function renderPitcherTable(containerId, league) {{
   for (const p of sorted) {{
     const ep = p.m_era_plus;
     const eraClass = ep != null ? (ep >= 110 ? 'color:var(--pass)' : ep < 90 ? 'color:var(--cut)' : '') : '';
+    const otag = p.origin === 'US' ? originTag('US') : '';
     html += `<tr>
-      <td><strong>${{p.name}}</strong></td><td>${{p.pos||''}}</td>
+      <td><strong>${{p.name}}</strong>${{otag}}</td><td>${{leagueBadge(p.league)}}</td><td>${{p.pos||''}}</td>
       <td>${{p.transition_year||'\u2014'}}</td>
       <td class="rnum">${{fmt(p.a_era,2)}}</td><td class="rnum">${{fmt(p.a_ip,0)}}</td>
       <td class="rnum">${{fmt(p.a_k9,1)}}</td><td class="rnum">${{fmt(p.a_bb9,1)}}</td>
@@ -300,11 +313,12 @@ function renderLeagueKpis(containerId, league) {{
   const withMlb = all.filter(p => p.m_war != null);
   const n = all.length;
   const nm = withMlb.length;
+  const nCross = all.filter(p => p.origin === 'US').length;
   const avgWar = nm ? (withMlb.reduce((s, p) => s + (p.m_war||0), 0) / nm).toFixed(1) : '\u2014';
   const avgEra = nm ? (withMlb.reduce((s, p) => s + (p.m_era||0), 0) / nm).toFixed(2) : '\u2014';
   const avgEraPlus = nm ? Math.round(withMlb.reduce((s, p) => s + (p.m_era_plus||100), 0) / nm) : '\u2014';
   document.getElementById(containerId).innerHTML = `
-    <div class="kpi"><div class="v">${{n}}</div><div class="l">Pitchers</div></div>
+    <div class="kpi"><div class="v">${{n}}</div><div class="l">Pitchers (${{nCross}} crossover)</div></div>
     <div class="kpi"><div class="v">${{nm}}</div><div class="l">With MLB Data</div></div>
     <div class="kpi"><div class="v">${{avgWar}}</div><div class="l">Avg Career WAR</div></div>
     <div class="kpi"><div class="v">${{avgEra}}</div><div class="l">Avg MLB ERA</div></div>
@@ -315,32 +329,50 @@ function renderLeagueKpis(containerId, league) {{
 document.getElementById('homeKpis').innerHTML = `
   <div class="kpi"><div class="v">${{D.meta.n_pitchers}}</div><div class="l">Total Pitchers</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_with_both}}</div><div class="l">With Both Asian + MLB Stats</div></div>
+  <div class="kpi"><div class="v">${{D.meta.n_asian_born || ''}}</div><div class="l">Asian-Born</div></div>
+  <div class="kpi"><div class="v">${{D.meta.n_crossover || ''}}</div><div class="l">American Crossover</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_npb}}</div><div class="l">NPB (Japan)</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_kbo}}</div><div class="l">KBO (Korea)</div></div>
   <div class="kpi"><div class="v">${{D.meta.n_cpbl}}</div><div class="l">CPBL (Taiwan)</div></div>
   <div class="kpi"><div class="v">${{D.meta.translation_factor}}</div><div class="l">xFIP\u2212 Translation Factor</div></div>`;
 
 document.getElementById('homeNote').innerHTML =
-  '<strong>Methodology:</strong> Pearson correlations between Asian-league career stats and MLB career stats across {data["meta"]["n_with_both"]} pitchers. ' +
-  'Stability = \u03C1 \u2265 0.40, p &lt; 0.10. Redundancy = |\u03C1| \u2265 0.75 between metrics. ' +
+  '<strong>Methodology:</strong> Pearson r correlations between Asian-league career stats and MLB career stats across {data["meta"]["n_with_both"]} pitchers. ' +
+  'Stability = |r| \u2265 0.40, p &lt; 0.10. Redundancy = |r| \u2265 0.75 between metrics. ' +
   'Significance = Asian metric predicting MLB ERA+, WAR, or longevity. ' +
-  'Data from MLB Stats API (statsapi.mlb.com), Baseball-Reference Register, and bWAR (pybaseball). ' +
-  'Translation factor from Cho (2026): NPB xFIP\u2212 worsens ~9.6% in MLB. ' +
-  'Composite ranking = 35% WAR + 25% ERA+ + 20% IP + 10% Seasons + 10% K/BB.';
+  '<br><br><strong>What does p &lt; 0.10 mean?</strong> The p-value is the probability that the observed correlation arose by random chance alone (under the null hypothesis of no relationship). ' +
+  'p &lt; 0.10 means there is less than a 10% probability the correlation is a statistical fluke. Lower p-values = stronger evidence of a genuine cross-league relationship.' +
+  '<br><br><strong>Data sources:</strong> MLB Stats API (statsapi.mlb.com), Baseball-Reference Register, bWAR (pybaseball). ' +
+  'Cross-league translation factor from Cho (2026): NPB xFIP\u2212 worsens ~9.6% in MLB. ' +
+  'Dataset includes Asian-born pitchers and American pitchers who pitched in Asian leagues before (returning to) MLB.';
 
-// Rankings
-let rankHtml = '<table><thead><tr><th>#</th><th>Name</th><th>League</th><th>Pos</th><th>Composite</th><th>WAR</th><th>ERA+</th><th>IP</th><th>Seasons</th><th>Transition</th></tr></thead><tbody>';
-for (const r of D.rankings.slice(0, 10)) {{
-  rankHtml += `<tr>
-    <td class="rnum">${{r.rank}}</td><td><strong>${{r.name}}</strong></td>
-    <td>${{leagueBadge(r.league)}}</td><td>${{r.pos}}</td>
-    <td class="rnum">${{r.composite}}</td><td class="rnum">${{r.war.toFixed(1)}}</td>
-    <td class="rnum">${{r.era_plus}}</td><td class="rnum">${{r.ip.toFixed(0)}}</td>
-    <td>${{r.seasons}}</td><td>${{r.transition_year||'\u2014'}}</td>
-  </tr>`;
-}}
-rankHtml += '</tbody></table>';
-document.getElementById('rankTable').innerHTML = rankHtml;
+// Metric Evaluation List
+(function() {{
+  const stab = D.stability['ALL'] || {{}};
+  const entries = Object.entries(stab).sort((a, b) => Math.abs(b[1].r) - Math.abs(a[1].r));
+  const stable = entries.filter(([_, v]) => v.stable);
+  const unstable = entries.filter(([_, v]) => !v.stable);
+  let html = '<h3>Recommended for Cross-League Evaluation (Stable Metrics)</h3>';
+  html += '<p style="font-size:12px;color:#555;margin-bottom:10px">These metrics measured in Asian leagues are significantly predictive of the same metric in MLB. Use these when scouting Asian-league pitchers for MLB potential.</p>';
+  html += '<table><thead><tr><th>Metric</th><th>Pearson r</th><th>p-value</th><th>N</th><th>Interpretation</th></tr></thead><tbody>';
+  for (const [m, v] of stable) {{
+    const label = ML[m] || m;
+    const interp = v.r >= 0.7 ? 'Strong positive' : v.r >= 0.4 ? 'Moderate positive' : v.r <= -0.7 ? 'Strong inverse' : 'Moderate';
+    html += `<tr><td><strong>${{label}}</strong></td><td>${{fmtR(v.r)}}</td><td>${{v.p.toFixed(4)}}</td><td>${{v.n}}</td><td><span class="pill y">${{interp}}</span></td></tr>`;
+  }}
+  html += '</tbody></table>';
+
+  html += '<h3 style="margin-top:18px">Not Recommended (Unstable Metrics)</h3>';
+  html += '<p style="font-size:12px;color:#555;margin-bottom:10px">These metrics do NOT reliably transfer from Asian leagues to MLB. Do not use these as primary scouting indicators.</p>';
+  html += '<table><thead><tr><th>Metric</th><th>Pearson r</th><th>p-value</th><th>N</th><th>Issue</th></tr></thead><tbody>';
+  for (const [m, v] of unstable) {{
+    const label = ML[m] || m;
+    const issue = v.p >= 0.10 ? 'Not significant' : 'Weak correlation';
+    html += `<tr><td>${{label}}</td><td>${{fmtR(v.r)}}</td><td>${{v.p.toFixed(4)}}</td><td>${{v.n}}</td><td><span class="pill n">${{issue}}</span></td></tr>`;
+  }}
+  html += '</tbody></table>';
+  document.getElementById('metricList').innerHTML = html;
+}})();
 
 renderStab('homeStab', 'ALL');
 
@@ -357,7 +389,7 @@ if (!cHtml) cHtml = '<p>No multi-metric clusters found at threshold.</p>';
 document.getElementById('homeClusters').innerHTML = cHtml;
 
 // Pairs
-let pHtml = '<table><thead><tr><th>Metric A</th><th>Metric B</th><th>\u03C1</th></tr></thead><tbody>';
+let pHtml = '<table><thead><tr><th>Metric A</th><th>Metric B</th><th>r</th></tr></thead><tbody>';
 for (const p of D.redundancy.pairs.slice(0, 15)) {{
   const la = (ML[p.a.replace(/^[am]_/,'')] || p.a);
   const lb = (ML[p.b.replace(/^[am]_/,'')] || p.b);
@@ -369,6 +401,9 @@ pHtml += '</tbody></table>';
 document.getElementById('homePairs').innerHTML = pHtml;
 
 renderSig('homeSig', 'ALL');
+
+// All pitchers table on home
+renderPitcherTable('allTable', 'ALL');
 
 // LEAGUE TABS
 for (const lg of ['npb', 'kbo', 'cpbl']) {{
