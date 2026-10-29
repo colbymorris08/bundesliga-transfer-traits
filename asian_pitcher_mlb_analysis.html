@@ -55,6 +55,9 @@ tr.row-mlb td { border-bottom:2px solid #c5cad3; }
 .section-body p { font-size:13.5px; color:#444; margin-bottom:10px; line-height:1.6; }
 .section-body h3 { font-size:14px; margin:16px 0 6px; color:var(--navy); }
 .section-body h3:first-child { margin-top:0; }
+.refs { margin:0; padding-left:18px; }
+.refs li { font-size:13px; color:#444; line-height:1.55; margin:0 0 8px; }
+.refs a { color:var(--navy); }
 
 /* ── explainer boxes ── */
 .explain {
@@ -252,6 +255,7 @@ footer { margin-top:28px; font-size:11px; color:#999; text-align:center; }
         Official npb.jp, KBO, and CPBL lines do not publish it, so a blank GB% is a missing season.
         <strong>Baseball-Reference Register</strong> for Asian-league career and yearly data.
         <strong>bWAR dataset</strong> (via pybaseball) for WAR and ERA+.
+        The full reference list is at the bottom of the page.
         Cross-league translation factor of 1.096 xFIP− from Cho (2026).
         Career Asian stats are filtered to <em>pre-transition years only</em> —
         if a pitcher returned to Asia after MLB, those later seasons are excluded.
@@ -362,6 +366,51 @@ footer { margin-top:28px; font-size:11px; color:#999; text-align:center; }
       <p>Moves from 2006 on, the last 20 years. Two rows per pitcher: the last Asian-league season before the move, and the first MLB season after it, including pitchers who arrived this year. Hiromi Itoh is pinned at the top on his latest NPB season only. He has not pitched in MLB, so there is no MLB row and he is omitted from the correlations. Pitchers stay in the table when the Asian season is missing or the MLB sample is under 10 innings. Those rows are marked omitted and are left out of the stability and redundancy calculations. GB% is the published ground-ball rate when we have it: NPB Data Store on the Asian side, Baseball Savant on the MLB side.</p>
       <div class="roster-wrap" id="rosterTable"></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="references">
+  <div class="section-h"><h2>References</h2></div>
+  <div class="section-body">
+    <p>Sources for the roster, the rates, and the calculations on this page. wOBA and wRC+ are listed after that. This page does not compute them. The run-prevention outcomes here are ERA+ and bWAR.</p>
+
+    <h3>Roster and Asian-league seasons</h3>
+    <ul class="refs">
+      <li>Baseball-Reference. Register player pages, standard pitching table. <a href="https://www.baseball-reference.com/register/">baseball-reference.com/register</a>. Pre-move NPB (Central and Pacific), KBO, and CPBL seasons. Farm and winter leagues are excluded. A season in the departure year counts as pre-move. A later return to Asia does not.</li>
+      <li>Baseball-Reference. Birthplace pitching tables, used to check the Asian-born half of the roster: <a href="https://www.baseball-reference.com/bio/Japan_born.shtml">Japan</a>, <a href="https://www.baseball-reference.com/bio/South-Korea_born.shtml">South Korea</a>, <a href="https://www.baseball-reference.com/bio/Taiwan_born.shtml">Taiwan</a>.</li>
+      <li>Published window: the move, or the return to MLB, is in 2006 or later. A pitcher is in the correlations with a pre-move Asian season, at least 10 Asian innings before the move, and at least 10 MLB innings.</li>
+    </ul>
+
+    <h3>MLB pitching stats</h3>
+    <ul class="refs">
+      <li>MLB Advanced Media. MLB Stats API, career pitching: <a href="https://statsapi.mlb.com/api/v1/people/660271/stats?stats=career&amp;group=pitching">statsapi.mlb.com</a>, <code>stats=career&amp;group=pitching</code>.</li>
+      <li>MLB Advanced Media. MLB Stats API, year-by-year pitching: <code>stats=yearByYear&amp;group=pitching</code>, sport id 1, seasons from 1960 on. A blank-team season total is dropped when named team splits exist, so innings are not double-counted.</li>
+      <li>Rates from those counting stats: K/9 = SO &times; 9 / IP, BB/9 = BB &times; 9 / IP, HR/9 = HR &times; 9 / IP, WHIP = (H + BB) / IP, K/BB = SO / BB. IP is the baseball decimal as published (242.1), not converted to true thirds.</li>
+    </ul>
+
+    <h3>Ground-ball rate</h3>
+    <ul class="refs">
+      <li>Baseball Savant. Batted-ball leaderboard, pitcher, 2015&ndash;2026. <a href="https://baseballsavant.mlb.com/leaderboard/batted-ball?type=pitcher">baseballsavant.mlb.com/leaderboard/batted-ball</a>. MLB GB% = ground balls / batted balls. A career rate is weighted by batted balls. The Stats API has ground outs and air outs only, and that ratio is not used.</li>
+      <li>NPB Data Store. Pitch-type pages, ゴロ率 labeled GB%. <a href="https://baseball-data-store.com/">baseball-data-store.com</a>. Used only when the page title is the requested season. The site currently publishes 2025 and 2026 for players it still lists.</li>
+      <li>NPB official pitching lines do not publish ground-ball rate. Example: <a href="https://npb.jp/bis/2026/stats/pit_c.html">npb.jp Central League pitching, 2026</a>. KBO and CPBL public lines are the same, so those GB% cells are blank.</li>
+    </ul>
+
+    <h3>ERA+, WAR, and the correlation</h3>
+    <ul class="refs">
+      <li>Baseball-Reference. ERA+ (adjusted ERA). <a href="https://www.baseball-reference.com/bullpen/ERA%2B">ERA+ definition</a>. Park- and league-adjusted ERA, scaled so 100 is average. Values on this page are the pitching bWAR file&rsquo;s ERA+, averaged across MLB seasons.</li>
+      <li>Baseball-Reference. Pitching WAR. <a href="https://www.baseball-reference.com/about/war_explained_pitch.shtml">Pitching WAR explained</a>. Career WAR is the sum of seasonal bWAR from the Baseball-Reference pitching file, read with pybaseball <code>bwar_pitch()</code>.</li>
+      <li>Pearson, Karl. 1895. &ldquo;Note on Regression and Inheritance in the Case of Two Parents.&rdquo; <em>Proceedings of the Royal Society of London</em> 58: 240&ndash;242. Computed with <code>scipy.stats.pearsonr</code>. A metric is marked stable when |r| &ge; 0.50 and p &lt; 0.10.</li>
+      <li>Pedregosa, F., et al. 2011. &ldquo;Scikit-learn: Machine Learning in Python.&rdquo; <em>Journal of Machine Learning Research</em> 12: 2825&ndash;2830. Redundancy clusters use average-linkage agglomerative clustering on distance 1 &minus; |r|, distance threshold 0.40. A pair is redundant at |r| &ge; 0.75. GB% is left out of that matrix.</li>
+      <li>Cho, Andrew. 2026. &ldquo;Cross-League Equivalencies: Using Former MLB Player Data to Evaluate NPB Transfers.&rdquo; <a href="https://acho25.me/QSS82_AndrewCho.pdf">acho25.me/QSS82_AndrewCho.pdf</a>. The 1.096 xFIP&minus; factor is cited here and is not the stability result.</li>
+    </ul>
+
+    <h3>wOBA and wRC+</h3>
+    <ul class="refs">
+      <li>Tango, Tom M., Mitchel G. Lichtman, and Andrew E. Dolphin. 2007. <em>The Book: Playing the Percentages in Baseball</em>. Washington, DC: Potomac Books. Linear weights behind wOBA.</li>
+      <li>FanGraphs. &ldquo;wOBA.&rdquo; <a href="https://library.fangraphs.com/offense/woba/">library.fangraphs.com/offense/woba</a>. wOBA = (wBB&middot;uBB + wHBP&middot;HBP + w1B&middot;1B + w2B&middot;2B + w3B&middot;3B + wHR&middot;HR) / (AB + BB &minus; IBB + SF + HBP). Weights change by season.</li>
+      <li>FanGraphs. Guts! constants, the season weights and the wOBA scale. <a href="https://www.fangraphs.com/tools/guts">fangraphs.com/tools/guts</a>.</li>
+      <li>FanGraphs. &ldquo;wRC and wRC+.&rdquo; <a href="https://library.fangraphs.com/offense/wrc/">library.fangraphs.com/offense/wrc</a>. wRC = [((wOBA &minus; league wOBA) / wOBA scale) + (league R/PA)] &times; PA. wRC+ scales park-adjusted wRC per plate appearance to 100 for a league-average hitter.</li>
+    </ul>
   </div>
 </section>
 
