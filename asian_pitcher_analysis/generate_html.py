@@ -392,7 +392,7 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
 <section class="section" id="references">
   <div class="section-h"><h2>References</h2></div>
   <div class="section-body">
-    <p>Sources for the roster, the rates, and the calculations on this page. wOBA and wRC+ are listed after that. This page does not compute them. The run-prevention outcomes here are ERA+ and bWAR.</p>
+    <p>Sources for the roster, the rates, and the calculations on this page. The run-prevention outcomes here are ERA+ and bWAR.</p>
     <p><a class="dl" href="asian-pitcher-sources.docx" download="asian-pitcher-sources.docx">Download the source list (Word)</a></p>
 
     <h3>Roster and Asian-league seasons</h3>
@@ -423,14 +423,6 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
       <li>Pearson, Karl. 1895. &ldquo;Note on Regression and Inheritance in the Case of Two Parents.&rdquo; <em>Proceedings of the Royal Society of London</em> 58: 240&ndash;242. Computed with <code>scipy.stats.pearsonr</code>. A metric is marked stable when |r| &ge; 0.50 and p &lt; 0.10.</li>
       <li>Pedregosa, F., et al. 2011. &ldquo;Scikit-learn: Machine Learning in Python.&rdquo; <em>Journal of Machine Learning Research</em> 12: 2825&ndash;2830. Redundancy clusters use average-linkage agglomerative clustering on distance 1 &minus; |r|, distance threshold 0.40. A pair is redundant at |r| &ge; 0.75. GB% is left out of that matrix.</li>
       <li>Cho, Andrew. 2026. &ldquo;Cross-League Equivalencies: Using Former MLB Player Data to Evaluate NPB Transfers.&rdquo; <a href="https://acho25.me/QSS82_AndrewCho.pdf">acho25.me/QSS82_AndrewCho.pdf</a>. The 1.096 xFIP&minus; factor is cited here and is not the stability result.</li>
-    </ul>
-
-    <h3>wOBA and wRC+</h3>
-    <ul class="refs">
-      <li>Tango, Tom M., Mitchel G. Lichtman, and Andrew E. Dolphin. 2007. <em>The Book: Playing the Percentages in Baseball</em>. Washington, DC: Potomac Books. Linear weights behind wOBA.</li>
-      <li>FanGraphs. &ldquo;wOBA.&rdquo; <a href="https://library.fangraphs.com/offense/woba/">library.fangraphs.com/offense/woba</a>. wOBA = (wBB&middot;uBB + wHBP&middot;HBP + w1B&middot;1B + w2B&middot;2B + w3B&middot;3B + wHR&middot;HR) / (AB + BB &minus; IBB + SF + HBP). Weights change by season.</li>
-      <li>FanGraphs. Guts! constants, the season weights and the wOBA scale. <a href="https://www.fangraphs.com/tools/guts">fangraphs.com/tools/guts</a>.</li>
-      <li>FanGraphs. &ldquo;wRC and wRC+.&rdquo; <a href="https://library.fangraphs.com/offense/wrc/">library.fangraphs.com/offense/wrc</a>. wRC = [((wOBA &minus; league wOBA) / wOBA scale) + (league R/PA)] &times; PA. wRC+ scales park-adjusted wRC per plate appearance to 100 for a league-average hitter.</li>
     </ul>
   </div>
 </section>

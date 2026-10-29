@@ -194,8 +194,6 @@ def main():
         ("Pearson (1895); SciPy pearsonr", "Stability when |r| >= 0.50 and p < 0.10", "All paired windows"),
         ("Pedregosa et al. (2011), scikit-learn", "Average-linkage clustering on 1 - |r|, distance threshold 0.40; pairs at |r| >= 0.75", "Redundancy, six rate stats"),
         ("Cho (2026)", "Cross-League Equivalencies, xFIP- translation factor 1.096. Not the stability result", "Cited only"),
-        ("Tango, Lichtman, and Dolphin (2007); FanGraphs wOBA", "The Book; library.fangraphs.com/offense/woba; Guts! weights. Not computed on this page", "wOBA formula"),
-        ("FanGraphs wRC and wRC+", "library.fangraphs.com/offense/wrc. Not computed on this page. Outcomes here are ERA+ and bWAR", "wRC+ formula"),
     ]
     for r, (src, desc, cov) in enumerate(sources, 2):
         ws5.cell(row=r, column=1, value=src)

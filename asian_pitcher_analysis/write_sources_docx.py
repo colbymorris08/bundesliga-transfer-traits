@@ -93,7 +93,7 @@ def main():
     normal._element.rPr.rFonts.set(qn("w:eastAsia"), "Calibri")
 
     doc.core_properties.title = "Sources for the Asian League to MLB Pitcher Analysis"
-    doc.core_properties.subject = "Roster, rate, API, ERA+, bWAR, wOBA, and wRC+ sources"
+    doc.core_properties.subject = "Roster, rate, API, ERA+, and bWAR sources"
     doc.core_properties.category = "References"
 
     title = doc.add_heading("Sources for the Asian League to MLB Pitcher Analysis", level=1)
@@ -109,7 +109,6 @@ def main():
     note = doc.add_paragraph()
     run = note.add_run(
         "Sources for the roster, the rates, and the calculations on that page. "
-        "wOBA and wRC+ are listed after that. This page does not compute them. "
         "The run-prevention outcomes here are ERA+ and bWAR."
     )
     run.font.name = "Calibri"
@@ -187,35 +186,6 @@ def main():
         "Cho, Andrew. 2026. “Cross-League Equivalencies: Using Former MLB Player Data to Evaluate NPB Transfers.” ",
         ("link", "https://acho25.me/QSS82_AndrewCho.pdf"),
         ". The 1.096 xFIP− factor is cited here and is not the stability result.",
-    ])
-
-    heading(doc, "wOBA and wRC+")
-    caveat = doc.add_paragraph()
-    run = caveat.add_run(
-        "Published formulas. This analysis does not compute wOBA or wRC+. The outcomes on the page are ERA+ and bWAR."
-    )
-    run.bold = True
-    run.font.name = "Calibri"
-    run.font.size = Pt(11)
-    body(caveat)
-
-    bullet(doc, [
-        "Tango, Tom M., Mitchel G. Lichtman, and Andrew E. Dolphin. 2007. The Book: Playing the Percentages in Baseball. Washington, DC: Potomac Books. Linear weights behind wOBA.",
-    ])
-    bullet(doc, [
-        "FanGraphs. “wOBA.” ",
-        ("link", "https://library.fangraphs.com/offense/woba/"),
-        ". wOBA = (wBB·uBB + wHBP·HBP + w1B·1B + w2B·2B + w3B·3B + wHR·HR) / (AB + BB − IBB + SF + HBP). Weights change by season.",
-    ])
-    bullet(doc, [
-        "FanGraphs. Guts! constants, the season weights and the wOBA scale. ",
-        ("link", "https://www.fangraphs.com/tools/guts"),
-        ".",
-    ])
-    bullet(doc, [
-        "FanGraphs. “wRC and wRC+.” ",
-        ("link", "https://library.fangraphs.com/offense/wrc/"),
-        ". wRC = [((wOBA − league wOBA) / wOBA scale) + (league R/PA)] × PA. wRC+ scales park-adjusted wRC per plate appearance to 100 for a league-average hitter.",
     ])
 
     doc.save(OUT)
