@@ -5,201 +5,341 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Asian League → MLB Pitcher Transition Analysis</title>
 <style>
-:root { --ink:#1c1c1c; --muted:#5a5f6a; --line:#d0d4db; --bg:#f4f5f7; --card:#fff;
+:root {
+  --ink:#1c1c1c; --muted:#5a5f6a; --line:#d0d4db; --bg:#f4f5f7; --card:#fff;
   --npb:#c62828; --kbo:#1565c0; --cpbl:#2e7d32; --all:#37474f;
-  --pass:#2d6a4f; --cut:#9a3412; --navy:#3d5a80; }
-* { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --pass:#2d6a4f; --cut:#9a3412; --navy:#3d5a80;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
   background:radial-gradient(ellipse 80% 50% at 8% -10%,#dbe4f0,transparent 55%),var(--bg);
-  color:var(--ink); line-height:1.45; }
-.wrap { max-width:1260px; margin:0 auto; padding:28px 20px 64px; }
-h1 { font-family:"IBM Plex Serif",Georgia,serif; font-size:clamp(24px,3.5vw,32px); letter-spacing:-.02em; }
-.sub { color:var(--muted); font-size:14px; margin-top:8px; max-width:900px; }
-.tabs { display:flex; gap:0; border-bottom:2px solid var(--ink); margin:22px 0 18px; flex-wrap:wrap; }
-.tab { font:600 13px inherit; padding:10px 14px; border:none; background:transparent; cursor:pointer;
-  color:#666; border-bottom:3px solid transparent; margin-bottom:-2px; white-space:nowrap; }
+  color:var(--ink); line-height:1.5;
+}
+.wrap { max-width:1080px; margin:0 auto; padding:32px 24px 72px; }
+h1 {
+  font-family:"IBM Plex Serif",Georgia,serif;
+  font-size:clamp(22px,3.5vw,30px); letter-spacing:-.02em;
+}
+.sub { color:var(--muted); font-size:14px; margin-top:8px; max-width:880px; line-height:1.6; }
+
+/* ── tabs ── */
+.tabs { display:flex; gap:0; border-bottom:2px solid var(--ink); margin:28px 0 0; flex-wrap:wrap; }
+.tab {
+  font:600 13px/1 inherit; padding:11px 18px; border:none; background:transparent;
+  cursor:pointer; color:#888; border-bottom:3px solid transparent; margin-bottom:-2px;
+  transition:color .15s, border-color .15s;
+}
+.tab:hover { color:var(--ink); }
 .tab.active { color:var(--ink); border-bottom-color:var(--navy); }
-.panel { display:none; } .panel.active { display:block; }
-.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin:12px 0 16px; }
-.kpi { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; }
-.kpi .v { font-size:20px; font-weight:700; color:var(--navy); }
-.kpi .l { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-top:2px; }
+.panel { display:none; padding-top:24px; } .panel.active { display:block; }
+
+/* ── cards & sections ── */
+.section {
+  background:var(--card); border:1px solid var(--line); border-radius:10px;
+  margin-bottom:20px; overflow:hidden;
+}
+.section-h { padding:12px 18px; background:var(--ink); color:#fff; }
+.section-h h2 { font-size:13px; letter-spacing:.06em; text-transform:uppercase; }
+.section-body { padding:20px; }
+.section-body p { font-size:13.5px; color:#444; margin-bottom:10px; line-height:1.6; }
+.section-body h3 { font-size:14px; margin:16px 0 6px; color:var(--navy); }
+.section-body h3:first-child { margin-top:0; }
+
+/* ── explainer boxes ── */
+.explain {
+  background:#f8f9fb; border:1px solid var(--line); border-radius:8px;
+  padding:18px 20px; margin-bottom:20px; font-size:13.5px; color:#333; line-height:1.65;
+}
+.explain strong { color:var(--ink); }
+.explain code {
+  background:#e8ecf2; padding:1px 5px; border-radius:3px; font-size:12px;
+  font-family:"IBM Plex Mono",monospace;
+}
+.formula {
+  display:block; background:#fff; border:1px solid var(--line); border-radius:6px;
+  padding:12px 16px; margin:12px 0; font-family:"IBM Plex Mono",monospace;
+  font-size:13px; color:var(--navy); line-height:1.7;
+}
+
+/* ── tables ── */
 table { width:100%; border-collapse:collapse; font-size:12.5px; }
-th,td { padding:7px 10px; text-align:left; border-bottom:1px solid #eceff3; }
-th { font-size:10px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); background:#fafbfc; position:sticky; top:0; }
+th,td { padding:8px 10px; text-align:left; border-bottom:1px solid #eceff3; }
+th {
+  font-size:10px; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--muted); background:#fafbfc; position:sticky; top:0; z-index:1;
+}
 tr:hover td { background:#f0f4fa; }
 .rnum { font-variant-numeric:tabular-nums; font-weight:700; }
-.pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:10px; font-weight:700; }
+
+/* ── pills ── */
+.pill {
+  display:inline-block; padding:2px 8px; border-radius:999px;
+  font-size:10px; font-weight:700; white-space:nowrap;
+}
 .pill.y { background:#d8f3e4; color:var(--pass); }
 .pill.n { background:#f3e8e2; color:var(--cut); }
 .pill.g { background:#e8eef6; color:var(--navy); }
-.note { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; font-size:13px; margin-bottom:14px; color:#333; }
-.note strong { color:var(--ink); }
-.section { background:var(--card); border:1px solid var(--line); border-radius:10px; margin-bottom:16px; overflow:hidden; }
-.section-h { padding:12px 16px; background:var(--ink); color:#fff; }
-.section-h h2 { font-size:13px; letter-spacing:.06em; text-transform:uppercase; }
-.section-body { padding:16px; }
-.section-body h3 { font-size:14px; margin:12px 0 6px; color:var(--navy); }
-.section-body h3:first-child { margin-top:0; }
-.section-body p { font-size:13px; color:#444; margin-bottom:8px; line-height:1.55; }
-.cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-@media(max-width:800px) { .cols { grid-template-columns:1fr; } }
-.badge { display:inline-block; padding:3px 10px; border-radius:4px; font-size:11px; font-weight:700; margin-right:6px; }
-.badge.npb { background:#ffcdd2; color:var(--npb); }
-.badge.kbo { background:#bbdefb; color:var(--kbo); }
-.badge.cpbl { background:#c8e6c9; color:var(--cpbl); }
-.cluster-box { background:#f8f9fb; border:1px solid var(--line); border-radius:8px; padding:12px; margin:6px 0; }
-.cluster-box .cid { font-weight:700; color:var(--navy); font-size:12px; }
-.cluster-box .metrics { font-size:12px; color:#555; margin-top:4px; }
-.arsenal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:8px; }
-.pitch-card { background:#f8f9fb; border:1px solid var(--line); border-radius:6px; padding:10px 12px; }
-.pitch-card .pname { font-weight:700; font-size:13px; }
-.pitch-card .pvelo { color:var(--muted); font-size:11px; }
-.pitch-card .pgrade { display:inline-block; background:var(--navy); color:#fff; font-size:10px; padding:1px 6px; border-radius:3px; margin-left:6px; }
-.pitch-card .pnotes { font-size:11.5px; color:#555; margin-top:4px; }
-.source-list { font-size:11px; color:var(--muted); padding:0; list-style:none; }
-.source-list li { padding:2px 0; }
-.source-list li::before { content:"[" attr(data-n) "] "; font-weight:700; }
-footer { margin-top:24px; font-size:11px; color:#888; text-align:center; }
+
+/* ── bars ── */
 .bar-wrap { display:flex; align-items:center; gap:8px; }
-.bar-bg { flex:1; height:6px; background:#e8eaee; border-radius:3px; overflow:hidden; }
-.bar-fill { height:100%; border-radius:3px; }
-.origin-tag { display:inline-block; font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; margin-left:4px; }
-.origin-tag.us { background:#e3f2fd; color:#1565c0; }
-.win-tabs { display:flex; gap:4px; margin:8px 0 12px; flex-wrap:wrap; }
-.win-tab { font:600 11px inherit; padding:5px 10px; border:1px solid var(--line); border-radius:4px;
-  background:#fff; cursor:pointer; color:var(--muted); }
+.bar-bg { flex:1; height:7px; background:#e8eaee; border-radius:3px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:3px; transition:width .3s; }
+
+/* ── cluster boxes ── */
+.cluster-box {
+  background:#f8f9fb; border:1px solid var(--line); border-radius:8px;
+  padding:14px 16px; margin:8px 0;
+}
+.cluster-box .cid { font-weight:700; color:var(--navy); font-size:13px; margin-bottom:4px; }
+.cluster-box .metrics { font-size:12.5px; color:#555; }
+.cluster-box .metrics .metric-pill {
+  display:inline-block; background:#e8eef6; color:var(--navy); padding:3px 10px;
+  border-radius:4px; font-weight:600; font-size:12px; margin:2px 4px 2px 0;
+}
+
+/* ── pair row highlight ── */
+.pair-row { transition: background .15s; }
+.pair-row:hover td { background:#fff3e0; }
+
+/* ── correlation matrix ── */
+.corr-grid {
+  display:grid; gap:2px; margin:16px 0;
+}
+.corr-cell {
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; border-radius:4px; aspect-ratio:1;
+  min-height:38px;
+}
+.corr-label {
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:600; color:var(--muted);
+}
+
+/* ── window sub-tabs ── */
+.win-tabs { display:flex; gap:4px; margin:8px 0 14px; flex-wrap:wrap; }
+.win-tab {
+  font:600 11px inherit; padding:6px 12px; border:1px solid var(--line);
+  border-radius:4px; background:#fff; cursor:pointer; color:var(--muted);
+  transition:all .15s;
+}
+.win-tab:hover { border-color:var(--navy); color:var(--navy); }
 .win-tab.active { background:var(--navy); color:#fff; border-color:var(--navy); }
 .win-panel { display:none; } .win-panel.active { display:block; }
+
+/* ── KPI row ── */
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-bottom:20px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; }
+.kpi .v { font-size:20px; font-weight:700; color:var(--navy); }
+.kpi .l { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-top:2px; }
+
+footer { margin-top:28px; font-size:11px; color:#999; text-align:center; }
+
+@media(max-width:700px) {
+  .wrap { padding:16px 12px 48px; }
+  table { font-size:11px; }
+  th,td { padding:6px 6px; }
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <h1>Asian League → MLB Pitcher Transition Analysis</h1>
-<p class="sub">Multi-window stability, redundancy, and significance analysis of 46 pitchers who crossed between Asian professional leagues (CPBL / KBO / NPB) and Major League Baseball. Includes 38 Asian-born and 8 American crossover pitchers. Data from MLB Stats API, Baseball-Reference Register, and bWAR.</p>
+<p class="sub">
+  46 pitchers who crossed between Asian professional leagues
+  (NPB / KBO / CPBL) and Major League Baseball —
+  38 Asian-born,
+  8 American crossover.
+</p>
 
 <nav class="tabs">
-  <button class="tab active" data-panel="home">Home — Stability &amp; Redundancy</button>
-  <button class="tab" data-panel="npb">NPB (Japan)</button>
-  <button class="tab" data-panel="kbo">KBO (Korea)</button>
-  <button class="tab" data-panel="cpbl">CPBL (Taiwan)</button>
-  <button class="tab" data-panel="itoh">Hiromi Itoh Assessment</button>
+  <button class="tab active" data-panel="stability">Stability &amp; Metrics</button>
+  <button class="tab" data-panel="redundancy">Redundancy Clusters</button>
 </nav>
 
-<!-- HOME TAB -->
-<section class="panel active" id="panel-home">
-  <div class="kpis" id="homeKpis"></div>
-  <div class="note" id="homeNote"></div>
+<!-- ═══════════════════════════════════════════════════════════════
+     TAB 1 — STABILITY & METRICS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel active" id="panel-stability">
 
-  <div class="section">
-    <div class="section-h"><h2>Metric Evaluation List — Stable Metrics for Cross-League Scouting</h2></div>
-    <div class="section-body" id="metricList"></div>
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi"><div class="v">46</div><div class="l">Pitchers</div></div>
+    <div class="kpi"><div class="v">45</div><div class="l">Asian + MLB Stats</div></div>
+    <div class="kpi"><div class="v">32</div><div class="l">NPB (Japan)</div></div>
+    <div class="kpi"><div class="v">13</div><div class="l">KBO (Korea)</div></div>
+    <div class="kpi"><div class="v">1</div><div class="l">CPBL (Taiwan)</div></div>
+    <div class="kpi"><div class="v">1.096</div><div class="l">xFIP− Factor</div></div>
   </div>
 
+  <!-- EXPLANATION -->
   <div class="section">
-    <div class="section-h"><h2>Stability — All Leagues (Multi-Window)</h2></div>
-    <div class="section-body" id="homeStab"></div>
-  </div>
+    <div class="section-h"><h2>How the Calculation Works</h2></div>
+    <div class="section-body">
 
-  <div class="cols">
-    <div class="section">
-      <div class="section-h"><h2>Redundancy Clusters (Asian Metrics)</h2></div>
-      <div class="section-body" id="homeClusters"></div>
+      <h3>Goal</h3>
+      <p>
+        Determine which pitching metrics are <strong>stable</strong> (reliably transfer)
+        when a pitcher moves from an Asian professional league to MLB.
+        A stable metric means that a pitcher’s Asian-league number meaningfully
+        predicts his MLB number for the same statistic.
+      </p>
+
+      <h3>Pearson r Correlation</h3>
+      <p>
+        For each metric, we compute the <strong>Pearson r</strong> between every pitcher’s
+        Asian-league value and his MLB value for that same metric. Pearson r measures the
+        strength and direction of the linear relationship between two continuous variables.
+      </p>
+      <div class="formula">
+        r = Σ (xᵢ − x̅)(yᵢ − ȳ) / √[Σ(xᵢ − x̅)² · Σ(yᵢ − ȳ)²]<br>
+        where x = Asian metric, y = MLB metric for the same stat
+      </div>
+      <p>
+        The result ranges from −1 to +1. A value of +0.60 means
+        pitchers with higher Asian values also tend to have higher MLB values;
+        −0.60 would mean the opposite. Values near 0 indicate no linear relationship.
+      </p>
+
+      <h3>Multi-Window Approach</h3>
+      <p>
+        Instead of a single career-vs-career comparison, we test across <strong>four time windows</strong>
+        to see whether stability holds at different horizons:
+      </p>
+      <div class="formula">
+        Window 1: Last 1 year in Asia → First 1 year in MLB<br>
+        Window 2: Last 2 years in Asia → First 2 years in MLB<br>
+        Window 3: Last 3 years in Asia → First 3 years in MLB<br>
+        Window 4: Full career in Asia → Full career in MLB
+      </div>
+      <p>
+        Shorter windows capture recent form; longer windows smooth out variance.
+        A metric that is stable across <em>all</em> windows is the most trustworthy
+        for cross-league scouting.
+      </p>
+
+      <h3>Stability Thresholds</h3>
+      <p>
+        A metric is marked <strong>STABLE</strong> in a given window when both conditions are met:
+      </p>
+      <div class="formula">
+        |r| ≥ 0.40 &nbsp;&nbsp;(at least moderate correlation strength)<br>
+        p &lt; 0.10 &nbsp;&nbsp;(less than 10% probability the result is due to chance)
+      </div>
+      <p>
+        The p-value comes from a two-tailed t-test on the Pearson correlation coefficient.
+        A lower p-value means stronger evidence that the metric genuinely transfers across leagues.
+      </p>
+
+      <h3>Data Sources</h3>
+      <p>
+        <strong>MLB Stats API</strong> (statsapi.mlb.com) for career and year-by-year MLB pitching stats.
+        <strong>Baseball-Reference Register</strong> for Asian-league career and yearly data.
+        <strong>bWAR dataset</strong> (via pybaseball) for WAR and ERA+.
+        Cross-league translation factor of 1.096 xFIP− from Cho (2026).
+        Career Asian stats are filtered to <em>pre-transition years only</em> —
+        if a pitcher returned to Asia after MLB, those later seasons are excluded.
+      </p>
     </div>
-    <div class="section">
-      <div class="section-h"><h2>Redundant Pairs (|r| ≥ 0.75)</h2></div>
-      <div class="section-body" id="homePairs"></div>
+  </div>
+
+  <!-- METRIC ROWS WITH STABILITY SCORES -->
+  <div class="section">
+    <div class="section-h"><h2>Metric Stability Scores — All Leagues Combined</h2></div>
+    <div class="section-body" id="metricTable"></div>
+  </div>
+
+  <!-- FULL STABILITY TABLES BY WINDOW -->
+  <div class="section">
+    <div class="section-h"><h2>Detailed Stability by Window</h2></div>
+    <div class="section-body" id="stabDetail"></div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TAB 2 — REDUNDANCY CLUSTERS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="panel" id="panel-redundancy">
+
+  <!-- EXPLANATION -->
+  <div class="section">
+    <div class="section-h"><h2>How Redundancy Is Calculated</h2></div>
+    <div class="section-body">
+
+      <h3>Goal</h3>
+      <p>
+        Identify which pitching metrics measure essentially the <strong>same thing</strong>,
+        so a scout doesn’t double-count overlapping information.
+        If two metrics are highly correlated among pitchers’ Asian-league stats,
+        they carry redundant signal for cross-league evaluation.
+      </p>
+
+      <h3>Pairwise Pearson r on Asian Metrics</h3>
+      <p>
+        We compute Pearson r between every pair of Asian-league career metrics
+        (ERA, K/9, BB/9, HR/9, WHIP, K/BB, GB%).
+        This uses the same Pearson formula as stability, but both variables come
+        from the Asian side — we’re measuring how metrics relate to <em>each other</em>,
+        not how they transfer to MLB.
+      </p>
+
+      <h3>Redundancy Threshold</h3>
+      <div class="formula">
+        A pair is flagged as <strong>redundant</strong> when |r| ≥ 0.75
+      </div>
+      <p>
+        This means that 75%+ of one metric’s pitcher-to-pitcher variance is
+        linearly explained by the other. Using both in a scouting model would
+        over-weight that dimension.
+      </p>
+
+      <h3>Agglomerative Clustering</h3>
+      <p>
+        To group redundant metrics into clusters, we use <strong>agglomerative
+        hierarchical clustering</strong> with average linkage on a distance matrix
+        derived from the correlation matrix:
+      </p>
+      <div class="formula">
+        distance = 1 − |r|<br>
+        Clustering threshold = 0.40 (i.e., metrics with |r| ≥ 0.60 tend to cluster)
+      </div>
+      <p>
+        Each cluster contains metrics that are interchangeable for evaluation purposes.
+        A scout should pick <strong>one representative metric per cluster</strong>
+        rather than using all of them.
+      </p>
     </div>
   </div>
 
+  <!-- REDUNDANT PAIRS TABLE -->
   <div class="section">
-    <div class="section-h"><h2>Significance — What Predicts MLB Success? (ERA+ Focus)</h2></div>
-    <div class="section-body" id="homeSig"></div>
+    <div class="section-h"><h2>Redundant Pairs (|r| ≥ 0.75)</h2></div>
+    <div class="section-body" id="pairsTable"></div>
   </div>
 
+  <!-- CLUSTER BOXES -->
   <div class="section">
-    <div class="section-h"><h2>All Pitchers — Complete Dataset</h2></div>
-    <div class="section-body" style="overflow-x:auto" id="allTable"></div>
+    <div class="section-h"><h2>Metric Clusters</h2></div>
+    <div class="section-body" id="clusterBoxes"></div>
   </div>
+
+  <!-- CORRELATION HEATMAP -->
+  <div class="section">
+    <div class="section-h"><h2>Full Pairwise Correlation Matrix (Asian Metrics)</h2></div>
+    <div class="section-body" id="corrMatrix"></div>
+  </div>
+
 </section>
 
-<!-- NPB TAB -->
-<section class="panel" id="panel-npb">
-  <div class="kpis" id="npbKpis"></div>
-  <div class="section">
-    <div class="section-h" style="background:var(--npb)"><h2>Stability — NPB → MLB (Multi-Window)</h2></div>
-    <div class="section-body" id="npbStab"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:var(--npb)"><h2>Significance — NPB Predictors</h2></div>
-    <div class="section-body" id="npbSig"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:var(--npb)"><h2>NPB Pitchers</h2></div>
-    <div class="section-body" style="overflow-x:auto" id="npbTable"></div>
-  </div>
-</section>
+<footer>
+  Asian League → MLB Pitcher Transition Analysis ·
+  Data: MLB Stats API, Baseball-Reference Register, bWAR ·
+  Cross-league factor: Cho (2026) ·
+  45 pitchers with both Asian &amp; MLB data
+</footer>
 
-<!-- KBO TAB -->
-<section class="panel" id="panel-kbo">
-  <div class="kpis" id="kboKpis"></div>
-  <div class="section">
-    <div class="section-h" style="background:var(--kbo)"><h2>Stability — KBO → MLB (Multi-Window)</h2></div>
-    <div class="section-body" id="kboStab"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:var(--kbo)"><h2>Significance — KBO Predictors</h2></div>
-    <div class="section-body" id="kboSig"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:var(--kbo)"><h2>KBO Pitchers</h2></div>
-    <div class="section-body" style="overflow-x:auto" id="kboTable"></div>
-  </div>
-</section>
-
-<!-- CPBL TAB -->
-<section class="panel" id="panel-cpbl">
-  <div class="kpis" id="cpblKpis"></div>
-  <div class="section">
-    <div class="section-h" style="background:var(--cpbl)"><h2>Stability — CPBL → MLB (Multi-Window)</h2></div>
-    <div class="section-body" id="cpblStab"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:var(--cpbl)"><h2>Significance — CPBL Predictors</h2></div>
-    <div class="section-body" id="cpblSig"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:var(--cpbl)"><h2>CPBL Pitchers</h2></div>
-    <div class="section-body" style="overflow-x:auto" id="cpblTable"></div>
-  </div>
-</section>
-
-<!-- ITOH TAB -->
-<section class="panel" id="panel-itoh">
-  <div class="kpis" id="itohKpis"></div>
-  <div class="section">
-    <div class="section-h" style="background:#37474f"><h2>Pitch Arsenal</h2></div>
-    <div class="section-body" id="itohArsenal"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:#37474f"><h2>A. Likely MLB Role &amp; Performance Projection</h2></div>
-    <div class="section-body" id="itohA"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:#37474f"><h2>B. Potential Adjustments for ML Success</h2></div>
-    <div class="section-body" id="itohB"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:#37474f"><h2>C. Three Priority Information Requests</h2></div>
-    <div class="section-body" id="itohC"></div>
-  </div>
-  <div class="section">
-    <div class="section-h" style="background:#37474f"><h2>Sources</h2></div>
-    <div class="section-body" id="itohSources"></div>
-  </div>
-</section>
-
-<footer>Asian League → MLB Pitcher Transition Analysis · Data: MLB Stats API, Baseball-Reference Register, bWAR · Cross-league factor: Cho (2026) · 45 pitchers with both Asian &amp; MLB data</footer>
 </div>
 
 <script>
@@ -207,6 +347,7 @@ const D = {"pitchers":[{"name":"Hideo Nomo","league":"NPB","pos":"SP","transitio
 const ML = D.meta.metric_labels;
 const WINS = D.windows;
 
+/* ── tab switching ── */
 document.querySelectorAll('.tab').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
@@ -216,181 +357,30 @@ document.querySelectorAll('.tab').forEach(btn => {
   };
 });
 
-function fmt(v, d) { return v != null && !isNaN(v) ? Number(v).toFixed(d) : '—'; }
-function fmtR(r) { return `<span class="rnum">${Number(r).toFixed(3)}</span>`; }
-function stabPill(s) { return s ? '<span class="pill y">STABLE</span>' : '<span class="pill n">below</span>'; }
-function sigPill(s) { return s ? '<span class="pill y">SIG</span>' : '<span class="pill n">n.s.</span>'; }
-function leagueBadge(l) { return `<span class="badge ${l.toLowerCase()}">${l}</span>`; }
-function originTag(o) {
-  if (o === 'US') return '<span class="origin-tag us">US</span>';
-  return '';
+/* ── helpers ── */
+function fmt(v,d){ return v!=null && !isNaN(v) ? Number(v).toFixed(d) : '—'; }
+function fmtR(r){ return `<span class="rnum">${Number(r).toFixed(3)}</span>`; }
+function stabPill(s){ return s ? '<span class="pill y">STABLE</span>' : '<span class="pill n">below</span>'; }
+function stabBar(r){
+  const a=Math.abs(r), pct=Math.min(a*100,100);
+  const c = a>=0.7?'var(--pass)':a>=0.4?'var(--navy)':'#ccc';
+  return `<div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${c}"></div></div></div>`;
 }
-function stabBar(r) {
-  const abs_r = Math.abs(r);
-  const pct = Math.min(abs_r * 100, 100);
-  const color = abs_r >= 0.7 ? 'var(--pass)' : abs_r >= 0.4 ? 'var(--navy)' : '#ccc';
-  return `<div class="bar-wrap"><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div></div>`;
-}
-
-function renderWindowedStab(containerId, leagueKey) {
-  const leagueData = D.stability[leagueKey];
-  if (!leagueData) { document.getElementById(containerId).innerHTML = '<p>Insufficient data for this league.</p>'; return; }
-
-  const uid = containerId;
-  let html = '<div class="win-tabs">';
-  WINS.forEach((w, i) => {
-    const active = i === 0 ? ' active' : '';
-    html += `<button class="win-tab${active}" data-wg="${uid}" data-wt="${w.tag}">${w.label}</button>`;
-  });
-  html += '</div>';
-
-  WINS.forEach((w, i) => {
-    const winData = leagueData[w.tag];
-    const active = i === 0 ? ' active' : '';
-    html += `<div class="win-panel${active}" data-wg="${uid}" data-wp="${w.tag}">`;
-    if (!winData || !winData.metrics) {
-      html += '<p>Insufficient data for this window.</p>';
-    } else {
-      html += '<table><thead><tr><th>Metric</th><th>r (Pearson)</th><th>p-value</th><th>N</th><th>Status</th><th></th></tr></thead><tbody>';
-      for (const [m, v] of Object.entries(winData.metrics)) {
-        const label = ML[m] || m;
-        html += `<tr><td>${label}</td><td>${fmtR(v.r)}</td><td>${v.p.toFixed(4)}</td><td>${v.n}</td><td>${stabPill(v.stable)}</td><td style="width:120px">${stabBar(v.r)}</td></tr>`;
-      }
-      html += '</tbody></table>';
-      html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Stable = |r| ≥ 0.40 and p &lt; 0.10. Pearson r between Asian-league stat and MLB stat for the same time window.</p>';
-    }
-    html += '</div>';
-  });
-
-  document.getElementById(containerId).innerHTML = html;
-
-  document.querySelectorAll(`.win-tab[data-wg="${uid}"]`).forEach(btn => {
-    btn.onclick = () => {
-      document.querySelectorAll(`.win-tab[data-wg="${uid}"]`).forEach(b => b.classList.remove('active'));
-      document.querySelectorAll(`.win-panel[data-wg="${uid}"]`).forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`.win-panel[data-wg="${uid}"][data-wp="${btn.dataset.wt}"]`).classList.add('active');
-    };
-  });
+function corrColor(r){
+  const a=Math.abs(r);
+  if(a>=0.75) return r>0?'#c62828':'#1565c0';
+  if(a>=0.50) return r>0?'#ef5350':'#42a5f5';
+  if(a>=0.25) return r>0?'#ef9a9a':'#90caf9';
+  return '#e0e0e0';
 }
 
-function renderWindowedSig(containerId, leagueKey) {
-  const leagueData = D.significance[leagueKey];
-  if (!leagueData) { document.getElementById(containerId).innerHTML = '<p>Insufficient data.</p>'; return; }
-
-  const uid = containerId;
-  let html = '<div class="win-tabs">';
-  WINS.forEach((w, i) => {
-    const active = i === 0 ? ' active' : '';
-    html += `<button class="win-tab${active}" data-wg="${uid}" data-wt="${w.tag}">${w.label}</button>`;
-  });
-  html += '</div>';
-
-  WINS.forEach((w, i) => {
-    const winData = leagueData[w.tag];
-    const active = i === 0 ? ' active' : '';
-    html += `<div class="win-panel${active}" data-wg="${uid}" data-wp="${w.tag}">`;
-    if (!winData || !winData.outcomes) {
-      html += '<p>Insufficient data for this window.</p>';
-    } else {
-      for (const [outKey, outData] of Object.entries(winData.outcomes)) {
-        html += `<h3>Predicting ${outData.label}</h3>`;
-        html += '<table><thead><tr><th>Asian Metric</th><th>r</th><th>p</th><th>N</th><th></th></tr></thead><tbody>';
-        for (const d of outData.drivers.slice(0, 7)) {
-          html += `<tr><td>${d.label}</td><td>${fmtR(d.r)}</td><td>${d.p.toFixed(4)}</td><td>${d.n}</td><td>${sigPill(d.significant)}</td></tr>`;
-        }
-        html += '</tbody></table>';
-      }
-    }
-    html += '</div>';
-  });
-
-  document.getElementById(containerId).innerHTML = html;
-
-  document.querySelectorAll(`.win-tab[data-wg="${uid}"]`).forEach(btn => {
-    btn.onclick = () => {
-      document.querySelectorAll(`.win-tab[data-wg="${uid}"]`).forEach(b => b.classList.remove('active'));
-      document.querySelectorAll(`.win-panel[data-wg="${uid}"]`).forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`.win-panel[data-wg="${uid}"][data-wp="${btn.dataset.wt}"]`).classList.add('active');
-    };
-  });
-}
-
-function renderPitcherTable(containerId, league) {
-  const pitchers = league === 'ALL' ? D.pitchers : D.pitchers.filter(p => p.league === league);
-  let html = '<table><thead><tr><th>Name</th><th>League</th><th>Pos</th><th>Year</th>';
-  html += '<th>A-ERA</th><th>A-IP</th><th>A-K/9</th><th>A-BB/9</th><th>A-WHIP</th><th>A-K/BB</th>';
-  html += '<th>M-ERA</th><th>M-IP</th><th>M-K/9</th><th>M-BB/9</th><th>M-WHIP</th><th>M-K/BB</th>';
-  html += '<th>ERA+</th><th>WAR</th></tr></thead><tbody>';
-  const sorted = [...pitchers].sort((a, b) => (b.m_war||0) - (a.m_war||0));
-  for (const p of sorted) {
-    const ep = p.m_era_plus;
-    const eraClass = ep != null ? (ep >= 110 ? 'color:var(--pass)' : ep < 90 ? 'color:var(--cut)' : '') : '';
-    const otag = p.origin === 'US' ? originTag('US') : '';
-    html += `<tr>
-      <td><strong>${p.name}</strong>${otag}</td><td>${leagueBadge(p.league)}</td><td>${p.pos||''}</td>
-      <td>${p.transition_year||'—'}</td>
-      <td class="rnum">${fmt(p.a_era,2)}</td><td class="rnum">${fmt(p.a_ip,0)}</td>
-      <td class="rnum">${fmt(p.a_k9,1)}</td><td class="rnum">${fmt(p.a_bb9,1)}</td>
-      <td class="rnum">${fmt(p.a_whip,2)}</td><td class="rnum">${fmt(p.a_k_bb,2)}</td>
-      <td class="rnum">${fmt(p.m_era,2)}</td><td class="rnum">${fmt(p.m_ip,0)}</td>
-      <td class="rnum">${fmt(p.m_k9,1)}</td><td class="rnum">${fmt(p.m_bb9,1)}</td>
-      <td class="rnum">${fmt(p.m_whip,2)}</td><td class="rnum">${fmt(p.m_k_bb,2)}</td>
-      <td class="rnum" style="${eraClass}">${fmt(ep,0)}</td>
-      <td class="rnum">${fmt(p.m_war,1)}</td>
-    </tr>`;
-  }
-  html += '</tbody></table>';
-  document.getElementById(containerId).innerHTML = html;
-}
-
-function renderLeagueKpis(containerId, league) {
-  const all = D.pitchers.filter(p => p.league === league);
-  const withMlb = all.filter(p => p.m_war != null);
-  const n = all.length;
-  const nm = withMlb.length;
-  const nCross = all.filter(p => p.origin === 'US').length;
-  const avgWar = nm ? (withMlb.reduce((s, p) => s + (p.m_war||0), 0) / nm).toFixed(1) : '—';
-  const avgEra = nm ? (withMlb.reduce((s, p) => s + (p.m_era||0), 0) / nm).toFixed(2) : '—';
-  const avgEraPlus = nm ? Math.round(withMlb.reduce((s, p) => s + (p.m_era_plus||100), 0) / nm) : '—';
-  document.getElementById(containerId).innerHTML = `
-    <div class="kpi"><div class="v">${n}</div><div class="l">Pitchers (${nCross} crossover)</div></div>
-    <div class="kpi"><div class="v">${nm}</div><div class="l">With MLB Data</div></div>
-    <div class="kpi"><div class="v">${avgWar}</div><div class="l">Avg Career WAR</div></div>
-    <div class="kpi"><div class="v">${avgEra}</div><div class="l">Avg MLB ERA</div></div>
-    <div class="kpi"><div class="v">${avgEraPlus}</div><div class="l">Avg ERA+</div></div>`;
-}
-
-// HOME
-document.getElementById('homeKpis').innerHTML = `
-  <div class="kpi"><div class="v">${D.meta.n_pitchers}</div><div class="l">Total Pitchers</div></div>
-  <div class="kpi"><div class="v">${D.meta.n_with_both}</div><div class="l">With Both Asian + MLB Stats</div></div>
-  <div class="kpi"><div class="v">${D.meta.n_asian_born || ''}</div><div class="l">Asian-Born</div></div>
-  <div class="kpi"><div class="v">${D.meta.n_crossover || ''}</div><div class="l">American Crossover</div></div>
-  <div class="kpi"><div class="v">${D.meta.n_npb}</div><div class="l">NPB (Japan)</div></div>
-  <div class="kpi"><div class="v">${D.meta.n_kbo}</div><div class="l">KBO (Korea)</div></div>
-  <div class="kpi"><div class="v">${D.meta.n_cpbl}</div><div class="l">CPBL (Taiwan)</div></div>
-  <div class="kpi"><div class="v">${D.meta.translation_factor}</div><div class="l">xFIP− Translation Factor</div></div>`;
-
-document.getElementById('homeNote').innerHTML =
-  '<strong>Methodology:</strong> Multi-window Pearson r correlations between Asian-league stats and MLB stats, ' +
-  'tested across four time horizons: last 1yr Asia vs first 1yr MLB, trailing 2yr Asia vs first 2yr MLB, ' +
-  'trailing 3yr Asia vs first 3yr MLB, and career-to-career. ' +
-  'Stability = |r| ≥ 0.40, p &lt; 0.10. Redundancy = |r| ≥ 0.75 between Asian metrics (league-agnostic). ' +
-  'Significance = Asian metric predicting MLB ERA+ (primary), WAR, or longevity. ' +
-  '<br><br><strong>What does p &lt; 0.10 mean?</strong> The p-value is the probability that the observed correlation arose by random chance alone (under the null hypothesis of no relationship). ' +
-  'p &lt; 0.10 means there is less than a 10% probability the correlation is a statistical fluke. Lower p-values = stronger evidence of a genuine cross-league relationship.' +
-  '<br><br><strong>Data sources:</strong> MLB Stats API (statsapi.mlb.com), Baseball-Reference Register, bWAR (pybaseball). ' +
-  'Cross-league translation factor from Cho (2026): NPB xFIP− worsens ~9.6% in MLB. ' +
-  'Dataset includes Asian-born pitchers and American pitchers who pitched in Asian leagues before (returning to) MLB.';
-
-// Metric Evaluation List (uses career window for primary recommendation)
-(function() {
+/* ═══════════════════════════════════════════════════
+   TAB 1: METRIC STABILITY SCORES
+   ═══════════════════════════════════════════════════ */
+(function(){
   const stabAll = D.stability['ALL'] || {};
-  const careerData = (stabAll['career'] || {}).metrics || {};
 
-  let allMetrics = {};
+  const allMetrics = {};
   for (const [wtag, wdata] of Object.entries(stabAll)) {
     if (!wdata || !wdata.metrics) continue;
     for (const [m, v] of Object.entries(wdata.metrics)) {
@@ -399,126 +389,211 @@ document.getElementById('homeNote').innerHTML =
     }
   }
 
-  const stableCount = (m) => Object.values(allMetrics[m] || {}).filter(v => v.stable).length;
-  const metrics = Object.keys(allMetrics).sort((a, b) => stableCount(b) - stableCount(a));
-  const stable = metrics.filter(m => stableCount(m) >= 2);
-  const unstable = metrics.filter(m => stableCount(m) < 2);
+  const stableCount = m => Object.values(allMetrics[m]||{}).filter(v=>v.stable).length;
+  const totalWindows = m => Object.keys(allMetrics[m]||{}).length;
+  const metrics = Object.keys(allMetrics).sort((a,b)=>stableCount(b)-stableCount(a));
 
-  let html = '<h3>Recommended for Cross-League Evaluation (Stable Across Multiple Windows)</h3>';
-  html += '<p style="font-size:12px;color:#555;margin-bottom:10px">These metrics are stable (|r| ≥ 0.40, p &lt; 0.10) in at least 2 of 4 time windows. They transfer reliably from Asian leagues to MLB.</p>';
-  html += '<table><thead><tr><th>Metric</th><th>1yr</th><th>2yr</th><th>3yr</th><th>Career</th><th>Windows Stable</th></tr></thead><tbody>';
-  for (const m of stable) {
+  let html = '<p style="margin-bottom:14px">Each row shows one pitching metric and its Pearson r correlation between the Asian-league value and MLB value, tested across four time windows. Metrics are ranked by how many windows they are stable in.</p>';
+
+  html += '<table><thead><tr>';
+  html += '<th>Metric</th><th style="text-align:center">1yr</th><th style="text-align:center">2yr</th><th style="text-align:center">3yr</th><th style="text-align:center">Career</th><th style="text-align:center">Score</th><th>Verdict</th>';
+  html += '</tr></thead><tbody>';
+
+  for (const m of metrics) {
     const label = ML[m] || m;
-    const wins = allMetrics[m];
     const sc = stableCount(m);
+    const tot = totalWindows(m);
+    const verdict = sc >= 3 ? '<span class="pill y">USE</span>'
+                  : sc >= 2 ? '<span class="pill g">MAYBE</span>'
+                  : '<span class="pill n">AVOID</span>';
+
     function winCell(wtag) {
-      const v = wins[wtag];
-      if (!v) return '<td>—</td>';
-      return `<td>${fmtR(v.r)} ${stabPill(v.stable)}</td>`;
+      const v = (allMetrics[m]||{})[wtag];
+      if (!v) return '<td style="text-align:center;color:#ccc">—</td>';
+      const bg = v.stable ? 'background:#edf7f0' : '';
+      return `<td style="text-align:center;${bg}">${fmtR(v.r)}<br><span style="font-size:10px;color:var(--muted)">p=${v.p.toFixed(3)}</span><br>${stabPill(v.stable)}</td>`;
     }
-    html += `<tr><td><strong>${label}</strong></td>${winCell('1y')}${winCell('2y')}${winCell('3y')}${winCell('career')}<td><span class="pill g">${sc}/4</span></td></tr>`;
+
+    html += `<tr>`;
+    html += `<td><strong>${label}</strong></td>`;
+    html += winCell('1y') + winCell('2y') + winCell('3y') + winCell('career');
+    html += `<td style="text-align:center"><span class="pill g" style="font-size:13px">${sc}/${tot}</span></td>`;
+    html += `<td>${verdict}</td>`;
+    html += `</tr>`;
   }
   html += '</tbody></table>';
 
-  if (unstable.length) {
-    html += '<h3 style="margin-top:18px">Not Recommended (Unstable Metrics)</h3>';
-    html += '<p style="font-size:12px;color:#555;margin-bottom:10px">These metrics are stable in fewer than 2 windows. Do not rely on them as primary scouting indicators.</p>';
-    html += '<table><thead><tr><th>Metric</th><th>1yr</th><th>2yr</th><th>3yr</th><th>Career</th><th>Windows Stable</th></tr></thead><tbody>';
-    for (const m of unstable) {
-      const label = ML[m] || m;
-      const wins = allMetrics[m];
-      const sc = stableCount(m);
-      function winCell2(wtag) {
-        const v = wins[wtag];
-        if (!v) return '<td>—</td>';
-        return `<td>${fmtR(v.r)} ${stabPill(v.stable)}</td>`;
+  html += '<p style="font-size:11.5px;color:var(--muted);margin-top:12px"><strong>USE</strong> = stable in 3+ windows, highly reliable for cross-league scouting. <strong>MAYBE</strong> = stable in 2 windows, use with caution. <strong>AVOID</strong> = stable in 0–1 windows, does not transfer reliably.</p>';
+
+  document.getElementById('metricTable').innerHTML = html;
+})();
+
+/* ═══════════════════════════════════════════════════
+   TAB 1: DETAILED STABILITY BY WINDOW
+   ═══════════════════════════════════════════════════ */
+(function(){
+  const stabAll = D.stability['ALL'] || {};
+  const uid = 'stabDet';
+
+  let html = '<div class="win-tabs">';
+  WINS.forEach((w,i) => {
+    html += `<button class="win-tab${i===0?' active':''}" data-wg="${uid}" data-wt="${w.tag}">${w.label}</button>`;
+  });
+  html += '</div>';
+
+  WINS.forEach((w,i) => {
+    const wd = stabAll[w.tag];
+    html += `<div class="win-panel${i===0?' active':''}" data-wg="${uid}" data-wp="${w.tag}">`;
+    if(!wd||!wd.metrics){
+      html += '<p>Insufficient data for this window.</p>';
+    } else {
+      html += `<p style="font-size:12px;color:var(--muted);margin-bottom:10px">${wd.label} — ${Object.values(wd.metrics)[0]?.n || '?'} pitchers with data in this window.</p>`;
+      html += '<table><thead><tr><th>Metric</th><th>Pearson r</th><th>p-value</th><th>N</th><th>Status</th><th style="width:140px">Strength</th></tr></thead><tbody>';
+      const sorted = Object.entries(wd.metrics).sort((a,b)=>Math.abs(b[1].r)-Math.abs(a[1].r));
+      for(const [m,v] of sorted){
+        html += `<tr><td>${ML[m]||m}</td><td>${fmtR(v.r)}</td><td>${v.p.toFixed(4)}</td><td>${v.n}</td><td>${stabPill(v.stable)}</td><td>${stabBar(v.r)}</td></tr>`;
       }
-      html += `<tr><td>${label}</td>${winCell2('1y')}${winCell2('2y')}${winCell2('3y')}${winCell2('career')}<td><span class="pill n">${sc}/4</span></td></tr>`;
+      html += '</tbody></table>';
+    }
+    html += '</div>';
+  });
+
+  document.getElementById('stabDetail').innerHTML = html;
+
+  document.querySelectorAll(`.win-tab[data-wg="${uid}"]`).forEach(btn=>{
+    btn.onclick=()=>{
+      document.querySelectorAll(`.win-tab[data-wg="${uid}"]`).forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll(`.win-panel[data-wg="${uid}"]`).forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.win-panel[data-wg="${uid}"][data-wp="${btn.dataset.wt}"]`).classList.add('active');
+    };
+  });
+})();
+
+/* ═══════════════════════════════════════════════════
+   TAB 2: REDUNDANT PAIRS
+   ═══════════════════════════════════════════════════ */
+(function(){
+  const pairs = D.redundancy.pairs || [];
+
+  let html = '';
+  if(pairs.length===0){
+    html = '<p>No metric pairs exceed the |r| ≥ 0.75 redundancy threshold.</p>';
+  } else {
+    html += '<p style="margin-bottom:12px">These pairs of Asian-league pitching metrics are so highly correlated that they carry essentially the same information. Using both in a scouting evaluation double-counts that dimension.</p>';
+    html += '<table><thead><tr><th>Metric A</th><th>Metric B</th><th>Pearson r</th><th style="width:160px">Strength</th><th>Interpretation</th></tr></thead><tbody>';
+    for(const p of pairs){
+      const a = Math.abs(p.r);
+      const interp = a>=0.85 ? 'Very high redundancy — near-identical signal'
+                   : a>=0.75 ? 'High redundancy — overlapping signal'
+                   : 'Moderate correlation';
+      const dir = p.r > 0 ? 'positive' : 'inverse';
+      html += `<tr class="pair-row">`;
+      html += `<td><strong>${p.a_label}</strong></td>`;
+      html += `<td><strong>${p.b_label}</strong></td>`;
+      html += `<td>${fmtR(p.r)} <span style="font-size:10px;color:var(--muted)">(${dir})</span></td>`;
+      html += `<td>${stabBar(p.r)}</td>`;
+      html += `<td style="font-size:12px;color:#555">${interp}</td>`;
+      html += `</tr>`;
     }
     html += '</tbody></table>';
   }
-  document.getElementById('metricList').innerHTML = html;
+
+  document.getElementById('pairsTable').innerHTML = html;
 })();
 
-renderWindowedStab('homeStab', 'ALL');
+/* ═══════════════════════════════════════════════════
+   TAB 2: CLUSTER BOXES
+   ═══════════════════════════════════════════════════ */
+(function(){
+  const clusters = D.redundancy.clusters || [];
+  let html = '<p style="margin-bottom:12px">Metrics grouped into clusters share overlapping signal. Pick <strong>one representative per cluster</strong> for scouting instead of using all.</p>';
 
-// Clusters (now using plain metric names, not Asian/MLB prefix)
-let cHtml = '';
-for (const c of D.redundancy.clusters) {
-  cHtml += `<div class="cluster-box"><div class="cid">Cluster ${c.id}</div><div class="metrics">${c.labels.join(' · ')}</div></div>`;
-}
-if (!cHtml) cHtml = '<p>No multi-metric clusters found at threshold.</p>';
-document.getElementById('homeClusters').innerHTML = cHtml;
+  if(clusters.length===0){
+    html += '<p>No multi-metric clusters at the current threshold.</p>';
+  } else {
+    for(const c of clusters){
+      html += `<div class="cluster-box">`;
+      html += `<div class="cid">Cluster ${c.id + 1}</div>`;
+      html += `<div class="metrics">`;
+      for(const lab of c.labels){
+        html += `<span class="metric-pill">${lab}</span>`;
+      }
+      html += `</div>`;
+      html += `<p style="font-size:12px;color:var(--muted);margin-top:6px">${c.labels.length} metrics that measure similar underlying pitcher traits.</p>`;
+      html += `</div>`;
+    }
+  }
 
-// Pairs (now using plain labels)
-let pHtml = '<table><thead><tr><th>Metric A</th><th>Metric B</th><th>r</th></tr></thead><tbody>';
-for (const p of D.redundancy.pairs.slice(0, 15)) {
-  pHtml += `<tr><td>${p.a_label}</td><td>${p.b_label}</td><td class="rnum">${p.r.toFixed(3)}</td></tr>`;
-}
-pHtml += '</tbody></table>';
-pHtml += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Redundancy computed on Asian-league career metrics only. Since stable metrics transfer across leagues, redundancy is inherent to the metric itself (e.g., ERA and WHIP are redundant regardless of which league).</p>';
-document.getElementById('homePairs').innerHTML = pHtml;
+  document.getElementById('clusterBoxes').innerHTML = html;
+})();
 
-renderWindowedSig('homeSig', 'ALL');
-renderPitcherTable('allTable', 'ALL');
+/* ═══════════════════════════════════════════════════
+   TAB 2: CORRELATION HEATMAP
+   ═══════════════════════════════════════════════════ */
+(function(){
+  const pitchers = D.pitchers.filter(p => p.a_era != null);
+  const metricKeys = ['era','k9','bb9','hr9','whip','k_bb'];
+  const n = metricKeys.length;
 
-// LEAGUE TABS
-for (const lg of ['npb', 'kbo', 'cpbl']) {
-  const LG = lg.toUpperCase();
-  renderLeagueKpis(lg + 'Kpis', LG);
-  renderWindowedStab(lg + 'Stab', LG);
-  renderWindowedSig(lg + 'Sig', LG);
-  renderPitcherTable(lg + 'Table', LG);
-}
+  function getVals(key){ return pitchers.map(p => p['a_'+key]).filter(v => v!=null && !isNaN(v)); }
+  function pearson(xs,ys){
+    const paired = [];
+    for(let i=0;i<xs.length&&i<ys.length;i++){
+      if(xs[i]!=null&&ys[i]!=null&&!isNaN(xs[i])&&!isNaN(ys[i])) paired.push([xs[i],ys[i]]);
+    }
+    if(paired.length<5) return null;
+    const nx=paired.length;
+    const mx=paired.reduce((s,p)=>s+p[0],0)/nx;
+    const my=paired.reduce((s,p)=>s+p[1],0)/nx;
+    let num=0,dx=0,dy=0;
+    for(const [x,y] of paired){ num+=(x-mx)*(y-my); dx+=(x-mx)**2; dy+=(y-my)**2; }
+    return dx&&dy ? num/Math.sqrt(dx*dy) : null;
+  }
 
-// ITOH TAB
-const itoh = D.itoh;
-const c = itoh.npb_career;
-const b = itoh.best_season_2025;
-document.getElementById('itohKpis').innerHTML = `
-  <div class="kpi"><div class="v">${itoh.name}</div><div class="l">${itoh.team} · Age ${itoh.age} · ${itoh.throws} / ${itoh.bats} · ${itoh.height}</div></div>
-  <div class="kpi"><div class="v">${c.era} ERA</div><div class="l">NPB Career (${c.seasons} seasons, ${c.record})</div></div>
-  <div class="kpi"><div class="v">${c.k} K / ${c.bb} BB</div><div class="l">${c.ip} IP · ${c.cg} CG · ${c.sho} SHO</div></div>
-  <div class="kpi"><div class="v">${b.era} ERA</div><div class="l">2025 Best (${b.record}, ${b.award})</div></div>
-  <div class="kpi"><div class="v">${b.k}:${b.bb} K:BB</div><div class="l">2025: ${b.ip} IP, ${b.gb_pct}% GB, ${b.siera} SIERA</div></div>`;
+  const valArrays = {};
+  for(const k of metricKeys) {
+    valArrays[k] = pitchers.map(p => p['a_'+k]);
+  }
 
-let aHtml = '<div class="arsenal-grid">';
-for (const p of itoh.arsenal) {
-  aHtml += `<div class="pitch-card">
-    <span class="pname">${p.pitch}</span>
-    <span class="pvelo">${p.velo}</span>
-    ${p.grade !== 'N/A' ? `<span class="pgrade">${p.grade}</span>` : ''}
-    <div class="pnotes">${p.notes}</div>
-  </div>`;
-}
-aHtml += '</div>';
-document.getElementById('itohArsenal').innerHTML = aHtml;
+  const corrMat = [];
+  for(let i=0;i<n;i++){
+    corrMat[i]=[];
+    for(let j=0;j<n;j++){
+      corrMat[i][j] = i===j ? 1.0 : pearson(valArrays[metricKeys[i]], valArrays[metricKeys[j]]);
+    }
+  }
 
-let saHtml = '';
-for (const item of itoh.section_a.content) {
-  saHtml += `<h3>${item.heading}</h3><p>${item.text}</p>`;
-}
-document.getElementById('itohA').innerHTML = saHtml;
+  const cols = n + 1;
+  let html = `<p style="margin-bottom:10px">Pairwise Pearson r between Asian-league metrics. Red = positive, blue = negative. Cells with |r| ≥ 0.75 are redundant.</p>`;
+  html += `<div class="corr-grid" style="grid-template-columns:60px repeat(${n},1fr); max-width:${n*70+60}px;">`;
 
-let sbHtml = '';
-for (const adj of itoh.section_b.adjustments) {
-  sbHtml += `<h3>${adj.adjustment}</h3><p>${adj.reasoning}</p>`;
-}
-document.getElementById('itohB').innerHTML = sbHtml;
+  html += '<div class="corr-label"></div>';
+  for(const k of metricKeys) html += `<div class="corr-label">${ML[k]||k}</div>`;
 
-let scHtml = '';
-for (const req of itoh.section_c.requests) {
-  scHtml += `<h3>Priority ${req.priority}: ${req.info}</h3><p>${req.impact}</p>`;
-}
-scHtml += `<h3>Recommended Next Step</h3><p>${itoh.section_c.next_step}</p>`;
-document.getElementById('itohC').innerHTML = scHtml;
+  for(let i=0;i<n;i++){
+    html += `<div class="corr-label">${ML[metricKeys[i]]||metricKeys[i]}</div>`;
+    for(let j=0;j<n;j++){
+      const r = corrMat[i][j];
+      if(r==null){
+        html += '<div class="corr-cell" style="background:#f5f5f5;color:#bbb">—</div>';
+      } else {
+        const a = Math.abs(r);
+        const bg = corrColor(r);
+        const alpha = i===j ? 0.3 : Math.max(0.15, a*0.8);
+        const textColor = a>=0.5 ? '#fff' : '#333';
+        const border = a>=0.75 && i!==j ? 'outline:2px solid '+bg+';outline-offset:-2px;' : '';
+        html += `<div class="corr-cell" style="background:${bg};opacity:${alpha.toFixed(2)};color:${textColor};${border}">${r.toFixed(2)}</div>`;
+      }
+    }
+  }
+  html += '</div>';
 
-let srcHtml = '<ol class="source-list">';
-for (let i = 0; i < itoh.sources.length; i++) {
-  srcHtml += `<li data-n="${i+1}">${itoh.sources[i]}</li>`;
-}
-srcHtml += '</ol>';
-document.getElementById('itohSources').innerHTML = srcHtml;
+  html += '<p style="font-size:11px;color:var(--muted);margin-top:8px">Red shades = positive correlation, blue shades = negative. Bold-outlined cells exceed the |r| ≥ 0.75 redundancy threshold.</p>';
+
+  document.getElementById('corrMatrix').innerHTML = html;
+})();
+
 </script>
 </body>
 </html>
