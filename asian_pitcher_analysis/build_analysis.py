@@ -333,18 +333,23 @@ def main():
     print(f"Loaded {len(df)} pitchers: NPB={sum(df.league=='NPB')}, KBO={sum(df.league=='KBO')}, CPBL={sum(df.league=='CPBL')}")
     print(f"  Asian-born: {n_asian}, Crossover (US/other): {n_cross}")
 
-    both = df[df["a_era"].notna() & df["m_era"].notna()]
-    print(f"Pitchers with both Asian + MLB data: {len(both)}")
+    if "in_analysis" in df.columns:
+        df["in_analysis"] = df["in_analysis"].fillna(False).astype(bool)
+        analysis_df = df[df["in_analysis"]].copy()
+    else:
+        analysis_df = df
+    both = analysis_df[analysis_df["a_era"].notna() & analysis_df["m_era"].notna()]
+    print(f"Pitchers in the correlation set: {len(both)} of {len(df)}")
 
     for wtag, wlabel in WINDOWS:
         a_col, m_col = _col_pair("era", wtag)
-        if a_col in df.columns and m_col in df.columns:
-            n = df[[a_col, m_col]].dropna().shape[0]
+        if a_col in analysis_df.columns and m_col in analysis_df.columns:
+            n = analysis_df[[a_col, m_col]].dropna().shape[0]
             print(f"  {wlabel}: {n} pitchers")
 
-    stab = stability_analysis(df)
-    red = redundancy_analysis(df)
-    sig = significance_analysis(df)
+    stab = stability_analysis(analysis_df)
+    red = redundancy_analysis(analysis_df)
+    sig = significance_analysis(analysis_df)
 
     pitchers_out = []
     for _, row in df.iterrows():
@@ -369,6 +374,7 @@ def main():
             "n_asian_born": int(n_asian),
             "n_crossover": int(n_cross),
             "n_with_both": int(len(both)),
+            "n_omitted": int((~df["in_analysis"]).sum()) if "in_analysis" in df.columns else 0,
             "metrics": list(METRIC_LABELS.keys()),
             "metric_labels": METRIC_LABELS,
             "translation_factor": 1.096,

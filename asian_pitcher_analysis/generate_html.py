@@ -178,15 +178,15 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
 </p>
 
 <nav class="tabs" aria-label="Sections">
-  <button class="tab active" type="button" data-panel="stability">Stability</button>
-  <button class="tab" type="button" data-panel="redundancy">Redundancy</button>
   <button class="tab" type="button" data-panel="pitchers">All pitchers</button>
+  <button class="tab" type="button" data-panel="stability">Stability</button>
+  <button class="tab" type="button" data-panel="redundancy">Redundancy</button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════════════
      TAB 1 — STABILITY & METRICS
      ═══════════════════════════════════════════════════════════════ -->
-<section class="panel active" id="panel-stability">
+<section class="panel" id="panel-stability">
 
   <!-- KPIs -->
   <div class="kpis">
@@ -361,11 +361,11 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
 <!-- ═══════════════════════════════════════════════════════════════
      TAB 3 — ALL PITCHERS, LAST ASIA SEASON VS FIRST MLB SEASON
      ═══════════════════════════════════════════════════════════════ -->
-<section class="panel" id="panel-pitchers">
+<section class="panel active" id="panel-pitchers">
   <div class="section">
     <div class="section-h"><h2>Last season in Asia vs first season in MLB</h2></div>
     <div class="section-body">
-      <p>Two rows per pitcher. The first row is his final professional season in NPB, KBO, or CPBL before the move. The second row is his first MLB season. Rate stats are computed from that season's innings, strikeouts, walks, hits, home runs, and earned runs.</p>
+      <p>Two rows per pitcher who pitched in NPB, KBO, or CPBL and in MLB. The first row is the last Asian-league season before the move. The second row is the first MLB season after it, including pitchers who arrived this year. Pitchers stay in the table when the Asian season is missing or the MLB sample is under 10 innings. Those rows are marked omitted and are left out of the stability and redundancy calculations.</p>
       <div class="roster-wrap" id="rosterTable"></div>
     </div>
   </div>
@@ -644,7 +644,7 @@ function corrColor(r){{
       ip += num(r.ip); so += num(r.so); bb += num(r.bb);
       hr += num(r.hr); h += num(r.h); er += num(r.er);
     }}
-    if (ip < 1) return null;
+    if (ip <= 0) return null;
     return {{
       ip: ip,
       era: er / ip * 9,
@@ -666,15 +666,17 @@ function corrColor(r){{
     if (!years.length) return null;
     const y = which === 'last' ? Math.max(...years) : Math.min(...years);
     const stats = agg(by[y]);
-    return stats ? Object.assign({{season: y}}, stats) : null;
+    const leagues = [...new Set(by[y].map(r => r.league).filter(Boolean))];
+    return stats ? Object.assign({{season: y, league: leagues.join('/')}}, stats) : null;
   }}
   function line(p, side, s, cls){{
     const label = side === 'asia' ? 'Last Asia' : 'First MLB';
+    const league = (side === 'asia' && s && s.league) ? s.league : p.league;
     if (!s) {{
       return `<tr class="${{cls}}"><td><strong>${{p.name}}</strong></td><td>${{p.league}}</td><td><span class="side-tag ${{side}}">${{label}}</span></td><td colspan="8">\\u2014</td></tr>`;
     }}
     return `<tr class="${{cls}}">
-      <td><strong>${{p.name}}</strong></td><td>${{p.league}}</td>
+      <td><strong>${{p.name}}</strong></td><td>${{league}}</td>
       <td><span class="side-tag ${{side}}">${{label}}</span></td>
       <td>${{s.season}}</td>
       <td class="rnum">${{cell(s.ip,1)}}</td>
@@ -692,19 +694,25 @@ function corrColor(r){{
     .slice()
     .sort((a,b) => (a.transition_year - b.transition_year) || a.name.localeCompare(b.name));
 
-  let html = '<table><thead><tr><th>Pitcher</th><th>League</th><th>Side</th><th>Season</th><th>IP</th><th>ERA</th><th>K/9</th><th>BB/9</th><th>HR/9</th><th>WHIP</th><th>K/BB</th></tr></thead><tbody>';
-  let n = 0;
+  let html = '<table><thead><tr><th>Pitcher</th><th>League</th><th>Analysis</th><th>Side</th><th>Season</th><th>IP</th><th>ERA</th><th>K/9</th><th>BB/9</th><th>HR/9</th><th>WHIP</th><th>K/BB</th></tr></thead><tbody>';
+  let n = 0, omitted = 0;
   for (const p of pitchers) {{
     const ty = Number(p.transition_year);
-    const asia = pick((p.asian_yearly||[]).filter(r => Number(r.season) < ty), 'last');
+    const asia = pick((p.asian_yearly||[]).filter(r => Number(r.season) <= ty), 'last');
     const mlb = pick((p.mlb_yearly||[]).filter(r => Number(r.season) >= ty), 'first');
     if (!asia && !mlb) continue;
     n += 1;
-    html += line(p, 'asia', asia, 'row-asia');
-    html += line(p, 'mlb', mlb, 'row-mlb');
+    const included = p.in_analysis === true || p.in_analysis === 'true';
+    if (!included) omitted += 1;
+    const tag = included ? '<span class="pill y">Included</span>' : '<span class="pill n">Omitted</span>';
+    function withTag(rowHtml) {{
+      return rowHtml.replace('</td><td><span class="side-tag', `</td><td>${{tag}}</td><td><span class="side-tag`);
+    }}
+    html += withTag(line(p, 'asia', asia, 'row-asia'));
+    html += withTag(line(p, 'mlb', mlb, 'row-mlb'));
   }}
   html += '</tbody></table>';
-  html += `<p style="font-size:11.5px;color:var(--muted);margin-top:10px">${{n}} pitchers with a recorded move. A dash means that season is not in Baseball Reference or the MLB Stats API. Split seasons are combined before the rates are calculated.</p>`;
+  html += `<p style="font-size:11.5px;color:var(--muted);margin-top:10px">${{n}} pitchers in the roster. ${{omitted}} are omitted from the stability and redundancy math because a pre-move Asian season is not on Baseball Reference, or the MLB sample is under 10 innings. A dash means that side has no season in the source data. Split seasons are combined before the rates are calculated.</p>`;
   document.getElementById('rosterTable').innerHTML = html;
 }})();
 

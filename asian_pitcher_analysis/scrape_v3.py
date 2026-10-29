@@ -18,6 +18,29 @@ OUT = Path(__file__).resolve().parent
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
 
+# Top-league codes only. Farm (JPEL/JPFL) and winter (JPWL) stay out.
+ASIAN_TOP = [
+    ("NPB", ["JPPL", "JPCL", "JPCe", "JPPa"]),
+    ("KBO", ["KBO"]),
+    ("CPBL", ["CPBL", "TML"]),
+]
+
+
+def asian_league_of(row: dict, fallback_league: str) -> str | None:
+    """Return NPB, KBO, or CPBL when a register row is a top-league Asian season."""
+    lg = row.get("lg_ID", "") or ""
+    level = row.get("level", "") or ""
+    for name, codes in ASIAN_TOP:
+        if any(code in lg for code in codes):
+            return name
+    if fallback_league == "NPB" and "Jpn" in level:
+        return "NPB"
+    if fallback_league == "KBO" and "Kor" in level:
+        return "KBO"
+    if fallback_league == "CPBL" and ("Twn" in level or "TML" in level):
+        return "CPBL"
+    return None
+
 PITCHERS = [
     # ── Asian-born: NPB → MLB ────────────────────────────────────────────
     {"name": "Hideo Nomo",          "league": "NPB", "mlb_id": 119827, "bref_reg": "nomo--001hid", "pos": "SP", "tyear": 1995, "origin": "JP"},
@@ -45,7 +68,7 @@ PITCHERS = [
     {"name": "Shota Imanaga",       "league": "NPB", "mlb_id": 684007, "bref_reg": "imanag000sho", "pos": "SP", "tyear": 2024, "origin": "JP"},
     {"name": "Yuki Matsui",         "league": "NPB", "mlb_id": 673513, "bref_reg": "matsui000yuk", "pos": "RP", "tyear": 2024, "origin": "JP"},
     {"name": "Yoshinobu Yamamoto",  "league": "NPB", "mlb_id": 808967, "bref_reg": "yamamo004yos", "pos": "SP", "tyear": 2024, "origin": "JP"},
-    {"name": "Tomoyuki Sugano",     "league": "NPB", "mlb_id": None,   "bref_reg": "sugano001tom", "pos": "SP", "tyear": 2025, "origin": "JP"},
+    {"name": "Tomoyuki Sugano",     "league": "NPB", "mlb_id": 608372, "bref_reg": "sugano001tom", "pos": "SP", "tyear": 2025, "origin": "JP"},
     {"name": "Hiromi Itoh",         "league": "NPB", "mlb_id": None,   "bref_reg": "itoh--002hir", "pos": "SP", "tyear": None, "origin": "JP"},
     # ── Asian-born: KBO → MLB ────────────────────────────────────────────
     {"name": "Chan Ho Park",        "league": "KBO", "mlb_id": 120221, "bref_reg": "park--001cha", "pos": "SP", "tyear": 1994, "origin": "KR"},
@@ -56,7 +79,7 @@ PITCHERS = [
     {"name": "Seung-Hwan Oh",       "league": "KBO", "mlb_id": 493200, "bref_reg": "oh----000seu", "pos": "RP", "tyear": 2016, "origin": "KR"},
     {"name": "Kwang-Hyun Kim",      "league": "KBO", "mlb_id": 547942, "bref_reg": "kim---002gwa", "pos": "SP", "tyear": 2020, "origin": "KR"},
     {"name": "Hyeon-Jong Yang",     "league": "KBO", "mlb_id": 660365, "bref_reg": "yang--000hye", "pos": "SP", "tyear": 2021, "origin": "KR"},
-    {"name": "Woo-Suk Go",          "league": "KBO", "mlb_id": None,   "bref_reg": None,           "pos": "RP", "tyear": 2026, "origin": "KR"},
+    {"name": "Woo-Suk Go",          "league": "KBO", "mlb_id": 808970, "bref_reg": "ko----001woo", "pos": "RP", "tyear": 2026, "origin": "KR"},
     # ── Asian-born: CPBL → MLB ───────────────────────────────────────────
     {"name": "Fu-Te Ni",            "league": "CPBL", "mlb_id": 547820, "bref_reg": "ni----001fut", "pos": "RP", "tyear": 2009, "origin": "TW"},
     {"name": "Wei-Yin Chen",        "league": "NPB",  "mlb_id": 612672, "bref_reg": "chen--001wei", "pos": "SP", "tyear": 2012, "origin": "TW"},
@@ -70,6 +93,46 @@ PITCHERS = [
     {"name": "Merrill Kelly",       "league": "KBO", "mlb_id": 518876, "bref_reg": "kelly-003ken", "pos": "SP", "tyear": 2019, "origin": "US"},
     {"name": "Josh Lindblom",       "league": "KBO", "mlb_id": 458676, "bref_reg": "lindbl001jos", "pos": "SP", "tyear": 2020, "origin": "US"},
     {"name": "Erick Fedde",         "league": "KBO", "mlb_id": 607200, "bref_reg": "fedde-000eri", "pos": "SP", "tyear": 2024, "origin": "US"},
+    # Additional NPB / KBO / CPBL pitchers who also pitched in MLB.
+    # bref_reg is None when the register id was not confirmed; they stay in the
+    # roster table and are left out of the correlations.
+    {"name": "Satoru Komiyama",     "league": "NPB", "mlb_id": 407894, "bref_reg": "komiya001sat", "pos": "SP", "tyear": 2002, "origin": "JP"},
+    {"name": "Akinori Otsuka",      "league": "NPB", "mlb_id": 430788, "bref_reg": "otsuka001aki", "pos": "RP", "tyear": 2004, "origin": "JP"},
+    {"name": "Kazuhito Tadano",     "league": "NPB", "mlb_id": 430954, "bref_reg": "tadano001kaz", "pos": "SP", "tyear": 2004, "origin": "JP"},
+    {"name": "Keiichi Yabu",        "league": "NPB", "mlb_id": 435158, "bref_reg": "yabu--001kei", "pos": "RP", "tyear": 2005, "origin": "JP"},
+    {"name": "Shingo Takatsu",      "league": "NPB", "mlb_id": 430968, "bref_reg": "takats001shi", "pos": "RP", "tyear": 2004, "origin": "JP"},
+    {"name": "Kei Igawa",           "league": "NPB", "mlb_id": 506432, "bref_reg": "igawa-001kei", "pos": "SP", "tyear": 2007, "origin": "JP"},
+    {"name": "Hideki Okajima",      "league": "NPB", "mlb_id": 506606, "bref_reg": "okajim001hid", "pos": "RP", "tyear": 2007, "origin": "JP"},
+    {"name": "Masumi Kuwata",       "league": "NPB", "mlb_id": 506555, "bref_reg": "kuwata001mas", "pos": "SP", "tyear": 2007, "origin": "JP"},
+    # kobaya001mas is Masato Kobayashi (born 1980), a different pitcher.
+    {"name": "Masahide Kobayashi",  "league": "NPB", "mlb_id": 493131, "bref_reg": None,          "pos": "RP", "tyear": 2008, "origin": "JP"},
+    {"name": "Hisanori Takahashi",  "league": "NPB", "mlb_id": 538227, "bref_reg": "takaha001his", "pos": "RP", "tyear": 2010, "origin": "JP"},
+    {"name": "Ryota Igarashi",      "league": "NPB", "mlb_id": 579799, "bref_reg": "igaras001ryo", "pos": "RP", "tyear": 2010, "origin": "JP"},
+    {"name": "C.C. Lee",            "league": "NPB", "mlb_id": 547348, "bref_reg": "lee---001che", "pos": "RP", "tyear": 2013, "origin": "TW"},
+    {"name": "Wei-Chung Wang",      "league": "CPBL", "mlb_id": 623913, "bref_reg": None,          "pos": "SP", "tyear": 2014, "origin": "TW"},
+    {"name": "Yoshihisa Hirano",    "league": "NPB", "mlb_id": 673633, "bref_reg": "hirano001yos", "pos": "RP", "tyear": 2018, "origin": "JP"},
+    {"name": "Kazuhisa Makita",     "league": "NPB", "mlb_id": 628318, "bref_reg": "makita000kaz", "pos": "RP", "tyear": 2018, "origin": "JP"},
+    {"name": "Shun Yamaguchi",      "league": "NPB", "mlb_id": 685493, "bref_reg": "yamagu001shu", "pos": "SP", "tyear": 2020, "origin": "JP"},
+    {"name": "Kohei Arihara",       "league": "NPB", "mlb_id": 685503, "bref_reg": None,          "pos": "SP", "tyear": 2021, "origin": "JP"},
+    {"name": "Robert Suarez",       "league": "NPB", "mlb_id": 663158, "bref_reg": "suarez002rob", "pos": "RP", "tyear": 2022, "origin": "VE"},
+    {"name": "Naoyuki Uwasawa",     "league": "NPB", "mlb_id": 683822, "bref_reg": "uwasaw000nao", "pos": "SP", "tyear": 2024, "origin": "JP"},
+    {"name": "Roki Sasaki",         "league": "NPB", "mlb_id": 808963, "bref_reg": "sasaki000rok", "pos": "SP", "tyear": 2025, "origin": "JP"},
+    {"name": "Shinnosuke Ogasawara","league": "NPB", "mlb_id": 829272, "bref_reg": "ogasaw000shi", "pos": "SP", "tyear": 2025, "origin": "JP"},
+    {"name": "Tatsuya Imai",        "league": "NPB", "mlb_id": 837227, "bref_reg": "imai--000tat", "pos": "SP", "tyear": 2026, "origin": "JP"},
+    {"name": "Chris Martin",        "league": "NPB", "mlb_id": 455119, "bref_reg": None,          "pos": "RP", "tyear": 2018, "origin": "US"},
+    {"name": "Pierce Johnson",      "league": "NPB", "mlb_id": 572955, "bref_reg": "johnso001pie", "pos": "RP", "tyear": 2020, "origin": "US"},
+    # martin001nic is Nick Martin, a different player.
+    {"name": "Nick Martinez",       "league": "NPB", "mlb_id": 607259, "bref_reg": None,          "pos": "SP", "tyear": 2022, "origin": "US"},
+    {"name": "Albert Suarez",       "league": "NPB", "mlb_id": 544150, "bref_reg": "suarez001alb", "pos": "SP", "tyear": 2024, "origin": "VE"},
+    {"name": "Foster Griffin",      "league": "NPB", "mlb_id": 656492, "bref_reg": "griffi000fos", "pos": "SP", "tyear": 2026, "origin": "US"},
+    {"name": "Anthony Kay",         "league": "NPB", "mlb_id": 641743, "bref_reg": "kay---000ant", "pos": "SP", "tyear": 2026, "origin": "US"},
+    {"name": "Kyle Hart",           "league": "KBO", "mlb_id": 606996, "bref_reg": None,          "pos": "SP", "tyear": 2025, "origin": "US"},
+    {"name": "Andrew Suarez",       "league": "KBO", "mlb_id": 605498, "bref_reg": "suarez002and", "pos": "SP", "tyear": 2023, "origin": "US"},
+    {"name": "Adrian Sampson",      "league": "KBO", "mlb_id": 592716, "bref_reg": "sampso000adr", "pos": "SP", "tyear": 2021, "origin": "US"},
+    {"name": "Aaron Brooks",        "league": "KBO", "mlb_id": 605156, "bref_reg": None,          "pos": "SP", "tyear": 2022, "origin": "US"},
+    {"name": "Cody Ponce",          "league": "KBO", "mlb_id": 664074, "bref_reg": "ponce-000cod", "pos": "SP", "tyear": 2026, "origin": "US"},
+    {"name": "Drew Anderson",       "league": "KBO", "mlb_id": 623454, "bref_reg": None,          "pos": "SP", "tyear": 2026, "origin": "US"},
+    {"name": "Ryan Weiss",          "league": "KBO", "mlb_id": 680802, "bref_reg": None,          "pos": "SP", "tyear": 2026, "origin": "US"},
 ]
 
 HAND_COMPILED = {
@@ -108,7 +171,6 @@ HAND_COMPILED = {
     "Seung-Hwan Oh":       {"a_era":1.81,"a_ip":75.0,"a_k9":10.8,"a_bb9":1.8,"a_hr9":0.4,"a_whip":0.82,"a_k_bb":6.00,"a_gb_pct":35.0,"a_w_pct":.700,"m_era":3.31,"m_ip":252.2,"m_k9":9.0,"m_bb9":2.3,"m_hr9":1.2,"m_whip":1.11,"m_k_bb":3.91,"m_gb_pct":33.0,"m_w_pct":.552,"m_era_plus":131,"m_war":4.8,"m_seasons":4},
     "Kwang-Hyun Kim":      {"a_era":3.27,"a_ip":160.0,"a_k9":8.2,"a_bb9":2.5,"a_hr9":0.6,"a_whip":1.15,"a_k_bb":3.28,"a_gb_pct":48.0,"a_w_pct":.590,"m_era":2.97,"m_ip":148.2,"m_k9":5.8,"m_bb9":3.0,"m_hr9":0.8,"m_whip":1.24,"m_k_bb":1.93,"m_gb_pct":52.0,"m_w_pct":.500,"m_era_plus":142,"m_war":3.6,"m_seasons":2},
     "Hyeon-Jong Yang":     {"a_era":3.72,"a_ip":165.0,"a_k9":7.5,"a_bb9":2.0,"a_hr9":0.9,"a_whip":1.18,"a_k_bb":3.75,"a_gb_pct":40.0,"a_w_pct":.550,"m_era":4.70,"m_ip":63.0,"m_k9":6.0,"m_bb9":2.6,"m_hr9":1.7,"m_whip":1.40,"m_k_bb":2.31,"m_gb_pct":35.0,"m_w_pct":.500,"m_era_plus":85,"m_war":0.2,"m_seasons":1},
-    "Woo-Suk Go":          {"a_era":2.10,"a_ip":70.0,"a_k9":11.5,"a_bb9":2.2,"a_hr9":0.3,"a_whip":0.90,"a_k_bb":5.23,"a_gb_pct":42.0,"a_w_pct":.600,"m_era":5.40,"m_ip":15.0,"m_k9":8.4,"m_bb9":4.2,"m_hr9":1.8,"m_whip":1.60,"m_k_bb":2.00,"m_gb_pct":35.0,"m_w_pct":.000,"m_era_plus":75,"m_war":-0.2,"m_seasons":1},
     "Wei-Yin Chen":        {"a_era":2.59,"a_ip":650.1,"a_k9":7.20,"a_bb9":2.20,"a_hr9":0.55,"a_whip":1.086,"a_k_bb":3.27,"a_gb_pct":None,"a_w_pct":.600,"m_era":4.34,"m_ip":1065.0,"m_k9":6.5,"m_bb9":2.4,"m_hr9":1.3,"m_whip":1.30,"m_k_bb":2.71,"m_gb_pct":41.0,"m_w_pct":.479,"m_era_plus":96,"m_war":9.6,"m_seasons":8},
     "Fu-Te Ni":            {"a_era":3.60,"a_ip":40.0,"a_k9":7.0,"a_bb9":3.5,"a_hr9":0.8,"a_whip":1.30,"a_k_bb":2.00,"a_gb_pct":None,"a_w_pct":.500,"m_era":5.31,"m_ip":47.1,"m_k9":7.4,"m_bb9":4.2,"m_hr9":0.8,"m_whip":1.52,"m_k_bb":1.76,"m_gb_pct":44.0,"m_w_pct":.500,"m_era_plus":79,"m_war":0.0,"m_seasons":2},
     # Crossover: Americans NPB → MLB
@@ -128,20 +190,29 @@ def cached_get(url: str, key: str, delay: float = 2.0) -> str | None:
     path = CACHE / f"{key}.html"
     if path.exists():
         size = path.stat().st_size
-        if size == 191309:
+        if size in (191307, 191308, 191309, 109726):
             return None
         return path.read_text()
-    time.sleep(delay)
-    try:
-        resp = requests.get(url, headers=HEADERS, timeout=20)
+    for attempt in range(4):
+        time.sleep(delay if attempt == 0 else 25 * attempt)
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=20)
+        except Exception as e:
+            print(f"    Error: {e}")
+            continue
         if resp.status_code == 200:
-            path.write_text(resp.text)
-            if len(resp.text) == 191309:
+            if len(resp.text) in (191307, 191308, 191309):
+                path.write_text(resp.text)
                 return None
+            if "Rate Limited" in resp.text[:500]:
+                print(f"    rate limited, retry {attempt + 1}")
+                continue
+            path.write_text(resp.text)
             return resp.text
         print(f"    HTTP {resp.status_code} for {url}")
-    except Exception as e:
-        print(f"    Error: {e}")
+        if resp.status_code != 429:
+            return None
+        print(f"    retry {attempt + 1}")
     return None
 
 
@@ -235,10 +306,24 @@ def fetch_mlb_yearly(mlb_id: int) -> list[dict] | None:
     return None
 
 
+def drop_mlb_combined(raw_rows: list[dict]) -> list[dict]:
+    """yearByYear repeats a season total (blank team) next to the team splits."""
+    by_season: dict[int, list[dict]] = {}
+    for row in raw_rows:
+        by_season.setdefault(row.get("season"), []).append(row)
+    kept = []
+    for group in by_season.values():
+        named = [r for r in group if r.get("team")]
+        kept.extend(named or group)
+    return kept
+
+
 def parse_mlb_season(stats: dict) -> dict:
     """Parse a single MLB season's stats into rate metrics."""
     ip = float(stats.get("inningsPitched", "0").replace(",", ""))
-    if ip < 5:
+    # Keep short MLB seasons so a year-1 cup of coffee still appears in the roster.
+    # Window aggregates require 10 IP, so these lines stay out of the correlations.
+    if ip <= 0:
         return {}
     so = int(stats.get("strikeOuts", 0))
     bb = int(stats.get("baseOnBalls", 0))
@@ -354,23 +439,11 @@ def extract_asian_stats(bref_data: dict, league: str) -> dict | None:
 
     yearly = bref_data.get("yearly", [])
     asian_rows = []
-    league_codes = {
-        "NPB": ["JPPL", "JPCL", "JPCe", "JPPa"],
-        "KBO": ["KBO"],
-        "CPBL": ["CPBL", "TML"],
-    }
-    target_leagues = league_codes.get(league, [])
-
     for row in yearly:
-        lg = row.get("lg_ID", "")
-        level = row.get("level", "")
-        if any(x in lg for x in target_leagues):
-            team = row.get("team_ID", "")
-            if "Team" not in team:
-                asian_rows.append(row)
-        elif league == "NPB" and "Jpn" in level:
-            asian_rows.append(row)
-        elif league == "KBO" and "Kor" in level:
+        if not asian_league_of(row, league):
+            continue
+        team = row.get("team_ID", "")
+        if "Team" not in team:
             asian_rows.append(row)
 
     if not asian_rows:
@@ -384,30 +457,14 @@ def extract_asian_yearly(bref_data: dict, league: str) -> list[dict]:
         return []
 
     yearly = bref_data.get("yearly", [])
-    league_codes = {
-        "NPB": ["JPPL", "JPCL", "JPCe", "JPPa"],
-        "KBO": ["KBO"],
-        "CPBL": ["CPBL", "TML"],
-    }
-    target_leagues = league_codes.get(league, [])
     asian_rows = []
 
     for row in yearly:
-        lg = row.get("lg_ID", "")
-        level = row.get("level", "")
+        row_league = asian_league_of(row, league)
         team = row.get("team_ID", "")
         year_str = row.get("year_ID", "")
 
-        if "Team" in team:
-            continue
-
-        is_asian = (
-            any(x in lg for x in target_leagues)
-            or (league == "NPB" and "Jpn" in level)
-            or (league == "KBO" and "Kor" in level)
-            or (league == "CPBL" and ("Twn" in level or "TML" in level))
-        )
-        if not is_asian:
+        if "Team" in team or not row_league:
             continue
 
         try:
@@ -429,6 +486,7 @@ def extract_asian_yearly(bref_data: dict, league: str) -> list[dict]:
 
         asian_rows.append({
             "season": year_int,
+            "league": row_league,
             "ip": ip, "so": so, "bb": bb, "hr": hr_val, "h": h_val, "er": er_val,
             "go": 0, "ao": 0,
             "era": round(er_val / ip * 9, 2) if ip > 0 else None,
@@ -542,6 +600,7 @@ def main():
                "transition_year": p["tyear"], "origin": p.get("origin", "")}
         tyear = p["tyear"]
         sources = {"mlb": None, "bref": None, "bwar": None, "fallback": False}
+        asia_from_register = False
 
         # 1) MLB Stats API — career + yearly
         mlb_yearly_rows = []
@@ -555,7 +614,7 @@ def main():
 
             yearly_raw = fetch_mlb_yearly(p["mlb_id"])
             if yearly_raw:
-                for yr in yearly_raw:
+                for yr in drop_mlb_combined(yearly_raw):
                     parsed = parse_mlb_season(yr)
                     if parsed:
                         mlb_yearly_rows.append(parsed)
@@ -576,6 +635,7 @@ def main():
                 asian = extract_asian_stats(bref, p["league"])
                 if asian:
                     row.update(asian)
+                    asia_from_register = True
                     sources["bref"] = "register"
                     print(f"  + BRef Reg: {asian.get('a_ip')} IP, {asian.get('a_era')} ERA, {asian.get('a_k9')} K/9")
 
@@ -583,10 +643,12 @@ def main():
                 if asian_yearly_rows:
                     print(f"  + Asian yearly: {len(asian_yearly_rows)} seasons")
 
-        # 2b) Filter career Asian stats to pre-transition years only
+        # 2b) Career Asian stats are pre-transition top-league seasons only.
+        # A later return to Asia must not be mixed into the "before MLB" career.
         if tyear and asian_yearly_rows:
-            pre_trans = [r for r in asian_yearly_rows if r["season"] < tyear]
-            if pre_trans and len(pre_trans) < len(asian_yearly_rows):
+            # Same-year Asian work (the season they left) counts as pre-move.
+            pre_trans = [r for r in asian_yearly_rows if r["season"] <= tyear]
+            if pre_trans:
                 career_agg = aggregate_counting(pre_trans)
                 if career_agg:
                     row["a_ip"] = career_agg["ip"]
@@ -597,7 +659,14 @@ def main():
                     row["a_whip"] = career_agg["whip"]
                     row["a_k_bb"] = career_agg["k_bb"]
                     row["a_gb_pct"] = career_agg.get("gb_pct")
-                    print(f"  ! Filtered to {len(pre_trans)} pre-transition seasons ({career_agg['ip']} IP)")
+                    print(f"  ! Pre-transition Asian career: {len(pre_trans)} seasons ({career_agg['ip']} IP)")
+                    asia_from_register = True
+
+        pre_move = [r for r in asian_yearly_rows if tyear and r["season"] <= tyear] if asian_yearly_rows else []
+        pre_ip = sum(float(r.get("ip") or 0) for r in pre_move)
+        m_ip = float(row.get("m_ip") or 0)
+        # Short MLB samples stay in the roster table but out of the correlations.
+        row["in_analysis"] = bool(pre_move and row.get("m_era") is not None and pre_ip >= 10 and m_ip >= 10)
 
         # 3) Hand-compiled fallback for any missing fields
         fallback = HAND_COMPILED.get(name, {})
