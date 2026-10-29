@@ -185,11 +185,17 @@ def main():
     style_header(ws5, 3)
 
     sources = [
-        ("MLB Stats API", "statsapi.mlb.com — career + yearly pitching stats (IP, ERA, K, BB, HR, GO/AO)", f"{meta['n_pitchers'] - 1} pitchers"),
-        ("Baseball-Reference Register", "standard_pitching yearly + summary rows — Asian league stats", f"{meta['n_pitchers'] - 2} pitchers"),
-        ("bWAR dataset (pybaseball)", "bwar_pitch() — career WAR and ERA+ for MLB seasons", f"{meta['n_pitchers'] - 1} pitchers"),
-        ("Hand-compiled fallback", "Research-verified stats for pitchers without API coverage", "Fills remaining gaps"),
-        ("Cho (2026)", "Cross-League Equivalencies: xFIP- translation factor = 1.096", "NPB -> MLB"),
+        ("Baseball-Reference Register", "standard_pitching tables for pre-move NPB, KBO, and CPBL seasons", "Asian seasons"),
+        ("Baseball-Reference birthplace tables", "Japan, South Korea, and Taiwan born pitching lists", "Asian-born roster check"),
+        ("MLB Stats API", "stats=career and stats=yearByYear, group=pitching. K/9, BB/9, HR/9, WHIP, K/BB from counting stats", "MLB seasons"),
+        ("Baseball Savant", "Batted-ball leaderboard, 2015-2026. GB% = ground balls / batted balls, weighted by batted balls", "MLB GB%"),
+        ("NPB Data Store", "baseball-data-store.com pitch-type pages, ゴロ率, only when the page title matches the season", "NPB GB%, 2025-2026"),
+        ("Baseball-Reference bWAR", "pybaseball bwar_pitch(); career WAR is the sum, ERA+ is the seasonal mean", "MLB WAR and ERA+"),
+        ("Pearson (1895); SciPy pearsonr", "Stability when |r| >= 0.50 and p < 0.10", "All paired windows"),
+        ("Pedregosa et al. (2011), scikit-learn", "Average-linkage clustering on 1 - |r|, distance threshold 0.40; pairs at |r| >= 0.75", "Redundancy, six rate stats"),
+        ("Cho (2026)", "Cross-League Equivalencies, xFIP- translation factor 1.096. Not the stability result", "Cited only"),
+        ("Tango, Lichtman, and Dolphin (2007); FanGraphs wOBA", "The Book; library.fangraphs.com/offense/woba; Guts! weights. Not computed on this page", "wOBA formula"),
+        ("FanGraphs wRC and wRC+", "library.fangraphs.com/offense/wrc. Not computed on this page. Outcomes here are ERA+ and bWAR", "wRC+ formula"),
     ]
     for r, (src, desc, cov) in enumerate(sources, 2):
         ws5.cell(row=r, column=1, value=src)
