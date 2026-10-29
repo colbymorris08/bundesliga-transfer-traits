@@ -24920,29 +24920,29 @@
       "m_war": 6.9,
       "m_era_plus": 170.0,
       "m_seasons_bwar": 13.0,
-      "a_ip": null,
-      "a_era": null,
-      "a_k9": null,
-      "a_bb9": null,
-      "a_hr9": null,
-      "a_whip": null,
-      "a_k_bb": null,
-      "a_w": null,
-      "a_l": null,
-      "a_so": null,
-      "a_bb": null,
-      "a_g": null,
-      "a_w_pct": null,
+      "a_ip": 87.4,
+      "a_era": 1.13,
+      "a_k9": 9.37,
+      "a_bb9": 1.34,
+      "a_hr9": 0.41,
+      "a_whip": 0.675,
+      "a_k_bb": 7.0,
+      "a_w": 2.0,
+      "a_l": 2.0,
+      "a_so": 101.0,
+      "a_bb": 13.0,
+      "a_g": 101.0,
+      "a_w_pct": 0.5,
       "a_gb_pct": null,
-      "in_analysis": false,
+      "in_analysis": true,
       "m_seasons": null,
-      "a1y_ip": null,
-      "a1y_era": null,
-      "a1y_k9": null,
-      "a1y_bb9": null,
-      "a1y_hr9": null,
-      "a1y_whip": null,
-      "a1y_k_bb": null,
+      "a1y_ip": 37.2,
+      "a1y_era": 1.21,
+      "a1y_k9": 8.23,
+      "a1y_bb9": 1.45,
+      "a1y_hr9": 0.48,
+      "a1y_whip": 0.726,
+      "a1y_k_bb": 5.67,
       "a1y_gb_pct": null,
       "m1y_ip": 41.2,
       "m1y_era": 4.59,
@@ -24952,13 +24952,13 @@
       "m1y_whip": 1.238,
       "m1y_k_bb": 7.4,
       "m1y_gb_pct": 48.8,
-      "a2y_ip": null,
-      "a2y_era": null,
-      "a2y_k9": null,
-      "a2y_bb9": null,
-      "a2y_hr9": null,
-      "a2y_whip": null,
-      "a2y_k_bb": null,
+      "a2y_ip": 87.4,
+      "a2y_era": 1.13,
+      "a2y_k9": 9.37,
+      "a2y_bb9": 1.34,
+      "a2y_hr9": 0.41,
+      "a2y_whip": 0.675,
+      "a2y_k_bb": 7.0,
       "a2y_gb_pct": null,
       "m2y_ip": 96.4,
       "m2y_era": 3.92,
@@ -24968,13 +24968,13 @@
       "m2y_whip": 1.12,
       "m2y_k_bb": 10.2,
       "m2y_gb_pct": 52.2,
-      "a3y_ip": null,
-      "a3y_era": null,
-      "a3y_k9": null,
-      "a3y_bb9": null,
-      "a3y_hr9": null,
-      "a3y_whip": null,
-      "a3y_k_bb": null,
+      "a3y_ip": 87.4,
+      "a3y_era": 1.13,
+      "a3y_k9": 9.37,
+      "a3y_bb9": 1.34,
+      "a3y_hr9": 0.41,
+      "a3y_whip": 0.675,
+      "a3y_k_bb": 7.0,
       "a3y_gb_pct": null,
       "m3y_ip": 114.4,
       "m3y_era": 3.46,
@@ -24984,7 +24984,44 @@
       "m3y_whip": 1.04,
       "m3y_k_bb": 9.38,
       "m3y_gb_pct": 51.4,
-      "asian_yearly": [],
+      "asian_yearly": [
+        {
+          "season": 2016,
+          "league": "NPB",
+          "ip": 50.2,
+          "so": 57,
+          "bb": 7,
+          "hr": 2,
+          "h": 25,
+          "er": 6,
+          "go": 0,
+          "ao": 0,
+          "era": 1.08,
+          "k9": 10.22,
+          "bb9": 1.25,
+          "hr9": 0.36,
+          "whip": 0.637,
+          "k_bb": 8.14
+        },
+        {
+          "season": 2017,
+          "league": "NPB",
+          "ip": 37.2,
+          "so": 34,
+          "bb": 6,
+          "hr": 2,
+          "h": 21,
+          "er": 5,
+          "go": 0,
+          "ao": 0,
+          "era": 1.21,
+          "k9": 8.23,
+          "bb9": 1.45,
+          "hr9": 0.48,
+          "whip": 0.726,
+          "k_bb": 5.67
+        }
+      ],
       "mlb_yearly": [
         {
           "season": 2014,
@@ -25549,29 +25586,29 @@
       "m_war": 15.0,
       "m_era_plus": 108.0,
       "m_seasons_bwar": 9.0,
-      "a_ip": null,
-      "a_era": null,
-      "a_k9": null,
-      "a_bb9": null,
-      "a_hr9": null,
-      "a_whip": null,
-      "a_k_bb": null,
-      "a_w": null,
-      "a_l": null,
-      "a_so": null,
-      "a_bb": null,
-      "a_g": null,
-      "a_w_pct": null,
+      "a_ip": 377.4,
+      "a_era": 3.03,
+      "a_k9": 7.08,
+      "a_bb9": 2.81,
+      "a_hr9": 0.72,
+      "a_whip": 1.245,
+      "a_k_bb": 2.52,
+      "a_w": 26.0,
+      "a_l": 26.0,
+      "a_so": 334.0,
+      "a_bb": 130.0,
+      "a_g": 75.0,
+      "a_w_pct": 0.5,
       "a_gb_pct": null,
-      "in_analysis": false,
+      "in_analysis": true,
       "m_seasons": null,
-      "a1y_ip": null,
-      "a1y_era": null,
-      "a1y_k9": null,
-      "a1y_bb9": null,
-      "a1y_hr9": null,
-      "a1y_whip": null,
-      "a1y_k_bb": null,
+      "a1y_ip": 140.2,
+      "a1y_era": 1.6,
+      "a1y_k9": 8.86,
+      "a1y_bb9": 2.44,
+      "a1y_hr9": 0.39,
+      "a1y_whip": 1.041,
+      "a1y_k_bb": 3.63,
       "a1y_gb_pct": null,
       "m1y_ip": 106.1,
       "m1y_era": 3.48,
@@ -25581,13 +25618,13 @@
       "m1y_whip": 1.291,
       "m1y_k_bb": 2.32,
       "m1y_gb_pct": 54.7,
-      "a2y_ip": null,
-      "a2y_era": null,
-      "a2y_k9": null,
-      "a2y_bb9": null,
-      "a2y_hr9": null,
-      "a2y_whip": null,
-      "a2y_k_bb": null,
+      "a2y_ip": 216.2,
+      "a2y_era": 2.66,
+      "a2y_k9": 8.49,
+      "a2y_bb9": 3.25,
+      "a2y_hr9": 0.58,
+      "a2y_whip": 1.212,
+      "a2y_k_bb": 2.62,
       "a2y_gb_pct": null,
       "m2y_ip": 216.2,
       "m2y_era": 3.46,
@@ -25597,13 +25634,13 @@
       "m2y_whip": 1.277,
       "m2y_k_bb": 2.48,
       "m2y_gb_pct": 58.7,
-      "a3y_ip": null,
-      "a3y_era": null,
-      "a3y_k9": null,
-      "a3y_bb9": null,
-      "a3y_hr9": null,
-      "a3y_whip": null,
-      "a3y_k_bb": null,
+      "a3y_ip": 216.2,
+      "a3y_era": 2.66,
+      "a3y_k9": 8.49,
+      "a3y_bb9": 3.25,
+      "a3y_hr9": 0.58,
+      "a3y_whip": 1.212,
+      "a3y_k_bb": 2.62,
       "a3y_gb_pct": null,
       "m3y_ip": 358.3,
       "m3y_era": 3.32,
@@ -25613,7 +25650,62 @@
       "m3y_whip": 1.178,
       "m3y_k_bb": 3.2,
       "m3y_gb_pct": 51.4,
-      "asian_yearly": [],
+      "asian_yearly": [
+        {
+          "season": 2018,
+          "league": "NPB",
+          "ip": 161.2,
+          "so": 93,
+          "bb": 40,
+          "hr": 16,
+          "h": 168,
+          "er": 63,
+          "go": 0,
+          "ao": 0,
+          "era": 3.52,
+          "k9": 5.19,
+          "bb9": 2.23,
+          "hr9": 0.89,
+          "whip": 1.29,
+          "k_bb": 2.33
+        },
+        {
+          "season": 2020,
+          "league": "NPB",
+          "ip": 76.0,
+          "so": 66,
+          "bb": 40,
+          "hr": 8,
+          "h": 76,
+          "er": 39,
+          "go": 0,
+          "ao": 0,
+          "era": 4.62,
+          "k9": 7.82,
+          "bb9": 4.74,
+          "hr9": 0.95,
+          "whip": 1.526,
+          "k_bb": 1.65
+        },
+        {
+          "season": 2021,
+          "league": "NPB",
+          "ip": 140.2,
+          "so": 138,
+          "bb": 38,
+          "hr": 6,
+          "h": 108,
+          "er": 25,
+          "go": 0,
+          "ao": 0,
+          "era": 1.6,
+          "k9": 8.86,
+          "bb9": 2.44,
+          "hr9": 0.39,
+          "whip": 1.041,
+          "k_bb": 3.63
+        }
+      ],
       "mlb_yearly": [
         {
           "season": 2014,
@@ -26592,29 +26684,29 @@
       "m_war": -1.6,
       "m_era_plus": 62.0,
       "m_seasons_bwar": 3.0,
-      "a_ip": null,
-      "a_era": null,
-      "a_k9": null,
-      "a_bb9": null,
-      "a_hr9": null,
-      "a_whip": null,
-      "a_k_bb": null,
-      "a_w": null,
-      "a_l": null,
-      "a_so": null,
-      "a_bb": null,
-      "a_g": null,
-      "a_w_pct": null,
+      "a_ip": 157.0,
+      "a_era": 2.69,
+      "a_k9": 10.43,
+      "a_bb9": 2.18,
+      "a_hr9": 0.63,
+      "a_whip": 1.032,
+      "a_k_bb": 4.79,
+      "a_w": 13.0,
+      "a_l": 3.0,
+      "a_so": 182.0,
+      "a_bb": 38.0,
+      "a_g": 26.0,
+      "a_w_pct": 0.813,
       "a_gb_pct": null,
-      "in_analysis": false,
+      "in_analysis": true,
       "m_seasons": null,
-      "a1y_ip": null,
-      "a1y_era": null,
-      "a1y_k9": null,
-      "a1y_bb9": null,
-      "a1y_hr9": null,
-      "a1y_whip": null,
-      "a1y_k_bb": null,
+      "a1y_ip": 157.0,
+      "a1y_era": 2.69,
+      "a1y_k9": 10.43,
+      "a1y_bb9": 2.18,
+      "a1y_hr9": 0.63,
+      "a1y_whip": 1.032,
+      "a1y_k_bb": 4.79,
       "a1y_gb_pct": null,
       "m1y_ip": 43.0,
       "m1y_era": 5.86,
@@ -26624,13 +26716,13 @@
       "m1y_whip": 1.186,
       "m1y_k_bb": 2.85,
       "m1y_gb_pct": 34.8,
-      "a2y_ip": null,
-      "a2y_era": null,
-      "a2y_k9": null,
-      "a2y_bb9": null,
-      "a2y_hr9": null,
-      "a2y_whip": null,
-      "a2y_k_bb": null,
+      "a2y_ip": 157.0,
+      "a2y_era": 2.69,
+      "a2y_k9": 10.43,
+      "a2y_bb9": 2.18,
+      "a2y_hr9": 0.63,
+      "a2y_whip": 1.032,
+      "a2y_k_bb": 4.79,
       "a2y_gb_pct": null,
       "m2y_ip": 107.0,
       "m2y_era": 5.3,
@@ -26640,13 +26732,13 @@
       "m2y_whip": 1.196,
       "m2y_k_bb": 2.46,
       "m2y_gb_pct": 47.2,
-      "a3y_ip": null,
-      "a3y_era": null,
-      "a3y_k9": null,
-      "a3y_bb9": null,
-      "a3y_hr9": null,
-      "a3y_whip": null,
-      "a3y_k_bb": null,
+      "a3y_ip": 157.0,
+      "a3y_era": 2.69,
+      "a3y_k9": 10.43,
+      "a3y_bb9": 2.18,
+      "a3y_hr9": 0.63,
+      "a3y_whip": 1.032,
+      "a3y_k_bb": 4.79,
       "a3y_gb_pct": null,
       "m3y_ip": 107.0,
       "m3y_era": 5.3,
@@ -26656,7 +26748,26 @@
       "m3y_whip": 1.196,
       "m3y_k_bb": 2.46,
       "m3y_gb_pct": 47.2,
-      "asian_yearly": [],
+      "asian_yearly": [
+        {
+          "season": 2024,
+          "league": "KBO",
+          "ip": 157.0,
+          "so": 182,
+          "bb": 38,
+          "hr": 11,
+          "h": 124,
+          "er": 47,
+          "go": 0,
+          "ao": 0,
+          "era": 2.69,
+          "k9": 10.43,
+          "bb9": 2.18,
+          "hr9": 0.63,
+          "whip": 1.032,
+          "k_bb": 4.79
+        }
+      ],
       "mlb_yearly": [
         {
           "season": 2020,
@@ -27158,29 +27269,29 @@
       "m_war": -2.2,
       "m_era_plus": 56.0,
       "m_seasons_bwar": 9.0,
-      "a_ip": null,
-      "a_era": null,
-      "a_k9": null,
-      "a_bb9": null,
-      "a_hr9": null,
-      "a_whip": null,
-      "a_k_bb": null,
-      "a_w": null,
-      "a_l": null,
-      "a_so": null,
-      "a_bb": null,
-      "a_g": null,
-      "a_w_pct": null,
+      "a_ip": 229.1,
+      "a_era": 2.79,
+      "a_k9": 7.27,
+      "a_bb9": 1.57,
+      "a_hr9": 0.31,
+      "a_whip": 1.152,
+      "a_k_bb": 4.62,
+      "a_w": 18.0,
+      "a_l": 16.0,
+      "a_so": 247.0,
+      "a_bb": 58.0,
+      "a_g": 56.0,
+      "a_w_pct": 0.529,
       "a_gb_pct": null,
-      "in_analysis": false,
+      "in_analysis": true,
       "m_seasons": null,
-      "a1y_ip": null,
-      "a1y_era": null,
-      "a1y_k9": null,
-      "a1y_bb9": null,
-      "a1y_hr9": null,
-      "a1y_whip": null,
-      "a1y_k_bb": null,
+      "a1y_ip": 78.0,
+      "a1y_era": 3.35,
+      "a1y_k9": 6.35,
+      "a1y_bb9": 1.85,
+      "a1y_hr9": 0.46,
+      "a1y_whip": 1.397,
+      "a1y_k_bb": 3.44,
       "a1y_gb_pct": null,
       "m1y_ip": null,
       "m1y_era": null,
@@ -27190,13 +27301,13 @@
       "m1y_whip": null,
       "m1y_k_bb": null,
       "m1y_gb_pct": null,
-      "a2y_ip": null,
-      "a2y_era": null,
-      "a2y_k9": null,
-      "a2y_bb9": null,
-      "a2y_hr9": null,
-      "a2y_whip": null,
-      "a2y_k_bb": null,
+      "a2y_ip": 229.1,
+      "a2y_era": 2.79,
+      "a2y_k9": 7.27,
+      "a2y_bb9": 1.57,
+      "a2y_hr9": 0.31,
+      "a2y_whip": 1.152,
+      "a2y_k_bb": 4.62,
       "a2y_gb_pct": null,
       "m2y_ip": null,
       "m2y_era": null,
@@ -27206,13 +27317,13 @@
       "m2y_whip": null,
       "m2y_k_bb": null,
       "m2y_gb_pct": null,
-      "a3y_ip": null,
-      "a3y_era": null,
-      "a3y_k9": null,
-      "a3y_bb9": null,
-      "a3y_hr9": null,
-      "a3y_whip": null,
-      "a3y_k_bb": null,
+      "a3y_ip": 229.1,
+      "a3y_era": 2.79,
+      "a3y_k9": 7.27,
+      "a3y_bb9": 1.57,
+      "a3y_hr9": 0.31,
+      "a3y_whip": 1.152,
+      "a3y_k_bb": 4.62,
       "a3y_gb_pct": null,
       "m3y_ip": 35.3,
       "m3y_era": 5.86,
@@ -27222,7 +27333,44 @@
       "m3y_whip": 1.53,
       "m3y_k_bb": 1.9,
       "m3y_gb_pct": 48.3,
-      "asian_yearly": [],
+      "asian_yearly": [
+        {
+          "season": 2020,
+          "league": "KBO",
+          "ip": 151.1,
+          "so": 130,
+          "bb": 24,
+          "hr": 4,
+          "h": 131,
+          "er": 42,
+          "go": 0,
+          "ao": 0,
+          "era": 2.5,
+          "k9": 7.74,
+          "bb9": 1.43,
+          "hr9": 0.24,
+          "whip": 1.026,
+          "k_bb": 5.42
+        },
+        {
+          "season": 2021,
+          "league": "KBO",
+          "ip": 78.0,
+          "so": 55,
+          "bb": 16,
+          "hr": 4,
+          "h": 93,
+          "er": 29,
+          "go": 0,
+          "ao": 0,
+          "era": 3.35,
+          "k9": 6.35,
+          "bb9": 1.85,
+          "hr9": 0.46,
+          "whip": 1.397,
+          "k_bb": 3.44
+        }
+      ],
       "mlb_yearly": [
         {
           "season": 2014,
@@ -27643,29 +27791,29 @@
       "m_war": 1.0,
       "m_era_plus": 72.0,
       "m_seasons_bwar": 6.0,
-      "a_ip": null,
-      "a_era": null,
-      "a_k9": null,
-      "a_bb9": null,
-      "a_hr9": null,
-      "a_whip": null,
-      "a_k_bb": null,
-      "a_w": null,
-      "a_l": null,
-      "a_so": null,
-      "a_bb": null,
-      "a_g": null,
-      "a_w_pct": null,
+      "a_ip": 401.4,
+      "a_era": 2.96,
+      "a_k9": 11.23,
+      "a_bb9": 3.23,
+      "a_hr9": 0.78,
+      "a_whip": 1.131,
+      "a_k_bb": 3.48,
+      "a_w": 34.0,
+      "a_l": 17.0,
+      "a_so": 577.0,
+      "a_bb": 161.0,
+      "a_g": 109.0,
+      "a_w_pct": 0.667,
       "a_gb_pct": null,
-      "in_analysis": false,
+      "in_analysis": true,
       "m_seasons": null,
-      "a1y_ip": null,
-      "a1y_era": null,
-      "a1y_k9": null,
-      "a1y_bb9": null,
-      "a1y_hr9": null,
-      "a1y_whip": null,
-      "a1y_k_bb": null,
+      "a1y_ip": 171.2,
+      "a1y_era": 2.26,
+      "a1y_k9": 12.88,
+      "a1y_bb9": 2.68,
+      "a1y_hr9": 0.68,
+      "a1y_whip": 1.005,
+      "a1y_k_bb": 4.8,
       "a1y_gb_pct": null,
       "m1y_ip": 108.0,
       "m1y_era": 3.67,
@@ -27675,13 +27823,13 @@
       "m1y_whip": 1.269,
       "m1y_k_bb": 2.65,
       "m1y_gb_pct": 52.8,
-      "a2y_ip": null,
-      "a2y_era": null,
-      "a2y_k9": null,
-      "a2y_bb9": null,
-      "a2y_hr9": null,
-      "a2y_whip": null,
-      "a2y_k_bb": null,
+      "a2y_ip": 286.4,
+      "a2y_era": 2.92,
+      "a2y_k9": 12.66,
+      "a2y_bb9": 3.27,
+      "a2y_hr9": 0.75,
+      "a2y_whip": 1.128,
+      "a2y_k_bb": 3.88,
       "a2y_gb_pct": null,
       "m2y_ip": 108.0,
       "m2y_era": 3.67,
@@ -27691,13 +27839,13 @@
       "m2y_whip": 1.269,
       "m2y_k_bb": 2.65,
       "m2y_gb_pct": 52.8,
-      "a3y_ip": null,
-      "a3y_era": null,
-      "a3y_k9": null,
-      "a3y_bb9": null,
-      "a3y_hr9": null,
-      "a3y_whip": null,
-      "a3y_k_bb": null,
+      "a3y_ip": 331.4,
+      "a3y_era": 2.82,
+      "a3y_k9": 12.0,
+      "a3y_bb9": 3.29,
+      "a3y_hr9": 0.71,
+      "a3y_whip": 1.116,
+      "a3y_k_bb": 3.65,
       "a3y_gb_pct": null,
       "m3y_ip": 108.0,
       "m3y_era": 3.67,
@@ -27707,7 +27855,80 @@
       "m3y_whip": 1.269,
       "m3y_k_bb": 2.65,
       "m3y_gb_pct": 52.8,
-      "asian_yearly": [],
+      "asian_yearly": [
+        {
+          "season": 2022,
+          "league": "NPB",
+          "ip": 70.0,
+          "so": 59,
+          "bb": 23,
+          "hr": 9,
+          "h": 61,
+          "er": 28,
+          "go": 0,
+          "ao": 0,
+          "era": 3.6,
+          "k9": 7.59,
+          "bb9": 2.96,
+          "hr9": 1.16,
+          "whip": 1.2,
+          "k_bb": 2.57
+        },
+        {
+          "season": 2023,
+          "league": "NPB",
+          "ip": 45.0,
+          "so": 39,
+          "bb": 17,
+          "hr": 2,
+          "h": 30,
+          "er": 11,
+          "go": 0,
+          "ao": 0,
+          "era": 2.2,
+          "k9": 7.8,
+          "bb9": 3.4,
+          "hr9": 0.4,
+          "whip": 1.044,
+          "k_bb": 2.29
+        },
+        {
+          "season": 2024,
+          "league": "KBO",
+          "ip": 115.2,
+          "so": 158,
+          "bb": 53,
+          "hr": 11,
+          "h": 98,
+          "er": 50,
+          "go": 0,
+          "ao": 0,
+          "era": 3.91,
+          "k9": 12.34,
+          "bb9": 4.14,
+          "hr9": 0.86,
+          "whip": 1.311,
+          "k_bb": 2.98
+        },
+        {
+          "season": 2025,
+          "league": "KBO",
+          "ip": 171.2,
+          "so": 245,
+          "bb": 51,
+          "hr": 13,
+          "h": 121,
+          "er": 43,
+          "go": 0,
+          "ao": 0,
+          "era": 2.26,
+          "k9": 12.88,
+          "bb9": 2.68,
+          "hr9": 0.68,
+          "whip": 1.005,
+          "k_bb": 4.8
+        }
+      ],
       "mlb_yearly": [
         {
           "season": 2017,
@@ -27849,29 +28070,29 @@
       "m_war": -0.8,
       "m_era_plus": 55.0,
       "m_seasons_bwar": 1.0,
-      "a_ip": null,
-      "a_era": null,
-      "a_k9": null,
-      "a_bb9": null,
-      "a_hr9": null,
-      "a_whip": null,
-      "a_k_bb": null,
-      "a_w": null,
-      "a_l": null,
-      "a_so": null,
-      "a_bb": null,
-      "a_g": null,
-      "a_w_pct": null,
+      "a_ip": 300.4,
+      "a_era": 3.09,
+      "a_k9": 9.89,
+      "a_bb9": 2.88,
+      "a_hr9": 0.66,
+      "a_whip": 1.075,
+      "a_k_bb": 3.44,
+      "a_w": 25.0,
+      "a_l": 11.0,
+      "a_so": 330.0,
+      "a_bb": 96.0,
+      "a_g": 51.0,
+      "a_w_pct": 0.694,
       "a_gb_pct": null,
-      "in_analysis": false,
+      "in_analysis": true,
       "m_seasons": null,
-      "a1y_ip": null,
-      "a1y_era": null,
-      "a1y_k9": null,
-      "a1y_bb9": null,
-      "a1y_hr9": null,
-      "a1y_whip": null,
-      "a1y_k_bb": null,
+      "a1y_ip": 178.2,
+      "a1y_era": 2.88,
+      "a1y_k9": 10.45,
+      "a1y_bb9": 2.83,
+      "a1y_hr9": 0.66,
+      "a1y_whip": 1.027,
+      "a1y_k_bb": 3.7,
       "a1y_gb_pct": null,
       "m1y_ip": 26.0,
       "m1y_era": 7.62,
@@ -27881,13 +28102,13 @@
       "m1y_whip": 2.115,
       "m1y_k_bb": 1.5,
       "m1y_gb_pct": 39.1,
-      "a2y_ip": null,
-      "a2y_era": null,
-      "a2y_k9": null,
-      "a2y_bb9": null,
-      "a2y_hr9": null,
-      "a2y_whip": null,
-      "a2y_k_bb": null,
+      "a2y_ip": 269.4,
+      "a2y_era": 3.17,
+      "a2y_k9": 10.19,
+      "a2y_bb9": 2.84,
+      "a2y_hr9": 0.7,
+      "a2y_whip": 1.073,
+      "a2y_k_bb": 3.59,
       "a2y_gb_pct": null,
       "m2y_ip": 26.0,
       "m2y_era": 7.62,
@@ -27897,13 +28118,13 @@
       "m2y_whip": 2.115,
       "m2y_k_bb": 1.5,
       "m2y_gb_pct": 39.1,
-      "a3y_ip": null,
-      "a3y_era": null,
-      "a3y_k9": null,
-      "a3y_bb9": null,
-      "a3y_hr9": null,
-      "a3y_whip": null,
-      "a3y_k_bb": null,
+      "a3y_ip": 300.4,
+      "a3y_era": 3.09,
+      "a3y_k9": 9.89,
+      "a3y_bb9": 2.88,
+      "a3y_hr9": 0.66,
+      "a3y_whip": 1.075,
+      "a3y_k_bb": 3.44,
       "a3y_gb_pct": null,
       "m3y_ip": 26.0,
       "m3y_era": 7.62,
@@ -27913,7 +28134,62 @@
       "m3y_whip": 2.115,
       "m3y_k_bb": 1.5,
       "m3y_gb_pct": 39.1,
-      "asian_yearly": [],
+      "asian_yearly": [
+        {
+          "season": 2023,
+          "league": "CPBL",
+          "ip": 31.0,
+          "so": 25,
+          "bb": 11,
+          "hr": 1,
+          "h": 23,
+          "er": 8,
+          "go": 0,
+          "ao": 0,
+          "era": 2.32,
+          "k9": 7.26,
+          "bb9": 3.19,
+          "hr9": 0.29,
+          "whip": 1.097,
+          "k_bb": 2.27
+        },
+        {
+          "season": 2024,
+          "league": "KBO",
+          "ip": 91.2,
+          "so": 98,
+          "bb": 29,
+          "hr": 8,
+          "h": 77,
+          "er": 38,
+          "go": 0,
+          "ao": 0,
+          "era": 3.75,
+          "k9": 9.67,
+          "bb9": 2.86,
+          "hr9": 0.79,
+          "whip": 1.162,
+          "k_bb": 3.38
+        },
+        {
+          "season": 2025,
+          "league": "KBO",
+          "ip": 178.2,
+          "so": 207,
+          "bb": 56,
+          "hr": 13,
+          "h": 127,
+          "er": 57,
+          "go": 0,
+          "ao": 0,
+          "era": 2.88,
+          "k9": 10.45,
+          "bb9": 2.83,
+          "hr9": 0.66,
+          "whip": 1.027,
+          "k_bb": 3.7
+        }
+      ],
       "mlb_yearly": [
         {
           "season": 2026,
@@ -27942,39 +28218,39 @@
         "label": "Last 1yr Asia vs First 1yr MLB",
         "metrics": {
           "era": {
-            "r": 0.425,
-            "p": 0.0026,
-            "n": 48,
+            "r": 0.415,
+            "p": 0.0028,
+            "n": 50,
             "stable": false
           },
           "k9": {
-            "r": 0.674,
+            "r": 0.672,
             "p": 0.0,
-            "n": 48,
+            "n": 50,
             "stable": true
           },
           "bb9": {
-            "r": 0.313,
-            "p": 0.0305,
-            "n": 48,
+            "r": 0.328,
+            "p": 0.02,
+            "n": 50,
             "stable": false
           },
           "hr9": {
-            "r": 0.258,
-            "p": 0.0772,
-            "n": 48,
+            "r": 0.256,
+            "p": 0.0728,
+            "n": 50,
             "stable": false
           },
           "whip": {
-            "r": 0.27,
-            "p": 0.0633,
-            "n": 48,
+            "r": 0.271,
+            "p": 0.0567,
+            "n": 50,
             "stable": false
           },
           "k_bb": {
-            "r": 0.354,
-            "p": 0.0136,
-            "n": 48,
+            "r": 0.356,
+            "p": 0.0112,
+            "n": 50,
             "stable": false
           }
         }
@@ -27983,39 +28259,39 @@
         "label": "Last 2yr Asia vs First 2yr MLB",
         "metrics": {
           "era": {
-            "r": 0.417,
-            "p": 0.0029,
-            "n": 49,
+            "r": 0.413,
+            "p": 0.0026,
+            "n": 51,
             "stable": false
           },
           "k9": {
-            "r": 0.568,
+            "r": 0.569,
             "p": 0.0,
-            "n": 49,
+            "n": 51,
             "stable": true
           },
           "bb9": {
-            "r": 0.542,
-            "p": 0.0001,
-            "n": 49,
+            "r": 0.554,
+            "p": 0.0,
+            "n": 51,
             "stable": true
           },
           "hr9": {
-            "r": 0.177,
-            "p": 0.2231,
-            "n": 49,
+            "r": 0.173,
+            "p": 0.2247,
+            "n": 51,
             "stable": false
           },
           "whip": {
-            "r": 0.332,
-            "p": 0.0198,
-            "n": 49,
+            "r": 0.348,
+            "p": 0.0123,
+            "n": 51,
             "stable": false
           },
           "k_bb": {
-            "r": 0.414,
-            "p": 0.0031,
-            "n": 49,
+            "r": 0.429,
+            "p": 0.0017,
+            "n": 51,
             "stable": false
           }
         }
@@ -28024,39 +28300,39 @@
         "label": "Last 3yr Asia vs First 3yr MLB",
         "metrics": {
           "era": {
-            "r": 0.473,
-            "p": 0.0005,
-            "n": 50,
+            "r": 0.475,
+            "p": 0.0004,
+            "n": 52,
             "stable": false
           },
           "k9": {
-            "r": 0.575,
+            "r": 0.576,
             "p": 0.0,
-            "n": 50,
+            "n": 52,
             "stable": true
           },
           "bb9": {
-            "r": 0.601,
+            "r": 0.6,
             "p": 0.0,
-            "n": 50,
+            "n": 52,
             "stable": true
           },
           "hr9": {
-            "r": 0.262,
-            "p": 0.0663,
-            "n": 50,
+            "r": 0.263,
+            "p": 0.0592,
+            "n": 52,
             "stable": false
           },
           "whip": {
-            "r": 0.431,
-            "p": 0.0018,
-            "n": 50,
+            "r": 0.45,
+            "p": 0.0008,
+            "n": 52,
             "stable": false
           },
           "k_bb": {
-            "r": 0.562,
+            "r": 0.579,
             "p": 0.0,
-            "n": 50,
+            "n": 52,
             "stable": true
           }
         }
@@ -28065,39 +28341,39 @@
         "label": "Career Asia vs Career MLB",
         "metrics": {
           "era": {
-            "r": 0.233,
-            "p": 0.1039,
-            "n": 50,
+            "r": 0.245,
+            "p": 0.0806,
+            "n": 52,
             "stable": false
           },
           "k9": {
-            "r": 0.513,
+            "r": 0.524,
             "p": 0.0001,
-            "n": 50,
+            "n": 52,
             "stable": true
           },
           "bb9": {
-            "r": 0.585,
+            "r": 0.605,
             "p": 0.0,
-            "n": 50,
+            "n": 52,
             "stable": true
           },
           "hr9": {
-            "r": -0.001,
-            "p": 0.9926,
-            "n": 50,
+            "r": 0.013,
+            "p": 0.9253,
+            "n": 52,
             "stable": false
           },
           "whip": {
-            "r": 0.356,
-            "p": 0.0111,
-            "n": 50,
+            "r": 0.359,
+            "p": 0.009,
+            "n": 52,
             "stable": false
           },
           "k_bb": {
-            "r": 0.503,
-            "p": 0.0002,
-            "n": 50,
+            "r": 0.587,
+            "p": 0.0,
+            "n": 52,
             "stable": true
           },
           "gb_pct": {
@@ -28114,39 +28390,39 @@
         "label": "Last 1yr Asia vs First 1yr MLB",
         "metrics": {
           "era": {
-            "r": 0.617,
-            "p": 0.0575,
-            "n": 10,
-            "stable": true
+            "r": 0.369,
+            "p": 0.2148,
+            "n": 13,
+            "stable": false
           },
           "k9": {
-            "r": 0.149,
-            "p": 0.6819,
-            "n": 10,
+            "r": 0.338,
+            "p": 0.2593,
+            "n": 13,
             "stable": false
           },
           "bb9": {
-            "r": 0.487,
-            "p": 0.1538,
-            "n": 10,
-            "stable": false
-          },
-          "hr9": {
-            "r": 0.636,
-            "p": 0.0483,
-            "n": 10,
+            "r": 0.504,
+            "p": 0.0787,
+            "n": 13,
             "stable": true
           },
+          "hr9": {
+            "r": 0.435,
+            "p": 0.1376,
+            "n": 13,
+            "stable": false
+          },
           "whip": {
-            "r": 0.476,
-            "p": 0.1645,
-            "n": 10,
+            "r": 0.152,
+            "p": 0.6209,
+            "n": 13,
             "stable": false
           },
           "k_bb": {
-            "r": 0.314,
-            "p": 0.377,
-            "n": 10,
+            "r": 0.312,
+            "p": 0.2998,
+            "n": 13,
             "stable": false
           }
         }
@@ -28155,39 +28431,39 @@
         "label": "Last 2yr Asia vs First 2yr MLB",
         "metrics": {
           "era": {
-            "r": -0.164,
-            "p": 0.6504,
-            "n": 10,
+            "r": -0.129,
+            "p": 0.675,
+            "n": 13,
             "stable": false
           },
           "k9": {
-            "r": 0.128,
-            "p": 0.7242,
-            "n": 10,
+            "r": 0.375,
+            "p": 0.2063,
+            "n": 13,
             "stable": false
           },
           "bb9": {
-            "r": 0.285,
-            "p": 0.4243,
-            "n": 10,
+            "r": 0.408,
+            "p": 0.1662,
+            "n": 13,
             "stable": false
           },
           "hr9": {
-            "r": -0.335,
-            "p": 0.3442,
-            "n": 10,
+            "r": -0.226,
+            "p": 0.4568,
+            "n": 13,
             "stable": false
           },
           "whip": {
-            "r": 0.026,
-            "p": 0.9426,
-            "n": 10,
+            "r": -0.05,
+            "p": 0.871,
+            "n": 13,
             "stable": false
           },
           "k_bb": {
-            "r": 0.244,
-            "p": 0.4968,
-            "n": 10,
+            "r": 0.267,
+            "p": 0.3774,
+            "n": 13,
             "stable": false
           }
         }
@@ -28196,39 +28472,39 @@
         "label": "Last 3yr Asia vs First 3yr MLB",
         "metrics": {
           "era": {
-            "r": -0.041,
-            "p": 0.9102,
-            "n": 10,
+            "r": -0.047,
+            "p": 0.8721,
+            "n": 14,
             "stable": false
           },
           "k9": {
-            "r": 0.121,
-            "p": 0.7384,
-            "n": 10,
+            "r": 0.45,
+            "p": 0.1064,
+            "n": 14,
             "stable": false
           },
           "bb9": {
-            "r": 0.311,
-            "p": 0.3819,
-            "n": 10,
+            "r": 0.468,
+            "p": 0.0918,
+            "n": 14,
             "stable": false
           },
           "hr9": {
-            "r": -0.195,
-            "p": 0.5893,
-            "n": 10,
+            "r": -0.215,
+            "p": 0.4611,
+            "n": 14,
             "stable": false
           },
           "whip": {
-            "r": 0.093,
-            "p": 0.7992,
-            "n": 10,
+            "r": 0.004,
+            "p": 0.9879,
+            "n": 14,
             "stable": false
           },
           "k_bb": {
-            "r": 0.217,
-            "p": 0.5461,
-            "n": 10,
+            "r": 0.214,
+            "p": 0.4627,
+            "n": 14,
             "stable": false
           }
         }
@@ -28237,39 +28513,39 @@
         "label": "Career Asia vs Career MLB",
         "metrics": {
           "era": {
-            "r": 0.207,
-            "p": 0.5408,
-            "n": 11,
+            "r": 0.007,
+            "p": 0.9813,
+            "n": 15,
             "stable": false
           },
           "k9": {
-            "r": 0.351,
-            "p": 0.2897,
-            "n": 11,
+            "r": 0.5,
+            "p": 0.0578,
+            "n": 15,
             "stable": false
           },
           "bb9": {
-            "r": 0.249,
-            "p": 0.46,
-            "n": 11,
+            "r": 0.245,
+            "p": 0.3778,
+            "n": 15,
             "stable": false
           },
           "hr9": {
-            "r": 0.048,
-            "p": 0.8888,
-            "n": 11,
+            "r": -0.069,
+            "p": 0.8067,
+            "n": 15,
             "stable": false
           },
           "whip": {
-            "r": 0.203,
-            "p": 0.5487,
-            "n": 11,
+            "r": -0.029,
+            "p": 0.9181,
+            "n": 15,
             "stable": false
           },
           "k_bb": {
-            "r": 0.232,
-            "p": 0.4932,
-            "n": 11,
+            "r": 0.165,
+            "p": 0.5576,
+            "n": 15,
             "stable": false
           },
           "gb_pct": {
@@ -28286,39 +28562,39 @@
         "label": "Last 1yr Asia vs First 1yr MLB",
         "metrics": {
           "era": {
-            "r": 0.412,
-            "p": 0.0012,
-            "n": 59,
+            "r": 0.387,
+            "p": 0.0016,
+            "n": 64,
             "stable": false
           },
           "k9": {
-            "r": 0.58,
+            "r": 0.576,
             "p": 0.0,
-            "n": 59,
+            "n": 64,
             "stable": true
           },
           "bb9": {
-            "r": 0.32,
-            "p": 0.0133,
-            "n": 59,
+            "r": 0.336,
+            "p": 0.0066,
+            "n": 64,
             "stable": false
           },
           "hr9": {
-            "r": 0.319,
-            "p": 0.0137,
-            "n": 59,
+            "r": 0.293,
+            "p": 0.0187,
+            "n": 64,
             "stable": false
           },
           "whip": {
-            "r": 0.258,
-            "p": 0.0487,
-            "n": 59,
+            "r": 0.211,
+            "p": 0.0944,
+            "n": 64,
             "stable": false
           },
           "k_bb": {
-            "r": 0.346,
-            "p": 0.0073,
-            "n": 59,
+            "r": 0.351,
+            "p": 0.0045,
+            "n": 64,
             "stable": false
           }
         }
@@ -28327,39 +28603,39 @@
         "label": "Last 2yr Asia vs First 2yr MLB",
         "metrics": {
           "era": {
-            "r": 0.332,
-            "p": 0.0096,
-            "n": 60,
+            "r": 0.326,
+            "p": 0.0081,
+            "n": 65,
             "stable": false
           },
           "k9": {
-            "r": 0.495,
-            "p": 0.0001,
-            "n": 60,
-            "stable": false
+            "r": 0.502,
+            "p": 0.0,
+            "n": 65,
+            "stable": true
           },
           "bb9": {
-            "r": 0.516,
+            "r": 0.515,
             "p": 0.0,
-            "n": 60,
+            "n": 65,
             "stable": true
           },
           "hr9": {
-            "r": 0.104,
-            "p": 0.4312,
-            "n": 60,
+            "r": 0.099,
+            "p": 0.4337,
+            "n": 65,
             "stable": false
           },
           "whip": {
-            "r": 0.301,
-            "p": 0.0194,
-            "n": 60,
+            "r": 0.277,
+            "p": 0.0257,
+            "n": 65,
             "stable": false
           },
           "k_bb": {
-            "r": 0.393,
-            "p": 0.0019,
-            "n": 60,
+            "r": 0.415,
+            "p": 0.0006,
+            "n": 65,
             "stable": false
           }
         }
@@ -28368,39 +28644,39 @@
         "label": "Last 3yr Asia vs First 3yr MLB",
         "metrics": {
           "era": {
-            "r": 0.39,
-            "p": 0.0019,
-            "n": 61,
+            "r": 0.382,
+            "p": 0.0014,
+            "n": 67,
             "stable": false
           },
           "k9": {
-            "r": 0.505,
+            "r": 0.518,
             "p": 0.0,
-            "n": 61,
+            "n": 67,
             "stable": true
           },
           "bb9": {
-            "r": 0.571,
+            "r": 0.558,
             "p": 0.0,
-            "n": 61,
+            "n": 67,
             "stable": true
           },
           "hr9": {
-            "r": 0.187,
-            "p": 0.1489,
-            "n": 61,
+            "r": 0.143,
+            "p": 0.25,
+            "n": 67,
             "stable": false
           },
           "whip": {
-            "r": 0.387,
-            "p": 0.0021,
-            "n": 61,
+            "r": 0.357,
+            "p": 0.0031,
+            "n": 67,
             "stable": false
           },
           "k_bb": {
-            "r": 0.517,
+            "r": 0.532,
             "p": 0.0,
-            "n": 61,
+            "n": 67,
             "stable": true
           }
         }
@@ -28409,40 +28685,40 @@
         "label": "Career Asia vs Career MLB",
         "metrics": {
           "era": {
-            "r": 0.212,
-            "p": 0.0975,
-            "n": 62,
+            "r": 0.2,
+            "p": 0.1017,
+            "n": 68,
             "stable": false
           },
           "k9": {
-            "r": 0.474,
-            "p": 0.0001,
-            "n": 62,
+            "r": 0.494,
+            "p": 0.0,
+            "n": 68,
             "stable": false
           },
           "bb9": {
-            "r": 0.543,
+            "r": 0.53,
             "p": 0.0,
-            "n": 62,
+            "n": 68,
             "stable": true
           },
           "hr9": {
-            "r": -0.008,
-            "p": 0.9532,
-            "n": 62,
+            "r": -0.037,
+            "p": 0.7654,
+            "n": 68,
             "stable": false
           },
           "whip": {
-            "r": 0.326,
-            "p": 0.0097,
-            "n": 62,
+            "r": 0.263,
+            "p": 0.0304,
+            "n": 68,
             "stable": false
           },
           "k_bb": {
-            "r": 0.453,
-            "p": 0.0002,
-            "n": 62,
-            "stable": false
+            "r": 0.51,
+            "p": 0.0,
+            "n": 68,
+            "stable": true
           },
           "gb_pct": {
             "r": 0.813,
@@ -28507,49 +28783,49 @@
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.293,
-                "p": 0.0435,
-                "n": 48,
+                "r": 0.282,
+                "p": 0.0473,
+                "n": 50,
                 "significant": true
               },
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.265,
-                "p": 0.0683,
-                "n": 48,
+                "r": 0.277,
+                "p": 0.0516,
+                "n": 50,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.219,
-                "p": 0.1355,
-                "n": 48,
-                "significant": false
+                "r": -0.248,
+                "p": 0.0818,
+                "n": 50,
+                "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.189,
-                "p": 0.1979,
-                "n": 48,
+                "r": -0.234,
+                "p": 0.1014,
+                "n": 50,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.088,
-                "p": 0.551,
-                "n": 48,
+                "r": -0.096,
+                "p": 0.5084,
+                "n": 50,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.036,
-                "p": 0.8076,
-                "n": 48,
+                "r": -0.06,
+                "p": 0.6781,
+                "n": 50,
                 "significant": false
               }
             ]
@@ -28560,49 +28836,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.22,
-                "p": 0.1322,
-                "n": 48,
+                "r": 0.208,
+                "p": 0.1463,
+                "n": 50,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.106,
-                "p": 0.4744,
-                "n": 48,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.09,
-                "p": 0.5422,
-                "n": 48,
+                "r": -0.117,
+                "p": 0.4166,
+                "n": 50,
                 "significant": false
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.085,
-                "p": 0.5667,
-                "n": 48,
+                "r": -0.108,
+                "p": 0.4533,
+                "n": 50,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.098,
+                "p": 0.4964,
+                "n": 50,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.079,
-                "p": 0.5948,
-                "n": 48,
+                "r": 0.083,
+                "p": 0.5686,
+                "n": 50,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.042,
-                "p": 0.7785,
-                "n": 48,
+                "r": -0.04,
+                "p": 0.7819,
+                "n": 50,
                 "significant": false
               }
             ]
@@ -28671,49 +28947,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.39,
-                "p": 0.0056,
-                "n": 49,
+                "r": 0.415,
+                "p": 0.0025,
+                "n": 51,
                 "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.312,
-                "p": 0.0288,
-                "n": 49,
+                "r": -0.358,
+                "p": 0.0098,
+                "n": 51,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.29,
-                "p": 0.0436,
-                "n": 49,
+                "r": -0.324,
+                "p": 0.0203,
+                "n": 51,
                 "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.22,
-                "p": 0.1292,
-                "n": 49,
-                "significant": false
+                "r": -0.246,
+                "p": 0.0815,
+                "n": 51,
+                "significant": true
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.218,
-                "p": 0.1319,
-                "n": 49,
+                "r": 0.222,
+                "p": 0.118,
+                "n": 51,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.018,
-                "p": 0.904,
-                "n": 49,
+                "r": -0.042,
+                "p": 0.7714,
+                "n": 51,
                 "significant": false
               }
             ]
@@ -28724,49 +29000,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.261,
-                "p": 0.0695,
-                "n": 49,
+                "r": 0.236,
+                "p": 0.0956,
+                "n": 51,
                 "significant": true
-              },
-              {
-                "metric": "bb9",
-                "label": "BB/9",
-                "r": -0.203,
-                "p": 0.1612,
-                "n": 49,
-                "significant": false
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.197,
-                "p": 0.1755,
-                "n": 49,
+                "r": -0.196,
+                "p": 0.1689,
+                "n": 51,
                 "significant": false
               },
               {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.147,
-                "p": 0.3149,
-                "n": 49,
+                "metric": "bb9",
+                "label": "BB/9",
+                "r": -0.178,
+                "p": 0.2127,
+                "n": 51,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.143,
-                "p": 0.3278,
-                "n": 49,
+                "r": -0.148,
+                "p": 0.299,
+                "n": 51,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.131,
+                "p": 0.3596,
+                "n": 51,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.003,
-                "p": 0.9853,
-                "n": 49,
+                "r": -0.005,
+                "p": 0.9726,
+                "n": 51,
                 "significant": false
               }
             ]
@@ -28835,49 +29111,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.338,
-                "p": 0.0164,
-                "n": 50,
+                "r": 0.375,
+                "p": 0.0062,
+                "n": 52,
                 "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.301,
-                "p": 0.034,
-                "n": 50,
-                "significant": true
-              },
-              {
-                "metric": "k9",
-                "label": "K/9",
-                "r": 0.269,
-                "p": 0.0592,
-                "n": 50,
+                "r": -0.352,
+                "p": 0.0105,
+                "n": 52,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.244,
-                "p": 0.0873,
-                "n": 50,
+                "r": -0.285,
+                "p": 0.0402,
+                "n": 52,
+                "significant": true
+              },
+              {
+                "metric": "k9",
+                "label": "K/9",
+                "r": 0.271,
+                "p": 0.0518,
+                "n": 52,
                 "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.162,
-                "p": 0.2621,
-                "n": 50,
+                "r": -0.195,
+                "p": 0.1662,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.01,
-                "p": 0.9474,
-                "n": 50,
+                "r": -0.021,
+                "p": 0.8845,
+                "n": 52,
                 "significant": false
               }
             ]
@@ -28888,49 +29164,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.286,
-                "p": 0.0443,
-                "n": 50,
+                "r": 0.256,
+                "p": 0.0664,
+                "n": 52,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.242,
-                "p": 0.091,
-                "n": 50,
+                "r": -0.24,
+                "p": 0.0872,
+                "n": 52,
                 "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.219,
-                "p": 0.126,
-                "n": 50,
+                "r": -0.195,
+                "p": 0.1663,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.216,
-                "p": 0.1325,
-                "n": 50,
+                "r": -0.194,
+                "p": 0.1674,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.163,
-                "p": 0.259,
-                "n": 50,
+                "r": -0.171,
+                "p": 0.2262,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.023,
-                "p": 0.872,
-                "n": 50,
+                "r": -0.025,
+                "p": 0.8615,
+                "n": 52,
                 "significant": false
               }
             ]
@@ -28997,27 +29273,35 @@
             "label": "ERA+",
             "drivers": [
               {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": 0.253,
-                "p": 0.0767,
-                "n": 50,
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.324,
+                "p": 0.0193,
+                "n": 52,
                 "significant": true
               },
               {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.252,
-                "p": 0.077,
-                "n": 50,
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": 0.311,
+                "p": 0.0247,
+                "n": 52,
+                "significant": true
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": -0.283,
+                "p": 0.0417,
+                "n": 52,
                 "significant": true
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.248,
-                "p": 0.0831,
-                "n": 50,
+                "r": 0.253,
+                "p": 0.0704,
+                "n": 52,
                 "significant": true
               },
               {
@@ -29029,27 +29313,19 @@
                 "significant": false
               },
               {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.214,
-                "p": 0.1348,
-                "n": 50,
-                "significant": false
-              },
-              {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.114,
-                "p": 0.4286,
-                "n": 50,
+                "r": -0.161,
+                "p": 0.2538,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.039,
-                "p": 0.7871,
-                "n": 50,
+                "r": -0.085,
+                "p": 0.5495,
+                "n": 52,
                 "significant": false
               }
             ]
@@ -29060,41 +29336,41 @@
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.21,
-                "p": 0.1436,
-                "n": 50,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.188,
-                "p": 0.1922,
-                "n": 50,
-                "significant": false
-              },
-              {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": 0.172,
-                "p": 0.2329,
-                "n": 50,
+                "r": -0.194,
+                "p": 0.1675,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.169,
-                "p": 0.242,
-                "n": 50,
+                "r": -0.165,
+                "p": 0.2414,
+                "n": 52,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.158,
+                "p": 0.2618,
+                "n": 52,
+                "significant": false
+              },
+              {
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": 0.149,
+                "p": 0.2904,
+                "n": 52,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.144,
-                "p": 0.3178,
-                "n": 50,
+                "r": -0.142,
+                "p": 0.3137,
+                "n": 52,
                 "significant": false
               },
               {
@@ -29108,9 +29384,9 @@
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.041,
-                "p": 0.7752,
-                "n": 50,
+                "r": -0.059,
+                "p": 0.6762,
+                "n": 52,
                 "significant": false
               }
             ]
@@ -29189,49 +29465,49 @@
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.34,
-                "p": 0.3056,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.324,
-                "p": 0.3316,
-                "n": 11,
+                "r": -0.285,
+                "p": 0.3037,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.121,
-                "p": 0.7239,
-                "n": 11,
+                "r": 0.129,
+                "p": 0.6461,
+                "n": 15,
                 "significant": false
               },
               {
-                "metric": "hr9",
-                "label": "HR/9",
-                "r": -0.114,
-                "p": 0.739,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.058,
-                "p": 0.8663,
-                "n": 11,
+                "metric": "era",
+                "label": "ERA",
+                "r": -0.11,
+                "p": 0.6953,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.007,
-                "p": 0.9845,
-                "n": 11,
+                "r": -0.09,
+                "p": 0.7499,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": 0.065,
+                "p": 0.8166,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "hr9",
+                "label": "HR/9",
+                "r": 0.061,
+                "p": 0.829,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29242,49 +29518,49 @@
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.196,
-                "p": 0.5636,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.149,
-                "p": 0.6613,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.119,
-                "p": 0.7275,
-                "n": 11,
+                "r": 0.09,
+                "p": 0.7502,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.049,
-                "p": 0.8872,
-                "n": 11,
+                "r": 0.065,
+                "p": 0.8171,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.059,
+                "p": 0.8337,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": -0.016,
+                "p": 0.954,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": 0.027,
-                "p": 0.9374,
-                "n": 11,
+                "r": 0.014,
+                "p": 0.9614,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": -0.024,
-                "p": 0.9449,
-                "n": 11,
+                "r": 0.006,
+                "p": 0.9829,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29304,49 +29580,49 @@
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.56,
-                "p": 0.0732,
-                "n": 11,
+                "r": 0.499,
+                "p": 0.0586,
+                "n": 15,
                 "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.331,
-                "p": 0.3204,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": 0.158,
-                "p": 0.6427,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.104,
-                "p": 0.761,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "k9",
-                "label": "K/9",
-                "r": -0.056,
-                "p": 0.8699,
-                "n": 11,
+                "r": -0.269,
+                "p": 0.3319,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": 0.029,
-                "p": 0.9322,
-                "n": 11,
+                "r": 0.153,
+                "p": 0.5856,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "k9",
+                "label": "K/9",
+                "r": -0.148,
+                "p": 0.5986,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": 0.129,
+                "p": 0.6458,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": 0.003,
+                "p": 0.9929,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29357,49 +29633,49 @@
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.343,
-                "p": 0.3012,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "k9",
-                "label": "K/9",
-                "r": 0.107,
-                "p": 0.754,
-                "n": 11,
+                "r": 0.373,
+                "p": 0.1705,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": 0.081,
-                "p": 0.8127,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "bb9",
-                "label": "BB/9",
-                "r": 0.08,
-                "p": 0.8161,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": -0.05,
-                "p": 0.8829,
-                "n": 11,
+                "r": 0.135,
+                "p": 0.6318,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": 0.004,
-                "p": 0.9914,
-                "n": 11,
+                "r": 0.096,
+                "p": 0.7345,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": -0.052,
+                "p": 0.8549,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "bb9",
+                "label": "BB/9",
+                "r": 0.024,
+                "p": 0.9318,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "k9",
+                "label": "K/9",
+                "r": 0.01,
+                "p": 0.9707,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29419,49 +29695,49 @@
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.435,
-                "p": 0.1811,
-                "n": 11,
-                "significant": false
+                "r": 0.47,
+                "p": 0.0773,
+                "n": 15,
+                "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.347,
-                "p": 0.2959,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.166,
-                "p": 0.6251,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": 0.166,
-                "p": 0.6254,
-                "n": 11,
+                "r": -0.278,
+                "p": 0.3149,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.084,
-                "p": 0.806,
-                "n": 11,
+                "r": -0.169,
+                "p": 0.5468,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": 0.128,
+                "p": 0.6503,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.02,
-                "p": 0.9527,
-                "n": 11,
+                "r": 0.122,
+                "p": 0.664,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": -0.037,
+                "p": 0.8962,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29472,49 +29748,49 @@
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.072,
-                "p": 0.8328,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.07,
-                "p": 0.8383,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": -0.066,
-                "p": 0.8474,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.065,
-                "p": 0.8503,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "bb9",
-                "label": "BB/9",
-                "r": 0.046,
-                "p": 0.8926,
-                "n": 11,
+                "r": 0.206,
+                "p": 0.4617,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.015,
-                "p": 0.9657,
-                "n": 11,
+                "r": -0.075,
+                "p": 0.7893,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": -0.071,
+                "p": 0.801,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": 0.036,
+                "p": 0.8984,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": 0.01,
+                "p": 0.9707,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "bb9",
+                "label": "BB/9",
+                "r": -0.0,
+                "p": 0.9988,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29532,51 +29808,51 @@
             "label": "ERA+",
             "drivers": [
               {
-                "metric": "bb9",
-                "label": "BB/9",
-                "r": 0.197,
-                "p": 0.5624,
-                "n": 11,
-                "significant": false
-              },
-              {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.169,
-                "p": 0.6184,
-                "n": 11,
+                "r": 0.297,
+                "p": 0.2816,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": -0.158,
-                "p": 0.6419,
-                "n": 11,
+                "r": -0.25,
+                "p": 0.3695,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "bb9",
+                "label": "BB/9",
+                "r": 0.23,
+                "p": 0.4099,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.106,
-                "p": 0.7555,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.099,
-                "p": 0.7714,
-                "n": 11,
+                "r": -0.195,
+                "p": 0.485,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": 0.01,
-                "p": 0.977,
-                "n": 11,
+                "r": 0.181,
+                "p": 0.5179,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": 0.05,
+                "p": 0.8608,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29585,51 +29861,51 @@
             "label": "Career WAR",
             "drivers": [
               {
-                "metric": "bb9",
-                "label": "BB/9",
-                "r": -0.21,
-                "p": 0.535,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.075,
-                "p": 0.8274,
-                "n": 11,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.074,
-                "p": 0.8299,
-                "n": 11,
+                "metric": "k9",
+                "label": "K/9",
+                "r": -0.113,
+                "p": 0.6877,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.062,
-                "p": 0.8561,
-                "n": 11,
+                "r": 0.102,
+                "p": 0.7164,
+                "n": 15,
                 "significant": false
               },
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.059,
-                "p": 0.8639,
-                "n": 11,
+                "r": -0.063,
+                "p": 0.8222,
+                "n": 15,
                 "significant": false
               },
               {
-                "metric": "k9",
-                "label": "K/9",
-                "r": -0.053,
-                "p": 0.8768,
-                "n": 11,
+                "metric": "whip",
+                "label": "WHIP",
+                "r": 0.06,
+                "p": 0.8327,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "bb9",
+                "label": "BB/9",
+                "r": -0.049,
+                "p": 0.8612,
+                "n": 15,
+                "significant": false
+              },
+              {
+                "metric": "era",
+                "label": "ERA",
+                "r": 0.027,
+                "p": 0.923,
+                "n": 15,
                 "significant": false
               }
             ]
@@ -29649,51 +29925,51 @@
             "label": "ERA+",
             "drivers": [
               {
-                "metric": "k9",
-                "label": "K/9",
-                "r": 0.254,
-                "p": 0.0499,
-                "n": 60,
-                "significant": true
-              },
-              {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.247,
-                "p": 0.057,
-                "n": 60,
+                "r": 0.254,
+                "p": 0.0399,
+                "n": 66,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.221,
-                "p": 0.0903,
-                "n": 60,
+                "r": -0.238,
+                "p": 0.0548,
+                "n": 66,
                 "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.155,
-                "p": 0.2383,
-                "n": 60,
+                "r": -0.182,
+                "p": 0.1438,
+                "n": 66,
                 "significant": false
               },
               {
-                "metric": "hr9",
-                "label": "HR/9",
-                "r": -0.09,
-                "p": 0.4947,
-                "n": 60,
+                "metric": "k9",
+                "label": "K/9",
+                "r": 0.176,
+                "p": 0.1576,
+                "n": 66,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.063,
-                "p": 0.634,
-                "n": 60,
+                "r": -0.084,
+                "p": 0.5043,
+                "n": 66,
+                "significant": false
+              },
+              {
+                "metric": "hr9",
+                "label": "HR/9",
+                "r": -0.083,
+                "p": 0.5062,
+                "n": 66,
                 "significant": false
               }
             ]
@@ -29704,49 +29980,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.191,
-                "p": 0.1443,
-                "n": 60,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.118,
-                "p": 0.3673,
-                "n": 60,
+                "r": 0.182,
+                "p": 0.1427,
+                "n": 66,
                 "significant": false
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.103,
-                "p": 0.4357,
-                "n": 60,
+                "r": -0.125,
+                "p": 0.3192,
+                "n": 66,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.124,
+                "p": 0.3221,
+                "n": 66,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.098,
-                "p": 0.4577,
-                "n": 60,
+                "r": -0.099,
+                "p": 0.4293,
+                "n": 66,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.092,
-                "p": 0.4851,
-                "n": 60,
+                "r": 0.058,
+                "p": 0.6443,
+                "n": 66,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.03,
-                "p": 0.8211,
-                "n": 60,
+                "r": -0.029,
+                "p": 0.8158,
+                "n": 66,
                 "significant": false
               }
             ]
@@ -29815,49 +30091,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.365,
-                "p": 0.0038,
-                "n": 61,
-                "significant": true
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.257,
-                "p": 0.0456,
-                "n": 61,
+                "r": 0.366,
+                "p": 0.0023,
+                "n": 67,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.255,
-                "p": 0.0469,
-                "n": 61,
+                "r": -0.28,
+                "p": 0.022,
+                "n": 67,
+                "significant": true
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.276,
+                "p": 0.0238,
+                "n": 67,
                 "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.226,
-                "p": 0.08,
-                "n": 61,
+                "r": -0.234,
+                "p": 0.057,
+                "n": 67,
                 "significant": true
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.189,
-                "p": 0.1442,
-                "n": 61,
+                "r": 0.136,
+                "p": 0.274,
+                "n": 67,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.033,
-                "p": 0.7998,
-                "n": 61,
+                "r": 0.029,
+                "p": 0.815,
+                "n": 67,
                 "significant": false
               }
             ]
@@ -29868,49 +30144,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.23,
-                "p": 0.0751,
-                "n": 61,
-                "significant": true
-              },
-              {
-                "metric": "bb9",
-                "label": "BB/9",
-                "r": -0.171,
-                "p": 0.187,
-                "n": 61,
+                "r": 0.199,
+                "p": 0.1058,
+                "n": 67,
                 "significant": false
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.166,
-                "p": 0.2014,
-                "n": 61,
+                "r": -0.167,
+                "p": 0.1767,
+                "n": 67,
+                "significant": false
+              },
+              {
+                "metric": "bb9",
+                "label": "BB/9",
+                "r": -0.139,
+                "p": 0.2608,
+                "n": 67,
                 "significant": false
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.138,
-                "p": 0.2885,
-                "n": 61,
+                "r": -0.117,
+                "p": 0.3467,
+                "n": 67,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.102,
-                "p": 0.4357,
-                "n": 61,
+                "r": -0.087,
+                "p": 0.4814,
+                "n": 67,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": 0.008,
-                "p": 0.95,
-                "n": 61,
+                "r": -0.021,
+                "p": 0.8658,
+                "n": 67,
                 "significant": false
               }
             ]
@@ -29979,49 +30255,49 @@
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.319,
-                "p": 0.0116,
-                "n": 62,
+                "r": 0.324,
+                "p": 0.007,
+                "n": 68,
                 "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.248,
-                "p": 0.0519,
-                "n": 62,
-                "significant": true
-              },
-              {
-                "metric": "k9",
-                "label": "K/9",
-                "r": 0.232,
-                "p": 0.0696,
-                "n": 62,
+                "r": -0.267,
+                "p": 0.0279,
+                "n": 68,
                 "significant": true
               },
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.224,
-                "p": 0.0794,
-                "n": 62,
+                "r": -0.249,
+                "p": 0.0408,
+                "n": 68,
                 "significant": true
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.175,
-                "p": 0.1739,
-                "n": 62,
+                "r": -0.185,
+                "p": 0.13,
+                "n": 68,
+                "significant": false
+              },
+              {
+                "metric": "k9",
+                "label": "K/9",
+                "r": 0.181,
+                "p": 0.1392,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": 0.048,
-                "p": 0.7135,
-                "n": 62,
+                "r": 0.051,
+                "p": 0.6802,
+                "n": 68,
                 "significant": false
               }
             ]
@@ -30030,51 +30306,51 @@
             "label": "Career WAR",
             "drivers": [
               {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": 0.243,
-                "p": 0.0572,
-                "n": 62,
+                "metric": "era",
+                "label": "ERA",
+                "r": -0.216,
+                "p": 0.0773,
+                "n": 68,
                 "significant": true
               },
               {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.221,
-                "p": 0.0844,
-                "n": 62,
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": 0.204,
+                "p": 0.0958,
+                "n": 68,
                 "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.204,
-                "p": 0.1118,
-                "n": 62,
+                "r": -0.173,
+                "p": 0.1576,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.185,
-                "p": 0.149,
-                "n": 62,
+                "r": -0.15,
+                "p": 0.2229,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.142,
-                "p": 0.2701,
-                "n": 62,
+                "r": -0.119,
+                "p": 0.3343,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.023,
-                "p": 0.8604,
-                "n": 62,
+                "r": -0.046,
+                "p": 0.7114,
+                "n": 68,
                 "significant": false
               }
             ]
@@ -30141,43 +30417,43 @@
             "label": "ERA+",
             "drivers": [
               {
-                "metric": "k9",
-                "label": "K/9",
-                "r": 0.205,
-                "p": 0.1095,
-                "n": 62,
-                "significant": false
-              },
-              {
-                "metric": "k_bb",
-                "label": "K/BB",
-                "r": 0.196,
-                "p": 0.1268,
-                "n": 62,
-                "significant": false
+                "metric": "era",
+                "label": "ERA",
+                "r": -0.207,
+                "p": 0.0909,
+                "n": 68,
+                "significant": true
               },
               {
                 "metric": "whip",
                 "label": "WHIP",
-                "r": -0.184,
-                "p": 0.1534,
-                "n": 62,
+                "r": -0.202,
+                "p": 0.0993,
+                "n": 68,
+                "significant": true
+              },
+              {
+                "metric": "k_bb",
+                "label": "K/BB",
+                "r": 0.199,
+                "p": 0.104,
+                "n": 68,
                 "significant": false
               },
               {
-                "metric": "era",
-                "label": "ERA",
-                "r": -0.171,
-                "p": 0.1826,
-                "n": 62,
+                "metric": "k9",
+                "label": "K/9",
+                "r": 0.155,
+                "p": 0.2065,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.085,
-                "p": 0.5118,
-                "n": 62,
+                "r": -0.089,
+                "p": 0.4704,
+                "n": 68,
                 "significant": false
               },
               {
@@ -30191,9 +30467,9 @@
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.008,
-                "p": 0.9538,
-                "n": 62,
+                "r": 0.004,
+                "p": 0.9715,
+                "n": 68,
                 "significant": false
               }
             ]
@@ -30212,49 +30488,49 @@
               {
                 "metric": "era",
                 "label": "ERA",
-                "r": -0.181,
-                "p": 0.1593,
-                "n": 62,
-                "significant": false
-              },
-              {
-                "metric": "whip",
-                "label": "WHIP",
-                "r": -0.171,
-                "p": 0.1835,
-                "n": 62,
+                "r": -0.161,
+                "p": 0.1894,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "bb9",
                 "label": "BB/9",
-                "r": -0.161,
-                "p": 0.2108,
-                "n": 62,
+                "r": -0.127,
+                "p": 0.3037,
+                "n": 68,
+                "significant": false
+              },
+              {
+                "metric": "whip",
+                "label": "WHIP",
+                "r": -0.124,
+                "p": 0.3138,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "k_bb",
                 "label": "K/BB",
-                "r": 0.148,
-                "p": 0.2507,
-                "n": 62,
+                "r": 0.097,
+                "p": 0.4307,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "hr9",
                 "label": "HR/9",
-                "r": -0.136,
-                "p": 0.2919,
-                "n": 62,
+                "r": -0.09,
+                "p": 0.4665,
+                "n": 68,
                 "significant": false
               },
               {
                 "metric": "k9",
                 "label": "K/9",
-                "r": -0.044,
-                "p": 0.7333,
-                "n": 62,
+                "r": -0.083,
+                "p": 0.5031,
+                "n": 68,
                 "significant": false
               }
             ]
@@ -30518,8 +30794,8 @@
     "n_cpbl": 2,
     "n_asian_born": 59,
     "n_crossover": 20,
-    "n_with_both": 62,
-    "n_omitted": 19,
+    "n_with_both": 68,
+    "n_omitted": 13,
     "metrics": [
       "era",
       "k9",

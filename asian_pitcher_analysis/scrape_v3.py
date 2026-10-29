@@ -119,20 +119,19 @@ PITCHERS = [
     {"name": "Roki Sasaki",         "league": "NPB", "mlb_id": 808963, "bref_reg": "sasaki000rok", "pos": "SP", "tyear": 2025, "origin": "JP"},
     {"name": "Shinnosuke Ogasawara","league": "NPB", "mlb_id": 829272, "bref_reg": "ogasaw000shi", "pos": "SP", "tyear": 2025, "origin": "JP"},
     {"name": "Tatsuya Imai",        "league": "NPB", "mlb_id": 837227, "bref_reg": "imai--000tat", "pos": "SP", "tyear": 2026, "origin": "JP"},
-    {"name": "Chris Martin",        "league": "NPB", "mlb_id": 455119, "bref_reg": None,          "pos": "RP", "tyear": 2018, "origin": "US"},
+    {"name": "Chris Martin",        "league": "NPB", "mlb_id": 455119, "bref_reg": "martin009chr", "pos": "RP", "tyear": 2018, "origin": "US"},
     {"name": "Pierce Johnson",      "league": "NPB", "mlb_id": 572955, "bref_reg": "johnso001pie", "pos": "RP", "tyear": 2020, "origin": "US"},
-    # martin001nic is Nick Martin, a different player.
-    {"name": "Nick Martinez",       "league": "NPB", "mlb_id": 607259, "bref_reg": None,          "pos": "SP", "tyear": 2022, "origin": "US"},
+    {"name": "Nick Martinez",       "league": "NPB", "mlb_id": 607259, "bref_reg": "martin006nic", "pos": "SP", "tyear": 2022, "origin": "US"},
     {"name": "Albert Suarez",       "league": "NPB", "mlb_id": 544150, "bref_reg": "suarez001alb", "pos": "SP", "tyear": 2024, "origin": "VE"},
     {"name": "Foster Griffin",      "league": "NPB", "mlb_id": 656492, "bref_reg": "griffi000fos", "pos": "SP", "tyear": 2026, "origin": "US"},
     {"name": "Anthony Kay",         "league": "NPB", "mlb_id": 641743, "bref_reg": "kay---000ant", "pos": "SP", "tyear": 2026, "origin": "US"},
-    {"name": "Kyle Hart",           "league": "KBO", "mlb_id": 606996, "bref_reg": None,          "pos": "SP", "tyear": 2025, "origin": "US"},
+    {"name": "Kyle Hart",           "league": "KBO", "mlb_id": 606996, "bref_reg": "hart--000kyl", "pos": "SP", "tyear": 2025, "origin": "US"},
     {"name": "Andrew Suarez",       "league": "KBO", "mlb_id": 605498, "bref_reg": "suarez002and", "pos": "SP", "tyear": 2023, "origin": "US"},
     {"name": "Adrian Sampson",      "league": "KBO", "mlb_id": 592716, "bref_reg": "sampso000adr", "pos": "SP", "tyear": 2021, "origin": "US"},
-    {"name": "Aaron Brooks",        "league": "KBO", "mlb_id": 605156, "bref_reg": None,          "pos": "SP", "tyear": 2022, "origin": "US"},
+    {"name": "Aaron Brooks",        "league": "KBO", "mlb_id": 605156, "bref_reg": "brooks000aar", "pos": "SP", "tyear": 2022, "origin": "US"},
     {"name": "Cody Ponce",          "league": "KBO", "mlb_id": 664074, "bref_reg": "ponce-000cod", "pos": "SP", "tyear": 2026, "origin": "US"},
-    {"name": "Drew Anderson",       "league": "KBO", "mlb_id": 623454, "bref_reg": None,          "pos": "SP", "tyear": 2026, "origin": "US"},
-    {"name": "Ryan Weiss",          "league": "KBO", "mlb_id": 680802, "bref_reg": None,          "pos": "SP", "tyear": 2026, "origin": "US"},
+    {"name": "Drew Anderson",       "league": "KBO", "mlb_id": 623454, "bref_reg": "anders012and", "pos": "SP", "tyear": 2026, "origin": "US"},
+    {"name": "Ryan Weiss",          "league": "KBO", "mlb_id": 680802, "bref_reg": "weiss-000rya", "pos": "SP", "tyear": 2026, "origin": "US"},
 ]
 
 HAND_COMPILED = {
