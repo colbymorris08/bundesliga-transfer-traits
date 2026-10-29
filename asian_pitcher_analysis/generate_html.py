@@ -72,6 +72,12 @@ tr.row-mlb td {{ border-bottom:2px solid #c5cad3; }}
 .refs {{ margin:0; padding-left:18px; }}
 .refs li {{ font-size:13px; color:#444; line-height:1.55; margin:0 0 8px; }}
 .refs a {{ color:var(--navy); }}
+a.dl {{
+  display:inline-block; margin:2px 0 12px; padding:9px 14px;
+  background:var(--navy); color:#fff; text-decoration:none;
+  border-radius:6px; font-weight:700; font-size:13px;
+}}
+a.dl:hover {{ background:#2c4460; }}
 
 /* ── explainer boxes ── */
 .explain {{
@@ -387,6 +393,7 @@ footer {{ margin-top:28px; font-size:11px; color:#999; text-align:center; }}
   <div class="section-h"><h2>References</h2></div>
   <div class="section-body">
     <p>Sources for the roster, the rates, and the calculations on this page. wOBA and wRC+ are listed after that. This page does not compute them. The run-prevention outcomes here are ERA+ and bWAR.</p>
+    <p><a class="dl" href="asian-pitcher-sources.docx" download="asian-pitcher-sources.docx">Download the source list (Word)</a></p>
 
     <h3>Roster and Asian-league seasons</h3>
     <ul class="refs">
